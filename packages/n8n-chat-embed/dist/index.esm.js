@@ -1,4 +1,4 @@
-import ar, { forwardRef as nr, createElement as Pe, useRef as ie, useState as V, useEffect as je, useCallback as _e } from "react";
+import ar, { forwardRef as nr, createElement as Pe, useRef as ie, useState as z, useEffect as be, useCallback as je } from "react";
 var Fe = { exports: {} }, ge = {};
 /**
  * @license React
@@ -10,22 +10,22 @@ var Fe = { exports: {} }, ge = {};
  * LICENSE file in the root directory of this source tree.
  */
 var Ke;
-function Sr() {
+function Nr() {
   if (Ke)
     return ge;
   Ke = 1;
-  var i = ar, d = Symbol.for("react.element"), f = Symbol.for("react.fragment"), v = Object.prototype.hasOwnProperty, x = i.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner, c = { key: !0, ref: !0, __self: !0, __source: !0 };
-  function j(m, y, $) {
-    var w, z = {}, A = null, X = null;
-    $ !== void 0 && (A = "" + $), y.key !== void 0 && (A = "" + y.key), y.ref !== void 0 && (X = y.ref);
-    for (w in y)
-      v.call(y, w) && !c.hasOwnProperty(w) && (z[w] = y[w]);
-    if (m && m.defaultProps)
-      for (w in y = m.defaultProps, y)
-        z[w] === void 0 && (z[w] = y[w]);
-    return { $$typeof: d, type: m, key: A, ref: X, props: z, _owner: x.current };
+  var c = ar, u = Symbol.for("react.element"), f = Symbol.for("react.fragment"), v = Object.prototype.hasOwnProperty, w = c.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner, o = { key: !0, ref: !0, __self: !0, __source: !0 };
+  function _(d, b, $) {
+    var x, U = {}, A = null, X = null;
+    $ !== void 0 && (A = "" + $), b.key !== void 0 && (A = "" + b.key), b.ref !== void 0 && (X = b.ref);
+    for (x in b)
+      v.call(b, x) && !o.hasOwnProperty(x) && (U[x] = b[x]);
+    if (d && d.defaultProps)
+      for (x in b = d.defaultProps, b)
+        U[x] === void 0 && (U[x] = b[x]);
+    return { $$typeof: u, type: d, key: A, ref: X, props: U, _owner: w.current };
   }
-  return ge.Fragment = f, ge.jsx = j, ge.jsxs = j, ge;
+  return ge.Fragment = f, ge.jsx = _, ge.jsxs = _, ge;
 }
 var ve = {};
 /**
@@ -38,16 +38,16 @@ var ve = {};
  * LICENSE file in the root directory of this source tree.
  */
 var Je;
-function Nr() {
+function Sr() {
   return Je || (Je = 1, process.env.NODE_ENV !== "production" && function() {
-    var i = ar, d = Symbol.for("react.element"), f = Symbol.for("react.portal"), v = Symbol.for("react.fragment"), x = Symbol.for("react.strict_mode"), c = Symbol.for("react.profiler"), j = Symbol.for("react.provider"), m = Symbol.for("react.context"), y = Symbol.for("react.forward_ref"), $ = Symbol.for("react.suspense"), w = Symbol.for("react.suspense_list"), z = Symbol.for("react.memo"), A = Symbol.for("react.lazy"), X = Symbol.for("react.offscreen"), O = Symbol.iterator, Q = "@@iterator";
+    var c = ar, u = Symbol.for("react.element"), f = Symbol.for("react.portal"), v = Symbol.for("react.fragment"), w = Symbol.for("react.strict_mode"), o = Symbol.for("react.profiler"), _ = Symbol.for("react.provider"), d = Symbol.for("react.context"), b = Symbol.for("react.forward_ref"), $ = Symbol.for("react.suspense"), x = Symbol.for("react.suspense_list"), U = Symbol.for("react.memo"), A = Symbol.for("react.lazy"), X = Symbol.for("react.offscreen"), O = Symbol.iterator, Q = "@@iterator";
     function te(e) {
       if (e === null || typeof e != "object")
         return null;
       var t = O && e[O] || e[Q];
       return typeof t == "function" ? t : null;
     }
-    var H = i.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+    var q = c.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
     function T(e) {
       {
         for (var t = arguments.length, a = new Array(t > 1 ? t - 1 : 0), l = 1; l < t; l++)
@@ -57,18 +57,18 @@ function Nr() {
     }
     function J(e, t, a) {
       {
-        var l = H.ReactDebugCurrentFrame, b = l.getStackAddendum();
-        b !== "" && (t += "%s", a = a.concat([b]));
-        var _ = a.map(function(g) {
+        var l = q.ReactDebugCurrentFrame, y = l.getStackAddendum();
+        y !== "" && (t += "%s", a = a.concat([y]));
+        var j = a.map(function(g) {
           return String(g);
         });
-        _.unshift("Warning: " + t), Function.prototype.apply.call(console[e], console, _);
+        j.unshift("Warning: " + t), Function.prototype.apply.call(console[e], console, j);
       }
     }
     var Z = !1, ce = !1, s = !1, fe = !1, ae = !1, le;
     le = Symbol.for("react.module.reference");
     function ne(e) {
-      return !!(typeof e == "string" || typeof e == "function" || e === v || e === c || ae || e === x || e === $ || e === w || fe || e === X || Z || ce || s || typeof e == "object" && e !== null && (e.$$typeof === A || e.$$typeof === z || e.$$typeof === j || e.$$typeof === m || e.$$typeof === y || // This needs to include all possible module reference object
+      return !!(typeof e == "string" || typeof e == "function" || e === v || e === o || ae || e === w || e === $ || e === x || fe || e === X || Z || ce || s || typeof e == "object" && e !== null && (e.$$typeof === A || e.$$typeof === U || e.$$typeof === _ || e.$$typeof === d || e.$$typeof === b || // This needs to include all possible module reference object
       // types supported by any Flight configuration anywhere since
       // we don't know which Flight build this will end up being used
       // with.
@@ -78,8 +78,8 @@ function Nr() {
       var l = e.displayName;
       if (l)
         return l;
-      var b = t.displayName || t.name || "";
-      return b !== "" ? a + "(" + b + ")" : a;
+      var y = t.displayName || t.name || "";
+      return y !== "" ? a + "(" + y + ")" : a;
     }
     function se(e) {
       return e.displayName || "Context";
@@ -96,32 +96,32 @@ function Nr() {
           return "Fragment";
         case f:
           return "Portal";
-        case c:
+        case o:
           return "Profiler";
-        case x:
+        case w:
           return "StrictMode";
         case $:
           return "Suspense";
-        case w:
+        case x:
           return "SuspenseList";
       }
       if (typeof e == "object")
         switch (e.$$typeof) {
-          case m:
+          case d:
             var t = e;
             return se(t) + ".Consumer";
-          case j:
+          case _:
             var a = e;
             return se(a._context) + ".Provider";
-          case y:
+          case b:
             return ee(e, e.render, "ForwardRef");
-          case z:
+          case U:
             var l = e.displayName || null;
             return l !== null ? l : M(e.type) || "Memo";
           case A: {
-            var b = e, _ = b._payload, g = b._init;
+            var y = e, j = y._payload, g = y._init;
             try {
-              return M(g(_));
+              return M(g(j));
             } catch {
               return null;
             }
@@ -129,14 +129,14 @@ function Nr() {
         }
       return null;
     }
-    var Y = Object.assign, re = 0, u, N, E, C, P, n, o;
+    var Y = Object.assign, re = 0, m, S, k, C, P, n, i;
     function p() {
     }
     p.__reactDisabledLog = !0;
-    function k() {
+    function E() {
       {
         if (re === 0) {
-          u = console.log, N = console.info, E = console.warn, C = console.error, P = console.group, n = console.groupCollapsed, o = console.groupEnd;
+          m = console.log, S = console.info, k = console.warn, C = console.error, P = console.group, n = console.groupCollapsed, i = console.groupEnd;
           var e = {
             configurable: !0,
             enumerable: !0,
@@ -156,7 +156,7 @@ function Nr() {
         re++;
       }
     }
-    function q() {
+    function H() {
       {
         if (re--, re === 0) {
           var e = {
@@ -166,13 +166,13 @@ function Nr() {
           };
           Object.defineProperties(console, {
             log: Y({}, e, {
-              value: u
+              value: m
             }),
             info: Y({}, e, {
-              value: N
+              value: S
             }),
             warn: Y({}, e, {
-              value: E
+              value: k
             }),
             error: Y({}, e, {
               value: C
@@ -184,46 +184,46 @@ function Nr() {
               value: n
             }),
             groupEnd: Y({}, e, {
-              value: o
+              value: i
             })
           });
         }
         re < 0 && T("disabledDepth fell below zero. This is a bug in React. Please file an issue.");
       }
     }
-    var R = H.ReactCurrentDispatcher, U;
+    var R = q.ReactCurrentDispatcher, L;
     function I(e, t, a) {
       {
-        if (U === void 0)
+        if (L === void 0)
           try {
             throw Error();
-          } catch (b) {
-            var l = b.stack.trim().match(/\n( *(at )?)/);
-            U = l && l[1] || "";
+          } catch (y) {
+            var l = y.stack.trim().match(/\n( *(at )?)/);
+            L = l && l[1] || "";
           }
         return `
-` + U + e;
+` + L + e;
       }
     }
-    var L = !1, B;
+    var B = !1, W;
     {
-      var ye = typeof WeakMap == "function" ? WeakMap : Map;
-      B = new ye();
+      var we = typeof WeakMap == "function" ? WeakMap : Map;
+      W = new we();
     }
-    function de(e, t) {
-      if (!e || L)
+    function ue(e, t) {
+      if (!e || B)
         return "";
       {
-        var a = B.get(e);
+        var a = W.get(e);
         if (a !== void 0)
           return a;
       }
       var l;
-      L = !0;
-      var b = Error.prepareStackTrace;
+      B = !0;
+      var y = Error.prepareStackTrace;
       Error.prepareStackTrace = void 0;
-      var _;
-      _ = R.current, R.current = null, k();
+      var j;
+      j = R.current, R.current = null, E();
       try {
         if (t) {
           var g = function() {
@@ -236,100 +236,100 @@ function Nr() {
           }), typeof Reflect == "object" && Reflect.construct) {
             try {
               Reflect.construct(g, []);
-            } catch (W) {
-              l = W;
+            } catch (V) {
+              l = V;
             }
             Reflect.construct(e, [], g);
           } else {
             try {
               g.call();
-            } catch (W) {
-              l = W;
+            } catch (V) {
+              l = V;
             }
             e.call(g.prototype);
           }
         } else {
           try {
             throw Error();
-          } catch (W) {
-            l = W;
+          } catch (V) {
+            l = V;
           }
           e();
         }
-      } catch (W) {
-        if (W && l && typeof W.stack == "string") {
-          for (var h = W.stack.split(`
+      } catch (V) {
+        if (V && l && typeof V.stack == "string") {
+          for (var h = V.stack.split(`
 `), D = l.stack.split(`
-`), S = h.length - 1, F = D.length - 1; S >= 1 && F >= 0 && h[S] !== D[F]; )
+`), N = h.length - 1, F = D.length - 1; N >= 1 && F >= 0 && h[N] !== D[F]; )
             F--;
-          for (; S >= 1 && F >= 0; S--, F--)
-            if (h[S] !== D[F]) {
-              if (S !== 1 || F !== 1)
+          for (; N >= 1 && F >= 0; N--, F--)
+            if (h[N] !== D[F]) {
+              if (N !== 1 || F !== 1)
                 do
-                  if (S--, F--, F < 0 || h[S] !== D[F]) {
+                  if (N--, F--, F < 0 || h[N] !== D[F]) {
                     var K = `
-` + h[S].replace(" at new ", " at ");
-                    return e.displayName && K.includes("<anonymous>") && (K = K.replace("<anonymous>", e.displayName)), typeof e == "function" && B.set(e, K), K;
+` + h[N].replace(" at new ", " at ");
+                    return e.displayName && K.includes("<anonymous>") && (K = K.replace("<anonymous>", e.displayName)), typeof e == "function" && W.set(e, K), K;
                   }
-                while (S >= 1 && F >= 0);
+                while (N >= 1 && F >= 0);
               break;
             }
         }
       } finally {
-        L = !1, R.current = _, q(), Error.prepareStackTrace = b;
+        B = !1, R.current = j, H(), Error.prepareStackTrace = y;
       }
       var me = e ? e.displayName || e.name : "", oe = me ? I(me) : "";
-      return typeof e == "function" && B.set(e, oe), oe;
+      return typeof e == "function" && W.set(e, oe), oe;
     }
     function Ae(e, t, a) {
-      return de(e, !1);
+      return ue(e, !1);
     }
     function Re(e) {
       var t = e.prototype;
       return !!(t && t.isReactComponent);
     }
-    function we(e, t, a) {
+    function xe(e, t, a) {
       if (e == null)
         return "";
       if (typeof e == "function")
-        return de(e, Re(e));
+        return ue(e, Re(e));
       if (typeof e == "string")
         return I(e);
       switch (e) {
         case $:
           return I("Suspense");
-        case w:
+        case x:
           return I("SuspenseList");
       }
       if (typeof e == "object")
         switch (e.$$typeof) {
-          case y:
+          case b:
             return Ae(e.render);
-          case z:
-            return we(e.type, t, a);
+          case U:
+            return xe(e.type, t, a);
           case A: {
-            var l = e, b = l._payload, _ = l._init;
+            var l = e, y = l._payload, j = l._init;
             try {
-              return we(_(b), t, a);
+              return xe(j(y), t, a);
             } catch {
             }
           }
         }
       return "";
     }
-    var pe = Object.prototype.hasOwnProperty, $e = {}, Me = H.ReactDebugCurrentFrame;
-    function xe(e) {
+    var pe = Object.prototype.hasOwnProperty, $e = {}, Me = q.ReactDebugCurrentFrame;
+    function _e(e) {
       if (e) {
-        var t = e._owner, a = we(e.type, e._source, t ? t.type : null);
+        var t = e._owner, a = xe(e.type, e._source, t ? t.type : null);
         Me.setExtraStackFrame(a);
       } else
         Me.setExtraStackFrame(null);
     }
-    function ir(e, t, a, l, b) {
+    function ir(e, t, a, l, y) {
       {
-        var _ = Function.call.bind(pe);
+        var j = Function.call.bind(pe);
         for (var g in e)
-          if (_(e, g)) {
+          if (j(e, g)) {
             var h = void 0;
             try {
               if (typeof e[g] != "function") {
@@ -337,10 +337,10 @@ function Nr() {
                 throw D.name = "Invariant Violation", D;
               }
               h = e[g](t, g, l, a, null, "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED");
-            } catch (S) {
-              h = S;
+            } catch (N) {
+              h = N;
             }
-            h && !(h instanceof Error) && (xe(b), T("%s: type specification of %s `%s` is invalid; the type checker function must return `null` or an `Error` but returned a %s. You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument).", l || "React class", a, g, typeof h), xe(null)), h instanceof Error && !(h.message in $e) && ($e[h.message] = !0, xe(b), T("Failed %s type: %s", a, h.message), xe(null));
+            h && !(h instanceof Error) && (_e(y), T("%s: type specification of %s `%s` is invalid; the type checker function must return `null` or an `Error` but returned a %s. You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument).", l || "React class", a, g, typeof h), _e(null)), h instanceof Error && !(h.message in $e) && ($e[h.message] = !0, _e(y), T("Failed %s type: %s", a, h.message), _e(null));
           }
       }
     }
@@ -354,7 +354,7 @@ function Nr() {
         return a;
       }
     }
-    function dr(e) {
+    function ur(e) {
       try {
         return Ie(e), !1;
       } catch {
@@ -365,10 +365,10 @@ function Nr() {
       return "" + e;
     }
     function De(e) {
-      if (dr(e))
+      if (ur(e))
         return T("The provided key is an unsupported type %s. This value must be coerced to a string before before using it here.", lr(e)), Ie(e);
     }
-    var he = H.ReactCurrentOwner, ur = {
+    var he = q.ReactCurrentOwner, dr = {
       key: !0,
       ref: !0,
       __self: !0,
@@ -419,17 +419,17 @@ function Nr() {
         });
       }
     }
-    var vr = function(e, t, a, l, b, _, g) {
+    var vr = function(e, t, a, l, y, j, g) {
       var h = {
         // This tag allows us to uniquely identify this as a React Element
-        $$typeof: d,
+        $$typeof: u,
         // Built-in properties that belong on the element
         type: e,
         key: t,
         ref: a,
         props: g,
         // Record the component responsible for creating this element.
-        _owner: _
+        _owner: j
       };
       return h._store = {}, Object.defineProperty(h._store, "validated", {
         configurable: !1,
@@ -445,44 +445,44 @@ function Nr() {
         configurable: !1,
         enumerable: !1,
         writable: !1,
-        value: b
+        value: y
       }), Object.freeze && (Object.freeze(h.props), Object.freeze(h)), h;
     };
-    function br(e, t, a, l, b) {
+    function br(e, t, a, l, y) {
       {
-        var _, g = {}, h = null, D = null;
-        a !== void 0 && (De(a), h = "" + a), fr(t) && (De(t.key), h = "" + t.key), mr(t) && (D = t.ref, pr(t, b));
-        for (_ in t)
-          pe.call(t, _) && !ur.hasOwnProperty(_) && (g[_] = t[_]);
+        var j, g = {}, h = null, D = null;
+        a !== void 0 && (De(a), h = "" + a), fr(t) && (De(t.key), h = "" + t.key), mr(t) && (D = t.ref, pr(t, y));
+        for (j in t)
+          pe.call(t, j) && !dr.hasOwnProperty(j) && (g[j] = t[j]);
         if (e && e.defaultProps) {
-          var S = e.defaultProps;
-          for (_ in S)
-            g[_] === void 0 && (g[_] = S[_]);
+          var N = e.defaultProps;
+          for (j in N)
+            g[j] === void 0 && (g[j] = N[j]);
         }
         if (h || D) {
           var F = typeof e == "function" ? e.displayName || e.name || "Unknown" : e;
           h && hr(g, F), D && gr(g, F);
         }
-        return vr(e, h, D, b, l, he.current, g);
+        return vr(e, h, D, y, l, he.current, g);
       }
     }
-    var Ee = H.ReactCurrentOwner, Le = H.ReactDebugCurrentFrame;
-    function ue(e) {
+    var ke = q.ReactCurrentOwner, Le = q.ReactDebugCurrentFrame;
+    function de(e) {
       if (e) {
-        var t = e._owner, a = we(e.type, e._source, t ? t.type : null);
+        var t = e._owner, a = xe(e.type, e._source, t ? t.type : null);
         Le.setExtraStackFrame(a);
       } else
         Le.setExtraStackFrame(null);
     }
-    var ke;
-    ke = !1;
-    function Se(e) {
-      return typeof e == "object" && e !== null && e.$$typeof === d;
+    var Ee;
+    Ee = !1;
+    function Ne(e) {
+      return typeof e == "object" && e !== null && e.$$typeof === u;
     }
     function Be() {
       {
-        if (Ee.current) {
-          var e = M(Ee.current.type);
+        if (ke.current) {
+          var e = M(ke.current.type);
           if (e)
             return `
 
@@ -525,7 +525,7 @@ Check the top-level render call using <` + a + ">.");
           return;
         We[a] = !0;
         var l = "";
-        e && e._owner && e._owner !== Ee.current && (l = " It was passed a child from " + M(e._owner.type) + "."), ue(e), T('Each child in a list should have a unique "key" prop.%s%s See https://reactjs.org/link/warning-keys for more information.', a, l), ue(null);
+        e && e._owner && e._owner !== ke.current && (l = " It was passed a child from " + M(e._owner.type) + "."), de(e), T('Each child in a list should have a unique "key" prop.%s%s See https://reactjs.org/link/warning-keys for more information.', a, l), de(null);
       }
     }
     function Ye(e, t) {
@@ -535,15 +535,15 @@ Check the top-level render call using <` + a + ">.");
         if (Ce(e))
           for (var a = 0; a < e.length; a++) {
             var l = e[a];
-            Se(l) && Ve(l, t);
+            Ne(l) && Ve(l, t);
           }
-        else if (Se(e))
+        else if (Ne(e))
           e._store && (e._store.validated = !0);
         else if (e) {
-          var b = te(e);
-          if (typeof b == "function" && b !== e.entries)
-            for (var _ = b.call(e), g; !(g = _.next()).done; )
-              Se(g.value) && Ve(g.value, t);
+          var y = te(e);
+          if (typeof y == "function" && y !== e.entries)
+            for (var j = y.call(e), g; !(g = j.next()).done; )
+              Ne(g.value) && Ve(g.value, t);
         }
       }
     }
@@ -555,19 +555,19 @@ Check the top-level render call using <` + a + ">.");
         var a;
         if (typeof t == "function")
           a = t.propTypes;
-        else if (typeof t == "object" && (t.$$typeof === y || // Note: Memo only checks outer props here.
+        else if (typeof t == "object" && (t.$$typeof === b || // Note: Memo only checks outer props here.
         // Inner props are checked in the reconciler.
-        t.$$typeof === z))
+        t.$$typeof === U))
           a = t.propTypes;
         else
           return;
         if (a) {
           var l = M(t);
           ir(a, e.props, "prop", l, e);
-        } else if (t.PropTypes !== void 0 && !ke) {
-          ke = !0;
-          var b = M(t);
-          T("Component %s declared `PropTypes` instead of `propTypes`. Did you misspell the property assignment?", b || "Unknown");
+        } else if (t.PropTypes !== void 0 && !Ee) {
+          Ee = !0;
+          var y = M(t);
+          T("Component %s declared `PropTypes` instead of `propTypes`. Did you misspell the property assignment?", y || "Unknown");
         }
         typeof t.getDefaultProps == "function" && !t.getDefaultProps.isReactClassApproved && T("getDefaultProps is only used on classic React.createClass definitions. Use a static property named `defaultProps` instead.");
       }
@@ -577,26 +577,26 @@ Check the top-level render call using <` + a + ">.");
         for (var t = Object.keys(e.props), a = 0; a < t.length; a++) {
           var l = t[a];
           if (l !== "children" && l !== "key") {
-            ue(e), T("Invalid prop `%s` supplied to `React.Fragment`. React.Fragment can only have `key` and `children` props.", l), ue(null);
+            de(e), T("Invalid prop `%s` supplied to `React.Fragment`. React.Fragment can only have `key` and `children` props.", l), de(null);
             break;
           }
         }
-        e.ref !== null && (ue(e), T("Invalid attribute `ref` supplied to `React.Fragment`."), ue(null));
+        e.ref !== null && (de(e), T("Invalid attribute `ref` supplied to `React.Fragment`."), de(null));
       }
     }
-    var qe = {};
-    function He(e, t, a, l, b, _) {
+    var He = {};
+    function qe(e, t, a, l, y, j) {
       {
         var g = ne(e);
         if (!g) {
           var h = "";
           (e === void 0 || typeof e == "object" && e !== null && Object.keys(e).length === 0) && (h += " You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.");
-          var D = yr(b);
+          var D = yr(y);
           D ? h += D : h += Be();
-          var S;
-          e === null ? S = "null" : Ce(e) ? S = "array" : e !== void 0 && e.$$typeof === d ? (S = "<" + (M(e.type) || "Unknown") + " />", h = " Did you accidentally export a JSX literal instead of a component?") : S = typeof e, T("React.jsx: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", S, h);
+          var N;
+          e === null ? N = "null" : Ce(e) ? N = "array" : e !== void 0 && e.$$typeof === u ? (N = "<" + (M(e.type) || "Unknown") + " />", h = " Did you accidentally export a JSX literal instead of a component?") : N = typeof e, T("React.jsx: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", N, h);
         }
-        var F = br(e, t, a, b, _);
+        var F = br(e, t, a, y, j);
         if (F == null)
           return F;
         if (g) {
@@ -613,33 +613,33 @@ Check the top-level render call using <` + a + ">.");
               Ye(K, e);
         }
         if (pe.call(t, "key")) {
-          var oe = M(e), W = Object.keys(t).filter(function(kr) {
-            return kr !== "key";
-          }), Ne = W.length > 0 ? "{key: someKey, " + W.join(": ..., ") + ": ...}" : "{key: someKey}";
-          if (!qe[oe + Ne]) {
-            var Er = W.length > 0 ? "{" + W.join(": ..., ") + ": ...}" : "{}";
+          var oe = M(e), V = Object.keys(t).filter(function(Er) {
+            return Er !== "key";
+          }), Se = V.length > 0 ? "{key: someKey, " + V.join(": ..., ") + ": ...}" : "{key: someKey}";
+          if (!He[oe + Se]) {
+            var kr = V.length > 0 ? "{" + V.join(": ..., ") + ": ...}" : "{}";
             T(`A props object containing a "key" prop is being spread into JSX:
   let props = %s;
   <%s {...props} />
 React keys must be passed directly to JSX without using spread:
   let props = %s;
-  <%s key={someKey} {...props} />`, Ne, oe, Er, oe), qe[oe + Ne] = !0;
+  <%s key={someKey} {...props} />`, Se, oe, kr, oe), He[oe + Se] = !0;
           }
         }
         return e === v ? _r(F) : xr(F), F;
       }
     }
     function jr(e, t, a) {
-      return He(e, t, a, !0);
+      return qe(e, t, a, !0);
     }
     function Rr(e, t, a) {
-      return He(e, t, a, !1);
+      return qe(e, t, a, !1);
     }
     var Cr = Rr, Tr = jr;
     ve.Fragment = v, ve.jsx = Cr, ve.jsxs = Tr;
   }()), ve;
 }
-process.env.NODE_ENV === "production" ? Fe.exports = Sr() : Fe.exports = Nr();
+process.env.NODE_ENV === "production" ? Fe.exports = Nr() : Fe.exports = Sr();
 var r = Fe.exports;
 /**
  * @license lucide-react v0.540.0 - ISC
@@ -647,15 +647,15 @@ var r = Fe.exports;
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const Pr = (i) => i.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase(), Fr = (i) => i.replace(
+const Pr = (c) => c.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase(), Fr = (c) => c.replace(
   /^([A-Z])|[\s-_]+(\w)/g,
-  (d, f, v) => v ? v.toUpperCase() : f.toLowerCase()
-), Ge = (i) => {
-  const d = Fr(i);
-  return d.charAt(0).toUpperCase() + d.slice(1);
-}, sr = (...i) => i.filter((d, f, v) => !!d && d.trim() !== "" && v.indexOf(d) === f).join(" ").trim(), Or = (i) => {
-  for (const d in i)
-    if (d.startsWith("aria-") || d === "role" || d === "title")
+  (u, f, v) => v ? v.toUpperCase() : f.toLowerCase()
+), Ge = (c) => {
+  const u = Fr(c);
+  return u.charAt(0).toUpperCase() + u.slice(1);
+}, sr = (...c) => c.filter((u, f, v) => !!u && u.trim() !== "" && v.indexOf(u) === f).join(" ").trim(), Or = (c) => {
+  for (const u in c)
+    if (u.startsWith("aria-") || u === "role" || u === "title")
       return !0;
 };
 /**
@@ -683,30 +683,30 @@ var Ar = {
  */
 const $r = nr(
   ({
-    color: i = "currentColor",
-    size: d = 24,
+    color: c = "currentColor",
+    size: u = 24,
     strokeWidth: f = 2,
     absoluteStrokeWidth: v,
-    className: x = "",
-    children: c,
-    iconNode: j,
-    ...m
-  }, y) => Pe(
+    className: w = "",
+    children: o,
+    iconNode: _,
+    ...d
+  }, b) => Pe(
     "svg",
     {
-      ref: y,
+      ref: b,
       ...Ar,
-      width: d,
-      height: d,
-      stroke: i,
-      strokeWidth: v ? Number(f) * 24 / Number(d) : f,
-      className: sr("lucide", x),
-      ...!c && !Or(m) && { "aria-hidden": "true" },
-      ...m
+      width: u,
+      height: u,
+      stroke: c,
+      strokeWidth: v ? Number(f) * 24 / Number(u) : f,
+      className: sr("lucide", w),
+      ...!o && !Or(d) && { "aria-hidden": "true" },
+      ...d
     },
     [
-      ...j.map(([$, w]) => Pe($, w)),
-      ...Array.isArray(c) ? c : [c]
+      ..._.map(([$, x]) => Pe($, x)),
+      ...Array.isArray(o) ? o : [o]
     ]
   )
 );
@@ -716,20 +716,20 @@ const $r = nr(
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const G = (i, d) => {
+const G = (c, u) => {
   const f = nr(
-    ({ className: v, ...x }, c) => Pe($r, {
-      ref: c,
-      iconNode: d,
+    ({ className: v, ...w }, o) => Pe($r, {
+      ref: o,
+      iconNode: u,
       className: sr(
-        `lucide-${Pr(Ge(i))}`,
-        `lucide-${i}`,
+        `lucide-${Pr(Ge(c))}`,
+        `lucide-${c}`,
         v
       ),
-      ...x
+      ...w
     })
   );
-  return f.displayName = Ge(i), f;
+  return f.displayName = Ge(c), f;
 };
 /**
  * @license lucide-react v0.540.0 - ISC
@@ -815,10 +815,10 @@ const Vr = [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const qr = [
+const Hr = [
   ["path", { d: "M5 12h14", key: "1ays0h" }],
   ["path", { d: "M12 5v14", key: "s699le" }]
-], Hr = G("plus", qr);
+], qr = G("plus", Hr);
 /**
  * @license lucide-react v0.540.0 - ISC
  *
@@ -877,33 +877,33 @@ const Xr = [
 const Qr = [
   ["path", { d: "M18 6 6 18", key: "1bl5f8" }],
   ["path", { d: "m6 6 12 12", key: "d8bk6v" }]
-], be = G("x", Qr), Qe = ({ message: i, showTimestamp: d = !1 }) => {
-  const f = i.type === "user", v = (x, c) => {
-    switch (x.type) {
+], ye = G("x", Qr), Qe = ({ message: c, showTimestamp: u = !1 }) => {
+  const f = c.type === "user", v = (w, o) => {
+    switch (w.type) {
       case "image":
         return /* @__PURE__ */ r.jsx(
           "img",
           {
-            src: x.url,
-            alt: x.name,
+            src: w.url,
+            alt: w.name,
             className: "message-media-image",
             style: { maxWidth: "200px", maxHeight: "150px", borderRadius: "8px", marginTop: "8px" }
           },
-          c
+          o
         );
       case "video":
         return /* @__PURE__ */ r.jsx(
           "video",
           {
-            src: x.url,
+            src: w.url,
             controls: !0,
             className: "message-media-video",
             style: { maxWidth: "200px", maxHeight: "150px", borderRadius: "8px", marginTop: "8px" }
           },
-          c
+          o
         );
       case "audio":
-        return /* @__PURE__ */ r.jsx("div", { className: "message-media-audio", style: { marginTop: "8px" }, children: /* @__PURE__ */ r.jsx("audio", { src: x.url, controls: !0, style: { width: "200px" } }) }, c);
+        return /* @__PURE__ */ r.jsx("div", { className: "message-media-audio", style: { marginTop: "8px" }, children: /* @__PURE__ */ r.jsx("audio", { src: w.url, controls: !0, style: { width: "200px" } }) }, o);
       default:
         return /* @__PURE__ */ r.jsxs("div", { className: "message-media-document", style: {
           display: "flex",
@@ -916,66 +916,66 @@ const Qr = [
           maxWidth: "200px"
         }, children: [
           /* @__PURE__ */ r.jsx(or, { size: 16 }),
-          /* @__PURE__ */ r.jsx("span", { style: { fontSize: "14px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }, children: x.name })
-        ] }, c);
+          /* @__PURE__ */ r.jsx("span", { style: { fontSize: "14px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }, children: w.name })
+        ] }, o);
     }
   };
   return /* @__PURE__ */ r.jsxs("div", { className: `message-bubble ${f ? "user" : "bot"}`, children: [
     /* @__PURE__ */ r.jsxs("div", { className: "message-content", children: [
-      i.content.trim() && /* @__PURE__ */ r.jsx("p", { children: i.content }),
-      i.files && i.files.map((x, c) => v(x, c))
+      c.content.trim() && /* @__PURE__ */ r.jsx("p", { children: c.content }),
+      c.files && c.files.map((w, o) => v(w, o))
     ] }),
-    d && /* @__PURE__ */ r.jsx("div", { className: "message-timestamp", children: i.timestamp.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) })
+    u && /* @__PURE__ */ r.jsx("div", { className: "message-timestamp", children: c.timestamp.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) })
   ] });
-}, er = ({ visible: i }) => i ? /* @__PURE__ */ r.jsx("div", { className: "typing-indicator", children: /* @__PURE__ */ r.jsxs("div", { className: "typing-indicator__content", children: [
+}, er = ({ visible: c }) => c ? /* @__PURE__ */ r.jsx("div", { className: "typing-indicator", children: /* @__PURE__ */ r.jsxs("div", { className: "typing-indicator__content", children: [
   /* @__PURE__ */ r.jsx("span", { className: "typing-indicator__dot" }),
   /* @__PURE__ */ r.jsx("span", { className: "typing-indicator__dot" }),
   /* @__PURE__ */ r.jsx("span", { className: "typing-indicator__dot" })
 ] }) }) : null;
 function Oe() {
-  const i = window.innerWidth, d = window.innerHeight, f = navigator.userAgent.toLowerCase(), v = "ontouchstart" in window || navigator.maxTouchPoints > 0, x = i < 768, c = v || x, j = f.includes("arc") || f.includes("company.thebrowser.browser") || window.ArcBrowser !== void 0, m = /safari/.test(f) && !/chrome/.test(f) && !j, y = /chrome/.test(f) && !j, $ = !!window.visualViewport;
+  const c = window.innerWidth, u = window.innerHeight, f = navigator.userAgent.toLowerCase(), v = "ontouchstart" in window || navigator.maxTouchPoints > 0, w = c < 768, o = v || w, _ = f.includes("arc") || f.includes("company.thebrowser.browser") || window.ArcBrowser !== void 0, d = /safari/.test(f) && !/chrome/.test(f) && !_, b = /chrome/.test(f) && !_, $ = !!window.visualViewport;
   return {
-    isMobile: c,
-    isDesktop: !c,
-    screenWidth: i,
-    screenHeight: d,
-    isArc: j,
-    isSafari: m,
-    isChrome: y,
+    isMobile: o,
+    isDesktop: !o,
+    screenWidth: c,
+    screenHeight: u,
+    isArc: _,
+    isSafari: d,
+    isChrome: b,
     supportsVisualViewport: $
   };
 }
 const rr = ({
-  onFilesSelected: i,
-  maxFiles: d,
+  onFilesSelected: c,
+  maxFiles: u,
   maxFileSize: f,
   allowedTypes: v,
-  enableCamera: x,
-  enableAudio: c
+  enableCamera: w,
+  enableAudio: o
 }) => {
-  const j = ie(null), m = ie(null), y = ie(null), [$, w] = V(!1), [z, A] = V(!1), [X, O] = V(null), [Q, te] = V(0), [H, T] = V(null), [J, Z] = V(!1), ce = ie(null), s = Oe();
-  je(() => {
-    const n = (o) => {
-      ce.current && !ce.current.contains(o.target) && Z(!1);
+  const _ = ie(null), d = ie(null), b = ie(null), [$, x] = z(!1), [U, A] = z(!1), [X, O] = z(null), [Q, te] = z(0), [q, T] = z(null), [J, Z] = z(!1), ce = ie(null), s = Oe();
+  be(() => {
+    const n = (i) => {
+      ce.current && !ce.current.contains(i.target) && Z(!1);
     };
     return J && document.addEventListener("mousedown", n), () => {
       document.removeEventListener("mousedown", n);
     };
   }, [J]);
-  const fe = () => `${Date.now()}-${Math.random()}`, ae = (n) => n.type.startsWith("image/") ? "image" : n.type.startsWith("video/") ? "video" : n.type.startsWith("audio/") ? "audio" : "document", le = async (n, o = 1) => new Promise((p) => {
-    const k = document.createElement("canvas"), q = k.getContext("2d"), R = new Image();
+  const fe = () => `${Date.now()}-${Math.random()}`, ae = (n) => n.type.startsWith("image/") ? "image" : n.type.startsWith("video/") ? "video" : n.type.startsWith("audio/") ? "audio" : "document", le = async (n, i = 1) => new Promise((p) => {
+    const E = document.createElement("canvas"), H = E.getContext("2d"), R = new Image();
     R.onload = () => {
-      let { width: U, height: I } = R;
-      const L = 1920;
-      U > I && U > L ? (I = I * L / U, U = L) : I > L && (U = U * L / I, I = L), k.width = U, k.height = I, q == null || q.drawImage(R, 0, 0, U, I);
-      let B = 0.8;
-      const ye = () => {
-        k.toBlob((de) => {
-          if (de)
-            if (de.size / 1048576 > o && B > 0.1)
-              B -= 0.1, ye();
+      let { width: L, height: I } = R;
+      const B = 1920;
+      L > I && L > B ? (I = I * B / L, L = B) : I > B && (L = L * B / I, I = B), E.width = L, E.height = I, H == null || H.drawImage(R, 0, 0, L, I);
+      let W = 0.8;
+      const we = () => {
+        E.toBlob((ue) => {
+          if (ue)
+            if (ue.size / 1048576 > i && W > 0.1)
+              W -= 0.1, we();
             else {
-              const Re = new File([de], n.name, {
+              const Re = new File([ue], n.name, {
                 type: "image/jpeg",
                 lastModified: Date.now()
               });
@@ -983,9 +983,9 @@ const rr = ({
             }
           else
             p(n);
-        }, "image/jpeg", B);
+        }, "image/jpeg", W);
       };
-      ye();
+      we();
     }, R.onerror = () => p(n), R.src = URL.createObjectURL(n);
   }), ne = async (n) => {
     const p = n.size / 1048576;
@@ -994,44 +994,44 @@ const rr = ({
     if (n.type.startsWith("image/"))
       try {
         return await le(n, 1);
-      } catch (k) {
-        return console.warn("Image compression failed, using original:", k), n;
+      } catch (E) {
+        return console.warn("Image compression failed, using original:", E), n;
       }
     return p > 1 && console.warn(`File ${n.name} is ${p.toFixed(1)}MB, which may be too large`), n;
   }, ee = async (n) => {
-    const o = await ne(n);
+    const i = await ne(n);
     return {
-      file: o,
+      file: i,
       id: fe(),
-      type: ae(o),
-      url: URL.createObjectURL(o),
+      type: ae(i),
+      url: URL.createObjectURL(i),
       name: n.name,
       // Keep original name
-      size: o.size
+      size: i.size
     };
   }, se = (n) => n.size > f * 1024 * 1024 ? (alert(`File ${n.name} is too large. Maximum size is ${f}MB.`), !1) : v.length > 0 && !v.some(
     (p) => p === "*" || n.type.includes(p) || n.name.endsWith(p)
   ) ? (alert(`File type not allowed: ${n.type}`), !1) : !0, M = async (n) => {
     if (!n)
       return;
-    const o = [], p = Array.from(n);
-    for (const k of p) {
-      if (o.length >= d) {
-        alert(`Maximum ${d} files allowed`);
+    const i = [], p = Array.from(n);
+    for (const E of p) {
+      if (i.length >= u) {
+        alert(`Maximum ${u} files allowed`);
         break;
       }
-      if (se(k))
+      if (se(E))
         try {
-          const q = await ee(k);
-          o.push(q);
-        } catch (q) {
-          console.error("Error processing file:", k.name, q), alert(`Error processing file: ${k.name}`);
+          const H = await ee(E);
+          i.push(H);
+        } catch (H) {
+          console.error("Error processing file:", E.name, H), alert(`Error processing file: ${E.name}`);
         }
     }
-    o.length > 0 && i(o);
+    i.length > 0 && c(i);
   }, Y = () => {
     var n;
-    (n = j.current) == null || n.click();
+    (n = _.current) == null || n.click();
   }, re = async () => {
     if (console.log("📷 Opening camera..."), !navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
       console.error("❌ getUserMedia not supported"), alert("Camera is not supported in this browser.");
@@ -1059,13 +1059,13 @@ const rr = ({
     try {
       if (console.log("🔍 Checking camera permissions..."), navigator.permissions)
         try {
-          const o = await navigator.permissions.query({ name: "camera" });
-          if (console.log("📋 Camera permission state:", o.state), o.state === "denied") {
+          const i = await navigator.permissions.query({ name: "camera" });
+          if (console.log("📋 Camera permission state:", i.state), i.state === "denied") {
             alert("Camera permission is denied. Please enable camera access in your browser settings and reload the page.");
             return;
           }
-        } catch (o) {
-          console.log("⚠️ Could not check permissions:", o);
+        } catch (i) {
+          console.log("⚠️ Could not check permissions:", i);
         }
       console.log("🎥 Requesting camera access...");
       const n = await navigator.mediaDevices.getUserMedia({
@@ -1073,70 +1073,70 @@ const rr = ({
           facingMode: "user"
         }
       });
-      console.log("✅ Camera access granted, stream:", n), console.log("📊 Video tracks:", n.getVideoTracks().length), m.current ? (console.log("📹 Setting up video element..."), m.current.srcObject = n, m.current.autoplay = !0, m.current.playsInline = !0, m.current.muted = !0, m.current.onloadedmetadata = () => {
-        var o, p;
-        console.log("📹 Video metadata loaded, dimensions:", (o = m.current) == null ? void 0 : o.videoWidth, "x", (p = m.current) == null ? void 0 : p.videoHeight), m.current && m.current.play().then(() => {
-          console.log("▶️ Video playing successfully"), w(!0);
-        }).catch((k) => {
-          console.error("❌ Error playing video:", k), alert("Could not start camera preview. Please try again.");
+      console.log("✅ Camera access granted, stream:", n), console.log("📊 Video tracks:", n.getVideoTracks().length), d.current ? (console.log("📹 Setting up video element..."), d.current.srcObject = n, d.current.autoplay = !0, d.current.playsInline = !0, d.current.muted = !0, d.current.onloadedmetadata = () => {
+        var i, p;
+        console.log("📹 Video metadata loaded, dimensions:", (i = d.current) == null ? void 0 : i.videoWidth, "x", (p = d.current) == null ? void 0 : p.videoHeight), d.current && d.current.play().then(() => {
+          console.log("▶️ Video playing successfully"), x(!0);
+        }).catch((E) => {
+          console.error("❌ Error playing video:", E), alert("Could not start camera preview. Please try again.");
         });
-      }, m.current.oncanplay = () => {
+      }, d.current.oncanplay = () => {
         console.log("📹 Video can play");
-      }, m.current.onerror = (o) => {
-        console.error("❌ Video element error:", o), alert("Video playback error.");
+      }, d.current.onerror = (i) => {
+        console.error("❌ Video element error:", i), alert("Video playback error.");
       }) : (console.error("❌ Video ref not available"), alert("Video element not ready. Please try again."));
     } catch (n) {
       console.error("❌ Error accessing camera:", n);
-      const o = n;
-      if (o.name === "NotAllowedError")
+      const i = n;
+      if (i.name === "NotAllowedError")
         alert(`Camera permission denied. Please:
 1. Click "Allow" when prompted
 2. Check your browser settings
 3. Reload the page and try again`);
-      else if (o.name === "NotFoundError")
+      else if (i.name === "NotFoundError")
         alert(`No camera found. Please:
 1. Connect a camera
 2. Check camera connections
 3. Try again`);
-      else if (o.name === "NotReadableError")
+      else if (i.name === "NotReadableError")
         alert(`Camera is already in use by another application. Please:
 1. Close other camera apps
 2. Try again`);
-      else if (o.name === "OverconstrainedError") {
+      else if (i.name === "OverconstrainedError") {
         alert("Camera constraints not supported. Trying with basic settings...");
         try {
           const p = await navigator.mediaDevices.getUserMedia({ video: !0 });
-          m.current && (m.current.srcObject = p, w(!0));
+          d.current && (d.current.srcObject = p, x(!0));
         } catch {
           alert("Could not access camera with any settings.");
         }
       } else
-        alert(`Camera error: ${o.message || "Unknown error"}
+        alert(`Camera error: ${i.message || "Unknown error"}
 
 Please:
 1. Allow camera permissions
 2. Use HTTPS
 3. Try a different browser`);
     }
-  }, u = async () => {
-    if (!m.current || !y.current)
+  }, m = async () => {
+    if (!d.current || !b.current)
       return;
-    const n = m.current, o = y.current, p = o.getContext("2d");
-    p && (o.width = n.videoWidth, o.height = n.videoHeight, p.drawImage(n, 0, 0), o.toBlob(async (k) => {
-      if (k) {
-        const q = new File([k], `photo-${Date.now()}.jpg`, { type: "image/jpeg" });
+    const n = d.current, i = b.current, p = i.getContext("2d");
+    p && (i.width = n.videoWidth, i.height = n.videoHeight, p.drawImage(n, 0, 0), i.toBlob(async (E) => {
+      if (E) {
+        const H = new File([E], `photo-${Date.now()}.jpg`, { type: "image/jpeg" });
         try {
-          const R = await ee(q);
-          i([R]);
+          const R = await ee(H);
+          c([R]);
         } catch (R) {
           console.error("Error processing captured photo:", R), alert("Error processing captured photo");
         }
       }
-    }, "image/jpeg", 0.8), N());
-  }, N = () => {
+    }, "image/jpeg", 0.8), S());
+  }, S = () => {
     var n;
-    (n = m.current) != null && n.srcObject && (m.current.srcObject.getTracks().forEach((p) => p.stop()), m.current.srcObject = null), w(!1);
-  }, E = async () => {
+    (n = d.current) != null && n.srcObject && (d.current.srcObject.getTracks().forEach((p) => p.stop()), d.current.srcObject = null), x(!1);
+  }, k = async () => {
     if (console.log("🎤 Starting audio recording..."), !MediaRecorder || !navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
       console.error("❌ MediaRecorder or getUserMedia not supported"), alert("Audio recording is not supported in this browser.");
       return;
@@ -1165,45 +1165,45 @@ Please:
         }
       });
       console.log("✅ Microphone access granted");
-      let o = {};
-      s.isArc ? MediaRecorder.isTypeSupported("audio/webm;codecs=opus") ? o.mimeType = "audio/webm;codecs=opus" : MediaRecorder.isTypeSupported("audio/mp4") && (o.mimeType = "audio/mp4") : MediaRecorder.isTypeSupported("audio/webm") && (o.mimeType = "audio/webm");
-      const p = new MediaRecorder(n, o), k = [];
+      let i = {};
+      s.isArc ? MediaRecorder.isTypeSupported("audio/webm;codecs=opus") ? i.mimeType = "audio/webm;codecs=opus" : MediaRecorder.isTypeSupported("audio/mp4") && (i.mimeType = "audio/mp4") : MediaRecorder.isTypeSupported("audio/webm") && (i.mimeType = "audio/webm");
+      const p = new MediaRecorder(n, i), E = [];
       p.ondataavailable = (R) => {
-        console.log("📊 Audio data available:", R.data.size, "bytes"), R.data.size > 0 && k.push(R.data);
+        console.log("📊 Audio data available:", R.data.size, "bytes"), R.data.size > 0 && E.push(R.data);
       }, p.onstop = async () => {
         console.log("🛑 Recording stopped, creating file...");
-        const R = p.mimeType || "audio/wav", U = new Blob(k, { type: R }), I = R.includes("webm") ? "webm" : "wav", L = new File([U], `recording-${Date.now()}.${I}`, { type: R });
-        console.log("📁 Created audio file:", L.name, L.size, "bytes");
+        const R = p.mimeType || "audio/wav", L = new Blob(E, { type: R }), I = R.includes("webm") ? "webm" : "wav", B = new File([L], `recording-${Date.now()}.${I}`, { type: R });
+        console.log("📁 Created audio file:", B.name, B.size, "bytes");
         try {
-          const B = await ee(L);
-          i([B]);
-        } catch (B) {
-          console.error("Error processing audio recording:", B), alert("Error processing audio recording");
+          const W = await ee(B);
+          c([W]);
+        } catch (W) {
+          console.error("Error processing audio recording:", W), alert("Error processing audio recording");
         }
-        n.getTracks().forEach((B) => B.stop());
+        n.getTracks().forEach((W) => W.stop());
       }, p.onerror = (R) => {
         console.error("❌ Recording error:", R), alert("Recording failed. Please try again.");
       }, p.start(1e3), O(p), A(!0), te(0), console.log("🔴 Recording started");
-      const q = setInterval(() => {
+      const H = setInterval(() => {
         te((R) => R + 1);
       }, 1e3);
-      T(q);
+      T(H);
     } catch (n) {
       console.error("❌ Error accessing microphone:", n);
-      const o = n;
-      o.name === "NotAllowedError" ? alert("Microphone permission denied. Please allow microphone access and try again.") : o.name === "NotFoundError" ? alert("No microphone found. Please connect a microphone and try again.") : alert(`Could not access microphone: ${o.message || "Unknown error"}`);
+      const i = n;
+      i.name === "NotAllowedError" ? alert("Microphone permission denied. Please allow microphone access and try again.") : i.name === "NotFoundError" ? alert("No microphone found. Please connect a microphone and try again.") : alert(`Could not access microphone: ${i.message || "Unknown error"}`);
     }
   }, C = () => {
-    X && X.state === "recording" && X.stop(), A(!1), O(null), H && (clearInterval(H), T(null));
+    X && X.state === "recording" && X.stop(), A(!1), O(null), q && (clearInterval(q), T(null));
   }, P = (n) => {
-    const o = Math.floor(n / 60), p = n % 60;
-    return `${o}:${p.toString().padStart(2, "0")}`;
+    const i = Math.floor(n / 60), p = n % 60;
+    return `${i}:${p.toString().padStart(2, "0")}`;
   };
   return /* @__PURE__ */ r.jsxs("div", { className: "file-upload", children: [
     /* @__PURE__ */ r.jsx(
       "input",
       {
-        ref: j,
+        ref: _,
         type: "file",
         multiple: !0,
         accept: v.length > 0 ? v.join(",") : "*",
@@ -1212,14 +1212,14 @@ Please:
       }
     ),
     $ && /* @__PURE__ */ r.jsx("div", { className: "camera-modal", children: /* @__PURE__ */ r.jsxs("div", { className: "camera-container", children: [
-      /* @__PURE__ */ r.jsx("video", { ref: m, autoPlay: !0, playsInline: !0, className: "camera-video" }),
-      /* @__PURE__ */ r.jsx("canvas", { ref: y, style: { display: "none" } }),
+      /* @__PURE__ */ r.jsx("video", { ref: d, autoPlay: !0, playsInline: !0, className: "camera-video" }),
+      /* @__PURE__ */ r.jsx("canvas", { ref: b, style: { display: "none" } }),
       /* @__PURE__ */ r.jsxs("div", { className: "camera-controls", children: [
-        /* @__PURE__ */ r.jsx("button", { onClick: u, className: "capture-button", children: /* @__PURE__ */ r.jsx(Xe, { size: 24 }) }),
-        /* @__PURE__ */ r.jsx("button", { onClick: N, className: "close-camera-button", children: /* @__PURE__ */ r.jsx(be, { size: 20 }) })
+        /* @__PURE__ */ r.jsx("button", { onClick: m, className: "capture-button", children: /* @__PURE__ */ r.jsx(Xe, { size: 24 }) }),
+        /* @__PURE__ */ r.jsx("button", { onClick: S, className: "close-camera-button", children: /* @__PURE__ */ r.jsx(ye, { size: 20 }) })
       ] })
     ] }) }),
-    /* @__PURE__ */ r.jsx("div", { className: "upload-menu", ref: ce, children: z ? /* @__PURE__ */ r.jsxs(
+    /* @__PURE__ */ r.jsx("div", { className: "upload-menu", ref: ce, children: U ? /* @__PURE__ */ r.jsxs(
       "button",
       {
         onClick: C,
@@ -1237,7 +1237,7 @@ Please:
           onClick: () => Z(!J),
           className: "upload-button menu-toggle",
           title: "Add media",
-          children: /* @__PURE__ */ r.jsx(Hr, { size: 18 })
+          children: /* @__PURE__ */ r.jsx(qr, { size: 18 })
         }
       ),
       J && /* @__PURE__ */ r.jsxs("div", { className: "upload-menu-dropdown", children: [
@@ -1255,7 +1255,7 @@ Please:
             ]
           }
         ),
-        x && /* @__PURE__ */ r.jsxs(
+        w && /* @__PURE__ */ r.jsxs(
           "button",
           {
             onClick: () => {
@@ -1269,11 +1269,11 @@ Please:
             ]
           }
         ),
-        c && /* @__PURE__ */ r.jsxs(
+        o && /* @__PURE__ */ r.jsxs(
           "button",
           {
             onClick: () => {
-              E(), Z(!1);
+              k(), Z(!1);
             },
             className: "upload-menu-item",
             title: "Record audio",
@@ -1287,18 +1287,18 @@ Please:
     ] }) })
   ] });
 }, tr = ({
-  files: i,
-  onRemoveFile: d
+  files: c,
+  onRemoveFile: u
 }) => {
-  if (i.length === 0)
+  if (c.length === 0)
     return null;
-  const f = (c) => {
-    if (c === 0)
+  const f = (o) => {
+    if (o === 0)
       return "0 B";
-    const j = 1024, m = ["B", "KB", "MB", "GB"], y = Math.floor(Math.log(c) / Math.log(j));
-    return parseFloat((c / Math.pow(j, y)).toFixed(1)) + " " + m[y];
-  }, v = (c) => {
-    switch (c) {
+    const _ = 1024, d = ["B", "KB", "MB", "GB"], b = Math.floor(Math.log(o) / Math.log(_));
+    return parseFloat((o / Math.pow(_, b)).toFixed(1)) + " " + d[b];
+  }, v = (o) => {
+    switch (o) {
       case "image":
         return /* @__PURE__ */ r.jsx(zr, { size: 16 });
       case "video":
@@ -1308,14 +1308,14 @@ Please:
       default:
         return /* @__PURE__ */ r.jsx(or, { size: 16 });
     }
-  }, x = (c) => {
-    switch (c.type) {
+  }, w = (o) => {
+    switch (o.type) {
       case "image":
         return /* @__PURE__ */ r.jsx(
           "img",
           {
-            src: c.url,
-            alt: c.name,
+            src: o.url,
+            alt: o.name,
             className: "media-preview-image"
           }
         );
@@ -1323,7 +1323,7 @@ Please:
         return /* @__PURE__ */ r.jsx(
           "video",
           {
-            src: c.url,
+            src: o.url,
             className: "media-preview-video",
             controls: !0,
             preload: "metadata"
@@ -1333,7 +1333,7 @@ Please:
         return /* @__PURE__ */ r.jsx(
           "audio",
           {
-            src: c.url,
+            src: o.url,
             className: "media-preview-audio",
             controls: !0,
             preload: "metadata"
@@ -1341,49 +1341,89 @@ Please:
         );
       default:
         return /* @__PURE__ */ r.jsxs("div", { className: "media-preview-document", children: [
-          v(c.type),
-          /* @__PURE__ */ r.jsx("span", { className: "document-name", children: c.name })
+          v(o.type),
+          /* @__PURE__ */ r.jsx("span", { className: "document-name", children: o.name })
         ] });
     }
   };
-  return /* @__PURE__ */ r.jsx("div", { className: "media-preview", children: /* @__PURE__ */ r.jsx("div", { className: "media-preview-list", children: i.map((c) => /* @__PURE__ */ r.jsxs("div", { className: "media-preview-item", children: [
-    /* @__PURE__ */ r.jsx("div", { className: "media-preview-content", children: x(c) }),
+  return /* @__PURE__ */ r.jsx("div", { className: "media-preview", children: /* @__PURE__ */ r.jsx("div", { className: "media-preview-list", children: c.map((o) => /* @__PURE__ */ r.jsxs("div", { className: "media-preview-item", children: [
+    /* @__PURE__ */ r.jsx("div", { className: "media-preview-content", children: w(o) }),
     /* @__PURE__ */ r.jsxs("div", { className: "media-preview-info", children: [
       /* @__PURE__ */ r.jsxs("div", { className: "media-preview-details", children: [
-        /* @__PURE__ */ r.jsx("span", { className: "file-name", title: c.name, children: c.name.length > 20 ? `${c.name.substring(0, 20)}...` : c.name }),
-        /* @__PURE__ */ r.jsx("span", { className: "file-size", children: f(c.size) })
+        /* @__PURE__ */ r.jsx("span", { className: "file-name", title: o.name, children: o.name.length > 20 ? `${o.name.substring(0, 20)}...` : o.name }),
+        /* @__PURE__ */ r.jsx("span", { className: "file-size", children: f(o.size) })
       ] }),
       /* @__PURE__ */ r.jsx(
         "button",
         {
-          onClick: () => d(c.id),
+          onClick: () => u(o.id),
           className: "remove-file-button",
           title: "Remove file",
-          children: /* @__PURE__ */ r.jsx(be, { size: 14 })
+          children: /* @__PURE__ */ r.jsx(ye, { size: 14 })
         }
       )
     ] })
-  ] }, c.id)) }) });
+  ] }, o.id)) }) });
 }, et = ({
-  isOpen: i,
-  onClick: d,
+  isOpen: c,
+  onClick: u,
   position: f,
   primaryColor: v
-}) => /* @__PURE__ */ r.jsx(
-  "button",
-  {
-    onClick: d,
-    className: `chat-toggle-button chat-toggle-button--${f}`,
-    style: {
-      backgroundColor: v,
-      "--chat-primary": v
-    },
-    "aria-label": i ? "Close chat" : "Open chat",
-    children: i ? /* @__PURE__ */ r.jsx(be, { size: 24, className: "toggle-icon" }) : /* @__PURE__ */ r.jsx(Lr, { size: 24, className: "toggle-icon" })
-  }
-);
+}) => {
+  const [w, o] = z(!1);
+  be(() => {
+    if (c)
+      o(!1);
+    else {
+      const b = setTimeout(() => {
+        o(!0);
+      }, 5e3);
+      return () => clearTimeout(b);
+    }
+  }, [c]);
+  const _ = () => {
+    o(!1), u();
+  }, d = () => {
+    o(!1), u();
+  };
+  return /* @__PURE__ */ r.jsxs("div", { className: `chat-toggle-container chat-toggle-button--${f}`, children: [
+    w && !c && /* @__PURE__ */ r.jsxs(
+      "div",
+      {
+        className: `chat-popup-message chat-popup-message--${f}`,
+        onClick: d,
+        children: [
+          /* @__PURE__ */ r.jsx("div", { className: "chat-popup-content", children: "Hey! How can I help you?" }),
+          /* @__PURE__ */ r.jsx(
+            "button",
+            {
+              className: "chat-popup-close",
+              onClick: (b) => {
+                b.stopPropagation(), o(!1);
+              },
+              children: "×"
+            }
+          )
+        ]
+      }
+    ),
+    /* @__PURE__ */ r.jsx(
+      "button",
+      {
+        onClick: _,
+        className: "chat-toggle-button",
+        style: {
+          backgroundColor: v,
+          "--chat-primary": v
+        },
+        "aria-label": c ? "Close chat" : "Open chat",
+        children: c ? /* @__PURE__ */ r.jsx(ye, { size: 24, className: "toggle-icon" }) : /* @__PURE__ */ r.jsx(Lr, { size: 24, className: "toggle-icon" })
+      }
+    )
+  ] });
+};
 function rt() {
-  const [i, d] = V(() => typeof window > "u" ? {
+  const [c, u] = z(() => typeof window > "u" ? {
     isMobile: !1,
     isDesktop: !0,
     screenWidth: 1024,
@@ -1393,25 +1433,25 @@ function rt() {
     isChrome: !1,
     supportsVisualViewport: !1
   } : Oe());
-  return je(() => {
+  return be(() => {
     const f = () => {
-      d(Oe());
+      u(Oe());
     };
     return window.addEventListener("resize", f), window.addEventListener("orientationchange", f), () => {
       window.removeEventListener("resize", f), window.removeEventListener("orientationchange", f);
     };
-  }, []), i;
+  }, []), c;
 }
 const at = ({
-  config: i,
-  onMessage: d,
+  config: c,
+  onMessage: u,
   onError: f,
   onClose: v
 }) => {
-  const [x, c] = V([]), [j, m] = V(""), [y, $] = V(!1), [w, z] = V(!1), [A, X] = V(i.initialState !== "closed"), [O, Q] = V([]), [te] = V(() => {
-    let u = localStorage.getItem("n8n_session_id");
-    return u || (u = "session_" + Date.now() + "_" + Math.random().toString(36).substr(2, 9), localStorage.setItem("n8n_session_id", u)), u;
-  }), H = rt(), T = ie(null), J = ie(null), Z = ie(null), s = { ...{
+  const [w, o] = z([]), [_, d] = z(""), [b, $] = z(!1), [x, U] = z(!1), [A, X] = z(c.initialState !== "closed"), [O, Q] = z([]), [te] = z(() => {
+    let m = localStorage.getItem("n8n_session_id");
+    return m || (m = "session_" + Date.now() + "_" + Math.random().toString(36).substr(2, 9), localStorage.setItem("n8n_session_id", m)), m;
+  }), q = rt(), T = ie(null), J = ie(null), Z = ie(null), s = { ...{
     title: "Chat",
     subtitle: "How can I help you?",
     placeholder: "Type your message...",
@@ -1437,75 +1477,75 @@ const at = ({
     maxFileSize: 10,
     maxFiles: 5,
     allowedFileTypes: []
-  }, ...i }, fe = () => {
-    var u;
-    (u = T.current) == null || u.scrollIntoView();
+  }, ...c }, fe = () => {
+    var m;
+    (m = T.current) == null || m.scrollIntoView();
   };
-  je(() => {
+  be(() => {
     fe();
-  }, [x]), je(() => {
+  }, [w]), be(() => {
     if (A) {
-      const u = setTimeout(() => {
+      const m = setTimeout(() => {
         J.current && J.current.focus();
       }, 100);
-      return () => clearTimeout(u);
+      return () => clearTimeout(m);
     }
   }, [A]);
-  const ae = () => `${Date.now()}-${Math.random()}`, le = async (u, N) => {
+  const ae = () => `${Date.now()}-${Math.random()}`, le = async (m, S) => {
     try {
-      if (N && N.length > 0) {
-        const E = new FormData();
-        E.append("sessionId", te), E.append("chatInput", u), N.forEach((n, o) => {
-          E.append(`file_${o}`, n.file);
+      if (S && S.length > 0) {
+        const k = new FormData();
+        k.append("sessionId", te), k.append("chatInput", m), S.forEach((n, i) => {
+          k.append(`file_${i}`, n.file);
         });
-        const C = await fetch(i.n8nWebhookUrl, {
+        const C = await fetch(c.n8nWebhookUrl, {
           method: "POST",
-          body: E
+          body: k
         });
         if (!C.ok)
           throw new Error(`HTTP error! status: ${C.status}`);
         const P = await C.json();
         return P.output || P.response || P.message || P.text || "Response received";
       } else {
-        const E = {
+        const k = {
           sessionId: te,
-          chatInput: u
-        }, C = await fetch(i.n8nWebhookUrl, {
+          chatInput: m
+        }, C = await fetch(c.n8nWebhookUrl, {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
           },
-          body: JSON.stringify(E)
+          body: JSON.stringify(k)
         });
         if (!C.ok)
           throw new Error(`HTTP error! status: ${C.status}`);
         const P = await C.json();
         return P.output || P.response || P.message || P.text || "Response received";
       }
-    } catch (E) {
-      throw console.error("Error sending to n8n:", E), E;
+    } catch (k) {
+      throw console.error("Error sending to n8n:", k), k;
     }
-  }, ne = _e(async () => {
-    if (!j.trim() && O.length === 0 || w)
+  }, ne = je(async () => {
+    if (!_.trim() && O.length === 0 || x)
       return;
-    const u = j.trim() || "", N = {
+    const m = _.trim() || "", S = {
       id: ae(),
       type: "user",
-      content: u,
+      content: m,
       timestamp: /* @__PURE__ */ new Date(),
       files: O.length > 0 ? [...O] : void 0
     };
-    c((C) => [...C, N]), m("");
-    const E = [...O];
-    Q([]), z(!0), i.showTypingIndicator && $(!0), d == null || d(N);
+    o((C) => [...C, S]), d("");
+    const k = [...O];
+    Q([]), U(!0), c.showTypingIndicator && $(!0), u == null || u(S);
     try {
-      const C = await le(u, E.length > 0 ? E : void 0), P = {
+      const C = await le(m, k.length > 0 ? k : void 0), P = {
         id: ae(),
         type: "bot",
         content: C,
         timestamp: /* @__PURE__ */ new Date()
       };
-      c((n) => [...n, P]), d == null || d(P);
+      o((n) => [...n, P]), u == null || u(P);
     } catch (C) {
       const P = {
         id: ae(),
@@ -1513,23 +1553,23 @@ const at = ({
         content: "Sorry, I encountered an error. Please try again.",
         timestamp: /* @__PURE__ */ new Date()
       };
-      c((n) => [...n, P]), f == null || f(C);
+      o((n) => [...n, P]), f == null || f(C);
     } finally {
-      z(!1), $(!1), E.forEach((C) => URL.revokeObjectURL(C.url));
+      U(!1), $(!1), k.forEach((C) => URL.revokeObjectURL(C.url));
     }
-  }, [j, O, w, i, d, f]), ee = (u) => {
-    u.key === "Enter" && !u.shiftKey && (u.preventDefault(), ne());
-  }, se = _e((u) => {
-    Q((N) => [...N, ...u].slice(0, s.maxFiles));
-  }, [s.maxFiles]), M = _e((u) => {
-    Q((N) => {
-      const E = N.find((C) => C.id === u);
-      return E && URL.revokeObjectURL(E.url), N.filter((C) => C.id !== u);
+  }, [_, O, x, c, u, f]), ee = (m) => {
+    m.key === "Enter" && !m.shiftKey && (m.preventDefault(), ne());
+  }, se = je((m) => {
+    Q((S) => [...S, ...m].slice(0, s.maxFiles));
+  }, [s.maxFiles]), M = je((m) => {
+    Q((S) => {
+      const k = S.find((C) => C.id === m);
+      return k && URL.revokeObjectURL(k.url), S.filter((C) => C.id !== m);
     });
-  }, []), Y = _e(() => {
-    X((u) => {
-      const N = !u;
-      return !N && v && v(), N;
+  }, []), Y = je(() => {
+    X((m) => {
+      const S = !m;
+      return !S && v && v(), S;
     });
   }, [v]);
   return s.position !== "inline" && s.showToggleButton ? /* @__PURE__ */ r.jsxs("div", { className: `chat-widget-container chat-widget-container--${s.position}${A ? "" : " chat-closed"}`, children: [
@@ -1546,7 +1586,7 @@ const at = ({
       "div",
       {
         ref: Z,
-        className: `chat-embed chat-embed--${s.theme} chat-embed--${s.position}${H.isMobile ? " chat-embed--mobile" : ""} chat-embed--open`,
+        className: `chat-embed chat-embed--${s.theme} chat-embed--${s.position}${q.isMobile ? " chat-embed--mobile" : ""} chat-embed--open`,
         style: {
           "--chat-primary": s.colors.primary,
           "--chat-background": s.colors.background,
@@ -1569,20 +1609,20 @@ const at = ({
                 className: "chat-embed__close-button",
                 onClick: Y,
                 "aria-label": "Close chat",
-                children: /* @__PURE__ */ r.jsx(be, { size: 18 })
+                children: /* @__PURE__ */ r.jsx(ye, { size: 18 })
               }
             )
           ] }),
           /* @__PURE__ */ r.jsxs("div", { className: "chat-embed__messages", children: [
-            x.map((u) => /* @__PURE__ */ r.jsx(
+            w.map((m) => /* @__PURE__ */ r.jsx(
               Qe,
               {
-                message: u,
+                message: m,
                 showTimestamp: s.showTimestamps
               },
-              u.id
+              m.id
             )),
-            /* @__PURE__ */ r.jsx(er, { visible: y }),
+            /* @__PURE__ */ r.jsx(er, { visible: b }),
             /* @__PURE__ */ r.jsx("div", { ref: T })
           ] }),
           /* @__PURE__ */ r.jsxs("div", { className: "chat-embed__input-area", children: [
@@ -1610,11 +1650,11 @@ const at = ({
                 {
                   ref: J,
                   className: "chat-embed__input",
-                  value: j,
-                  onChange: (u) => m(u.target.value),
+                  value: _,
+                  onChange: (m) => d(m.target.value),
                   onKeyPress: ee,
                   placeholder: s.placeholder,
-                  disabled: w,
+                  disabled: x,
                   rows: 1,
                   style: { resize: "none" }
                 }
@@ -1624,8 +1664,8 @@ const at = ({
                 {
                   className: "chat-embed__send-button",
                   onClick: ne,
-                  disabled: w || !j.trim() && O.length === 0,
-                  children: w ? /* @__PURE__ */ r.jsx("div", { className: "chat-embed__loading-spinner" }) : /* @__PURE__ */ r.jsx(Ze, { size: 18, className: "chat-embed__send-icon" })
+                  disabled: x || !_.trim() && O.length === 0,
+                  children: x ? /* @__PURE__ */ r.jsx("div", { className: "chat-embed__loading-spinner" }) : /* @__PURE__ */ r.jsx(Ze, { size: 18, className: "chat-embed__send-icon" })
                 }
               )
             ] })
@@ -1637,7 +1677,7 @@ const at = ({
     "div",
     {
       ref: Z,
-      className: `chat-embed chat-embed--${s.theme} chat-embed--${s.position}${H.isMobile ? " chat-embed--mobile" : ""}`,
+      className: `chat-embed chat-embed--${s.theme} chat-embed--${s.position}${q.isMobile ? " chat-embed--mobile" : ""}`,
       style: {
         "--chat-primary": s.colors.primary,
         "--chat-background": s.colors.background,
@@ -1660,20 +1700,20 @@ const at = ({
               className: "chat-embed__close-button",
               onClick: Y,
               "aria-label": "Close chat",
-              children: /* @__PURE__ */ r.jsx(be, { size: 18 })
+              children: /* @__PURE__ */ r.jsx(ye, { size: 18 })
             }
           )
         ] }),
         /* @__PURE__ */ r.jsxs("div", { className: "chat-embed__messages", children: [
-          x.map((u) => /* @__PURE__ */ r.jsx(
+          w.map((m) => /* @__PURE__ */ r.jsx(
             Qe,
             {
-              message: u,
+              message: m,
               showTimestamp: s.showTimestamps
             },
-            u.id
+            m.id
           )),
-          /* @__PURE__ */ r.jsx(er, { visible: y }),
+          /* @__PURE__ */ r.jsx(er, { visible: b }),
           /* @__PURE__ */ r.jsx("div", { ref: T })
         ] }),
         /* @__PURE__ */ r.jsxs("div", { className: "chat-embed__input-area", children: [
@@ -1701,11 +1741,11 @@ const at = ({
               {
                 ref: J,
                 className: "chat-embed__input",
-                value: j,
-                onChange: (u) => m(u.target.value),
+                value: _,
+                onChange: (m) => d(m.target.value),
                 onKeyPress: ee,
                 placeholder: s.placeholder,
-                disabled: w,
+                disabled: x,
                 rows: 1,
                 style: { resize: "none" }
               }
@@ -1715,8 +1755,8 @@ const at = ({
               {
                 className: "chat-embed__send-button",
                 onClick: ne,
-                disabled: w || !j.trim() && O.length === 0,
-                children: w ? /* @__PURE__ */ r.jsx("div", { className: "chat-embed__loading-spinner" }) : /* @__PURE__ */ r.jsx(Ze, { size: 18, className: "chat-embed__send-icon" })
+                disabled: x || !_.trim() && O.length === 0,
+                children: x ? /* @__PURE__ */ r.jsx("div", { className: "chat-embed__loading-spinner" }) : /* @__PURE__ */ r.jsx(Ze, { size: 18, className: "chat-embed__send-icon" })
               }
             )
           ] })
