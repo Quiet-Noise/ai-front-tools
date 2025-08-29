@@ -5,6 +5,7 @@ interface ToggleButtonProps {
     onClick: () => void;
     position: 'bottom-right' | 'bottom-left';
     primaryColor: string;
+    popupMessage?: string;
 }
 export declare const ToggleButton: React.FC<ToggleButtonProps>;
 export {};

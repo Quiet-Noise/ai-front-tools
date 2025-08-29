@@ -30,7 +30,6 @@
   .chat-widget-container--bottom-right.chat-closed,
   .chat-widget-container--bottom-left.chat-closed {
     pointer-events: none;
-    position: relative;
     width: auto;
     height: auto;
     top: auto;

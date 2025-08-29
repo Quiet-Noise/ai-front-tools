@@ -26,6 +26,7 @@ export interface ChatConfig {
     zIndex?: number;
     initialState?: 'open' | 'closed';
     showToggleButton?: boolean;
+    popupMessage?: string;
     enableFileUpload?: boolean;
     enableCamera?: boolean;
     enableAudio?: boolean;

@@ -14,18 +14,18 @@ function Nr() {
   if (Ke)
     return ge;
   Ke = 1;
-  var c = ar, l = Symbol.for("react.element"), f = Symbol.for("react.fragment"), v = Object.prototype.hasOwnProperty, x = c.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner, s = { key: !0, ref: !0, __self: !0, __source: !0 };
-  function j(m, b, $) {
-    var _, U = {}, A = null, X = null;
-    $ !== void 0 && (A = "" + $), b.key !== void 0 && (A = "" + b.key), b.ref !== void 0 && (X = b.ref);
-    for (_ in b)
-      v.call(b, _) && !s.hasOwnProperty(_) && (U[_] = b[_]);
+  var c = ar, l = Symbol.for("react.element"), f = Symbol.for("react.fragment"), v = Object.prototype.hasOwnProperty, _ = c.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner, i = { key: !0, ref: !0, __self: !0, __source: !0 };
+  function b(m, y, O) {
+    var j, U = {}, $ = null, X = null;
+    O !== void 0 && ($ = "" + O), y.key !== void 0 && ($ = "" + y.key), y.ref !== void 0 && (X = y.ref);
+    for (j in y)
+      v.call(y, j) && !i.hasOwnProperty(j) && (U[j] = y[j]);
     if (m && m.defaultProps)
-      for (_ in b = m.defaultProps, b)
-        U[_] === void 0 && (U[_] = b[_]);
-    return { $$typeof: l, type: m, key: A, ref: X, props: U, _owner: x.current };
+      for (j in y = m.defaultProps, y)
+        U[j] === void 0 && (U[j] = y[j]);
+    return { $$typeof: l, type: m, key: $, ref: X, props: U, _owner: _.current };
   }
-  return ge.Fragment = f, ge.jsx = j, ge.jsxs = j, ge;
+  return ge.Fragment = f, ge.jsx = b, ge.jsxs = b, ge;
 }
 var ve = {};
 /**
@@ -40,7 +40,7 @@ var ve = {};
 var Je;
 function Sr() {
   return Je || (Je = 1, process.env.NODE_ENV !== "production" && function() {
-    var c = ar, l = Symbol.for("react.element"), f = Symbol.for("react.portal"), v = Symbol.for("react.fragment"), x = Symbol.for("react.strict_mode"), s = Symbol.for("react.profiler"), j = Symbol.for("react.provider"), m = Symbol.for("react.context"), b = Symbol.for("react.forward_ref"), $ = Symbol.for("react.suspense"), _ = Symbol.for("react.suspense_list"), U = Symbol.for("react.memo"), A = Symbol.for("react.lazy"), X = Symbol.for("react.offscreen"), I = Symbol.iterator, ee = "@@iterator";
+    var c = ar, l = Symbol.for("react.element"), f = Symbol.for("react.portal"), v = Symbol.for("react.fragment"), _ = Symbol.for("react.strict_mode"), i = Symbol.for("react.profiler"), b = Symbol.for("react.provider"), m = Symbol.for("react.context"), y = Symbol.for("react.forward_ref"), O = Symbol.for("react.suspense"), j = Symbol.for("react.suspense_list"), U = Symbol.for("react.memo"), $ = Symbol.for("react.lazy"), X = Symbol.for("react.offscreen"), I = Symbol.iterator, ee = "@@iterator";
     function ae(e) {
       if (e === null || typeof e != "object")
         return null;
@@ -57,18 +57,18 @@ function Sr() {
     }
     function J(e, t, n) {
       {
-        var u = q.ReactDebugCurrentFrame, y = u.getStackAddendum();
-        y !== "" && (t += "%s", n = n.concat([y]));
+        var u = q.ReactDebugCurrentFrame, w = u.getStackAddendum();
+        w !== "" && (t += "%s", n = n.concat([w]));
         var R = n.map(function(g) {
           return String(g);
         });
         R.unshift("Warning: " + t), Function.prototype.apply.call(console[e], console, R);
       }
     }
-    var Z = !1, le = !1, o = !1, fe = !1, Q = !1, ne;
+    var Z = !1, le = !1, s = !1, fe = !1, Q = !1, ne;
     ne = Symbol.for("react.module.reference");
     function se(e) {
-      return !!(typeof e == "string" || typeof e == "function" || e === v || e === s || Q || e === x || e === $ || e === _ || fe || e === X || Z || le || o || typeof e == "object" && e !== null && (e.$$typeof === A || e.$$typeof === U || e.$$typeof === j || e.$$typeof === m || e.$$typeof === b || // This needs to include all possible module reference object
+      return !!(typeof e == "string" || typeof e == "function" || e === v || e === i || Q || e === _ || e === O || e === j || fe || e === X || Z || le || s || typeof e == "object" && e !== null && (e.$$typeof === $ || e.$$typeof === U || e.$$typeof === b || e.$$typeof === m || e.$$typeof === y || // This needs to include all possible module reference object
       // types supported by any Flight configuration anywhere since
       // we don't know which Flight build this will end up being used
       // with.
@@ -78,8 +78,8 @@ function Sr() {
       var u = e.displayName;
       if (u)
         return u;
-      var y = t.displayName || t.name || "";
-      return y !== "" ? n + "(" + y + ")" : n;
+      var w = t.displayName || t.name || "";
+      return w !== "" ? n + "(" + w + ")" : n;
     }
     function oe(e) {
       return e.displayName || "Context";
@@ -96,13 +96,13 @@ function Sr() {
           return "Fragment";
         case f:
           return "Portal";
-        case s:
+        case i:
           return "Profiler";
-        case x:
-          return "StrictMode";
-        case $:
-          return "Suspense";
         case _:
+          return "StrictMode";
+        case O:
+          return "Suspense";
+        case j:
           return "SuspenseList";
       }
       if (typeof e == "object")
@@ -110,16 +110,16 @@ function Sr() {
           case m:
             var t = e;
             return oe(t) + ".Consumer";
-          case j:
+          case b:
             var n = e;
             return oe(n._context) + ".Provider";
-          case b:
+          case y:
             return re(e, e.render, "ForwardRef");
           case U:
             var u = e.displayName || null;
             return u !== null ? u : M(e.type) || "Memo";
-          case A: {
-            var y = e, R = y._payload, g = y._init;
+          case $: {
+            var w = e, R = w._payload, g = w._init;
             try {
               return M(g(R));
             } catch {
@@ -129,14 +129,14 @@ function Sr() {
         }
       return null;
     }
-    var H = Object.assign, te = 0, d, N, w, E, S, a, i;
+    var H = Object.assign, te = 0, d, N, x, E, S, a, o;
     function p() {
     }
     p.__reactDisabledLog = !0;
     function T() {
       {
         if (te === 0) {
-          d = console.log, N = console.info, w = console.warn, E = console.error, S = console.group, a = console.groupCollapsed, i = console.groupEnd;
+          d = console.log, N = console.info, x = console.warn, E = console.error, S = console.group, a = console.groupCollapsed, o = console.groupEnd;
           var e = {
             configurable: !0,
             enumerable: !0,
@@ -156,7 +156,7 @@ function Sr() {
         te++;
       }
     }
-    function O() {
+    function A() {
       {
         if (te--, te === 0) {
           var e = {
@@ -172,7 +172,7 @@ function Sr() {
               value: N
             }),
             warn: H({}, e, {
-              value: w
+              value: x
             }),
             error: H({}, e, {
               value: E
@@ -184,7 +184,7 @@ function Sr() {
               value: a
             }),
             groupEnd: H({}, e, {
-              value: i
+              value: o
             })
           });
         }
@@ -197,8 +197,8 @@ function Sr() {
         if (B === void 0)
           try {
             throw Error();
-          } catch (y) {
-            var u = y.stack.trim().match(/\n( *(at )?)/);
+          } catch (w) {
+            var u = w.stack.trim().match(/\n( *(at )?)/);
             B = u && u[1] || "";
           }
         return `
@@ -220,7 +220,7 @@ function Sr() {
       }
       var u;
       W = !0;
-      var y = Error.prepareStackTrace;
+      var w = Error.prepareStackTrace;
       Error.prepareStackTrace = void 0;
       var R;
       R = C.current, C.current = null, T();
@@ -276,7 +276,7 @@ function Sr() {
             }
         }
       } finally {
-        W = !1, C.current = R, O(), Error.prepareStackTrace = y;
+        W = !1, C.current = R, A(), Error.prepareStackTrace = w;
       }
       var me = e ? e.displayName || e.name : "", ie = me ? D(me) : "";
       return typeof e == "function" && V.set(e, ie), ie;
@@ -296,21 +296,21 @@ function Sr() {
       if (typeof e == "string")
         return D(e);
       switch (e) {
-        case $:
+        case O:
           return D("Suspense");
-        case _:
+        case j:
           return D("SuspenseList");
       }
       if (typeof e == "object")
         switch (e.$$typeof) {
-          case b:
+          case y:
             return Ae(e.render);
           case U:
             return xe(e.type, t, n);
-          case A: {
-            var u = e, y = u._payload, R = u._init;
+          case $: {
+            var u = e, w = u._payload, R = u._init;
             try {
-              return xe(R(y), t, n);
+              return xe(R(w), t, n);
             } catch {
             }
           }
@@ -325,7 +325,7 @@ function Sr() {
       } else
         Ie.setExtraStackFrame(null);
     }
-    function ir(e, t, n, u, y) {
+    function ir(e, t, n, u, w) {
       {
         var R = Function.call.bind(pe);
         for (var g in e)
@@ -340,7 +340,7 @@ function Sr() {
             } catch (P) {
               h = P;
             }
-            h && !(h instanceof Error) && (_e(y), k("%s: type specification of %s `%s` is invalid; the type checker function must return `null` or an `Error` but returned a %s. You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument).", u || "React class", n, g, typeof h), _e(null)), h instanceof Error && !(h.message in $e) && ($e[h.message] = !0, _e(y), k("Failed %s type: %s", n, h.message), _e(null));
+            h && !(h instanceof Error) && (_e(w), k("%s: type specification of %s `%s` is invalid; the type checker function must return `null` or an `Error` but returned a %s. You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument).", u || "React class", n, g, typeof h), _e(null)), h instanceof Error && !(h.message in $e) && ($e[h.message] = !0, _e(w), k("Failed %s type: %s", n, h.message), _e(null));
           }
       }
     }
@@ -419,7 +419,7 @@ function Sr() {
         });
       }
     }
-    var vr = function(e, t, n, u, y, R, g) {
+    var vr = function(e, t, n, u, w, R, g) {
       var h = {
         // This tag allows us to uniquely identify this as a React Element
         $$typeof: l,
@@ -445,13 +445,13 @@ function Sr() {
         configurable: !1,
         enumerable: !1,
         writable: !1,
-        value: y
+        value: w
       }), Object.freeze && (Object.freeze(h.props), Object.freeze(h)), h;
     };
-    function br(e, t, n, u, y) {
+    function br(e, t, n, u, w) {
       {
         var R, g = {}, h = null, z = null;
-        n !== void 0 && (De(n), h = "" + n), fr(t) && (De(t.key), h = "" + t.key), mr(t) && (z = t.ref, pr(t, y));
+        n !== void 0 && (De(n), h = "" + n), fr(t) && (De(t.key), h = "" + t.key), mr(t) && (z = t.ref, pr(t, w));
         for (R in t)
           pe.call(t, R) && !dr.hasOwnProperty(R) && (g[R] = t[R]);
         if (e && e.defaultProps) {
@@ -463,7 +463,7 @@ function Sr() {
           var F = typeof e == "function" ? e.displayName || e.name || "Unknown" : e;
           h && hr(g, F), z && gr(g, F);
         }
-        return vr(e, h, z, y, u, he.current, g);
+        return vr(e, h, z, w, u, he.current, g);
       }
     }
     var ke = q.ReactCurrentOwner, Ue = q.ReactDebugCurrentFrame;
@@ -540,9 +540,9 @@ Check the top-level render call using <` + n + ">.");
         else if (Ne(e))
           e._store && (e._store.validated = !0);
         else if (e) {
-          var y = ae(e);
-          if (typeof y == "function" && y !== e.entries)
-            for (var R = y.call(e), g; !(g = R.next()).done; )
+          var w = ae(e);
+          if (typeof w == "function" && w !== e.entries)
+            for (var R = w.call(e), g; !(g = R.next()).done; )
               Ne(g.value) && Ve(g.value, t);
         }
       }
@@ -555,7 +555,7 @@ Check the top-level render call using <` + n + ">.");
         var n;
         if (typeof t == "function")
           n = t.propTypes;
-        else if (typeof t == "object" && (t.$$typeof === b || // Note: Memo only checks outer props here.
+        else if (typeof t == "object" && (t.$$typeof === y || // Note: Memo only checks outer props here.
         // Inner props are checked in the reconciler.
         t.$$typeof === U))
           n = t.propTypes;
@@ -566,8 +566,8 @@ Check the top-level render call using <` + n + ">.");
           ir(n, e.props, "prop", u, e);
         } else if (t.PropTypes !== void 0 && !Ee) {
           Ee = !0;
-          var y = M(t);
-          k("Component %s declared `PropTypes` instead of `propTypes`. Did you misspell the property assignment?", y || "Unknown");
+          var w = M(t);
+          k("Component %s declared `PropTypes` instead of `propTypes`. Did you misspell the property assignment?", w || "Unknown");
         }
         typeof t.getDefaultProps == "function" && !t.getDefaultProps.isReactClassApproved && k("getDefaultProps is only used on classic React.createClass definitions. Use a static property named `defaultProps` instead.");
       }
@@ -585,18 +585,18 @@ Check the top-level render call using <` + n + ">.");
       }
     }
     var He = {};
-    function qe(e, t, n, u, y, R) {
+    function qe(e, t, n, u, w, R) {
       {
         var g = se(e);
         if (!g) {
           var h = "";
           (e === void 0 || typeof e == "object" && e !== null && Object.keys(e).length === 0) && (h += " You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.");
-          var z = yr(y);
+          var z = yr(w);
           z ? h += z : h += Be();
           var P;
           e === null ? P = "null" : Ce(e) ? P = "array" : e !== void 0 && e.$$typeof === l ? (P = "<" + (M(e.type) || "Unknown") + " />", h = " Did you accidentally export a JSX literal instead of a component?") : P = typeof e, k("React.jsx: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", P, h);
         }
-        var F = br(e, t, n, y, R);
+        var F = br(e, t, n, w, R);
         if (F == null)
           return F;
         if (g) {
@@ -687,26 +687,26 @@ const $r = nr(
     size: l = 24,
     strokeWidth: f = 2,
     absoluteStrokeWidth: v,
-    className: x = "",
-    children: s,
-    iconNode: j,
+    className: _ = "",
+    children: i,
+    iconNode: b,
     ...m
-  }, b) => Pe(
+  }, y) => Pe(
     "svg",
     {
-      ref: b,
+      ref: y,
       ...Ar,
       width: l,
       height: l,
       stroke: c,
       strokeWidth: v ? Number(f) * 24 / Number(l) : f,
-      className: sr("lucide", x),
-      ...!s && !Or(m) && { "aria-hidden": "true" },
+      className: sr("lucide", _),
+      ...!i && !Or(m) && { "aria-hidden": "true" },
       ...m
     },
     [
-      ...j.map(([$, _]) => Pe($, _)),
-      ...Array.isArray(s) ? s : [s]
+      ...b.map(([O, j]) => Pe(O, j)),
+      ...Array.isArray(i) ? i : [i]
     ]
   )
 );
@@ -718,15 +718,15 @@ const $r = nr(
  */
 const G = (c, l) => {
   const f = nr(
-    ({ className: v, ...x }, s) => Pe($r, {
-      ref: s,
+    ({ className: v, ..._ }, i) => Pe($r, {
+      ref: i,
       iconNode: l,
       className: sr(
         `lucide-${Pr(Ge(c))}`,
         `lucide-${c}`,
         v
       ),
-      ...x
+      ..._
     })
   );
   return f.displayName = Ge(c), f;
@@ -878,32 +878,32 @@ const Qr = [
   ["path", { d: "M18 6 6 18", key: "1bl5f8" }],
   ["path", { d: "m6 6 12 12", key: "d8bk6v" }]
 ], ye = G("x", Qr), Qe = ({ message: c, showTimestamp: l = !1 }) => {
-  const f = c.type === "user", v = (x, s) => {
-    switch (x.type) {
+  const f = c.type === "user", v = (_, i) => {
+    switch (_.type) {
       case "image":
         return /* @__PURE__ */ r.jsx(
           "img",
           {
-            src: x.url,
-            alt: x.name,
+            src: _.url,
+            alt: _.name,
             className: "message-media-image",
             style: { maxWidth: "200px", maxHeight: "150px", borderRadius: "8px", marginTop: "8px" }
           },
-          s
+          i
         );
       case "video":
         return /* @__PURE__ */ r.jsx(
           "video",
           {
-            src: x.url,
+            src: _.url,
             controls: !0,
             className: "message-media-video",
             style: { maxWidth: "200px", maxHeight: "150px", borderRadius: "8px", marginTop: "8px" }
           },
-          s
+          i
         );
       case "audio":
-        return /* @__PURE__ */ r.jsx("div", { className: "message-media-audio", style: { marginTop: "8px" }, children: /* @__PURE__ */ r.jsx("audio", { src: x.url, controls: !0, style: { width: "200px" } }) }, s);
+        return /* @__PURE__ */ r.jsx("div", { className: "message-media-audio", style: { marginTop: "8px" }, children: /* @__PURE__ */ r.jsx("audio", { src: _.url, controls: !0, style: { width: "200px" } }) }, i);
       default:
         return /* @__PURE__ */ r.jsxs("div", { className: "message-media-document", style: {
           display: "flex",
@@ -916,14 +916,14 @@ const Qr = [
           maxWidth: "200px"
         }, children: [
           /* @__PURE__ */ r.jsx(or, { size: 16 }),
-          /* @__PURE__ */ r.jsx("span", { style: { fontSize: "14px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }, children: x.name })
-        ] }, s);
+          /* @__PURE__ */ r.jsx("span", { style: { fontSize: "14px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }, children: _.name })
+        ] }, i);
     }
   };
   return /* @__PURE__ */ r.jsxs("div", { className: `message-bubble ${f ? "user" : "bot"}`, children: [
     /* @__PURE__ */ r.jsxs("div", { className: "message-content", children: [
       c.content.trim() && /* @__PURE__ */ r.jsx("p", { children: c.content }),
-      c.files && c.files.map((x, s) => v(x, s))
+      c.files && c.files.map((_, i) => v(_, i))
     ] }),
     l && /* @__PURE__ */ r.jsx("div", { className: "message-timestamp", children: c.timestamp.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) })
   ] });
@@ -933,16 +933,16 @@ const Qr = [
   /* @__PURE__ */ r.jsx("span", { className: "typing-indicator__dot" })
 ] }) }) : null;
 function Oe() {
-  const c = window.innerWidth, l = window.innerHeight, f = navigator.userAgent.toLowerCase(), v = "ontouchstart" in window || navigator.maxTouchPoints > 0, x = c < 768, s = v || x, j = f.includes("arc") || f.includes("company.thebrowser.browser") || window.ArcBrowser !== void 0, m = /safari/.test(f) && !/chrome/.test(f) && !j, b = /chrome/.test(f) && !j, $ = !!window.visualViewport;
+  const c = window.innerWidth, l = window.innerHeight, f = navigator.userAgent.toLowerCase(), v = "ontouchstart" in window || navigator.maxTouchPoints > 0, _ = c < 768, i = v || _, b = f.includes("arc") || f.includes("company.thebrowser.browser") || window.ArcBrowser !== void 0, m = /safari/.test(f) && !/chrome/.test(f) && !b, y = /chrome/.test(f) && !b, O = !!window.visualViewport;
   return {
-    isMobile: s,
-    isDesktop: !s,
+    isMobile: i,
+    isDesktop: !i,
     screenWidth: c,
     screenHeight: l,
-    isArc: j,
+    isArc: b,
     isSafari: m,
-    isChrome: b,
-    supportsVisualViewport: $
+    isChrome: y,
+    supportsVisualViewport: O
   };
 }
 const rr = ({
@@ -950,29 +950,29 @@ const rr = ({
   maxFiles: l,
   maxFileSize: f,
   allowedTypes: v,
-  enableCamera: x,
-  enableAudio: s
+  enableCamera: _,
+  enableAudio: i
 }) => {
-  const j = ce(null), m = ce(null), b = ce(null), [$, _] = L(!1), [U, A] = L(!1), [X, I] = L(null), [ee, ae] = L(0), [q, k] = L(null), [J, Z] = L(!1), le = ce(null), o = Oe();
+  const b = ce(null), m = ce(null), y = ce(null), [O, j] = L(!1), [U, $] = L(!1), [X, I] = L(null), [ee, ae] = L(0), [q, k] = L(null), [J, Z] = L(!1), le = ce(null), s = Oe();
   be(() => {
-    const a = (i) => {
-      le.current && !le.current.contains(i.target) && Z(!1);
+    const a = (o) => {
+      le.current && !le.current.contains(o.target) && Z(!1);
     };
     return J && document.addEventListener("mousedown", a), () => {
       document.removeEventListener("mousedown", a);
     };
   }, [J]);
-  const fe = () => `${Date.now()}-${Math.random()}`, Q = (a) => a.type.startsWith("image/") ? "image" : a.type.startsWith("video/") ? "video" : a.type.startsWith("audio/") ? "audio" : "document", ne = async (a, i = 1) => new Promise((p) => {
-    const T = document.createElement("canvas"), O = T.getContext("2d"), C = new Image();
+  const fe = () => `${Date.now()}-${Math.random()}`, Q = (a) => a.type.startsWith("image/") ? "image" : a.type.startsWith("video/") ? "video" : a.type.startsWith("audio/") ? "audio" : "document", ne = async (a, o = 1) => new Promise((p) => {
+    const T = document.createElement("canvas"), A = T.getContext("2d"), C = new Image();
     C.onload = () => {
       let { width: B, height: D } = C;
       const W = 1920;
-      B > D && B > W ? (D = D * W / B, B = W) : D > W && (B = B * W / D, D = W), T.width = B, T.height = D, O == null || O.drawImage(C, 0, 0, B, D);
+      B > D && B > W ? (D = D * W / B, B = W) : D > W && (B = B * W / D, D = W), T.width = B, T.height = D, A == null || A.drawImage(C, 0, 0, B, D);
       let V = 0.8;
       const we = () => {
         T.toBlob((ue) => {
           if (ue)
-            if (ue.size / 1048576 > i && V > 0.1)
+            if (ue.size / 1048576 > o && V > 0.1)
               V -= 0.1, we();
             else {
               const Re = new File([ue], a.name, {
@@ -999,45 +999,45 @@ const rr = ({
       }
     return p > 1 && console.warn(`File ${a.name} is ${p.toFixed(1)}MB, which may be too large`), a;
   }, re = async (a) => {
-    const i = await se(a);
+    const o = await se(a);
     return {
-      file: i,
+      file: o,
       id: fe(),
-      type: Q(i),
-      url: URL.createObjectURL(i),
+      type: Q(o),
+      url: URL.createObjectURL(o),
       name: a.name,
       // Keep original name
-      size: i.size
+      size: o.size
     };
   }, oe = (a) => a.size > f * 1024 * 1024 ? (alert(`File ${a.name} is too large. Maximum size is ${f}MB.`), !1) : v.length > 0 && !v.some(
     (p) => p === "*" || a.type.includes(p) || a.name.endsWith(p)
   ) ? (alert(`File type not allowed: ${a.type}`), !1) : !0, M = async (a) => {
     if (!a)
       return;
-    const i = [], p = Array.from(a);
+    const o = [], p = Array.from(a);
     for (const T of p) {
-      if (i.length >= l) {
+      if (o.length >= l) {
         alert(`Maximum ${l} files allowed`);
         break;
       }
       if (oe(T))
         try {
-          const O = await re(T);
-          i.push(O);
-        } catch (O) {
-          console.error("Error processing file:", T.name, O), alert(`Error processing file: ${T.name}`);
+          const A = await re(T);
+          o.push(A);
+        } catch (A) {
+          console.error("Error processing file:", T.name, A), alert(`Error processing file: ${T.name}`);
         }
     }
-    i.length > 0 && c(i);
+    o.length > 0 && c(o);
   }, H = () => {
     var a;
-    (a = j.current) == null || a.click();
+    (a = b.current) == null || a.click();
   }, te = async () => {
     if (console.log("📷 Opening camera..."), !navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
       console.error("❌ getUserMedia not supported"), alert("Camera is not supported in this browser.");
       return;
     }
-    if (o.isArc) {
+    if (s.isArc) {
       console.log("🌐 Arc browser detected - applying compatibility fixes...");
       try {
         const a = { video: { facingMode: "user" } };
@@ -1059,13 +1059,13 @@ const rr = ({
     try {
       if (console.log("🔍 Checking camera permissions..."), navigator.permissions)
         try {
-          const i = await navigator.permissions.query({ name: "camera" });
-          if (console.log("📋 Camera permission state:", i.state), i.state === "denied") {
+          const o = await navigator.permissions.query({ name: "camera" });
+          if (console.log("📋 Camera permission state:", o.state), o.state === "denied") {
             alert("Camera permission is denied. Please enable camera access in your browser settings and reload the page.");
             return;
           }
-        } catch (i) {
-          console.log("⚠️ Could not check permissions:", i);
+        } catch (o) {
+          console.log("⚠️ Could not check permissions:", o);
         }
       console.log("🎥 Requesting camera access...");
       const a = await navigator.mediaDevices.getUserMedia({
@@ -1074,44 +1074,44 @@ const rr = ({
         }
       });
       console.log("✅ Camera access granted, stream:", a), console.log("📊 Video tracks:", a.getVideoTracks().length), m.current ? (console.log("📹 Setting up video element..."), m.current.srcObject = a, m.current.autoplay = !0, m.current.playsInline = !0, m.current.muted = !0, m.current.onloadedmetadata = () => {
-        var i, p;
-        console.log("📹 Video metadata loaded, dimensions:", (i = m.current) == null ? void 0 : i.videoWidth, "x", (p = m.current) == null ? void 0 : p.videoHeight), m.current && m.current.play().then(() => {
-          console.log("▶️ Video playing successfully"), _(!0);
+        var o, p;
+        console.log("📹 Video metadata loaded, dimensions:", (o = m.current) == null ? void 0 : o.videoWidth, "x", (p = m.current) == null ? void 0 : p.videoHeight), m.current && m.current.play().then(() => {
+          console.log("▶️ Video playing successfully"), j(!0);
         }).catch((T) => {
           console.error("❌ Error playing video:", T), alert("Could not start camera preview. Please try again.");
         });
       }, m.current.oncanplay = () => {
         console.log("📹 Video can play");
-      }, m.current.onerror = (i) => {
-        console.error("❌ Video element error:", i), alert("Video playback error.");
+      }, m.current.onerror = (o) => {
+        console.error("❌ Video element error:", o), alert("Video playback error.");
       }) : (console.error("❌ Video ref not available"), alert("Video element not ready. Please try again."));
     } catch (a) {
       console.error("❌ Error accessing camera:", a);
-      const i = a;
-      if (i.name === "NotAllowedError")
+      const o = a;
+      if (o.name === "NotAllowedError")
         alert(`Camera permission denied. Please:
 1. Click "Allow" when prompted
 2. Check your browser settings
 3. Reload the page and try again`);
-      else if (i.name === "NotFoundError")
+      else if (o.name === "NotFoundError")
         alert(`No camera found. Please:
 1. Connect a camera
 2. Check camera connections
 3. Try again`);
-      else if (i.name === "NotReadableError")
+      else if (o.name === "NotReadableError")
         alert(`Camera is already in use by another application. Please:
 1. Close other camera apps
 2. Try again`);
-      else if (i.name === "OverconstrainedError") {
+      else if (o.name === "OverconstrainedError") {
         alert("Camera constraints not supported. Trying with basic settings...");
         try {
           const p = await navigator.mediaDevices.getUserMedia({ video: !0 });
-          m.current && (m.current.srcObject = p, _(!0));
+          m.current && (m.current.srcObject = p, j(!0));
         } catch {
           alert("Could not access camera with any settings.");
         }
       } else
-        alert(`Camera error: ${i.message || "Unknown error"}
+        alert(`Camera error: ${o.message || "Unknown error"}
 
 Please:
 1. Allow camera permissions
@@ -1119,14 +1119,14 @@ Please:
 3. Try a different browser`);
     }
   }, d = async () => {
-    if (!m.current || !b.current)
+    if (!m.current || !y.current)
       return;
-    const a = m.current, i = b.current, p = i.getContext("2d");
-    p && (i.width = a.videoWidth, i.height = a.videoHeight, p.drawImage(a, 0, 0), i.toBlob(async (T) => {
+    const a = m.current, o = y.current, p = o.getContext("2d");
+    p && (o.width = a.videoWidth, o.height = a.videoHeight, p.drawImage(a, 0, 0), o.toBlob(async (T) => {
       if (T) {
-        const O = new File([T], `photo-${Date.now()}.jpg`, { type: "image/jpeg" });
+        const A = new File([T], `photo-${Date.now()}.jpg`, { type: "image/jpeg" });
         try {
-          const C = await re(O);
+          const C = await re(A);
           c([C]);
         } catch (C) {
           console.error("Error processing captured photo:", C), alert("Error processing captured photo");
@@ -1135,13 +1135,13 @@ Please:
     }, "image/jpeg", 0.8), N());
   }, N = () => {
     var a;
-    (a = m.current) != null && a.srcObject && (m.current.srcObject.getTracks().forEach((p) => p.stop()), m.current.srcObject = null), _(!1);
-  }, w = async () => {
+    (a = m.current) != null && a.srcObject && (m.current.srcObject.getTracks().forEach((p) => p.stop()), m.current.srcObject = null), j(!1);
+  }, x = async () => {
     if (console.log("🎤 Starting audio recording..."), !MediaRecorder || !navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
       console.error("❌ MediaRecorder or getUserMedia not supported"), alert("Audio recording is not supported in this browser.");
       return;
     }
-    if (o.isArc) {
+    if (s.isArc) {
       console.log("🌐 Arc browser detected - using enhanced audio recording...");
       try {
         if (navigator.permissions && (await navigator.permissions.query({ name: "microphone" })).state === "denied") {
@@ -1165,9 +1165,9 @@ Please:
         }
       });
       console.log("✅ Microphone access granted");
-      let i = {};
-      o.isArc ? MediaRecorder.isTypeSupported("audio/webm;codecs=opus") ? i.mimeType = "audio/webm;codecs=opus" : MediaRecorder.isTypeSupported("audio/mp4") && (i.mimeType = "audio/mp4") : MediaRecorder.isTypeSupported("audio/webm") && (i.mimeType = "audio/webm");
-      const p = new MediaRecorder(a, i), T = [];
+      let o = {};
+      s.isArc ? MediaRecorder.isTypeSupported("audio/webm;codecs=opus") ? o.mimeType = "audio/webm;codecs=opus" : MediaRecorder.isTypeSupported("audio/mp4") && (o.mimeType = "audio/mp4") : MediaRecorder.isTypeSupported("audio/webm") && (o.mimeType = "audio/webm");
+      const p = new MediaRecorder(a, o), T = [];
       p.ondataavailable = (C) => {
         console.log("📊 Audio data available:", C.data.size, "bytes"), C.data.size > 0 && T.push(C.data);
       }, p.onstop = async () => {
@@ -1183,27 +1183,27 @@ Please:
         a.getTracks().forEach((V) => V.stop());
       }, p.onerror = (C) => {
         console.error("❌ Recording error:", C), alert("Recording failed. Please try again.");
-      }, p.start(1e3), I(p), A(!0), ae(0), console.log("🔴 Recording started");
-      const O = setInterval(() => {
+      }, p.start(1e3), I(p), $(!0), ae(0), console.log("🔴 Recording started");
+      const A = setInterval(() => {
         ae((C) => C + 1);
       }, 1e3);
-      k(O);
+      k(A);
     } catch (a) {
       console.error("❌ Error accessing microphone:", a);
-      const i = a;
-      i.name === "NotAllowedError" ? alert("Microphone permission denied. Please allow microphone access and try again.") : i.name === "NotFoundError" ? alert("No microphone found. Please connect a microphone and try again.") : alert(`Could not access microphone: ${i.message || "Unknown error"}`);
+      const o = a;
+      o.name === "NotAllowedError" ? alert("Microphone permission denied. Please allow microphone access and try again.") : o.name === "NotFoundError" ? alert("No microphone found. Please connect a microphone and try again.") : alert(`Could not access microphone: ${o.message || "Unknown error"}`);
     }
   }, E = () => {
-    X && X.state === "recording" && X.stop(), A(!1), I(null), q && (clearInterval(q), k(null));
+    X && X.state === "recording" && X.stop(), $(!1), I(null), q && (clearInterval(q), k(null));
   }, S = (a) => {
-    const i = Math.floor(a / 60), p = a % 60;
-    return `${i}:${p.toString().padStart(2, "0")}`;
+    const o = Math.floor(a / 60), p = a % 60;
+    return `${o}:${p.toString().padStart(2, "0")}`;
   };
   return /* @__PURE__ */ r.jsxs("div", { className: "file-upload", children: [
     /* @__PURE__ */ r.jsx(
       "input",
       {
-        ref: j,
+        ref: b,
         type: "file",
         multiple: !0,
         accept: v.length > 0 ? v.join(",") : "*",
@@ -1211,9 +1211,9 @@ Please:
         style: { display: "none" }
       }
     ),
-    $ && /* @__PURE__ */ r.jsx("div", { className: "camera-modal", children: /* @__PURE__ */ r.jsxs("div", { className: "camera-container", children: [
+    O && /* @__PURE__ */ r.jsx("div", { className: "camera-modal", children: /* @__PURE__ */ r.jsxs("div", { className: "camera-container", children: [
       /* @__PURE__ */ r.jsx("video", { ref: m, autoPlay: !0, playsInline: !0, className: "camera-video" }),
-      /* @__PURE__ */ r.jsx("canvas", { ref: b, style: { display: "none" } }),
+      /* @__PURE__ */ r.jsx("canvas", { ref: y, style: { display: "none" } }),
       /* @__PURE__ */ r.jsxs("div", { className: "camera-controls", children: [
         /* @__PURE__ */ r.jsx("button", { onClick: d, className: "capture-button", children: /* @__PURE__ */ r.jsx(Xe, { size: 24 }) }),
         /* @__PURE__ */ r.jsx("button", { onClick: N, className: "close-camera-button", children: /* @__PURE__ */ r.jsx(ye, { size: 20 }) })
@@ -1255,7 +1255,7 @@ Please:
             ]
           }
         ),
-        x && /* @__PURE__ */ r.jsxs(
+        _ && /* @__PURE__ */ r.jsxs(
           "button",
           {
             onClick: () => {
@@ -1269,11 +1269,11 @@ Please:
             ]
           }
         ),
-        s && /* @__PURE__ */ r.jsxs(
+        i && /* @__PURE__ */ r.jsxs(
           "button",
           {
             onClick: () => {
-              w(), Z(!1);
+              x(), Z(!1);
             },
             className: "upload-menu-item",
             title: "Record audio",
@@ -1292,13 +1292,13 @@ Please:
 }) => {
   if (c.length === 0)
     return null;
-  const f = (s) => {
-    if (s === 0)
+  const f = (i) => {
+    if (i === 0)
       return "0 B";
-    const j = 1024, m = ["B", "KB", "MB", "GB"], b = Math.floor(Math.log(s) / Math.log(j));
-    return parseFloat((s / Math.pow(j, b)).toFixed(1)) + " " + m[b];
-  }, v = (s) => {
-    switch (s) {
+    const b = 1024, m = ["B", "KB", "MB", "GB"], y = Math.floor(Math.log(i) / Math.log(b));
+    return parseFloat((i / Math.pow(b, y)).toFixed(1)) + " " + m[y];
+  }, v = (i) => {
+    switch (i) {
       case "image":
         return /* @__PURE__ */ r.jsx(zr, { size: 16 });
       case "video":
@@ -1308,14 +1308,14 @@ Please:
       default:
         return /* @__PURE__ */ r.jsx(or, { size: 16 });
     }
-  }, x = (s) => {
-    switch (s.type) {
+  }, _ = (i) => {
+    switch (i.type) {
       case "image":
         return /* @__PURE__ */ r.jsx(
           "img",
           {
-            src: s.url,
-            alt: s.name,
+            src: i.url,
+            alt: i.name,
             className: "media-preview-image"
           }
         );
@@ -1323,7 +1323,7 @@ Please:
         return /* @__PURE__ */ r.jsx(
           "video",
           {
-            src: s.url,
+            src: i.url,
             className: "media-preview-video",
             controls: !0,
             preload: "metadata"
@@ -1333,7 +1333,7 @@ Please:
         return /* @__PURE__ */ r.jsx(
           "audio",
           {
-            src: s.url,
+            src: i.url,
             className: "media-preview-audio",
             controls: !0,
             preload: "metadata"
@@ -1341,65 +1341,66 @@ Please:
         );
       default:
         return /* @__PURE__ */ r.jsxs("div", { className: "media-preview-document", children: [
-          v(s.type),
-          /* @__PURE__ */ r.jsx("span", { className: "document-name", children: s.name })
+          v(i.type),
+          /* @__PURE__ */ r.jsx("span", { className: "document-name", children: i.name })
         ] });
     }
   };
-  return /* @__PURE__ */ r.jsx("div", { className: "media-preview", children: /* @__PURE__ */ r.jsx("div", { className: "media-preview-list", children: c.map((s) => /* @__PURE__ */ r.jsxs("div", { className: "media-preview-item", children: [
-    /* @__PURE__ */ r.jsx("div", { className: "media-preview-content", children: x(s) }),
+  return /* @__PURE__ */ r.jsx("div", { className: "media-preview", children: /* @__PURE__ */ r.jsx("div", { className: "media-preview-list", children: c.map((i) => /* @__PURE__ */ r.jsxs("div", { className: "media-preview-item", children: [
+    /* @__PURE__ */ r.jsx("div", { className: "media-preview-content", children: _(i) }),
     /* @__PURE__ */ r.jsxs("div", { className: "media-preview-info", children: [
       /* @__PURE__ */ r.jsxs("div", { className: "media-preview-details", children: [
-        /* @__PURE__ */ r.jsx("span", { className: "file-name", title: s.name, children: s.name.length > 20 ? `${s.name.substring(0, 20)}...` : s.name }),
-        /* @__PURE__ */ r.jsx("span", { className: "file-size", children: f(s.size) })
+        /* @__PURE__ */ r.jsx("span", { className: "file-name", title: i.name, children: i.name.length > 20 ? `${i.name.substring(0, 20)}...` : i.name }),
+        /* @__PURE__ */ r.jsx("span", { className: "file-size", children: f(i.size) })
       ] }),
       /* @__PURE__ */ r.jsx(
         "button",
         {
-          onClick: () => l(s.id),
+          onClick: () => l(i.id),
           className: "remove-file-button",
           title: "Remove file",
           children: /* @__PURE__ */ r.jsx(ye, { size: 14 })
         }
       )
     ] })
-  ] }, s.id)) }) });
+  ] }, i.id)) }) });
 }, et = ({
   isOpen: c,
   onClick: l,
   position: f,
-  primaryColor: v
+  primaryColor: v,
+  popupMessage: _ = "How can I help you?"
 }) => {
-  const [x, s] = L(!1);
+  const [i, b] = L(!1);
   be(() => {
     if (c)
-      s(!1);
+      b(!1);
     else {
-      const b = setTimeout(() => {
-        s(!0);
+      const O = setTimeout(() => {
+        b(!0);
       }, 5e3);
-      return () => clearTimeout(b);
+      return () => clearTimeout(O);
     }
   }, [c]);
-  const j = () => {
-    s(!1), l();
-  }, m = () => {
-    s(!1), l();
+  const m = () => {
+    b(!1), l();
+  }, y = () => {
+    b(!1), l();
   };
   return /* @__PURE__ */ r.jsxs("div", { className: `chat-toggle-container chat-toggle-button--${f}`, children: [
-    x && !c && /* @__PURE__ */ r.jsxs(
+    i && !c && /* @__PURE__ */ r.jsxs(
       "div",
       {
         className: `chat-popup-message chat-popup-message--${f}`,
-        onClick: m,
+        onClick: y,
         children: [
-          /* @__PURE__ */ r.jsx("div", { className: "chat-popup-content", children: "Hey! How can I help you?" }),
+          /* @__PURE__ */ r.jsx("div", { className: "chat-popup-content", children: _ }),
           /* @__PURE__ */ r.jsx(
             "button",
             {
               className: "chat-popup-close",
-              onClick: (b) => {
-                b.stopPropagation(), s(!1);
+              onClick: (O) => {
+                O.stopPropagation(), b(!1);
               },
               children: "×"
             }
@@ -1410,7 +1411,7 @@ Please:
     /* @__PURE__ */ r.jsx(
       "button",
       {
-        onClick: j,
+        onClick: m,
         className: "chat-toggle-button",
         style: {
           backgroundColor: v,
@@ -1448,10 +1449,10 @@ const at = ({
   onError: f,
   onClose: v
 }) => {
-  const [x, s] = L([]), [j, m] = L(""), [b, $] = L(!1), [_, U] = L(!1), [A, X] = L(c.initialState !== "closed"), [I, ee] = L([]), [ae] = L(() => {
+  const [_, i] = L([]), [b, m] = L(""), [y, O] = L(!1), [j, U] = L(!1), [$, X] = L(c.initialState !== "closed"), [I, ee] = L([]), [ae] = L(() => {
     let d = localStorage.getItem("n8n_session_id");
     return d || (d = "session_" + Date.now() + "_" + Math.random().toString(36).substr(2, 9), localStorage.setItem("n8n_session_id", d)), d;
-  }), q = rt(), k = ce(null), J = ce(null), Z = ce(null), o = { ...{
+  }), q = rt(), k = ce(null), J = ce(null), Z = ce(null), s = { ...{
     title: "Chat",
     subtitle: "How can I help you?",
     placeholder: "Type your message...",
@@ -1471,6 +1472,7 @@ const at = ({
     zIndex: 1e3,
     initialState: "open",
     showToggleButton: !1,
+    popupMessage: "How can I help you?",
     enableFileUpload: !1,
     enableCamera: !1,
     enableAudio: !1,
@@ -1483,29 +1485,29 @@ const at = ({
   };
   be(() => {
     fe();
-  }, [x]), be(() => {
-    if (A) {
+  }, [_]), be(() => {
+    if ($) {
       const d = setTimeout(() => {
         J.current && J.current.focus();
       }, 100);
       return () => clearTimeout(d);
     }
-  }, [A]);
+  }, [$]);
   const Q = () => `${Date.now()}-${Math.random()}`, ne = async (d, N) => {
     try {
       if (N) {
-        const w = new FormData();
-        w.append("sessionId", ae), w.append("chatInput", d), w.append("data", N.file);
+        const x = new FormData();
+        x.append("sessionId", ae), x.append("chatInput", d), x.append("data", N.file);
         const E = await fetch(c.n8nWebhookUrl, {
           method: "POST",
-          body: w
+          body: x
         });
         if (!E.ok)
           throw new Error(`HTTP error! status: ${E.status}`);
         const S = await E.json();
         return S.output || S.response || S.message || S.text || "Response received";
       } else {
-        const w = {
+        const x = {
           sessionId: ae,
           chatInput: d
         }, E = await fetch(c.n8nWebhookUrl, {
@@ -1513,74 +1515,74 @@ const at = ({
           headers: {
             "Content-Type": "application/json"
           },
-          body: JSON.stringify(w)
+          body: JSON.stringify(x)
         });
         if (!E.ok)
           throw new Error(`HTTP error! status: ${E.status}`);
         const S = await E.json();
         return S.output || S.response || S.message || S.text || "Response received";
       }
-    } catch (w) {
-      throw console.error("Error sending to n8n:", w), w;
+    } catch (x) {
+      throw console.error("Error sending to n8n:", x), x;
     }
   }, se = je(async () => {
-    if (!j.trim() && I.length === 0 || _)
+    if (!b.trim() && I.length === 0 || j)
       return;
-    const d = j.trim() || "", N = [...I];
-    m(""), ee([]), U(!0), c.showTypingIndicator && $(!0);
+    const d = b.trim() || "", N = [...I];
+    m(""), ee([]), U(!0), c.showTypingIndicator && O(!0);
     try {
-      for (let w = 0; w < N.length; w++) {
-        const E = N[w], a = w === N.length - 1 && d ? d : "", i = {
+      for (let x = 0; x < N.length; x++) {
+        const E = N[x], a = x === N.length - 1 && d ? d : "", o = {
           id: Q(),
           type: "user",
           content: a,
           timestamp: /* @__PURE__ */ new Date(),
           files: [E]
         };
-        s((O) => [...O, i]), l == null || l(i);
+        i((A) => [...A, o]), l == null || l(o);
         const p = await ne(a, E), T = {
           id: Q(),
           type: "bot",
           content: p,
           timestamp: /* @__PURE__ */ new Date()
         };
-        s((O) => [...O, T]), l == null || l(T);
+        i((A) => [...A, T]), l == null || l(T);
       }
       if (d && N.length === 0) {
-        const w = {
+        const x = {
           id: Q(),
           type: "user",
           content: d,
           timestamp: /* @__PURE__ */ new Date()
         };
-        s((a) => [...a, w]), l == null || l(w);
+        i((a) => [...a, x]), l == null || l(x);
         const E = await ne(d), S = {
           id: Q(),
           type: "bot",
           content: E,
           timestamp: /* @__PURE__ */ new Date()
         };
-        s((a) => [...a, S]), l == null || l(S);
+        i((a) => [...a, S]), l == null || l(S);
       }
-    } catch (w) {
+    } catch (x) {
       const E = {
         id: Q(),
         type: "bot",
         content: "Sorry, I encountered an error. Please try again.",
         timestamp: /* @__PURE__ */ new Date()
       };
-      s((S) => [...S, E]), f == null || f(w);
+      i((S) => [...S, E]), f == null || f(x);
     } finally {
-      U(!1), $(!1), N.forEach((w) => URL.revokeObjectURL(w.url));
+      U(!1), O(!1), N.forEach((x) => URL.revokeObjectURL(x.url));
     }
-  }, [j, I, _, c, l, f]), re = (d) => {
+  }, [b, I, j, c, l, f]), re = (d) => {
     d.key === "Enter" && !d.shiftKey && (d.preventDefault(), se());
   }, oe = je((d) => {
-    ee((N) => [...N, ...d].slice(0, o.maxFiles));
-  }, [o.maxFiles]), M = je((d) => {
+    ee((N) => [...N, ...d].slice(0, s.maxFiles));
+  }, [s.maxFiles]), M = je((d) => {
     ee((N) => {
-      const w = N.find((E) => E.id === d);
-      return w && URL.revokeObjectURL(w.url), N.filter((E) => E.id !== d);
+      const x = N.find((E) => E.id === d);
+      return x && URL.revokeObjectURL(x.url), N.filter((E) => E.id !== d);
     });
   }, []), H = je(() => {
     X((d) => {
@@ -1588,38 +1590,39 @@ const at = ({
       return !N && v && v(), N;
     });
   }, [v]);
-  return o.position !== "inline" && o.showToggleButton ? /* @__PURE__ */ r.jsxs("div", { className: `chat-widget-container chat-widget-container--${o.position}${A ? "" : " chat-closed"}`, children: [
+  return s.position !== "inline" && s.showToggleButton ? /* @__PURE__ */ r.jsxs("div", { className: `chat-widget-container chat-widget-container--${s.position}${$ ? "" : " chat-closed"}`, children: [
     /* @__PURE__ */ r.jsx(
       et,
       {
-        isOpen: A,
+        isOpen: $,
         onClick: H,
-        position: o.position,
-        primaryColor: o.colors.primary || "#007bff"
+        position: s.position,
+        primaryColor: s.colors.primary || "#007bff",
+        popupMessage: s.popupMessage
       }
     ),
-    A && /* @__PURE__ */ r.jsxs(
+    $ && /* @__PURE__ */ r.jsxs(
       "div",
       {
         ref: Z,
-        className: `chat-embed chat-embed--${o.theme} chat-embed--${o.position}${q.isMobile ? " chat-embed--mobile" : ""} chat-embed--open`,
+        className: `chat-embed chat-embed--${s.theme} chat-embed--${s.position}${q.isMobile ? " chat-embed--mobile" : ""} chat-embed--open`,
         style: {
-          "--chat-primary": o.colors.primary,
-          "--chat-background": o.colors.background,
-          "--chat-user-bubble": o.colors.userBubble,
-          "--chat-bot-bubble": o.colors.botBubble,
-          "--chat-text": o.colors.text,
-          "--chat-width": `${o.width}px`,
-          "--chat-height": `${o.height}px`,
-          zIndex: o.zIndex
+          "--chat-primary": s.colors.primary,
+          "--chat-background": s.colors.background,
+          "--chat-user-bubble": s.colors.userBubble,
+          "--chat-bot-bubble": s.colors.botBubble,
+          "--chat-text": s.colors.text,
+          "--chat-width": `${s.width}px`,
+          "--chat-height": `${s.height}px`,
+          zIndex: s.zIndex
         },
         children: [
           /* @__PURE__ */ r.jsxs("div", { className: "chat-embed__header", children: [
             /* @__PURE__ */ r.jsxs("div", { className: "chat-embed__header-content", children: [
-              /* @__PURE__ */ r.jsx("h3", { className: "chat-embed__title", children: o.title }),
-              o.subtitle && /* @__PURE__ */ r.jsx("p", { className: "chat-embed__subtitle", children: o.subtitle })
+              /* @__PURE__ */ r.jsx("h3", { className: "chat-embed__title", children: s.title }),
+              s.subtitle && /* @__PURE__ */ r.jsx("p", { className: "chat-embed__subtitle", children: s.subtitle })
             ] }),
-            o.position !== "inline" && /* @__PURE__ */ r.jsx(
+            s.position !== "inline" && /* @__PURE__ */ r.jsx(
               "button",
               {
                 className: "chat-embed__close-button",
@@ -1630,15 +1633,15 @@ const at = ({
             )
           ] }),
           /* @__PURE__ */ r.jsxs("div", { className: "chat-embed__messages", children: [
-            x.map((d) => /* @__PURE__ */ r.jsx(
+            _.map((d) => /* @__PURE__ */ r.jsx(
               Qe,
               {
                 message: d,
-                showTimestamp: o.showTimestamps
+                showTimestamp: s.showTimestamps
               },
               d.id
             )),
-            /* @__PURE__ */ r.jsx(er, { visible: b }),
+            /* @__PURE__ */ r.jsx(er, { visible: y }),
             /* @__PURE__ */ r.jsx("div", { ref: k })
           ] }),
           /* @__PURE__ */ r.jsxs("div", { className: "chat-embed__input-area", children: [
@@ -1650,15 +1653,15 @@ const at = ({
               }
             ),
             /* @__PURE__ */ r.jsxs("div", { className: "chat-embed__input-row", children: [
-              o.enableFileUpload && /* @__PURE__ */ r.jsx(
+              s.enableFileUpload && /* @__PURE__ */ r.jsx(
                 rr,
                 {
                   onFilesSelected: oe,
-                  maxFiles: o.maxFiles,
-                  maxFileSize: o.maxFileSize,
-                  allowedTypes: o.allowedFileTypes,
-                  enableCamera: o.enableCamera,
-                  enableAudio: o.enableAudio
+                  maxFiles: s.maxFiles,
+                  maxFileSize: s.maxFileSize,
+                  allowedTypes: s.allowedFileTypes,
+                  enableCamera: s.enableCamera,
+                  enableAudio: s.enableAudio
                 }
               ),
               /* @__PURE__ */ r.jsx("div", { className: "chat-embed__input-container", children: /* @__PURE__ */ r.jsx(
@@ -1666,11 +1669,11 @@ const at = ({
                 {
                   ref: J,
                   className: "chat-embed__input",
-                  value: j,
+                  value: b,
                   onChange: (d) => m(d.target.value),
                   onKeyPress: re,
-                  placeholder: o.placeholder,
-                  disabled: _,
+                  placeholder: s.placeholder,
+                  disabled: j,
                   rows: 1,
                   style: { resize: "none" }
                 }
@@ -1680,8 +1683,8 @@ const at = ({
                 {
                   className: "chat-embed__send-button",
                   onClick: se,
-                  disabled: _ || !j.trim() && I.length === 0,
-                  children: _ ? /* @__PURE__ */ r.jsx("div", { className: "chat-embed__loading-spinner" }) : /* @__PURE__ */ r.jsx(Ze, { size: 18, className: "chat-embed__send-icon" })
+                  disabled: j || !b.trim() && I.length === 0,
+                  children: j ? /* @__PURE__ */ r.jsx("div", { className: "chat-embed__loading-spinner" }) : /* @__PURE__ */ r.jsx(Ze, { size: 18, className: "chat-embed__send-icon" })
                 }
               )
             ] })
@@ -1693,24 +1696,24 @@ const at = ({
     "div",
     {
       ref: Z,
-      className: `chat-embed chat-embed--${o.theme} chat-embed--${o.position}${q.isMobile ? " chat-embed--mobile" : ""}`,
+      className: `chat-embed chat-embed--${s.theme} chat-embed--${s.position}${q.isMobile ? " chat-embed--mobile" : ""}`,
       style: {
-        "--chat-primary": o.colors.primary,
-        "--chat-background": o.colors.background,
-        "--chat-user-bubble": o.colors.userBubble,
-        "--chat-bot-bubble": o.colors.botBubble,
-        "--chat-text": o.colors.text,
-        "--chat-width": `${o.width}px`,
-        "--chat-height": `${o.height}px`,
-        zIndex: o.zIndex
+        "--chat-primary": s.colors.primary,
+        "--chat-background": s.colors.background,
+        "--chat-user-bubble": s.colors.userBubble,
+        "--chat-bot-bubble": s.colors.botBubble,
+        "--chat-text": s.colors.text,
+        "--chat-width": `${s.width}px`,
+        "--chat-height": `${s.height}px`,
+        zIndex: s.zIndex
       },
       children: [
         /* @__PURE__ */ r.jsxs("div", { className: "chat-embed__header", children: [
           /* @__PURE__ */ r.jsxs("div", { className: "chat-embed__header-content", children: [
-            /* @__PURE__ */ r.jsx("h3", { className: "chat-embed__title", children: o.title }),
-            o.subtitle && /* @__PURE__ */ r.jsx("p", { className: "chat-embed__subtitle", children: o.subtitle })
+            /* @__PURE__ */ r.jsx("h3", { className: "chat-embed__title", children: s.title }),
+            s.subtitle && /* @__PURE__ */ r.jsx("p", { className: "chat-embed__subtitle", children: s.subtitle })
           ] }),
-          o.position !== "inline" && /* @__PURE__ */ r.jsx(
+          s.position !== "inline" && /* @__PURE__ */ r.jsx(
             "button",
             {
               className: "chat-embed__close-button",
@@ -1721,15 +1724,15 @@ const at = ({
           )
         ] }),
         /* @__PURE__ */ r.jsxs("div", { className: "chat-embed__messages", children: [
-          x.map((d) => /* @__PURE__ */ r.jsx(
+          _.map((d) => /* @__PURE__ */ r.jsx(
             Qe,
             {
               message: d,
-              showTimestamp: o.showTimestamps
+              showTimestamp: s.showTimestamps
             },
             d.id
           )),
-          /* @__PURE__ */ r.jsx(er, { visible: b }),
+          /* @__PURE__ */ r.jsx(er, { visible: y }),
           /* @__PURE__ */ r.jsx("div", { ref: k })
         ] }),
         /* @__PURE__ */ r.jsxs("div", { className: "chat-embed__input-area", children: [
@@ -1741,15 +1744,15 @@ const at = ({
             }
           ),
           /* @__PURE__ */ r.jsxs("div", { className: "chat-embed__input-row", children: [
-            o.enableFileUpload && /* @__PURE__ */ r.jsx(
+            s.enableFileUpload && /* @__PURE__ */ r.jsx(
               rr,
               {
                 onFilesSelected: oe,
-                maxFiles: o.maxFiles,
-                maxFileSize: o.maxFileSize,
-                allowedTypes: o.allowedFileTypes,
-                enableCamera: o.enableCamera,
-                enableAudio: o.enableAudio
+                maxFiles: s.maxFiles,
+                maxFileSize: s.maxFileSize,
+                allowedTypes: s.allowedFileTypes,
+                enableCamera: s.enableCamera,
+                enableAudio: s.enableAudio
               }
             ),
             /* @__PURE__ */ r.jsx("div", { className: "chat-embed__input-container", children: /* @__PURE__ */ r.jsx(
@@ -1757,11 +1760,11 @@ const at = ({
               {
                 ref: J,
                 className: "chat-embed__input",
-                value: j,
+                value: b,
                 onChange: (d) => m(d.target.value),
                 onKeyPress: re,
-                placeholder: o.placeholder,
-                disabled: _,
+                placeholder: s.placeholder,
+                disabled: j,
                 rows: 1,
                 style: { resize: "none" }
               }
@@ -1771,8 +1774,8 @@ const at = ({
               {
                 className: "chat-embed__send-button",
                 onClick: se,
-                disabled: _ || !j.trim() && I.length === 0,
-                children: _ ? /* @__PURE__ */ r.jsx("div", { className: "chat-embed__loading-spinner" }) : /* @__PURE__ */ r.jsx(Ze, { size: 18, className: "chat-embed__send-icon" })
+                disabled: j || !b.trim() && I.length === 0,
+                children: j ? /* @__PURE__ */ r.jsx("div", { className: "chat-embed__loading-spinner" }) : /* @__PURE__ */ r.jsx(Ze, { size: 18, className: "chat-embed__send-icon" })
               }
             )
           ] })

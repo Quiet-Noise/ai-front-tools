@@ -55,6 +55,7 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
     zIndex: 1000,
     initialState: 'open' as const,
     showToggleButton: false,
+    popupMessage: 'How can I help you?',
     enableFileUpload: false,
     enableCamera: false,
     enableAudio: false,
@@ -276,6 +277,7 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
           onClick={handleToggle}
           position={mergedConfig.position as 'bottom-right' | 'bottom-left'}
           primaryColor={mergedConfig.colors.primary || '#007bff'}
+          popupMessage={mergedConfig.popupMessage}
         />
 
         {/* Main Chat Interface */}

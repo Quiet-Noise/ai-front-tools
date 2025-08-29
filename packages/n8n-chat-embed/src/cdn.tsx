@@ -60,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // New toggle functionality
         initialState: (script.getAttribute('data-initial-state') as 'open' | 'closed') || (script.getAttribute('data-show-toggle') === 'true' ? 'closed' : 'open'),
         showToggleButton: script.getAttribute('data-show-toggle') === 'true',
+        popupMessage: script.getAttribute('data-popup-message') || undefined,
         // New media upload functionality
         enableFileUpload: script.getAttribute('data-enable-file-upload') === 'true',
         enableCamera: script.getAttribute('data-enable-camera') === 'true',

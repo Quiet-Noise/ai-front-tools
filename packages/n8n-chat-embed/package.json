@@ -1,6 +1,6 @@
 {
   "name": "n8n-chat-embed-widget",
-  "version": "1.0.0-beta.25",
+  "version": "1.0.0-beta.27",
   "description": "Configurable n8n chat embed widget with media upload support",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",

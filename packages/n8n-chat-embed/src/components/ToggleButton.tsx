@@ -6,13 +6,15 @@ interface ToggleButtonProps {
   onClick: () => void
   position: 'bottom-right' | 'bottom-left'
   primaryColor: string
+  popupMessage?: string
 }
 
 export const ToggleButton: React.FC<ToggleButtonProps> = ({
   isOpen,
   onClick,
   position,
-  primaryColor
+  primaryColor,
+  popupMessage = 'How can I help you?'
 }) => {
   const [showPopup, setShowPopup] = useState(false)
 
@@ -46,7 +48,7 @@ export const ToggleButton: React.FC<ToggleButtonProps> = ({
           onClick={handlePopupClick}
         >
           <div className="chat-popup-content">
-            Hey! How can I help you?
+            {popupMessage}
           </div>
           <button 
             className="chat-popup-close"

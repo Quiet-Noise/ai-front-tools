@@ -28,6 +28,7 @@ export interface ChatConfig {
   // Toggle functionality
   initialState?: 'open' | 'closed'
   showToggleButton?: boolean
+  popupMessage?: string
   // Media upload functionality
   enableFileUpload?: boolean
   enableCamera?: boolean
