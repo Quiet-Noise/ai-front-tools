@@ -88,17 +88,14 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
 
   const generateId = () => `${Date.now()}-${Math.random()}`
 
-  const sendToN8n = async (message: string, files?: MediaFile[]) => {
+  const sendToN8n = async (message: string, media?: MediaFile) => {
     try {
-      if (files && files.length > 0) {
-        // Send with files as FormData
+      if (media) {
+        // Send with media as FormData
         const formData = new FormData()
         formData.append('sessionId', sessionId)
         formData.append('chatInput', message)
-        
-        files.forEach((file, index) => {
-          formData.append(`file_${index}`, file.file)
-        })
+        formData.append('data', media.file)
 
         const response = await fetch(config.n8nWebhookUrl, {
           method: 'POST',
@@ -144,17 +141,9 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
     if (isLoading) return
 
     const messageContent = inputValue.trim() || ''
-    const userMessage: ChatMessage = {
-      id: generateId(),
-      type: 'user',
-      content: messageContent,
-      timestamp: new Date(),
-      files: pendingFiles.length > 0 ? [...pendingFiles] : undefined
-    }
-
-    setMessages(prev => [...prev, userMessage])
-    setInputValue('')
     const filesToSend = [...pendingFiles]
+    
+    setInputValue('')
     setPendingFiles([])
     setIsLoading(true)
     
@@ -162,20 +151,63 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
       setIsTyping(true)
     }
 
-    onMessage?.(userMessage)
-
     try {
-      const response = await sendToN8n(messageContent, filesToSend.length > 0 ? filesToSend : undefined)
-      
-      const botMessage: ChatMessage = {
-        id: generateId(),
-        type: 'bot',
-        content: response,
-        timestamp: new Date()
+      // Send each media file as a separate message
+      for (let i = 0; i < filesToSend.length; i++) {
+        const file = filesToSend[i]
+        const isLastFile = i === filesToSend.length - 1
+        const caption = isLastFile && messageContent ? messageContent : ''
+        
+        // Create user message for this media
+        const userMessage: ChatMessage = {
+          id: generateId(),
+          type: 'user',
+          content: caption,
+          timestamp: new Date(),
+          files: [file]
+        }
+
+        setMessages(prev => [...prev, userMessage])
+        onMessage?.(userMessage)
+
+        // Send to n8n
+        const response = await sendToN8n(caption, file)
+        
+        const botMessage: ChatMessage = {
+          id: generateId(),
+          type: 'bot',
+          content: response,
+          timestamp: new Date()
+        }
+
+        setMessages(prev => [...prev, botMessage])
+        onMessage?.(botMessage)
       }
 
-      setMessages(prev => [...prev, botMessage])
-      onMessage?.(botMessage)
+      // If there's text but no files, send text-only message
+      if (messageContent && filesToSend.length === 0) {
+        const userMessage: ChatMessage = {
+          id: generateId(),
+          type: 'user',
+          content: messageContent,
+          timestamp: new Date()
+        }
+
+        setMessages(prev => [...prev, userMessage])
+        onMessage?.(userMessage)
+
+        const response = await sendToN8n(messageContent)
+        
+        const botMessage: ChatMessage = {
+          id: generateId(),
+          type: 'bot',
+          content: response,
+          timestamp: new Date()
+        }
+
+        setMessages(prev => [...prev, botMessage])
+        onMessage?.(botMessage)
+      }
     } catch (error) {
       const errorMessage: ChatMessage = {
         id: generateId(),

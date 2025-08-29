@@ -12,14 +12,14 @@
 }
 
 .chat-widget-container--bottom-right {
-  bottom: 20px;
+  bottom: 80px;
   right: 20px;
   width: min(95vw, 400px);
   height: min(90vh, 600px);
 }
 
 .chat-widget-container--bottom-left {
-  bottom: 20px;
+  bottom: 80px;
   left: 20px;
   width: min(95vw, 400px);
   height: min(90vh, 600px);
@@ -127,7 +127,7 @@
   /* Floating position styles for desktop - positioned above toggle button */
   .chat-embed--bottom-right {
     position: absolute;
-    bottom: 60px; /* Position above toggle button (56px + 4px gap) */
+    bottom: 80px; /* Position above toggle button (56px + 4px gap) */
     right: 0;
     border: none !important;
     outline: none !important;
@@ -194,6 +194,7 @@
 .chat-embed__title {
   margin: 0;
   font-size: 18px;
+  margin-left: 36px;
   font-weight: 600;
   line-height: 1.3;
 }
@@ -210,8 +211,8 @@
   height: 32px;
   border: none;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
+  color: rgb(229, 229, 229);
+  background: none;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -219,11 +220,7 @@
   transition: all 0.15s ease;
   flex-shrink: 0;
   margin-left: 12px;
-  /* Larger hitbox with padding */
   padding: 6px;
-  
-  /* Better mobile touch response */
-  -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
 }
 
@@ -242,14 +239,10 @@
 }
 
 .chat-embed__close-button:hover {
-  background: rgba(255, 255, 255, 0.2);
-  /* Smaller visual hover area but same hitbox */
-  background-clip: content-box;
   padding: 8px;
 }
 
 .chat-embed__close-button:active {
-  background: rgba(255, 255, 255, 0.3);
   transform: scale(0.96);
 }
 
@@ -272,6 +265,7 @@
 /* Input area */
 .chat-embed__input-area {
   padding: 4px;
+  padding-right: 12px;
   border-top: 1px solid #eaebec;
   backdrop-filter: blur(10px);
   background: var(--chat-background, #ffffff);
@@ -541,16 +535,16 @@
 
 /* Toggle Button Styles */
 .chat-toggle-container {
-  position: fixed;
+  position: absolute;
   z-index: 10;
+  bottom: 0;
+  right: 0;
 }
 
 .chat-toggle-button {
   position: relative;
   width: 56px;
   height: 56px;
-  bottom: 20px;
-  right: 20px;
   border-radius: 50%;
   border: none;
   cursor: pointer;
@@ -559,16 +553,6 @@
   justify-content: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
-}
-
-.chat-toggle-container.chat-toggle-button--bottom-right {
-  bottom: 0;
-  right: 0;
-}
-
-.chat-toggle-container.chat-toggle-button--bottom-left {
-  bottom: 0;
-  left: 0;
 }
 
 .chat-toggle-button:hover {
@@ -717,12 +701,12 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 12px;
+  padding: 16px;
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--chat-text, #666);
+  color: #646464;
   transition: background-color 0.2s ease;
   min-width: var(--chat-min-touch-target);
   min-height: var(--chat-min-touch-target);
@@ -732,10 +716,7 @@
 }
 
 .upload-button:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-  /* Smaller visual hover area but same hitbox */
-  background-clip: content-box;
-  padding: 16px;
+  color: rgba(0, 0, 0);
 }
 
 .upload-button.recording {
@@ -982,13 +963,6 @@
 
 /* Mobile adjustments for new components */
 @media (max-width: 767px) {
-  .chat-toggle-button {
-    width: 48px;
-    height: 48px;
-    bottom: 16px;
-    right: 16px;
-  }
-  
   .camera-modal {
     padding: 20px;
   }
@@ -1031,9 +1005,5 @@
     padding: 14px;
     min-width: 48px;
     min-height: 48px;
-  }
-  
-  .upload-button:hover {
-    padding: 18px;
   }
 }

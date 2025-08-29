@@ -1,0 +1,171 @@
+/* Floating Chat Button Styles - Quiet Noise Theme */
+.floating-chat-button {
+  /* Base positioning handled by the widget itself */
+}
+
+/* Custom styling to match Quiet Noise theme */
+.chat-toggle-button {
+  background-color: #0d9488 !important;
+  box-shadow: 0 4px 20px rgba(13, 148, 136, 0.3) !important;
+  transition: all 0.3s ease !important;
+}
+
+.chat-toggle-button:hover {
+  background-color: #0f766e !important;
+  transform: scale(1.05) !important;
+  box-shadow: 0 6px 25px rgba(13, 148, 136, 0.4) !important;
+}
+
+.chat-embed {
+  --chat-primary: #0d9488 !important;
+  --chat-background: #ffffff !important;
+  --chat-user-bubble: #0d9488 !important;
+  --chat-bot-bubble: #f3f4f6 !important;
+  --chat-text: #111827 !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15) !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+.chat-embed__send-button {
+  background-color: #0d9488 !important;
+  transition: background-color 0.2s ease-in-out !important;
+}
+
+.chat-embed__send-button:hover:not(:disabled) {
+  background-color: #0f766e !important;
+}
+
+.chat-embed__header {
+  background: linear-gradient(135deg, #0d9488, #20bda9) !important;
+  color: white !important;
+  border-bottom: none !important;
+}
+
+.chat-embed__title,
+.chat-embed__subtitle {
+  color: white !important;
+}
+
+.chat-embed__title {
+  font-weight: 600 !important;
+  font-size: 16px !important;
+}
+
+.chat-embed__subtitle {
+  font-weight: 400 !important;
+  opacity: 0.9 !important;
+}
+
+.chat-embed__message-input {
+  border: 1px solid #e5e7eb !important;
+  border-radius: 8px !important;
+  padding: 12px !important;
+  font-family: inherit !important;
+}
+
+.chat-embed__message-input:focus {
+  outline: 2px solid #0d9488 !important;
+  outline-offset: 2px !important;
+  border-color: #0d9488 !important;
+}
+
+.chat-embed__message--user .chat-embed__message-bubble {
+  background-color: #0d9488 !important;
+  color: white !important;
+}
+
+.chat-embed__message--bot .chat-embed__message-bubble {
+  background-color: #f3f4f6 !important;
+  color: #111827 !important;
+  border: 1px solid #e5e7eb !important;
+}
+
+.chat-embed__file-upload-button {
+  color: #0d9488 !important;
+}
+
+.chat-embed__file-upload-button:hover {
+  color: #0f766e !important;
+  background-color: rgba(13, 148, 136, 0.1) !important;
+}
+
+/* Mobile responsiveness improvements */
+@media (max-width: 768px) {
+  .chat-embed {
+    width: 100vw !important;
+    height: 100vh !important;
+    border-radius: 0 !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    z-index: 9999 !important;
+  }
+  
+  .chat-toggle-button {
+    width: 60px !important;
+    height: 60px !important;
+    right: 20px !important;
+    bottom: 20px !important;
+  }
+}
+
+/* Accessibility improvements */
+.chat-toggle-button:focus-visible,
+.chat-embed__send-button:focus-visible,
+.chat-embed__message-input:focus-visible {
+  outline: 2px solid #0d9488 !important;
+  outline-offset: 2px !important;
+}
+
+/* Animation improvements */
+.chat-embed {
+  animation: slideUp 0.3s ease-out !important;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Typing indicator styling */
+.chat-embed__typing-indicator {
+  color: #6b7280 !important;
+  font-style: italic !important;
+}
+
+/* File upload preview styling */
+.chat-embed__file-preview {
+  border: 1px solid #e5e7eb !important;
+  border-radius: 8px !important;
+  background-color: #f9fafb !important;
+}
+
+/* Scrollbar styling for chat messages */
+.chat-embed__messages::-webkit-scrollbar {
+  width: 6px !important;
+}
+
+.chat-embed__messages::-webkit-scrollbar-track {
+  background: #f1f5f9 !important;
+}
+
+.chat-embed__messages::-webkit-scrollbar-thumb {
+  background: #cbd5e1 !important;
+  border-radius: 3px !important;
+}
+
+.chat-embed__messages::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8 !important;
+}
