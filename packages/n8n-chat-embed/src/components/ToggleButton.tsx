@@ -19,7 +19,10 @@ export const ToggleButton: React.FC<ToggleButtonProps> = ({
   const [showPopup, setShowPopup] = useState(false)
 
   useEffect(() => {
-    if (!isOpen) {
+    // Check if popup has already been shown this session
+    const popupShown = sessionStorage.getItem('n8n-chat-popup-shown')
+    
+    if (!isOpen && !popupShown) {
       const timer = setTimeout(() => {
         setShowPopup(true)
       }, 5000)
@@ -37,7 +40,14 @@ export const ToggleButton: React.FC<ToggleButtonProps> = ({
 
   const handlePopupClick = () => {
     setShowPopup(false)
+    sessionStorage.setItem('n8n-chat-popup-shown', 'true')
     onClick()
+  }
+
+  const handlePopupClose = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    setShowPopup(false)
+    sessionStorage.setItem('n8n-chat-popup-shown', 'true')
   }
 
   return (
@@ -52,10 +62,7 @@ export const ToggleButton: React.FC<ToggleButtonProps> = ({
           </div>
           <button 
             className="chat-popup-close"
-            onClick={(e) => {
-              e.stopPropagation()
-              setShowPopup(false)
-            }}
+            onClick={handlePopupClose}
           >
             ×
           </button>
