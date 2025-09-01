@@ -4,7 +4,7 @@ import { DimensionsDebug } from '../../../packages/n8n-chat-embed/src/components
 import 'n8n-chat-embed-widget/styles.css'
 import './App.css'
 
-const WEBHOOK_URL = 'https://quietnoise.app.n8n.cloud/webhook/6652abaf-27d7-482b-b2dd-9679dd2cbff0/chat'
+const WEBHOOK_URL = 'https://quietnoise.app.n8n.cloud/webhook-test/ttc4f704-257e-4b10-8830-471f7c5e6605'
 
 function App() {
   const [activeDemo, setActiveDemo] = useState<string>('light')
