@@ -18,6 +18,7 @@ export interface ChatConfig {
         botBubble?: string;
         text?: string;
     };
+    fontFamily?: string;
     showTypingIndicator?: boolean;
     showTimestamps?: boolean;
     position?: 'bottom-right' | 'bottom-left' | 'inline';
@@ -60,8 +61,6 @@ export interface FileUploadProps {
     maxFiles: number;
     maxFileSize: number;
     allowedTypes: string[];
-    enableCamera: boolean;
-    enableAudio: boolean;
 }
 export interface MediaPreviewProps {
     files: MediaFile[];

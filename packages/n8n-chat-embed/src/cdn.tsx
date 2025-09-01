@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
         subtitle: script.getAttribute('data-subtitle') || undefined,
         placeholder: script.getAttribute('data-placeholder') || undefined,
         theme: (script.getAttribute('data-theme') as 'light' | 'dark' | 'auto') || 'light',
+        fontFamily: script.getAttribute('data-font-family') || undefined,
         position: (script.getAttribute('data-position') as any) || 'bottom-right',
         width: parseInt(script.getAttribute('data-width') || '350'),
         height: parseInt(script.getAttribute('data-height') || '500'),
