@@ -1081,15 +1081,19 @@
 .user-info-form {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  flex: 1;
+  min-height: 0;
   background: var(--chat-background, #ffffff);
   padding: var(--chat-padding, 16px);
   box-sizing: border-box;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .user-info-form__header {
   text-align: center;
   margin-bottom: 24px;
+  flex-shrink: 0; /* Prevent header from shrinking */
 }
 
 .user-info-form__title {
@@ -1110,6 +1114,8 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  min-height: 0;
+  padding-bottom: 20px;
 }
 
 .user-info-form__field {
@@ -1205,6 +1211,8 @@
   border: none;
   border-radius: 8px;
   font-size: 16px;
+  margin-top: auto; /* Push button to bottom */
+  flex-shrink: 0; /* Prevent button from shrinking */
   font-weight: 500;
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.2s ease;
@@ -1236,6 +1244,15 @@
 @media (max-width: 767px) {
   .user-info-form {
     padding: 20px 16px;
+    /* Ensure form is scrollable on mobile */
+    max-height: 100vh;
+    /* Handle virtual keyboard properly */
+    height: auto;
+  }
+
+  .user-info-form__header {
+    /* Reduce top spacing on mobile */
+    margin-bottom: 20px;
   }
 
   .user-info-form__title {
@@ -1246,6 +1263,12 @@
     font-size: 16px;
   }
 
+  .user-info-form__form {
+    gap: 16px;
+    /* Ensure submit button is always accessible */
+    padding-bottom: 40px;
+  }
+
   .user-info-form__input {
     font-size: 16px; /* Prevent zoom on iOS */
   }
@@ -1254,6 +1277,14 @@
     font-size: 18px;
     padding: 16px 24px;
     min-height: 56px;
+    /* Ensure button stays sticky at bottom when scrolled */
+    margin-top: auto;
+  }
+
+  /* When virtual keyboard is open, ensure form remains scrollable */
+  .chat-embed--mobile .user-info-form {
+    /* Use viewport height units that work with virtual keyboard */
+    max-height: 100dvh;
   }
 }
 
