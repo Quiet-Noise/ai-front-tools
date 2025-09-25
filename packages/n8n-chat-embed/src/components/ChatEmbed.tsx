@@ -23,13 +23,16 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
   const [pendingFiles, setPendingFiles] = useState<MediaFile[]>([])
   const [userInfo, setUserInfo] = useState<UserInfo | null>(null)
   const [showUserForm, setShowUserForm] = useState(false)
-  const [sessionId, setSessionId] = useState(() => {
-    let id = localStorage.getItem('n8n_session_id')
-    if (!id) {
-      id = Math.floor(Math.random() * 100000000).toString()
-      localStorage.setItem('n8n_session_id', id)
+  const [baseSessionId] = useState(() => {
+    let existingId = localStorage.getItem('n8n_session_id')
+    if (!existingId) {
+      return Math.floor(Math.random() * 100000000).toString()
     }
-    return id
+    // Extract just the numeric part (before the first |)
+    return existingId.split('|')[0]
+  })
+  const [sessionId, setSessionId] = useState(() => {
+    return localStorage.getItem('n8n_session_id') || baseSessionId
   })
   
   // Camera and audio state
@@ -667,19 +670,21 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
 
   // Handle user info form submission
   const handleUserInfoSubmit = useCallback((info: UserInfo) => {
-    const nameParts = info.name.trim().split(/\s+/)
-    const firstName = nameParts[0]
-    const lastName = nameParts.slice(1).join(' ')
+    const nameParts = info.name.trim().split(/\s+/).filter(part => part.length > 0)
+    const firstName = nameParts.length > 0 ? nameParts[0] : ''
+    const lastName = nameParts.length > 1 ? nameParts.slice(1).join(' ') : ''
+    const email = info.email.trim()
+    const phone = info.phone.trim()
     const today = new Date().toISOString().split('T')[0]
 
-    const newSessionId = `${sessionId}|${firstName}|${lastName}|${today}`
+    const newSessionId = `${baseSessionId}|${firstName}|${lastName}|${email}|${phone}|${today}|website`
 
     setUserInfo(info)
     setSessionId(newSessionId)
     localStorage.setItem('n8n_user_info', JSON.stringify(info))
     localStorage.setItem('n8n_session_id', newSessionId)
     setShowUserForm(false)
-  }, [sessionId])
+  }, [baseSessionId])
 
   const handleToggle = useCallback(() => {
     setIsOpen(prev => {
