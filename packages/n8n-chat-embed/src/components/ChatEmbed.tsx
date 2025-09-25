@@ -22,7 +22,7 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
   const [isOpen, setIsOpen] = useState(config.initialState !== 'closed')
   const [pendingFiles, setPendingFiles] = useState<MediaFile[]>([])
   const [userInfo, setUserInfo] = useState<UserInfo | null>(null)
-  const [showUserForm, setShowUserForm] = useState(true)
+  const [showUserForm, setShowUserForm] = useState(false)
   const [sessionId] = useState(() => {
     let id = localStorage.getItem('n8n_session_id')
     if (!id) {
@@ -74,7 +74,8 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
     enableAudio: false,
     maxFileSize: 10,
     maxFiles: 5,
-    allowedFileTypes: []
+    allowedFileTypes: [],
+    enableUserInfo: false
   }
 
   const mergedConfig = { ...defaultConfig, ...config }
@@ -89,18 +90,22 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
 
   // Check for existing user info in localStorage
   useEffect(() => {
-    const savedUserInfo = localStorage.getItem('n8n_user_info')
-    if (savedUserInfo) {
-      try {
-        const parsed = JSON.parse(savedUserInfo)
-        setUserInfo(parsed)
-        setShowUserForm(false)
-      } catch (error) {
-        console.error('Error parsing saved user info:', error)
-        localStorage.removeItem('n8n_user_info')
+    if (mergedConfig.enableUserInfo) {
+      const savedUserInfo = localStorage.getItem('n8n_user_info')
+      if (savedUserInfo) {
+        try {
+          const parsed = JSON.parse(savedUserInfo)
+          setUserInfo(parsed)
+          setShowUserForm(false)
+        } catch (error) {
+          console.error('Error parsing saved user info:', error)
+          localStorage.removeItem('n8n_user_info')
+        }
+      } else {
+        setShowUserForm(true)
       }
     }
-  }, [])
+  }, [mergedConfig.enableUserInfo])
 
   // Auto-focus input when chat opens
   useEffect(() => {
@@ -752,7 +757,7 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
         )}
       </div>
 
-      {showUserForm ? (
+      {mergedConfig.enableUserInfo && showUserForm ? (
         <UserInfoForm
           onSubmit={handleUserInfoSubmit}
           isLoading={false}
@@ -920,7 +925,7 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
         )}
       </div>
 
-      {showUserForm ? (
+      {mergedConfig.enableUserInfo && showUserForm ? (
         <UserInfoForm
           onSubmit={handleUserInfoSubmit}
           isLoading={false}

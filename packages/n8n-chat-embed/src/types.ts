@@ -37,6 +37,7 @@ export interface ChatConfig {
   maxFileSize?: number // in MB
   maxFiles?: number
   allowedFileTypes?: string[]
+  enableUserInfo?: boolean
 }
 
 export interface ChatEmbedProps {
