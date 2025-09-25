@@ -69,6 +69,9 @@ document.addEventListener('DOMContentLoaded', () => {
         maxFileSize: parseInt(script.getAttribute('data-max-file-size') || '10'),
         maxFiles: parseInt(script.getAttribute('data-max-files') || '5'),
         allowedFileTypes: script.getAttribute('data-allowed-file-types')?.split(',').map(t => t.trim()) || [],
+        // User info functionality
+        enableUserInfo: script.getAttribute('data-enable-user-info') === 'true',
+        userInfoRequiredFields: script.getAttribute('data-user-info-required-fields')?.split(',').map(f => f.trim()).filter(f => ['name', 'email', 'phone'].includes(f)) as ('name' | 'email' | 'phone')[] || [],
         // Message suggestions functionality
         enableMessageSuggestions: script.getAttribute('data-enable-message-suggestions') === 'true',
         initialSuggestions: script.getAttribute('data-initial-suggestions')?.split(',').map(s => s.trim()).filter(s => s.length > 0) || [],
