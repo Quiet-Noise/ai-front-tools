@@ -1148,6 +1148,39 @@
   box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.15);
 }
 
+/* Phone Input Styles */
+.user-info-form__phone-input .PhoneInputInput {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--chat-border, #e1e5e9);
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  background: var(--chat-input-bg, #ffffff);
+  color: var(--chat-text, #2d3748);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  outline: none;
+}
+
+.user-info-form__phone-input .PhoneInputInput:focus {
+  border-color: var(--chat-primary, #007bff);
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.15);
+}
+
+.user-info-form__phone-input--error .PhoneInputInput {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.15);
+}
+
+.user-info-form__phone-input .PhoneInputCountrySelect {
+  border: none;
+  background: transparent;
+  outline: none;
+  margin-right: 8px;
+  font-size: 14px;
+  color: var(--chat-text, #2d3748);
+}
+
 .user-info-form__input:disabled {
   background-color: #f8f9fa;
   color: #6c757d;

@@ -771,7 +771,7 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
         <UserInfoForm
           onSubmit={handleUserInfoSubmit}
           isLoading={false}
-          requiredFields={mergedConfig.userInfoRequiredFields || ['email', 'phone']}
+          requiredFields={(mergedConfig.userInfoRequiredFields as ('email' | 'phone')[]) || (['email', 'phone'] as const)}
         />
       ) : (
         <>
@@ -940,7 +940,7 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
         <UserInfoForm
           onSubmit={handleUserInfoSubmit}
           isLoading={false}
-          requiredFields={mergedConfig.userInfoRequiredFields || ['email', 'phone']}
+          requiredFields={(mergedConfig.userInfoRequiredFields as ('email' | 'phone')[]) || (['email', 'phone'] as const)}
         />
       ) : (
         <>

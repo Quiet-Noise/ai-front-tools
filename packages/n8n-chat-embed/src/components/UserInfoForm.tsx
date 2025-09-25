@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { Send } from 'lucide-react'
+import PhoneInput, { isValidPhoneNumber } from 'react-phone-number-input'
+import 'react-phone-number-input/style.css'
 import { UserInfoFormProps, UserInfo } from '../types'
 
 export const UserInfoForm: React.FC<UserInfoFormProps> = ({ onSubmit, isLoading = false, requiredFields = ['email', 'phone'] }) => {
@@ -34,7 +36,7 @@ export const UserInfoForm: React.FC<UserInfoFormProps> = ({ onSubmit, isLoading 
     if (requiredFields.includes('phone')) {
       if (!formData.phone.trim()) {
         newErrors.phone = 'Phone number is required'
-      } else if (!/^[\+]?[1-9][\d]{0,15}$/.test(formData.phone.replace(/\s|-|\(|\)/g, ''))) {
+      } else if (formData.phone && !isValidPhoneNumber(formData.phone)) {
         newErrors.phone = 'Please enter a valid phone number'
       }
     }
@@ -57,6 +59,17 @@ export const UserInfoForm: React.FC<UserInfoFormProps> = ({ onSubmit, isLoading 
     // Clear error when user starts typing
     if (errors[field]) {
       setErrors(prev => ({ ...prev, [field]: undefined }))
+    }
+  }
+
+  const handlePhoneChange = (value: string | undefined) => {
+    // Clean the value to preserve spaces and prevent unwanted country switching
+    const cleanValue = value || ''
+    setFormData(prev => ({ ...prev, phone: cleanValue }))
+
+    // Clear error when user starts typing
+    if (errors.phone) {
+      setErrors(prev => ({ ...prev, phone: undefined }))
     }
   }
 
@@ -104,14 +117,16 @@ export const UserInfoForm: React.FC<UserInfoFormProps> = ({ onSubmit, isLoading 
           <label htmlFor="phone" className="user-info-form__label">
             Phone Number {requiredFields.includes('phone') ? '*' : ''}
           </label>
-          <input
-            type="tel"
-            id="phone"
-            className={`user-info-form__input ${errors.phone ? 'user-info-form__input--error' : ''}`}
+          <PhoneInput
+            international
+            countryCallingCodeEditable={true}
+            defaultCountry="US"
             value={formData.phone}
-            onChange={handleInputChange('phone')}
+            onChange={handlePhoneChange}
+            className={`user-info-form__phone-input ${errors.phone ? 'user-info-form__phone-input--error' : ''}`}
             placeholder="Enter your phone number"
             disabled={isLoading}
+            limitMaxLength={false}
           />
           {errors.phone && <span className="user-info-form__error">{errors.phone}</span>}
         </div>
