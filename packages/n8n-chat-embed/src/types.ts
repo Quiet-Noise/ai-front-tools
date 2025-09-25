@@ -75,3 +75,14 @@ export interface MediaPreviewProps {
   files: MediaFile[]
   onRemoveFile: (id: string) => void
 }
+
+export interface UserInfo {
+  name: string
+  email: string
+  phone: string
+}
+
+export interface UserInfoFormProps {
+  onSubmit: (userInfo: UserInfo) => void
+  isLoading?: boolean
+}

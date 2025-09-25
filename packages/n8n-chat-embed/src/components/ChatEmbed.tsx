@@ -1,11 +1,12 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react'
 import { X, Send, Camera, Mic, Trash2 } from 'lucide-react'
-import { ChatEmbedProps, ChatMessage, MediaFile } from '../types'
+import { ChatEmbedProps, ChatMessage, MediaFile, UserInfo } from '../types'
 import { MessageBubble } from './MessageBubble'
 import { TypingIndicator } from './TypingIndicator'
 import { FileUpload } from './FileUpload'
 import { MediaPreview } from './MediaPreview'
 import { ToggleButton } from './ToggleButton'
+import { UserInfoForm } from './UserInfoForm'
 import { useDeviceDetection } from '../hooks'
 
 export const ChatEmbed: React.FC<ChatEmbedProps> = ({
@@ -20,6 +21,8 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
   const [isLoading, setIsLoading] = useState(false)
   const [isOpen, setIsOpen] = useState(config.initialState !== 'closed')
   const [pendingFiles, setPendingFiles] = useState<MediaFile[]>([])
+  const [userInfo, setUserInfo] = useState<UserInfo | null>(null)
+  const [showUserForm, setShowUserForm] = useState(true)
   const [sessionId] = useState(() => {
     let id = localStorage.getItem('n8n_session_id')
     if (!id) {
@@ -84,6 +87,21 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
     scrollToBottom()
   }, [messages])
 
+  // Check for existing user info in localStorage
+  useEffect(() => {
+    const savedUserInfo = localStorage.getItem('n8n_user_info')
+    if (savedUserInfo) {
+      try {
+        const parsed = JSON.parse(savedUserInfo)
+        setUserInfo(parsed)
+        setShowUserForm(false)
+      } catch (error) {
+        console.error('Error parsing saved user info:', error)
+        localStorage.removeItem('n8n_user_info')
+      }
+    }
+  }, [])
+
   // Auto-focus input when chat opens
   useEffect(() => {
     if (isOpen) {
@@ -92,7 +110,7 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
           inputRef.current.focus()
         }
       }, 100)
-      
+
       return () => clearTimeout(timer)
     }
   }, [isOpen])
@@ -107,6 +125,13 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
         formData.append('sessionId', sessionId)
         formData.append('chatInput', message)
         formData.append('data', media.file)
+
+        // Add user info if available
+        if (userInfo) {
+          formData.append('userName', userInfo.name)
+          formData.append('userEmail', userInfo.email)
+          formData.append('userPhone', userInfo.phone)
+        }
 
         const response = await fetch(config.n8nWebhookUrl, {
           method: 'POST',
@@ -123,7 +148,13 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
         // Send as JSON (original behavior)
         const payload = {
           sessionId: sessionId,
-          chatInput: message
+          chatInput: message,
+          // Include user info in JSON payload
+          ...(userInfo && {
+            userName: userInfo.name,
+            userEmail: userInfo.email,
+            userPhone: userInfo.phone
+          })
         }
 
         const response = await fetch(config.n8nWebhookUrl, {
@@ -628,6 +659,13 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
     }
   }
 
+  // Handle user info form submission
+  const handleUserInfoSubmit = useCallback((info: UserInfo) => {
+    setUserInfo(info)
+    localStorage.setItem('n8n_user_info', JSON.stringify(info))
+    setShowUserForm(false)
+  }, [])
+
   const handleToggle = useCallback(() => {
     setIsOpen(prev => {
       const newState = !prev
@@ -714,7 +752,14 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
         )}
       </div>
 
-      <div className="chat-embed__messages">
+      {showUserForm ? (
+        <UserInfoForm
+          onSubmit={handleUserInfoSubmit}
+          isLoading={false}
+        />
+      ) : (
+        <>
+          <div className="chat-embed__messages">
         {messages.map((message) => (
           <MessageBubble
             key={message.id}
@@ -826,7 +871,9 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
             </>
           )}
         </div>
-        </div>
+          </div>
+        </>
+      )}
         </div>
         )}
         </div>
@@ -873,7 +920,14 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
         )}
       </div>
 
-      <div className="chat-embed__messages">
+      {showUserForm ? (
+        <UserInfoForm
+          onSubmit={handleUserInfoSubmit}
+          isLoading={false}
+        />
+      ) : (
+        <>
+          <div className="chat-embed__messages">
         {messages.map((message) => (
           <MessageBubble
             key={message.id}
@@ -985,7 +1039,9 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
             </>
           )}
         </div>
-        </div>
+          </div>
+        </>
+      )}
       </div>
     </>
   )
