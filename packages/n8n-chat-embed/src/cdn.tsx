@@ -68,7 +68,12 @@ document.addEventListener('DOMContentLoaded', () => {
         enableAudio: script.getAttribute('data-enable-audio') === 'true',
         maxFileSize: parseInt(script.getAttribute('data-max-file-size') || '10'),
         maxFiles: parseInt(script.getAttribute('data-max-files') || '5'),
-        allowedFileTypes: script.getAttribute('data-allowed-file-types')?.split(',').map(t => t.trim()) || []
+        allowedFileTypes: script.getAttribute('data-allowed-file-types')?.split(',').map(t => t.trim()) || [],
+        // Message suggestions functionality
+        enableMessageSuggestions: script.getAttribute('data-enable-message-suggestions') === 'true',
+        initialSuggestions: script.getAttribute('data-initial-suggestions')?.split(',').map(s => s.trim()).filter(s => s.length > 0) || [],
+        maxSuggestions: parseInt(script.getAttribute('data-max-suggestions') || '10'),
+        autoHideSuggestions: script.getAttribute('data-auto-hide-suggestions') !== 'false'
       }
 
       if (containerId) {

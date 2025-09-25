@@ -40,6 +40,11 @@ export interface ChatConfig {
   allowedFileTypes?: string[]
   enableUserInfo?: boolean
   userInfoRequiredFields?: ('name' | 'email' | 'phone')[]
+  // Message suggestions
+  enableMessageSuggestions?: boolean
+  initialSuggestions?: string[]
+  maxSuggestions?: number
+  autoHideSuggestions?: boolean
 }
 
 export interface ChatEmbedProps {
@@ -89,4 +94,17 @@ export interface UserInfoFormProps {
   onSubmit: (userInfo: UserInfo) => void
   isLoading?: boolean
   requiredFields?: ('name' | 'email' | 'phone')[]
+}
+
+export interface MessageSuggestion {
+  id: string
+  text: string
+  type: 'starter' | 'followup'
+}
+
+export interface MessageSuggestionsProps {
+  suggestions: MessageSuggestion[]
+  visible: boolean
+  onSuggestionClick: (text: string) => void
+  maxVisible?: number
 }

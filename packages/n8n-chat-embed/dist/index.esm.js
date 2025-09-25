@@ -1,305 +1,662 @@
-import I, { forwardRef as Hr, createElement as jt, useRef as Pe, useState as te, useEffect as Le, useCallback as ue, useMemo as Vr } from "react";
-function Kr(e) {
+import A, { forwardRef as ba, createElement as cn, useRef as Ke, useState as de, useEffect as Je, useCallback as be, useMemo as Ca } from "react";
+function Pa(e) {
   return e && e.__esModule && Object.prototype.hasOwnProperty.call(e, "default") ? e.default : e;
 }
-var Rt = { exports: {} }, Me = {};
+var fn = { exports: {} }, ft = {};
 /**
  * @license React
- * react-jsx-runtime.production.js
+ * react-jsx-runtime.production.min.js
  *
- * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * Copyright (c) Facebook, Inc. and its affiliates.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-var mn;
-function za() {
-  if (mn)
-    return Me;
-  mn = 1;
-  var e = Symbol.for("react.transitional.element"), t = Symbol.for("react.fragment");
-  function n(r, a, i) {
-    var o = null;
-    if (i !== void 0 && (o = "" + i), a.key !== void 0 && (o = "" + a.key), "key" in a) {
-      i = {};
-      for (var d in a)
-        d !== "key" && (i[d] = a[d]);
-    } else
-      i = a;
-    return a = i.ref, {
-      $$typeof: e,
-      type: r,
-      key: o,
-      ref: a !== void 0 ? a : null,
-      props: i
-    };
+var Vn;
+function xi() {
+  if (Vn)
+    return ft;
+  Vn = 1;
+  var e = A, t = Symbol.for("react.element"), n = Symbol.for("react.fragment"), r = Object.prototype.hasOwnProperty, a = e.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner, i = { key: !0, ref: !0, __self: !0, __source: !0 };
+  function o(d, s, l) {
+    var f, $ = {}, h = null, m = null;
+    l !== void 0 && (h = "" + l), s.key !== void 0 && (h = "" + s.key), s.ref !== void 0 && (m = s.ref);
+    for (f in s)
+      r.call(s, f) && !i.hasOwnProperty(f) && ($[f] = s[f]);
+    if (d && d.defaultProps)
+      for (f in s = d.defaultProps, s)
+        $[f] === void 0 && ($[f] = s[f]);
+    return { $$typeof: t, type: d, key: h, ref: m, props: $, _owner: a.current };
   }
-  return Me.Fragment = t, Me.jsx = n, Me.jsxs = n, Me;
+  return ft.Fragment = n, ft.jsx = o, ft.jsxs = o, ft;
 }
-var ke = {};
+var $t = {};
 /**
  * @license React
  * react-jsx-runtime.development.js
  *
- * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * Copyright (c) Facebook, Inc. and its affiliates.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-var pn;
-function Ya() {
-  return pn || (pn = 1, process.env.NODE_ENV !== "production" && function() {
-    function e(s) {
-      if (s == null)
+var Kn;
+function Ei() {
+  return Kn || (Kn = 1, process.env.NODE_ENV !== "production" && function() {
+    var e = A, t = Symbol.for("react.element"), n = Symbol.for("react.portal"), r = Symbol.for("react.fragment"), a = Symbol.for("react.strict_mode"), i = Symbol.for("react.profiler"), o = Symbol.for("react.provider"), d = Symbol.for("react.context"), s = Symbol.for("react.forward_ref"), l = Symbol.for("react.suspense"), f = Symbol.for("react.suspense_list"), $ = Symbol.for("react.memo"), h = Symbol.for("react.lazy"), m = Symbol.for("react.offscreen"), P = Symbol.iterator, E = "@@iterator";
+    function y(u) {
+      if (u === null || typeof u != "object")
         return null;
-      if (typeof s == "function")
-        return s.$$typeof === Z ? null : s.displayName || s.name || null;
-      if (typeof s == "string")
-        return s;
-      switch (s) {
-        case S:
-          return "Fragment";
-        case O:
-          return "Profiler";
-        case h:
-          return "StrictMode";
-        case v:
-          return "Suspense";
-        case B:
-          return "SuspenseList";
-        case z:
-          return "Activity";
+      var g = P && u[P] || u[E];
+      return typeof g == "function" ? g : null;
+    }
+    var x = e.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+    function T(u) {
+      {
+        for (var g = arguments.length, O = new Array(g > 1 ? g - 1 : 0), F = 1; F < g; F++)
+          O[F - 1] = arguments[F];
+        j("error", u, O);
       }
-      if (typeof s == "object")
-        switch (typeof s.tag == "number" && console.error(
-          "Received an unexpected object in getComponentNameFromType(). This is likely a bug in React. Please file an issue."
-        ), s.$$typeof) {
-          case C:
-            return "Portal";
-          case A:
-            return (s.displayName || "Context") + ".Provider";
-          case L:
-            return (s._context.displayName || "Context") + ".Consumer";
-          case M:
-            var p = s.render;
-            return s = s.displayName, s || (s = p.displayName || p.name || "", s = s !== "" ? "ForwardRef(" + s + ")" : "ForwardRef"), s;
-          case q:
-            return p = s.displayName || null, p !== null ? p : e(s.type) || "Memo";
-          case K:
-            p = s._payload, s = s._init;
+    }
+    function j(u, g, O) {
+      {
+        var F = x.ReactDebugCurrentFrame, q = F.getStackAddendum();
+        q !== "" && (g += "%s", O = O.concat([q]));
+        var Q = O.map(function(Y) {
+          return String(Y);
+        });
+        Q.unshift("Warning: " + g), Function.prototype.apply.call(console[u], console, Q);
+      }
+    }
+    var L = !1, v = !1, V = !1, ee = !1, te = !1, ne;
+    ne = Symbol.for("react.module.reference");
+    function $e(u) {
+      return !!(typeof u == "string" || typeof u == "function" || u === r || u === i || te || u === a || u === l || u === f || ee || u === m || L || v || V || typeof u == "object" && u !== null && (u.$$typeof === h || u.$$typeof === $ || u.$$typeof === o || u.$$typeof === d || u.$$typeof === s || // This needs to include all possible module reference object
+      // types supported by any Flight configuration anywhere since
+      // we don't know which Flight build this will end up being used
+      // with.
+      u.$$typeof === ne || u.getModuleId !== void 0));
+    }
+    function ge(u, g, O) {
+      var F = u.displayName;
+      if (F)
+        return F;
+      var q = g.displayName || g.name || "";
+      return q !== "" ? O + "(" + q + ")" : O;
+    }
+    function Ie(u) {
+      return u.displayName || "Context";
+    }
+    function re(u) {
+      if (u == null)
+        return null;
+      if (typeof u.tag == "number" && T("Received an unexpected object in getComponentNameFromType(). This is likely a bug in React. Please file an issue."), typeof u == "function")
+        return u.displayName || u.name || null;
+      if (typeof u == "string")
+        return u;
+      switch (u) {
+        case r:
+          return "Fragment";
+        case n:
+          return "Portal";
+        case i:
+          return "Profiler";
+        case a:
+          return "StrictMode";
+        case l:
+          return "Suspense";
+        case f:
+          return "SuspenseList";
+      }
+      if (typeof u == "object")
+        switch (u.$$typeof) {
+          case d:
+            var g = u;
+            return Ie(g) + ".Consumer";
+          case o:
+            var O = u;
+            return Ie(O._context) + ".Provider";
+          case s:
+            return ge(u, u.render, "ForwardRef");
+          case $:
+            var F = u.displayName || null;
+            return F !== null ? F : re(u.type) || "Memo";
+          case h: {
+            var q = u, Q = q._payload, Y = q._init;
             try {
-              return e(s(p));
+              return re(Y(Q));
             } catch {
+              return null;
             }
+          }
         }
       return null;
     }
-    function t(s) {
-      return "" + s;
+    var ae = Object.assign, ie = 0, ce, fe, pe, Ce, b, w, U;
+    function k() {
     }
-    function n(s) {
+    k.__reactDisabledLog = !0;
+    function M() {
+      {
+        if (ie === 0) {
+          ce = console.log, fe = console.info, pe = console.warn, Ce = console.error, b = console.group, w = console.groupCollapsed, U = console.groupEnd;
+          var u = {
+            configurable: !0,
+            enumerable: !0,
+            value: k,
+            writable: !0
+          };
+          Object.defineProperties(console, {
+            info: u,
+            log: u,
+            warn: u,
+            error: u,
+            group: u,
+            groupCollapsed: u,
+            groupEnd: u
+          });
+        }
+        ie++;
+      }
+    }
+    function G() {
+      {
+        if (ie--, ie === 0) {
+          var u = {
+            configurable: !0,
+            enumerable: !0,
+            writable: !0
+          };
+          Object.defineProperties(console, {
+            log: ae({}, u, {
+              value: ce
+            }),
+            info: ae({}, u, {
+              value: fe
+            }),
+            warn: ae({}, u, {
+              value: pe
+            }),
+            error: ae({}, u, {
+              value: Ce
+            }),
+            group: ae({}, u, {
+              value: b
+            }),
+            groupCollapsed: ae({}, u, {
+              value: w
+            }),
+            groupEnd: ae({}, u, {
+              value: U
+            })
+          });
+        }
+        ie < 0 && T("disabledDepth fell below zero. This is a bug in React. Please file an issue.");
+      }
+    }
+    var D = x.ReactCurrentDispatcher, W;
+    function p(u, g, O) {
+      {
+        if (W === void 0)
+          try {
+            throw Error();
+          } catch (q) {
+            var F = q.stack.trim().match(/\n( *(at )?)/);
+            W = F && F[1] || "";
+          }
+        return `
+` + W + u;
+      }
+    }
+    var H = !1, R;
+    {
+      var ue = typeof WeakMap == "function" ? WeakMap : Map;
+      R = new ue();
+    }
+    function S(u, g) {
+      if (!u || H)
+        return "";
+      {
+        var O = R.get(u);
+        if (O !== void 0)
+          return O;
+      }
+      var F;
+      H = !0;
+      var q = Error.prepareStackTrace;
+      Error.prepareStackTrace = void 0;
+      var Q;
+      Q = D.current, D.current = null, M();
       try {
-        t(s);
-        var p = !1;
-      } catch {
-        p = !0;
+        if (g) {
+          var Y = function() {
+            throw Error();
+          };
+          if (Object.defineProperty(Y.prototype, "props", {
+            set: function() {
+              throw Error();
+            }
+          }), typeof Reflect == "object" && Reflect.construct) {
+            try {
+              Reflect.construct(Y, []);
+            } catch (ve) {
+              F = ve;
+            }
+            Reflect.construct(u, [], Y);
+          } else {
+            try {
+              Y.call();
+            } catch (ve) {
+              F = ve;
+            }
+            u.call(Y.prototype);
+          }
+        } else {
+          try {
+            throw Error();
+          } catch (ve) {
+            F = ve;
+          }
+          u();
+        }
+      } catch (ve) {
+        if (ve && F && typeof ve.stack == "string") {
+          for (var K = ve.stack.split(`
+`), ye = F.stack.split(`
+`), oe = K.length - 1, se = ye.length - 1; oe >= 1 && se >= 0 && K[oe] !== ye[se]; )
+            se--;
+          for (; oe >= 1 && se >= 0; oe--, se--)
+            if (K[oe] !== ye[se]) {
+              if (oe !== 1 || se !== 1)
+                do
+                  if (oe--, se--, se < 0 || K[oe] !== ye[se]) {
+                    var Oe = `
+` + K[oe].replace(" at new ", " at ");
+                    return u.displayName && Oe.includes("<anonymous>") && (Oe = Oe.replace("<anonymous>", u.displayName)), typeof u == "function" && R.set(u, Oe), Oe;
+                  }
+                while (oe >= 1 && se >= 0);
+              break;
+            }
+        }
+      } finally {
+        H = !1, D.current = Q, G(), Error.prepareStackTrace = q;
       }
-      if (p) {
-        p = console;
-        var w = p.error, x = typeof Symbol == "function" && Symbol.toStringTag && s[Symbol.toStringTag] || s.constructor.name || "Object";
-        return w.call(
-          p,
-          "The provided key is an unsupported type %s. This value must be coerced to a string before using it here.",
-          x
-        ), t(s);
+      var qe = u ? u.displayName || u.name : "", Ve = qe ? p(qe) : "";
+      return typeof u == "function" && R.set(u, Ve), Ve;
+    }
+    function me(u, g, O) {
+      return S(u, !1);
+    }
+    function Te(u) {
+      var g = u.prototype;
+      return !!(g && g.isReactComponent);
+    }
+    function Ae(u, g, O) {
+      if (u == null)
+        return "";
+      if (typeof u == "function")
+        return S(u, Te(u));
+      if (typeof u == "string")
+        return p(u);
+      switch (u) {
+        case l:
+          return p("Suspense");
+        case f:
+          return p("SuspenseList");
+      }
+      if (typeof u == "object")
+        switch (u.$$typeof) {
+          case s:
+            return me(u.render);
+          case $:
+            return Ae(u.type, g, O);
+          case h: {
+            var F = u, q = F._payload, Q = F._init;
+            try {
+              return Ae(Q(q), g, O);
+            } catch {
+            }
+          }
+        }
+      return "";
+    }
+    var Ge = Object.prototype.hasOwnProperty, ot = {}, dt = x.ReactDebugCurrentFrame;
+    function We(u) {
+      if (u) {
+        var g = u._owner, O = Ae(u.type, u._source, g ? g.type : null);
+        dt.setExtraStackFrame(O);
+      } else
+        dt.setExtraStackFrame(null);
+    }
+    function Tt(u, g, O, F, q) {
+      {
+        var Q = Function.call.bind(Ge);
+        for (var Y in u)
+          if (Q(u, Y)) {
+            var K = void 0;
+            try {
+              if (typeof u[Y] != "function") {
+                var ye = Error((F || "React class") + ": " + O + " type `" + Y + "` is invalid; it must be a function, usually from the `prop-types` package, but received `" + typeof u[Y] + "`.This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.");
+                throw ye.name = "Invariant Violation", ye;
+              }
+              K = u[Y](g, Y, F, O, null, "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED");
+            } catch (oe) {
+              K = oe;
+            }
+            K && !(K instanceof Error) && (We(q), T("%s: type specification of %s `%s` is invalid; the type checker function must return `null` or an `Error` but returned a %s. You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument).", F || "React class", O, Y, typeof K), We(null)), K instanceof Error && !(K.message in ot) && (ot[K.message] = !0, We(q), T("Failed %s type: %s", O, K.message), We(null));
+          }
       }
     }
-    function r(s) {
-      if (s === S)
-        return "<>";
-      if (typeof s == "object" && s !== null && s.$$typeof === K)
-        return "<...>";
+    var At = Array.isArray;
+    function Ye(u) {
+      return At(u);
+    }
+    function Rt(u) {
+      {
+        var g = typeof Symbol == "function" && Symbol.toStringTag, O = g && u[Symbol.toStringTag] || u.constructor.name || "Object";
+        return O;
+      }
+    }
+    function ut(u) {
       try {
-        var p = e(s);
-        return p ? "<" + p + ">" : "<...>";
+        return st(u), !1;
       } catch {
-        return "<...>";
+        return !0;
       }
     }
-    function a() {
-      var s = V.A;
-      return s === null ? null : s.getOwner();
+    function st(u) {
+      return "" + u;
     }
-    function i() {
-      return Error("react-stack-top-frame");
+    function jt(u) {
+      if (ut(u))
+        return T("The provided key is an unsupported type %s. This value must be coerced to a string before before using it here.", Rt(u)), st(u);
     }
-    function o(s) {
-      if (se.call(s, "key")) {
-        var p = Object.getOwnPropertyDescriptor(s, "key").get;
-        if (p && p.isReactWarning)
+    var De = x.ReactCurrentOwner, N = {
+      key: !0,
+      ref: !0,
+      __self: !0,
+      __source: !0
+    }, I, _, B;
+    B = {};
+    function J(u) {
+      if (Ge.call(u, "ref")) {
+        var g = Object.getOwnPropertyDescriptor(u, "ref").get;
+        if (g && g.isReactWarning)
           return !1;
       }
-      return s.key !== void 0;
+      return u.ref !== void 0;
     }
-    function d(s, p) {
-      function w() {
-        ie || (ie = !0, console.error(
-          "%s: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://react.dev/link/special-props)",
-          p
-        ));
+    function z(u) {
+      if (Ge.call(u, "key")) {
+        var g = Object.getOwnPropertyDescriptor(u, "key").get;
+        if (g && g.isReactWarning)
+          return !1;
       }
-      w.isReactWarning = !0, Object.defineProperty(s, "key", {
-        get: w,
-        configurable: !0
-      });
+      return u.key !== void 0;
     }
-    function u() {
-      var s = e(this.type);
-      return Q[s] || (Q[s] = !0, console.error(
-        "Accessing element.ref was removed in React 19. ref is now a regular prop. It will be removed from the JSX Element type in a future release."
-      )), s = this.props.ref, s !== void 0 ? s : null;
+    function Pe(u, g) {
+      if (typeof u.ref == "string" && De.current && g && De.current.stateNode !== g) {
+        var O = re(De.current.type);
+        B[O] || (T('Component "%s" contains the string ref "%s". Support for string refs will be removed in a future major release. This case cannot be automatically converted to an arrow function. We ask you to manually fix this case by using useRef() or createRef() instead. Learn more about using refs safely here: https://reactjs.org/link/strict-mode-string-ref', re(De.current.type), u.ref), B[O] = !0);
+      }
     }
-    function c(s, p, w, x, m, R, _, F) {
-      return w = R.ref, s = {
-        $$typeof: y,
-        type: s,
-        key: p,
-        props: R,
-        _owner: m
-      }, (w !== void 0 ? w : null) !== null ? Object.defineProperty(s, "ref", {
-        enumerable: !1,
-        get: u
-      }) : Object.defineProperty(s, "ref", { enumerable: !1, value: null }), s._store = {}, Object.defineProperty(s._store, "validated", {
-        configurable: !1,
-        enumerable: !1,
-        writable: !0,
-        value: 0
-      }), Object.defineProperty(s, "_debugInfo", {
-        configurable: !1,
-        enumerable: !1,
-        writable: !0,
-        value: null
-      }), Object.defineProperty(s, "_debugStack", {
-        configurable: !1,
-        enumerable: !1,
-        writable: !0,
-        value: _
-      }), Object.defineProperty(s, "_debugTask", {
-        configurable: !1,
-        enumerable: !1,
-        writable: !0,
-        value: F
-      }), Object.freeze && (Object.freeze(s.props), Object.freeze(s)), s;
-    }
-    function f(s, p, w, x, m, R, _, F) {
-      var E = p.children;
-      if (E !== void 0)
-        if (x)
-          if (le(E)) {
-            for (x = 0; x < E.length; x++)
-              $(E[x]);
-            Object.freeze && Object.freeze(E);
-          } else
-            console.error(
-              "React.jsx: Static children should always be an array. You are likely explicitly calling React.jsxs or React.jsxDEV. Use the Babel transform instead."
-            );
-        else
-          $(E);
-      if (se.call(p, "key")) {
-        E = e(s);
-        var D = Object.keys(p).filter(function(ee) {
-          return ee !== "key";
+    function Re(u, g) {
+      {
+        var O = function() {
+          I || (I = !0, T("%s: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)", g));
+        };
+        O.isReactWarning = !0, Object.defineProperty(u, "key", {
+          get: O,
+          configurable: !0
         });
-        x = 0 < D.length ? "{key: someKey, " + D.join(": ..., ") + ": ...}" : "{key: someKey}", oe[E + x] || (D = 0 < D.length ? "{" + D.join(": ..., ") + ": ...}" : "{}", console.error(
-          `A props object containing a "key" prop is being spread into JSX:
+      }
+    }
+    function ke(u, g) {
+      {
+        var O = function() {
+          _ || (_ = !0, T("%s: `ref` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)", g));
+        };
+        O.isReactWarning = !0, Object.defineProperty(u, "ref", {
+          get: O,
+          configurable: !0
+        });
+      }
+    }
+    var Ne = function(u, g, O, F, q, Q, Y) {
+      var K = {
+        // This tag allows us to uniquely identify this as a React Element
+        $$typeof: t,
+        // Built-in properties that belong on the element
+        type: u,
+        key: g,
+        ref: O,
+        props: Y,
+        // Record the component responsible for creating this element.
+        _owner: Q
+      };
+      return K._store = {}, Object.defineProperty(K._store, "validated", {
+        configurable: !1,
+        enumerable: !1,
+        writable: !0,
+        value: !1
+      }), Object.defineProperty(K, "_self", {
+        configurable: !1,
+        enumerable: !1,
+        writable: !1,
+        value: F
+      }), Object.defineProperty(K, "_source", {
+        configurable: !1,
+        enumerable: !1,
+        writable: !1,
+        value: q
+      }), Object.freeze && (Object.freeze(K.props), Object.freeze(K)), K;
+    };
+    function Jt(u, g, O, F, q) {
+      {
+        var Q, Y = {}, K = null, ye = null;
+        O !== void 0 && (jt(O), K = "" + O), z(g) && (jt(g.key), K = "" + g.key), J(g) && (ye = g.ref, Pe(g, q));
+        for (Q in g)
+          Ge.call(g, Q) && !N.hasOwnProperty(Q) && (Y[Q] = g[Q]);
+        if (u && u.defaultProps) {
+          var oe = u.defaultProps;
+          for (Q in oe)
+            Y[Q] === void 0 && (Y[Q] = oe[Q]);
+        }
+        if (K || ye) {
+          var se = typeof u == "function" ? u.displayName || u.name || "Unknown" : u;
+          K && Re(Y, se), ye && ke(Y, se);
+        }
+        return Ne(u, K, ye, q, F, De.current, Y);
+      }
+    }
+    var Le = x.ReactCurrentOwner, ze = x.ReactDebugCurrentFrame;
+    function Se(u) {
+      if (u) {
+        var g = u._owner, O = Ae(u.type, u._source, g ? g.type : null);
+        ze.setExtraStackFrame(O);
+      } else
+        ze.setExtraStackFrame(null);
+    }
+    var lt;
+    lt = !1;
+    function Be(u) {
+      return typeof u == "object" && u !== null && u.$$typeof === t;
+    }
+    function Ft() {
+      {
+        if (Le.current) {
+          var u = re(Le.current.type);
+          if (u)
+            return `
+
+Check the render method of \`` + u + "`.";
+        }
+        return "";
+      }
+    }
+    function ct(u) {
+      {
+        if (u !== void 0) {
+          var g = u.fileName.replace(/^.*[\\\/]/, ""), O = u.lineNumber;
+          return `
+
+Check your code at ` + g + ":" + O + ".";
+        }
+        return "";
+      }
+    }
+    var Ln = {};
+    function gi(u) {
+      {
+        var g = Ft();
+        if (!g) {
+          var O = typeof u == "string" ? u : u.displayName || u.name;
+          O && (g = `
+
+Check the top-level render call using <` + O + ">.");
+        }
+        return g;
+      }
+    }
+    function Bn(u, g) {
+      {
+        if (!u._store || u._store.validated || u.key != null)
+          return;
+        u._store.validated = !0;
+        var O = gi(g);
+        if (Ln[O])
+          return;
+        Ln[O] = !0;
+        var F = "";
+        u && u._owner && u._owner !== Le.current && (F = " It was passed a child from " + re(u._owner.type) + "."), Se(u), T('Each child in a list should have a unique "key" prop.%s%s See https://reactjs.org/link/warning-keys for more information.', O, F), Se(null);
+      }
+    }
+    function Un(u, g) {
+      {
+        if (typeof u != "object")
+          return;
+        if (Ye(u))
+          for (var O = 0; O < u.length; O++) {
+            var F = u[O];
+            Be(F) && Bn(F, g);
+          }
+        else if (Be(u))
+          u._store && (u._store.validated = !0);
+        else if (u) {
+          var q = y(u);
+          if (typeof q == "function" && q !== u.entries)
+            for (var Q = q.call(u), Y; !(Y = Q.next()).done; )
+              Be(Y.value) && Bn(Y.value, g);
+        }
+      }
+    }
+    function vi(u) {
+      {
+        var g = u.type;
+        if (g == null || typeof g == "string")
+          return;
+        var O;
+        if (typeof g == "function")
+          O = g.propTypes;
+        else if (typeof g == "object" && (g.$$typeof === s || // Note: Memo only checks outer props here.
+        // Inner props are checked in the reconciler.
+        g.$$typeof === $))
+          O = g.propTypes;
+        else
+          return;
+        if (O) {
+          var F = re(g);
+          Tt(O, u.props, "prop", F, u);
+        } else if (g.PropTypes !== void 0 && !lt) {
+          lt = !0;
+          var q = re(g);
+          T("Component %s declared `PropTypes` instead of `propTypes`. Did you misspell the property assignment?", q || "Unknown");
+        }
+        typeof g.getDefaultProps == "function" && !g.getDefaultProps.isReactClassApproved && T("getDefaultProps is only used on classic React.createClass definitions. Use a static property named `defaultProps` instead.");
+      }
+    }
+    function bi(u) {
+      {
+        for (var g = Object.keys(u.props), O = 0; O < g.length; O++) {
+          var F = g[O];
+          if (F !== "children" && F !== "key") {
+            Se(u), T("Invalid prop `%s` supplied to `React.Fragment`. React.Fragment can only have `key` and `children` props.", F), Se(null);
+            break;
+          }
+        }
+        u.ref !== null && (Se(u), T("Invalid attribute `ref` supplied to `React.Fragment`."), Se(null));
+      }
+    }
+    var Gn = {};
+    function Wn(u, g, O, F, q, Q) {
+      {
+        var Y = $e(u);
+        if (!Y) {
+          var K = "";
+          (u === void 0 || typeof u == "object" && u !== null && Object.keys(u).length === 0) && (K += " You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.");
+          var ye = ct(q);
+          ye ? K += ye : K += Ft();
+          var oe;
+          u === null ? oe = "null" : Ye(u) ? oe = "array" : u !== void 0 && u.$$typeof === t ? (oe = "<" + (re(u.type) || "Unknown") + " />", K = " Did you accidentally export a JSX literal instead of a component?") : oe = typeof u, T("React.jsx: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", oe, K);
+        }
+        var se = Jt(u, g, O, q, Q);
+        if (se == null)
+          return se;
+        if (Y) {
+          var Oe = g.children;
+          if (Oe !== void 0)
+            if (F)
+              if (Ye(Oe)) {
+                for (var qe = 0; qe < Oe.length; qe++)
+                  Un(Oe[qe], u);
+                Object.freeze && Object.freeze(Oe);
+              } else
+                T("React.jsx: Static children should always be an array. You are likely explicitly calling React.jsxs or React.jsxDEV. Use the Babel transform instead.");
+            else
+              Un(Oe, u);
+        }
+        if (Ge.call(g, "key")) {
+          var Ve = re(u), ve = Object.keys(g).filter(function(wi) {
+            return wi !== "key";
+          }), Qt = ve.length > 0 ? "{key: someKey, " + ve.join(": ..., ") + ": ...}" : "{key: someKey}";
+          if (!Gn[Ve + Qt]) {
+            var Oi = ve.length > 0 ? "{" + ve.join(": ..., ") + ": ...}" : "{}";
+            T(`A props object containing a "key" prop is being spread into JSX:
   let props = %s;
   <%s {...props} />
 React keys must be passed directly to JSX without using spread:
   let props = %s;
-  <%s key={someKey} {...props} />`,
-          x,
-          E,
-          D,
-          E
-        ), oe[E + x] = !0);
+  <%s key={someKey} {...props} />`, Qt, Ve, Oi, Ve), Gn[Ve + Qt] = !0;
+          }
+        }
+        return u === r ? bi(se) : vi(se), se;
       }
-      if (E = null, w !== void 0 && (n(w), E = "" + w), o(p) && (n(p.key), E = "" + p.key), "key" in p) {
-        w = {};
-        for (var k in p)
-          k !== "key" && (w[k] = p[k]);
-      } else
-        w = p;
-      return E && d(
-        w,
-        typeof s == "function" ? s.displayName || s.name || "Unknown" : s
-      ), c(
-        s,
-        E,
-        R,
-        m,
-        a(),
-        w,
-        _,
-        F
-      );
     }
-    function $(s) {
-      typeof s == "object" && s !== null && s.$$typeof === y && s._store && (s._store.validated = 1);
+    function Ci(u, g, O) {
+      return Wn(u, g, O, !0);
     }
-    var g = I, y = Symbol.for("react.transitional.element"), C = Symbol.for("react.portal"), S = Symbol.for("react.fragment"), h = Symbol.for("react.strict_mode"), O = Symbol.for("react.profiler"), L = Symbol.for("react.consumer"), A = Symbol.for("react.context"), M = Symbol.for("react.forward_ref"), v = Symbol.for("react.suspense"), B = Symbol.for("react.suspense_list"), q = Symbol.for("react.memo"), K = Symbol.for("react.lazy"), z = Symbol.for("react.activity"), Z = Symbol.for("react.client.reference"), V = g.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, se = Object.prototype.hasOwnProperty, le = Array.isArray, ne = console.createTask ? console.createTask : function() {
-      return null;
-    };
-    g = {
-      react_stack_bottom_frame: function(s) {
-        return s();
-      }
-    };
-    var ie, Q = {}, X = g.react_stack_bottom_frame.bind(
-      g,
-      i
-    )(), re = ne(r(i)), oe = {};
-    ke.Fragment = S, ke.jsx = function(s, p, w, x, m) {
-      var R = 1e4 > V.recentlyCreatedOwnerStacks++;
-      return f(
-        s,
-        p,
-        w,
-        !1,
-        x,
-        m,
-        R ? Error("react-stack-top-frame") : X,
-        R ? ne(r(s)) : re
-      );
-    }, ke.jsxs = function(s, p, w, x, m) {
-      var R = 1e4 > V.recentlyCreatedOwnerStacks++;
-      return f(
-        s,
-        p,
-        w,
-        !0,
-        x,
-        m,
-        R ? Error("react-stack-top-frame") : X,
-        R ? ne(r(s)) : re
-      );
-    };
-  }()), ke;
+    function Pi(u, g, O) {
+      return Wn(u, g, O, !1);
+    }
+    var Ni = Pi, Si = Ci;
+    $t.Fragment = r, $t.jsx = Ni, $t.jsxs = Si;
+  }()), $t;
 }
-process.env.NODE_ENV === "production" ? Rt.exports = za() : Rt.exports = Ya();
-var l = Rt.exports;
+process.env.NODE_ENV === "production" ? fn.exports = xi() : fn.exports = Ei();
+var c = fn.exports;
 /**
  * @license lucide-react v0.540.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const qa = (e) => e.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase(), Xa = (e) => e.replace(
+const _i = (e) => e.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase(), Ii = (e) => e.replace(
   /^([A-Z])|[\s-_]+(\w)/g,
   (t, n, r) => r ? r.toUpperCase() : n.toLowerCase()
-), yn = (e) => {
-  const t = Xa(e);
+), Hn = (e) => {
+  const t = Ii(e);
   return t.charAt(0).toUpperCase() + t.slice(1);
-}, zr = (...e) => e.filter((t, n, r) => !!t && t.trim() !== "" && r.indexOf(t) === n).join(" ").trim(), Za = (e) => {
+}, Na = (...e) => e.filter((t, n, r) => !!t && t.trim() !== "" && r.indexOf(t) === n).join(" ").trim(), Ti = (e) => {
   for (const t in e)
     if (t.startsWith("aria-") || t === "role" || t === "title")
       return !0;
@@ -310,7 +667,7 @@ const qa = (e) => e.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase(), Xa = (
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-var Ja = {
+var Ai = {
   xmlns: "http://www.w3.org/2000/svg",
   width: 24,
   height: 24,
@@ -327,7 +684,7 @@ var Ja = {
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const Qa = Hr(
+const Ri = ba(
   ({
     color: e = "currentColor",
     size: t = 24,
@@ -337,21 +694,21 @@ const Qa = Hr(
     children: i,
     iconNode: o,
     ...d
-  }, u) => jt(
+  }, s) => cn(
     "svg",
     {
-      ref: u,
-      ...Ja,
+      ref: s,
+      ...Ai,
       width: t,
       height: t,
       stroke: e,
       strokeWidth: r ? Number(n) * 24 / Number(t) : n,
-      className: zr("lucide", a),
-      ...!i && !Za(d) && { "aria-hidden": "true" },
+      className: Na("lucide", a),
+      ...!i && !Ti(d) && { "aria-hidden": "true" },
       ...d
     },
     [
-      ...o.map(([c, f]) => jt(c, f)),
+      ...o.map(([l, f]) => cn(l, f)),
       ...Array.isArray(i) ? i : [i]
     ]
   )
@@ -362,20 +719,20 @@ const Qa = Hr(
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const me = (e, t) => {
-  const n = Hr(
-    ({ className: r, ...a }, i) => jt(Qa, {
+const _e = (e, t) => {
+  const n = ba(
+    ({ className: r, ...a }, i) => cn(Ri, {
       ref: i,
       iconNode: t,
-      className: zr(
-        `lucide-${qa(yn(e))}`,
+      className: Na(
+        `lucide-${_i(Hn(e))}`,
         `lucide-${e}`,
         r
       ),
       ...a
     })
   );
-  return n.displayName = yn(e), n;
+  return n.displayName = Hn(e), n;
 };
 /**
  * @license lucide-react v0.540.0 - ISC
@@ -383,7 +740,7 @@ const me = (e, t) => {
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const ei = [
+const ji = [
   [
     "path",
     {
@@ -392,35 +749,35 @@ const ei = [
     }
   ],
   ["circle", { cx: "12", cy: "13", r: "3", key: "1vg3eu" }]
-], ti = me("camera", ei);
+], Fi = _e("camera", ji);
 /**
  * @license lucide-react v0.540.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const ni = [
+const Mi = [
   ["path", { d: "M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z", key: "1rqfz7" }],
   ["path", { d: "M14 2v4a2 2 0 0 0 2 2h4", key: "tnqrlb" }]
-], Yr = me("file", ni);
+], Sa = _e("file", Mi);
 /**
  * @license lucide-react v0.540.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const ri = [
+const Di = [
   ["rect", { width: "18", height: "18", x: "3", y: "3", rx: "2", ry: "2", key: "1m3agn" }],
   ["circle", { cx: "9", cy: "9", r: "2", key: "af1f0g" }],
   ["path", { d: "m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21", key: "1xmnt7" }]
-], ai = me("image", ri);
+], ki = _e("image", Di);
 /**
  * @license lucide-react v0.540.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const ii = [
+const Li = [
   [
     "path",
     {
@@ -428,25 +785,25 @@ const ii = [
       key: "1sd12s"
     }
   ]
-], oi = me("message-circle", ii);
+], Bi = _e("message-circle", Li);
 /**
  * @license lucide-react v0.540.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const di = [
+const Ui = [
   ["path", { d: "M12 19v3", key: "npa21l" }],
   ["path", { d: "M19 10v2a7 7 0 0 1-14 0v-2", key: "1vc78b" }],
   ["rect", { x: "9", y: "2", width: "6", height: "13", rx: "3", key: "s6n7sd" }]
-], hn = me("mic", di);
+], Yn = _e("mic", Ui);
 /**
  * @license lucide-react v0.540.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const ui = [
+const Gi = [
   [
     "path",
     {
@@ -454,14 +811,14 @@ const ui = [
       key: "1miecu"
     }
   ]
-], si = me("paperclip", ui);
+], Wi = _e("paperclip", Gi);
 /**
  * @license lucide-react v0.540.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const li = [
+const Vi = [
   [
     "path",
     {
@@ -470,27 +827,27 @@ const li = [
     }
   ],
   ["path", { d: "m21.854 2.147-10.94 10.939", key: "12cjpa" }]
-], De = me("send", li);
+], pt = _e("send", Vi);
 /**
  * @license lucide-react v0.540.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const ci = [
+const Ki = [
   ["path", { d: "M10 11v6", key: "nco0om" }],
   ["path", { d: "M14 11v6", key: "outv1u" }],
   ["path", { d: "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6", key: "miytrc" }],
   ["path", { d: "M3 6h18", key: "d0wm0j" }],
   ["path", { d: "M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2", key: "e791ji" }]
-], gn = me("trash-2", ci);
+], zn = _e("trash-2", Ki);
 /**
  * @license lucide-react v0.540.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const fi = [
+const Hi = [
   [
     "path",
     {
@@ -499,14 +856,14 @@ const fi = [
     }
   ],
   ["rect", { x: "2", y: "6", width: "14", height: "12", rx: "2", key: "158x01" }]
-], $i = me("video", fi);
+], Yi = _e("video", Hi);
 /**
  * @license lucide-react v0.540.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const mi = [
+const zi = [
   [
     "path",
     {
@@ -516,34 +873,34 @@ const mi = [
   ],
   ["path", { d: "M16 9a5 5 0 0 1 0 6", key: "1q6k2b" }],
   ["path", { d: "M19.364 18.364a9 9 0 0 0 0-12.728", key: "ijwkga" }]
-], pi = me("volume-2", mi);
+], qi = _e("volume-2", zi);
 /**
  * @license lucide-react v0.540.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const yi = [
+const Xi = [
   ["path", { d: "M18 6 6 18", key: "1bl5f8" }],
   ["path", { d: "m6 6 12 12", key: "d8bk6v" }]
-], Be = me("x", yi), hi = (e) => {
+], mt = _e("x", Xi), Zi = (e) => {
   let t = e;
   const n = {};
   let r = 0;
   return t = t.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (a, i, o) => {
-    const d = encodeURI(o.trim()), u = `XXXXXURLPLACEHOLDER${r++}XXXXX`;
-    return n[u] = `<a href="${d}" target="_blank" rel="noopener noreferrer">${i}</a>`, u;
+    const d = encodeURI(o.trim()), s = `XXXXXURLPLACEHOLDER${r++}XXXXX`;
+    return n[s] = `<a href="${d}" target="_blank" rel="noopener noreferrer">${i}</a>`, s;
   }), t = t.replace(/(https?:\/\/[^\s<]+)/g, (a, i) => {
     const o = encodeURI(i.trim()), d = `XXXXXURLPLACEHOLDER${r++}XXXXX`;
     return n[d] = `<a href="${o}" target="_blank" rel="noopener noreferrer">${i}</a>`, d;
   }), t = t.replace(/\*\*((?:(?!\*\*).)+)\*\*/g, "<strong>$1</strong>"), t = t.replace(/__((?:(?!__).)+)__/g, "<strong>$1</strong>"), t = t.replace(/\*([^*\n]+?)\*/g, "<em>$1</em>"), t = t.replace(new RegExp("(?<!_)_([^_\\n]+?)_(?!_)", "g"), "<em>$1</em>"), t = t.replace(/\n/g, "<br>"), Object.keys(n).forEach((a) => {
     t = t.replace(a, n[a]);
   }), t;
-}, vn = ({ message: e, showTimestamp: t = !1 }) => {
+}, qn = ({ message: e, showTimestamp: t = !1 }) => {
   const n = e.type === "user", r = (a, i) => {
     switch (a.type) {
       case "image":
-        return /* @__PURE__ */ l.jsx(
+        return /* @__PURE__ */ c.jsx(
           "img",
           {
             src: a.url,
@@ -554,7 +911,7 @@ const yi = [
           i
         );
       case "video":
-        return /* @__PURE__ */ l.jsx(
+        return /* @__PURE__ */ c.jsx(
           "video",
           {
             src: a.url,
@@ -565,9 +922,9 @@ const yi = [
           i
         );
       case "audio":
-        return /* @__PURE__ */ l.jsx("div", { className: "message-media-audio", style: { marginTop: "8px" }, children: /* @__PURE__ */ l.jsx("audio", { src: a.url, controls: !0, style: { width: "200px" } }) }, i);
+        return /* @__PURE__ */ c.jsx("div", { className: "message-media-audio", style: { marginTop: "8px" }, children: /* @__PURE__ */ c.jsx("audio", { src: a.url, controls: !0, style: { width: "200px" } }) }, i);
       default:
-        return /* @__PURE__ */ l.jsxs("div", { className: "message-media-document", style: {
+        return /* @__PURE__ */ c.jsxs("div", { className: "message-media-document", style: {
           display: "flex",
           alignItems: "center",
           gap: "8px",
@@ -577,122 +934,122 @@ const yi = [
           marginTop: "8px",
           maxWidth: "200px"
         }, children: [
-          /* @__PURE__ */ l.jsx(Yr, { size: 16 }),
-          /* @__PURE__ */ l.jsx("span", { style: { fontSize: "14px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }, children: a.name })
+          /* @__PURE__ */ c.jsx(Sa, { size: 16 }),
+          /* @__PURE__ */ c.jsx("span", { style: { fontSize: "14px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }, children: a.name })
         ] }, i);
     }
   };
-  return /* @__PURE__ */ l.jsxs("div", { className: `message-bubble ${n ? "user" : "bot"}`, children: [
-    /* @__PURE__ */ l.jsxs("div", { className: "message-content", children: [
-      e.content.trim() && (n ? /* @__PURE__ */ l.jsx("p", { children: e.content }) : /* @__PURE__ */ l.jsx("p", { dangerouslySetInnerHTML: { __html: hi(e.content) } })),
+  return /* @__PURE__ */ c.jsxs("div", { className: `message-bubble ${n ? "user" : "bot"}`, children: [
+    /* @__PURE__ */ c.jsxs("div", { className: "message-content", children: [
+      e.content.trim() && (n ? /* @__PURE__ */ c.jsx("p", { children: e.content }) : /* @__PURE__ */ c.jsx("p", { dangerouslySetInnerHTML: { __html: Zi(e.content) } })),
       e.files && e.files.map((a, i) => r(a, i))
     ] }),
-    t && /* @__PURE__ */ l.jsx("div", { className: "message-timestamp", children: e.timestamp.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) })
+    t && /* @__PURE__ */ c.jsx("div", { className: "message-timestamp", children: e.timestamp.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) })
   ] });
-}, bn = ({ visible: e }) => e ? /* @__PURE__ */ l.jsx("div", { className: "typing-indicator", children: /* @__PURE__ */ l.jsxs("div", { className: "typing-indicator__content", children: [
-  /* @__PURE__ */ l.jsx("span", { className: "typing-indicator__dot" }),
-  /* @__PURE__ */ l.jsx("span", { className: "typing-indicator__dot" }),
-  /* @__PURE__ */ l.jsx("span", { className: "typing-indicator__dot" })
-] }) }) : null, Cn = ({
+}, Xn = ({ visible: e }) => e ? /* @__PURE__ */ c.jsx("div", { className: "typing-indicator", children: /* @__PURE__ */ c.jsxs("div", { className: "typing-indicator__content", children: [
+  /* @__PURE__ */ c.jsx("span", { className: "typing-indicator__dot" }),
+  /* @__PURE__ */ c.jsx("span", { className: "typing-indicator__dot" }),
+  /* @__PURE__ */ c.jsx("span", { className: "typing-indicator__dot" })
+] }) }) : null, Zn = ({
   onFilesSelected: e,
   maxFiles: t,
   maxFileSize: n,
   allowedTypes: r
 }) => {
-  const a = Pe(null), i = () => `${Date.now()}-${Math.random()}`, o = (y) => y.type.startsWith("image/") ? "image" : y.type.startsWith("video/") ? "video" : y.type.startsWith("audio/") ? "audio" : "document", d = async (y, C = 1) => new Promise((S) => {
-    const h = document.createElement("canvas"), O = h.getContext("2d"), L = new Image();
-    L.onload = () => {
-      let { width: A, height: M } = L;
+  const a = Ke(null), i = () => `${Date.now()}-${Math.random()}`, o = (m) => m.type.startsWith("image/") ? "image" : m.type.startsWith("video/") ? "video" : m.type.startsWith("audio/") ? "audio" : "document", d = async (m, P = 1) => new Promise((E) => {
+    const y = document.createElement("canvas"), x = y.getContext("2d"), T = new Image();
+    T.onload = () => {
+      let { width: j, height: L } = T;
       const v = 1920;
-      A > M && A > v ? (M = M * v / A, A = v) : M > v && (A = A * v / M, M = v), h.width = A, h.height = M, O == null || O.drawImage(L, 0, 0, A, M);
-      let B = 0.8;
-      const q = () => {
-        h.toBlob((K) => {
-          if (K)
-            if (K.size / 1048576 > C && B > 0.1)
-              B -= 0.1, q();
+      j > L && j > v ? (L = L * v / j, j = v) : L > v && (j = j * v / L, L = v), y.width = j, y.height = L, x == null || x.drawImage(T, 0, 0, j, L);
+      let V = 0.8;
+      const ee = () => {
+        y.toBlob((te) => {
+          if (te)
+            if (te.size / 1048576 > P && V > 0.1)
+              V -= 0.1, ee();
             else {
-              const Z = new File([K], y.name, {
+              const $e = new File([te], m.name, {
                 type: "image/jpeg",
                 lastModified: Date.now()
               });
-              S(Z);
+              E($e);
             }
           else
-            S(y);
-        }, "image/jpeg", B);
+            E(m);
+        }, "image/jpeg", V);
       };
-      q();
-    }, L.onerror = () => S(y), L.src = URL.createObjectURL(y);
-  }), u = async (y) => {
-    const S = y.size / 1048576;
-    if (S <= 1)
-      return y;
-    if (y.type.startsWith("image/"))
+      ee();
+    }, T.onerror = () => E(m), T.src = URL.createObjectURL(m);
+  }), s = async (m) => {
+    const E = m.size / 1048576;
+    if (E <= 1)
+      return m;
+    if (m.type.startsWith("image/"))
       try {
-        return await d(y, 1);
-      } catch (h) {
-        return console.warn("Image compression failed, using original:", h), y;
+        return await d(m, 1);
+      } catch (y) {
+        return console.warn("Image compression failed, using original:", y), m;
       }
-    return S > 1 && console.warn(`File ${y.name} is ${S.toFixed(1)}MB, which may be too large`), y;
-  }, c = async (y) => {
-    const C = await u(y);
+    return E > 1 && console.warn(`File ${m.name} is ${E.toFixed(1)}MB, which may be too large`), m;
+  }, l = async (m) => {
+    const P = await s(m);
     return {
-      file: C,
+      file: P,
       id: i(),
-      type: o(C),
-      url: URL.createObjectURL(C),
-      name: y.name,
+      type: o(P),
+      url: URL.createObjectURL(P),
+      name: m.name,
       // Keep original name
-      size: C.size
+      size: P.size
     };
-  }, f = (y) => y.size > n * 1024 * 1024 ? (alert(`File ${y.name} is too large. Maximum size is ${n}MB.`), !1) : r.length > 0 && !r.some(
-    (S) => S === "*" || y.type.includes(S) || y.name.endsWith(S)
-  ) ? (alert(`File type not allowed: ${y.type}`), !1) : !0, $ = async (y) => {
-    if (!y)
+  }, f = (m) => m.size > n * 1024 * 1024 ? (alert(`File ${m.name} is too large. Maximum size is ${n}MB.`), !1) : r.length > 0 && !r.some(
+    (E) => E === "*" || m.type.includes(E) || m.name.endsWith(E)
+  ) ? (alert(`File type not allowed: ${m.type}`), !1) : !0, $ = async (m) => {
+    if (!m)
       return;
-    const C = [], S = Array.from(y);
-    for (const h of S) {
-      if (C.length >= t) {
+    const P = [], E = Array.from(m);
+    for (const y of E) {
+      if (P.length >= t) {
         alert(`Maximum ${t} files allowed`);
         break;
       }
-      if (f(h))
+      if (f(y))
         try {
-          const O = await c(h);
-          C.push(O);
-        } catch (O) {
-          console.error("Error processing file:", h.name, O), alert(`Error processing file: ${h.name}`);
+          const x = await l(y);
+          P.push(x);
+        } catch (x) {
+          console.error("Error processing file:", y.name, x), alert(`Error processing file: ${y.name}`);
         }
     }
-    C.length > 0 && e(C), a.current && (a.current.value = "");
-  }, g = () => {
-    var y;
-    (y = a.current) == null || y.click();
+    P.length > 0 && e(P), a.current && (a.current.value = "");
+  }, h = () => {
+    var m;
+    (m = a.current) == null || m.click();
   };
-  return /* @__PURE__ */ l.jsxs("div", { className: "file-upload", children: [
-    /* @__PURE__ */ l.jsx(
+  return /* @__PURE__ */ c.jsxs("div", { className: "file-upload", children: [
+    /* @__PURE__ */ c.jsx(
       "input",
       {
         ref: a,
         type: "file",
         multiple: !0,
         accept: r.length > 0 ? r.join(",") : "*",
-        onChange: (y) => $(y.target.files),
+        onChange: (m) => $(m.target.files),
         style: { display: "none" }
       }
     ),
-    /* @__PURE__ */ l.jsx(
+    /* @__PURE__ */ c.jsx(
       "button",
       {
-        onClick: g,
+        onClick: h,
         className: "upload-button",
         title: "Attach files",
-        children: /* @__PURE__ */ l.jsx(si, { size: 18 })
+        children: /* @__PURE__ */ c.jsx(Wi, { size: 18 })
       }
     )
   ] });
-}, Pn = ({
+}, Jn = ({
   files: e,
   onRemoveFile: t
 }) => {
@@ -701,23 +1058,23 @@ const yi = [
   const n = (i) => {
     if (i === 0)
       return "0 B";
-    const o = 1024, d = ["B", "KB", "MB", "GB"], u = Math.floor(Math.log(i) / Math.log(o));
-    return parseFloat((i / Math.pow(o, u)).toFixed(1)) + " " + d[u];
+    const o = 1024, d = ["B", "KB", "MB", "GB"], s = Math.floor(Math.log(i) / Math.log(o));
+    return parseFloat((i / Math.pow(o, s)).toFixed(1)) + " " + d[s];
   }, r = (i) => {
     switch (i) {
       case "image":
-        return /* @__PURE__ */ l.jsx(ai, { size: 16 });
+        return /* @__PURE__ */ c.jsx(ki, { size: 16 });
       case "video":
-        return /* @__PURE__ */ l.jsx($i, { size: 16 });
+        return /* @__PURE__ */ c.jsx(Yi, { size: 16 });
       case "audio":
-        return /* @__PURE__ */ l.jsx(pi, { size: 16 });
+        return /* @__PURE__ */ c.jsx(qi, { size: 16 });
       default:
-        return /* @__PURE__ */ l.jsx(Yr, { size: 16 });
+        return /* @__PURE__ */ c.jsx(Sa, { size: 16 });
     }
   }, a = (i) => {
     switch (i.type) {
       case "image":
-        return /* @__PURE__ */ l.jsx(
+        return /* @__PURE__ */ c.jsx(
           "img",
           {
             src: i.url,
@@ -726,7 +1083,7 @@ const yi = [
           }
         );
       case "video":
-        return /* @__PURE__ */ l.jsx(
+        return /* @__PURE__ */ c.jsx(
           "video",
           {
             src: i.url,
@@ -736,7 +1093,7 @@ const yi = [
           }
         );
       case "audio":
-        return /* @__PURE__ */ l.jsx(
+        return /* @__PURE__ */ c.jsx(
           "audio",
           {
             src: i.url,
@@ -746,39 +1103,39 @@ const yi = [
           }
         );
       default:
-        return /* @__PURE__ */ l.jsxs("div", { className: "media-preview-document", children: [
+        return /* @__PURE__ */ c.jsxs("div", { className: "media-preview-document", children: [
           r(i.type),
-          /* @__PURE__ */ l.jsx("span", { className: "document-name", children: i.name })
+          /* @__PURE__ */ c.jsx("span", { className: "document-name", children: i.name })
         ] });
     }
   };
-  return /* @__PURE__ */ l.jsx("div", { className: "media-preview", children: /* @__PURE__ */ l.jsx("div", { className: "media-preview-list", children: e.map((i) => /* @__PURE__ */ l.jsxs("div", { className: "media-preview-item", children: [
-    /* @__PURE__ */ l.jsx("div", { className: "media-preview-content", children: a(i) }),
-    /* @__PURE__ */ l.jsxs("div", { className: "media-preview-info", children: [
-      /* @__PURE__ */ l.jsxs("div", { className: "media-preview-details", children: [
-        /* @__PURE__ */ l.jsx("span", { className: "file-name", title: i.name, children: i.name.length > 20 ? `${i.name.substring(0, 20)}...` : i.name }),
-        /* @__PURE__ */ l.jsx("span", { className: "file-size", children: n(i.size) })
+  return /* @__PURE__ */ c.jsx("div", { className: "media-preview", children: /* @__PURE__ */ c.jsx("div", { className: "media-preview-list", children: e.map((i) => /* @__PURE__ */ c.jsxs("div", { className: "media-preview-item", children: [
+    /* @__PURE__ */ c.jsx("div", { className: "media-preview-content", children: a(i) }),
+    /* @__PURE__ */ c.jsxs("div", { className: "media-preview-info", children: [
+      /* @__PURE__ */ c.jsxs("div", { className: "media-preview-details", children: [
+        /* @__PURE__ */ c.jsx("span", { className: "file-name", title: i.name, children: i.name.length > 20 ? `${i.name.substring(0, 20)}...` : i.name }),
+        /* @__PURE__ */ c.jsx("span", { className: "file-size", children: n(i.size) })
       ] }),
-      /* @__PURE__ */ l.jsx(
+      /* @__PURE__ */ c.jsx(
         "button",
         {
           onClick: () => t(i.id),
           className: "remove-file-button",
           title: "Remove file",
-          children: /* @__PURE__ */ l.jsx(Be, { size: 14 })
+          children: /* @__PURE__ */ c.jsx(mt, { size: 14 })
         }
       )
     ] })
   ] }, i.id)) }) });
-}, gi = ({
+}, Ji = ({
   isOpen: e,
   onClick: t,
   position: n,
   primaryColor: r,
   popupMessage: a = "How can I help you?"
 }) => {
-  const [i, o] = te(!1);
-  Le(() => {
+  const [i, o] = de(!1);
+  Je(() => {
     const f = sessionStorage.getItem("n8n-chat-popup-shown");
     if (!e && !f) {
       const $ = setTimeout(() => {
@@ -790,31 +1147,31 @@ const yi = [
   }, [e]);
   const d = () => {
     o(!1), t();
-  }, u = () => {
+  }, s = () => {
     o(!1), sessionStorage.setItem("n8n-chat-popup-shown", "true"), t();
-  }, c = (f) => {
+  }, l = (f) => {
     f.stopPropagation(), o(!1), sessionStorage.setItem("n8n-chat-popup-shown", "true");
   };
-  return /* @__PURE__ */ l.jsxs("div", { className: `chat-toggle-container chat-toggle-button--${n}`, children: [
-    i && !e && /* @__PURE__ */ l.jsxs(
+  return /* @__PURE__ */ c.jsxs("div", { className: `chat-toggle-container chat-toggle-button--${n}`, children: [
+    i && !e && /* @__PURE__ */ c.jsxs(
       "div",
       {
         className: `chat-popup-message chat-popup-message--${n}`,
-        onClick: u,
+        onClick: s,
         children: [
-          /* @__PURE__ */ l.jsx("div", { className: "chat-popup-content", children: a }),
-          /* @__PURE__ */ l.jsx(
+          /* @__PURE__ */ c.jsx("div", { className: "chat-popup-content", children: a }),
+          /* @__PURE__ */ c.jsx(
             "button",
             {
               className: "chat-popup-close",
-              onClick: c,
+              onClick: l,
               children: "×"
             }
           )
         ]
       }
     ),
-    /* @__PURE__ */ l.jsx(
+    /* @__PURE__ */ c.jsx(
       "button",
       {
         onClick: d,
@@ -824,12 +1181,12 @@ const yi = [
           "--chat-primary": r
         },
         "aria-label": e ? "Close chat" : "Open chat",
-        children: e ? /* @__PURE__ */ l.jsx(Be, { size: 24, className: "toggle-icon" }) : /* @__PURE__ */ l.jsx(oi, { size: 24, className: "toggle-icon" })
+        children: e ? /* @__PURE__ */ c.jsx(mt, { size: 24, className: "toggle-icon" }) : /* @__PURE__ */ c.jsx(Bi, { size: 24, className: "toggle-icon" })
       }
     )
   ] });
-}, qr = { version: 4, country_calling_codes: { 1: ["US", "AG", "AI", "AS", "BB", "BM", "BS", "CA", "DM", "DO", "GD", "GU", "JM", "KN", "KY", "LC", "MP", "MS", "PR", "SX", "TC", "TT", "VC", "VG", "VI"], 7: ["RU", "KZ"], 20: ["EG"], 27: ["ZA"], 30: ["GR"], 31: ["NL"], 32: ["BE"], 33: ["FR"], 34: ["ES"], 36: ["HU"], 39: ["IT", "VA"], 40: ["RO"], 41: ["CH"], 43: ["AT"], 44: ["GB", "GG", "IM", "JE"], 45: ["DK"], 46: ["SE"], 47: ["NO", "SJ"], 48: ["PL"], 49: ["DE"], 51: ["PE"], 52: ["MX"], 53: ["CU"], 54: ["AR"], 55: ["BR"], 56: ["CL"], 57: ["CO"], 58: ["VE"], 60: ["MY"], 61: ["AU", "CC", "CX"], 62: ["ID"], 63: ["PH"], 64: ["NZ"], 65: ["SG"], 66: ["TH"], 81: ["JP"], 82: ["KR"], 84: ["VN"], 86: ["CN"], 90: ["TR"], 91: ["IN"], 92: ["PK"], 93: ["AF"], 94: ["LK"], 95: ["MM"], 98: ["IR"], 211: ["SS"], 212: ["MA", "EH"], 213: ["DZ"], 216: ["TN"], 218: ["LY"], 220: ["GM"], 221: ["SN"], 222: ["MR"], 223: ["ML"], 224: ["GN"], 225: ["CI"], 226: ["BF"], 227: ["NE"], 228: ["TG"], 229: ["BJ"], 230: ["MU"], 231: ["LR"], 232: ["SL"], 233: ["GH"], 234: ["NG"], 235: ["TD"], 236: ["CF"], 237: ["CM"], 238: ["CV"], 239: ["ST"], 240: ["GQ"], 241: ["GA"], 242: ["CG"], 243: ["CD"], 244: ["AO"], 245: ["GW"], 246: ["IO"], 247: ["AC"], 248: ["SC"], 249: ["SD"], 250: ["RW"], 251: ["ET"], 252: ["SO"], 253: ["DJ"], 254: ["KE"], 255: ["TZ"], 256: ["UG"], 257: ["BI"], 258: ["MZ"], 260: ["ZM"], 261: ["MG"], 262: ["RE", "YT"], 263: ["ZW"], 264: ["NA"], 265: ["MW"], 266: ["LS"], 267: ["BW"], 268: ["SZ"], 269: ["KM"], 290: ["SH", "TA"], 291: ["ER"], 297: ["AW"], 298: ["FO"], 299: ["GL"], 350: ["GI"], 351: ["PT"], 352: ["LU"], 353: ["IE"], 354: ["IS"], 355: ["AL"], 356: ["MT"], 357: ["CY"], 358: ["FI", "AX"], 359: ["BG"], 370: ["LT"], 371: ["LV"], 372: ["EE"], 373: ["MD"], 374: ["AM"], 375: ["BY"], 376: ["AD"], 377: ["MC"], 378: ["SM"], 380: ["UA"], 381: ["RS"], 382: ["ME"], 383: ["XK"], 385: ["HR"], 386: ["SI"], 387: ["BA"], 389: ["MK"], 420: ["CZ"], 421: ["SK"], 423: ["LI"], 500: ["FK"], 501: ["BZ"], 502: ["GT"], 503: ["SV"], 504: ["HN"], 505: ["NI"], 506: ["CR"], 507: ["PA"], 508: ["PM"], 509: ["HT"], 590: ["GP", "BL", "MF"], 591: ["BO"], 592: ["GY"], 593: ["EC"], 594: ["GF"], 595: ["PY"], 596: ["MQ"], 597: ["SR"], 598: ["UY"], 599: ["CW", "BQ"], 670: ["TL"], 672: ["NF"], 673: ["BN"], 674: ["NR"], 675: ["PG"], 676: ["TO"], 677: ["SB"], 678: ["VU"], 679: ["FJ"], 680: ["PW"], 681: ["WF"], 682: ["CK"], 683: ["NU"], 685: ["WS"], 686: ["KI"], 687: ["NC"], 688: ["TV"], 689: ["PF"], 690: ["TK"], 691: ["FM"], 692: ["MH"], 850: ["KP"], 852: ["HK"], 853: ["MO"], 855: ["KH"], 856: ["LA"], 880: ["BD"], 886: ["TW"], 960: ["MV"], 961: ["LB"], 962: ["JO"], 963: ["SY"], 964: ["IQ"], 965: ["KW"], 966: ["SA"], 967: ["YE"], 968: ["OM"], 970: ["PS"], 971: ["AE"], 972: ["IL"], 973: ["BH"], 974: ["QA"], 975: ["BT"], 976: ["MN"], 977: ["NP"], 992: ["TJ"], 993: ["TM"], 994: ["AZ"], 995: ["GE"], 996: ["KG"], 998: ["UZ"] }, countries: { AC: ["247", "00", "(?:[01589]\\d|[46])\\d{4}", [5, 6]], AD: ["376", "00", "(?:1|6\\d)\\d{7}|[135-9]\\d{5}", [6, 8, 9], [["(\\d{3})(\\d{3})", "$1 $2", ["[135-9]"]], ["(\\d{4})(\\d{4})", "$1 $2", ["1"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["6"]]]], AE: ["971", "00", "(?:[4-7]\\d|9[0-689])\\d{7}|800\\d{2,9}|[2-4679]\\d{7}", [5, 6, 7, 8, 9, 10, 11, 12], [["(\\d{3})(\\d{2,9})", "$1 $2", ["60|8"]], ["(\\d)(\\d{3})(\\d{4})", "$1 $2 $3", ["[236]|[479][2-8]"], "0$1"], ["(\\d{3})(\\d)(\\d{5})", "$1 $2 $3", ["[479]"]], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["5"], "0$1"]], "0"], AF: ["93", "00", "[2-7]\\d{8}", [9], [["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[2-7]"], "0$1"]], "0"], AG: ["1", "011", "(?:268|[58]\\d\\d|900)\\d{7}", [10], 0, "1", 0, "([457]\\d{6})$|1", "268$1", 0, "268"], AI: ["1", "011", "(?:264|[58]\\d\\d|900)\\d{7}", [10], 0, "1", 0, "([2457]\\d{6})$|1", "264$1", 0, "264"], AL: ["355", "00", "(?:700\\d\\d|900)\\d{3}|8\\d{5,7}|(?:[2-5]|6\\d)\\d{7}", [6, 7, 8, 9], [["(\\d{3})(\\d{3,4})", "$1 $2", ["80|9"], "0$1"], ["(\\d)(\\d{3})(\\d{4})", "$1 $2 $3", ["4[2-6]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["[2358][2-5]|4"], "0$1"], ["(\\d{3})(\\d{5})", "$1 $2", ["[23578]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["6"], "0$1"]], "0"], AM: ["374", "00", "(?:[1-489]\\d|55|60|77)\\d{6}", [8], [["(\\d{3})(\\d{2})(\\d{3})", "$1 $2 $3", ["[89]0"], "0 $1"], ["(\\d{3})(\\d{5})", "$1 $2", ["2|3[12]"], "(0$1)"], ["(\\d{2})(\\d{6})", "$1 $2", ["1|47"], "(0$1)"], ["(\\d{2})(\\d{6})", "$1 $2", ["[3-9]"], "0$1"]], "0"], AO: ["244", "00", "[29]\\d{8}", [9], [["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[29]"]]]], AR: ["54", "00", "(?:11|[89]\\d\\d)\\d{8}|[2368]\\d{9}", [10, 11], [["(\\d{4})(\\d{2})(\\d{4})", "$1 $2-$3", ["2(?:2[024-9]|3[0-59]|47|6[245]|9[02-8])|3(?:3[28]|4[03-9]|5[2-46-8]|7[1-578]|8[2-9])", "2(?:[23]02|6(?:[25]|4[6-8])|9(?:[02356]|4[02568]|72|8[23]))|3(?:3[28]|4(?:[04679]|3[5-8]|5[4-68]|8[2379])|5(?:[2467]|3[237]|8[2-5])|7[1-578]|8(?:[2469]|3[2578]|5[4-8]|7[36-8]|8[5-8]))|2(?:2[24-9]|3[1-59]|47)", "2(?:[23]02|6(?:[25]|4(?:64|[78]))|9(?:[02356]|4(?:[0268]|5[2-6])|72|8[23]))|3(?:3[28]|4(?:[04679]|3[78]|5(?:4[46]|8)|8[2379])|5(?:[2467]|3[237]|8[23])|7[1-578]|8(?:[2469]|3[278]|5[56][46]|86[3-6]))|2(?:2[24-9]|3[1-59]|47)|38(?:[58][78]|7[378])|3(?:4[35][56]|58[45]|8(?:[38]5|54|76))[4-6]", "2(?:[23]02|6(?:[25]|4(?:64|[78]))|9(?:[02356]|4(?:[0268]|5[2-6])|72|8[23]))|3(?:3[28]|4(?:[04679]|3(?:5(?:4[0-25689]|[56])|[78])|58|8[2379])|5(?:[2467]|3[237]|8(?:[23]|4(?:[45]|60)|5(?:4[0-39]|5|64)))|7[1-578]|8(?:[2469]|3[278]|54(?:4|5[13-7]|6[89])|86[3-6]))|2(?:2[24-9]|3[1-59]|47)|38(?:[58][78]|7[378])|3(?:454|85[56])[46]|3(?:4(?:36|5[56])|8(?:[38]5|76))[4-6]"], "0$1", 1], ["(\\d{2})(\\d{4})(\\d{4})", "$1 $2-$3", ["1"], "0$1", 1], ["(\\d{3})(\\d{3})(\\d{4})", "$1-$2-$3", ["[68]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2-$3", ["[23]"], "0$1", 1], ["(\\d)(\\d{4})(\\d{2})(\\d{4})", "$2 15-$3-$4", ["9(?:2[2-469]|3[3-578])", "9(?:2(?:2[024-9]|3[0-59]|47|6[245]|9[02-8])|3(?:3[28]|4[03-9]|5[2-46-8]|7[1-578]|8[2-9]))", "9(?:2(?:[23]02|6(?:[25]|4[6-8])|9(?:[02356]|4[02568]|72|8[23]))|3(?:3[28]|4(?:[04679]|3[5-8]|5[4-68]|8[2379])|5(?:[2467]|3[237]|8[2-5])|7[1-578]|8(?:[2469]|3[2578]|5[4-8]|7[36-8]|8[5-8])))|92(?:2[24-9]|3[1-59]|47)", "9(?:2(?:[23]02|6(?:[25]|4(?:64|[78]))|9(?:[02356]|4(?:[0268]|5[2-6])|72|8[23]))|3(?:3[28]|4(?:[04679]|3[78]|5(?:4[46]|8)|8[2379])|5(?:[2467]|3[237]|8[23])|7[1-578]|8(?:[2469]|3[278]|5(?:[56][46]|[78])|7[378]|8(?:6[3-6]|[78]))))|92(?:2[24-9]|3[1-59]|47)|93(?:4[35][56]|58[45]|8(?:[38]5|54|76))[4-6]", "9(?:2(?:[23]02|6(?:[25]|4(?:64|[78]))|9(?:[02356]|4(?:[0268]|5[2-6])|72|8[23]))|3(?:3[28]|4(?:[04679]|3(?:5(?:4[0-25689]|[56])|[78])|5(?:4[46]|8)|8[2379])|5(?:[2467]|3[237]|8(?:[23]|4(?:[45]|60)|5(?:4[0-39]|5|64)))|7[1-578]|8(?:[2469]|3[278]|5(?:4(?:4|5[13-7]|6[89])|[56][46]|[78])|7[378]|8(?:6[3-6]|[78]))))|92(?:2[24-9]|3[1-59]|47)|93(?:4(?:36|5[56])|8(?:[38]5|76))[4-6]"], "0$1", 0, "$1 $2 $3-$4"], ["(\\d)(\\d{2})(\\d{4})(\\d{4})", "$2 15-$3-$4", ["91"], "0$1", 0, "$1 $2 $3-$4"], ["(\\d{3})(\\d{3})(\\d{5})", "$1-$2-$3", ["8"], "0$1"], ["(\\d)(\\d{3})(\\d{3})(\\d{4})", "$2 15-$3-$4", ["9"], "0$1", 0, "$1 $2 $3-$4"]], "0", 0, "0?(?:(11|2(?:2(?:02?|[13]|2[13-79]|4[1-6]|5[2457]|6[124-8]|7[1-4]|8[13-6]|9[1267])|3(?:02?|1[467]|2[03-6]|3[13-8]|[49][2-6]|5[2-8]|[67])|4(?:7[3-578]|9)|6(?:[0136]|2[24-6]|4[6-8]?|5[15-8])|80|9(?:0[1-3]|[19]|2\\d|3[1-6]|4[02568]?|5[2-4]|6[2-46]|72?|8[23]?))|3(?:3(?:2[79]|6|8[2578])|4(?:0[0-24-9]|[12]|3[5-8]?|4[24-7]|5[4-68]?|6[02-9]|7[126]|8[2379]?|9[1-36-8])|5(?:1|2[1245]|3[237]?|4[1-46-9]|6[2-4]|7[1-6]|8[2-5]?)|6[24]|7(?:[069]|1[1568]|2[15]|3[145]|4[13]|5[14-8]|7[2-57]|8[126])|8(?:[01]|2[15-7]|3[2578]?|4[13-6]|5[4-8]?|6[1-357-9]|7[36-8]?|8[5-8]?|9[124])))15)?", "9$1"], AS: ["1", "011", "(?:[58]\\d\\d|684|900)\\d{7}", [10], 0, "1", 0, "([267]\\d{6})$|1", "684$1", 0, "684"], AT: ["43", "00", "1\\d{3,12}|2\\d{6,12}|43(?:(?:0\\d|5[02-9])\\d{3,9}|2\\d{4,5}|[3467]\\d{4}|8\\d{4,6}|9\\d{4,7})|5\\d{4,12}|8\\d{7,12}|9\\d{8,12}|(?:[367]\\d|4[0-24-9])\\d{4,11}", [4, 5, 6, 7, 8, 9, 10, 11, 12, 13], [["(\\d)(\\d{3,12})", "$1 $2", ["1(?:11|[2-9])"], "0$1"], ["(\\d{3})(\\d{2})", "$1 $2", ["517"], "0$1"], ["(\\d{2})(\\d{3,5})", "$1 $2", ["5[079]"], "0$1"], ["(\\d{3})(\\d{3,10})", "$1 $2", ["(?:31|4)6|51|6(?:48|5[0-3579]|[6-9])|7(?:20|32|8)|[89]", "(?:31|4)6|51|6(?:485|5[0-3579]|[6-9])|7(?:20|32|8)|[89]"], "0$1"], ["(\\d{4})(\\d{3,9})", "$1 $2", ["[2-467]|5[2-6]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["5"], "0$1"], ["(\\d{2})(\\d{4})(\\d{4,7})", "$1 $2 $3", ["5"], "0$1"]], "0"], AU: ["61", "001[14-689]|14(?:1[14]|34|4[17]|[56]6|7[47]|88)0011", "1(?:[0-79]\\d{7}(?:\\d(?:\\d{2})?)?|8[0-24-9]\\d{7})|[2-478]\\d{8}|1\\d{4,7}", [5, 6, 7, 8, 9, 10, 12], [["(\\d{2})(\\d{3,4})", "$1 $2", ["16"], "0$1"], ["(\\d{2})(\\d{3})(\\d{2,4})", "$1 $2 $3", ["16"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["14|4"], "0$1"], ["(\\d)(\\d{4})(\\d{4})", "$1 $2 $3", ["[2378]"], "(0$1)"], ["(\\d{4})(\\d{3})(\\d{3})", "$1 $2 $3", ["1(?:30|[89])"]]], "0", 0, "(183[12])|0", 0, 0, 0, [["(?:(?:2(?:(?:[0-26-9]\\d|3[0-8]|5[0135-9])\\d|4(?:[02-9]\\d|10))|3(?:(?:[0-3589]\\d|6[1-9]|7[0-35-9])\\d|4(?:[0-578]\\d|90))|7(?:[013-57-9]\\d|2[0-8])\\d)\\d\\d|8(?:51(?:0(?:0[03-9]|[12479]\\d|3[2-9]|5[0-8]|6[1-9]|8[0-7])|1(?:[0235689]\\d|1[0-69]|4[0-589]|7[0-47-9])|2(?:0[0-79]|[18][13579]|2[14-9]|3[0-46-9]|[4-6]\\d|7[89]|9[0-4])|[34]\\d\\d)|(?:6[0-8]|[78]\\d)\\d{3}|9(?:[02-9]\\d{3}|1(?:(?:[0-58]\\d|6[0135-9])\\d|7(?:0[0-24-9]|[1-9]\\d)|9(?:[0-46-9]\\d|5[0-79])))))\\d{3}", [9]], ["4(?:79[01]|83[0-389]|94[0-478])\\d{5}|4(?:[0-36]\\d|4[047-9]|[58][0-24-9]|7[02-8]|9[0-37-9])\\d{6}", [9]], ["180(?:0\\d{3}|2)\\d{3}", [7, 10]], ["190[0-26]\\d{6}", [10]], 0, 0, 0, ["163\\d{2,6}", [5, 6, 7, 8, 9]], ["14(?:5(?:1[0458]|[23][458])|71\\d)\\d{4}", [9]], ["13(?:00\\d{6}(?:\\d{2})?|45[0-4]\\d{3})|13\\d{4}", [6, 8, 10, 12]]], "0011"], AW: ["297", "00", "(?:[25-79]\\d\\d|800)\\d{4}", [7], [["(\\d{3})(\\d{4})", "$1 $2", ["[25-9]"]]]], AX: ["358", "00|99(?:[01469]|5(?:[14]1|3[23]|5[59]|77|88|9[09]))", "2\\d{4,9}|35\\d{4,5}|(?:60\\d\\d|800)\\d{4,6}|7\\d{5,11}|(?:[14]\\d|3[0-46-9]|50)\\d{4,8}", [5, 6, 7, 8, 9, 10, 11, 12], 0, "0", 0, 0, 0, 0, "18", 0, "00"], AZ: ["994", "00", "365\\d{6}|(?:[124579]\\d|60|88)\\d{7}", [9], [["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["90"], "0$1"], ["(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["1[28]|2|365|46", "1[28]|2|365[45]|46", "1[28]|2|365(?:4|5[02])|46"], "(0$1)"], ["(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[13-9]"], "0$1"]], "0"], BA: ["387", "00", "6\\d{8}|(?:[35689]\\d|49|70)\\d{6}", [8, 9], [["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["6[1-3]|[7-9]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3})", "$1 $2-$3", ["[3-5]|6[56]"], "0$1"], ["(\\d{2})(\\d{2})(\\d{2})(\\d{3})", "$1 $2 $3 $4", ["6"], "0$1"]], "0"], BB: ["1", "011", "(?:246|[58]\\d\\d|900)\\d{7}", [10], 0, "1", 0, "([2-9]\\d{6})$|1", "246$1", 0, "246"], BD: ["880", "00", "[1-469]\\d{9}|8[0-79]\\d{7,8}|[2-79]\\d{8}|[2-9]\\d{7}|[3-9]\\d{6}|[57-9]\\d{5}", [6, 7, 8, 9, 10], [["(\\d{2})(\\d{4,6})", "$1-$2", ["31[5-8]|[459]1"], "0$1"], ["(\\d{3})(\\d{3,7})", "$1-$2", ["3(?:[67]|8[013-9])|4(?:6[168]|7|[89][18])|5(?:6[128]|9)|6(?:[15]|28|4[14])|7[2-589]|8(?:0[014-9]|[12])|9[358]|(?:3[2-5]|4[235]|5[2-578]|6[0389]|76|8[3-7]|9[24])1|(?:44|66)[01346-9]"], "0$1"], ["(\\d{4})(\\d{3,6})", "$1-$2", ["[13-9]|2[23]"], "0$1"], ["(\\d)(\\d{7,8})", "$1-$2", ["2"], "0$1"]], "0"], BE: ["32", "00", "4\\d{8}|[1-9]\\d{7}", [8, 9], [["(\\d{3})(\\d{2})(\\d{3})", "$1 $2 $3", ["(?:80|9)0"], "0$1"], ["(\\d)(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[239]|4[23]"], "0$1"], ["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[15-8]"], "0$1"], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["4"], "0$1"]], "0"], BF: ["226", "00", "(?:[025-7]\\d|44)\\d{6}", [8], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[024-7]"]]]], BG: ["359", "00", "00800\\d{7}|[2-7]\\d{6,7}|[89]\\d{6,8}|2\\d{5}", [6, 7, 8, 9, 12], [["(\\d)(\\d)(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["2"], "0$1"], ["(\\d{3})(\\d{4})", "$1 $2", ["43[1-6]|70[1-9]"], "0$1"], ["(\\d)(\\d{3})(\\d{3,4})", "$1 $2 $3", ["2"], "0$1"], ["(\\d{2})(\\d{3})(\\d{2,3})", "$1 $2 $3", ["[356]|4[124-7]|7[1-9]|8[1-6]|9[1-7]"], "0$1"], ["(\\d{3})(\\d{2})(\\d{3})", "$1 $2 $3", ["(?:70|8)0"], "0$1"], ["(\\d{3})(\\d{3})(\\d{2})", "$1 $2 $3", ["43[1-7]|7"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[48]|9[08]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["9"], "0$1"]], "0"], BH: ["973", "00", "[136-9]\\d{7}", [8], [["(\\d{4})(\\d{4})", "$1 $2", ["[13679]|8[02-4679]"]]]], BI: ["257", "00", "(?:[267]\\d|31)\\d{6}", [8], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[2367]"]]]], BJ: ["229", "00", "(?:01\\d|[24-689])\\d{7}", [8, 10], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[24-689]"]], ["(\\d{2})(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4 $5", ["0"]]]], BL: ["590", "00", "(?:590\\d|7090)\\d{5}|(?:69|80|9\\d)\\d{7}", [9], 0, "0", 0, 0, 0, 0, 0, [["590(?:2[7-9]|3[3-7]|5[12]|87)\\d{4}"], ["(?:69(?:0\\d\\d|1(?:2[2-9]|3[0-5])|4(?:0[89]|1[2-6]|9\\d)|6(?:1[016-9]|5[0-4]|[67]\\d))|7090[0-4])\\d{4}"], ["80[0-5]\\d{6}"], 0, 0, 0, 0, 0, ["9(?:(?:39[5-7]|76[018])\\d|475[0-6])\\d{4}"]]], BM: ["1", "011", "(?:441|[58]\\d\\d|900)\\d{7}", [10], 0, "1", 0, "([2-9]\\d{6})$|1", "441$1", 0, "441"], BN: ["673", "00", "[2-578]\\d{6}", [7], [["(\\d{3})(\\d{4})", "$1 $2", ["[2-578]"]]]], BO: ["591", "00(?:1\\d)?", "8001\\d{5}|(?:[2-467]\\d|50)\\d{6}", [8, 9], [["(\\d)(\\d{7})", "$1 $2", ["[235]|4[46]"]], ["(\\d{8})", "$1", ["[67]"]], ["(\\d{3})(\\d{2})(\\d{4})", "$1 $2 $3", ["8"]]], "0", 0, "0(1\\d)?"], BQ: ["599", "00", "(?:[34]1|7\\d)\\d{5}", [7], 0, 0, 0, 0, 0, 0, "[347]"], BR: ["55", "00(?:1[245]|2[1-35]|31|4[13]|[56]5|99)", "[1-467]\\d{9,10}|55[0-46-9]\\d{8}|[34]\\d{7}|55\\d{7,8}|(?:5[0-46-9]|[89]\\d)\\d{7,9}", [8, 9, 10, 11], [["(\\d{4})(\\d{4})", "$1-$2", ["300|4(?:0[02]|37|86)", "300|4(?:0(?:0|20)|370|864)"]], ["(\\d{3})(\\d{2,3})(\\d{4})", "$1 $2 $3", ["(?:[358]|90)0"], "0$1"], ["(\\d{2})(\\d{4})(\\d{4})", "$1 $2-$3", ["(?:[14689][1-9]|2[12478]|3[1-578]|5[13-5]|7[13-579])[2-57]"], "($1)"], ["(\\d{2})(\\d{5})(\\d{4})", "$1 $2-$3", ["[16][1-9]|[2-57-9]"], "($1)"]], "0", 0, "(?:0|90)(?:(1[245]|2[1-35]|31|4[13]|[56]5|99)(\\d{10,11}))?", "$2"], BS: ["1", "011", "(?:242|[58]\\d\\d|900)\\d{7}", [10], 0, "1", 0, "([3-8]\\d{6})$|1", "242$1", 0, "242"], BT: ["975", "00", "[178]\\d{7}|[2-8]\\d{6}", [7, 8], [["(\\d)(\\d{3})(\\d{3})", "$1 $2 $3", ["[2-6]|7[246]|8[2-4]"]], ["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["1[67]|[78]"]]]], BW: ["267", "00", "(?:0800|(?:[37]|800)\\d)\\d{6}|(?:[2-6]\\d|90)\\d{5}", [7, 8, 10], [["(\\d{2})(\\d{5})", "$1 $2", ["90"]], ["(\\d{3})(\\d{4})", "$1 $2", ["[24-6]|3[15-9]"]], ["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["[37]"]], ["(\\d{4})(\\d{3})(\\d{3})", "$1 $2 $3", ["0"]], ["(\\d{3})(\\d{4})(\\d{3})", "$1 $2 $3", ["8"]]]], BY: ["375", "810", "(?:[12]\\d|33|44|902)\\d{7}|8(?:0[0-79]\\d{5,7}|[1-7]\\d{9})|8(?:1[0-489]|[5-79]\\d)\\d{7}|8[1-79]\\d{6,7}|8[0-79]\\d{5}|8\\d{5}", [6, 7, 8, 9, 10, 11], [["(\\d{3})(\\d{3})", "$1 $2", ["800"], "8 $1"], ["(\\d{3})(\\d{2})(\\d{2,4})", "$1 $2 $3", ["800"], "8 $1"], ["(\\d{4})(\\d{2})(\\d{3})", "$1 $2-$3", ["1(?:5[169]|6[3-5]|7[179])|2(?:1[35]|2[34]|3[3-5])", "1(?:5[169]|6(?:3[1-3]|4|5[125])|7(?:1[3-9]|7[0-24-6]|9[2-7]))|2(?:1[35]|2[34]|3[3-5])"], "8 0$1"], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2-$3-$4", ["1(?:[56]|7[467])|2[1-3]"], "8 0$1"], ["(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1 $2-$3-$4", ["[1-4]"], "8 0$1"], ["(\\d{3})(\\d{3,4})(\\d{4})", "$1 $2 $3", ["[89]"], "8 $1"]], "8", 0, "0|80?", 0, 0, 0, 0, "8~10"], BZ: ["501", "00", "(?:0800\\d|[2-8])\\d{6}", [7, 11], [["(\\d{3})(\\d{4})", "$1-$2", ["[2-8]"]], ["(\\d)(\\d{3})(\\d{4})(\\d{3})", "$1-$2-$3-$4", ["0"]]]], CA: ["1", "011", "[2-9]\\d{9}|3\\d{6}", [7, 10], 0, "1", 0, 0, 0, 0, 0, [["(?:2(?:04|[23]6|[48]9|5[07]|63)|3(?:06|43|54|6[578]|82)|4(?:03|1[68]|[26]8|3[178]|50|74)|5(?:06|1[49]|48|79|8[147])|6(?:04|[18]3|39|47|72)|7(?:0[59]|42|53|78|8[02])|8(?:[06]7|19|25|7[39])|9(?:0[25]|42))[2-9]\\d{6}", [10]], ["", [10]], ["8(?:00|33|44|55|66|77|88)[2-9]\\d{6}", [10]], ["900[2-9]\\d{6}", [10]], ["52(?:3(?:[2-46-9][02-9]\\d|5(?:[02-46-9]\\d|5[0-46-9]))|4(?:[2-478][02-9]\\d|5(?:[034]\\d|2[024-9]|5[0-46-9])|6(?:0[1-9]|[2-9]\\d)|9(?:[05-9]\\d|2[0-5]|49)))\\d{4}|52[34][2-9]1[02-9]\\d{4}|(?:5(?:2[125-9]|33|44|66|77|88)|6(?:22|33))[2-9]\\d{6}", [10]], 0, ["310\\d{4}", [7]], 0, ["600[2-9]\\d{6}", [10]]]], CC: ["61", "001[14-689]|14(?:1[14]|34|4[17]|[56]6|7[47]|88)0011", "1(?:[0-79]\\d{8}(?:\\d{2})?|8[0-24-9]\\d{7})|[148]\\d{8}|1\\d{5,7}", [6, 7, 8, 9, 10, 12], 0, "0", 0, "([59]\\d{7})$|0", "8$1", 0, 0, [["8(?:51(?:0(?:02|31|60|89)|1(?:18|76)|223)|91(?:0(?:1[0-2]|29)|1(?:[28]2|50|79)|2(?:10|64)|3(?:[06]8|22)|4[29]8|62\\d|70[23]|959))\\d{3}", [9]], ["4(?:79[01]|83[0-389]|94[0-478])\\d{5}|4(?:[0-36]\\d|4[047-9]|[58][0-24-9]|7[02-8]|9[0-37-9])\\d{6}", [9]], ["180(?:0\\d{3}|2)\\d{3}", [7, 10]], ["190[0-26]\\d{6}", [10]], 0, 0, 0, 0, ["14(?:5(?:1[0458]|[23][458])|71\\d)\\d{4}", [9]], ["13(?:00\\d{6}(?:\\d{2})?|45[0-4]\\d{3})|13\\d{4}", [6, 8, 10, 12]]], "0011"], CD: ["243", "00", "(?:(?:[189]|5\\d)\\d|2)\\d{7}|[1-68]\\d{6}", [7, 8, 9, 10], [["(\\d{2})(\\d{2})(\\d{3})", "$1 $2 $3", ["88"], "0$1"], ["(\\d{2})(\\d{5})", "$1 $2", ["[1-6]"], "0$1"], ["(\\d{2})(\\d{2})(\\d{4})", "$1 $2 $3", ["2"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["1"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[89]"], "0$1"], ["(\\d{2})(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3 $4", ["5"], "0$1"]], "0"], CF: ["236", "00", "(?:[27]\\d{3}|8776)\\d{4}", [8], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[278]"]]]], CG: ["242", "00", "222\\d{6}|(?:0\\d|80)\\d{7}", [9], [["(\\d)(\\d{4})(\\d{4})", "$1 $2 $3", ["8"]], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[02]"]]]], CH: ["41", "00", "8\\d{11}|[2-9]\\d{8}", [9, 12], [["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["8[047]|90"], "0$1"], ["(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[2-79]|81"], "0$1"], ["(\\d{3})(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4 $5", ["8"], "0$1"]], "0"], CI: ["225", "00", "[02]\\d{9}", [10], [["(\\d{2})(\\d{2})(\\d)(\\d{5})", "$1 $2 $3 $4", ["2"]], ["(\\d{2})(\\d{2})(\\d{2})(\\d{4})", "$1 $2 $3 $4", ["0"]]]], CK: ["682", "00", "[2-578]\\d{4}", [5], [["(\\d{2})(\\d{3})", "$1 $2", ["[2-578]"]]]], CL: ["56", "(?:0|1(?:1[0-69]|2[02-5]|5[13-58]|69|7[0167]|8[018]))0", "12300\\d{6}|6\\d{9,10}|[2-9]\\d{8}", [9, 10, 11], [["(\\d{5})(\\d{4})", "$1 $2", ["219", "2196"], "($1)"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["60|809"]], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["44"]], ["(\\d)(\\d{4})(\\d{4})", "$1 $2 $3", ["2[1-36]"], "($1)"], ["(\\d)(\\d{4})(\\d{4})", "$1 $2 $3", ["9(?:10|[2-9])"]], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["3[2-5]|[47]|5[1-3578]|6[13-57]|8(?:0[1-8]|[1-9])"], "($1)"], ["(\\d{3})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["60|8"]], ["(\\d{4})(\\d{3})(\\d{4})", "$1 $2 $3", ["1"]], ["(\\d{3})(\\d{3})(\\d{2})(\\d{3})", "$1 $2 $3 $4", ["60"]]]], CM: ["237", "00", "[26]\\d{8}|88\\d{6,7}", [8, 9], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["88"]], ["(\\d)(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4 $5", ["[26]|88"]]]], CN: ["86", "00|1(?:[12]\\d|79)\\d\\d00", "(?:(?:1[03-689]|2\\d)\\d\\d|6)\\d{8}|1\\d{10}|[126]\\d{6}(?:\\d(?:\\d{2})?)?|86\\d{5,6}|(?:[3-579]\\d|8[0-57-9])\\d{5,9}", [7, 8, 9, 10, 11, 12], [["(\\d{2})(\\d{5,6})", "$1 $2", ["(?:10|2[0-57-9])[19]|3(?:[157]|35|49|9[1-68])|4(?:1[124-9]|2[179]|6[47-9]|7|8[23])|5(?:[1357]|2[37]|4[36]|6[1-46]|80)|6(?:3[1-5]|6[0238]|9[12])|7(?:01|[1579]|2[248]|3[014-9]|4[3-6]|6[023689])|8(?:07|1[236-8]|2[5-7]|[37]|8[36-8]|9[1-8])|9(?:0[1-3689]|1[1-79]|3|4[13]|5[1-5]|7[0-79]|9[0-35-9])|(?:4[35]|59|85)[1-9]", "(?:10|2[0-57-9])(?:1[02]|9[56])|8078|(?:3(?:[157]\\d|35|49|9[1-68])|4(?:1[124-9]|2[179]|[35][1-9]|6[47-9]|7\\d|8[23])|5(?:[1357]\\d|2[37]|4[36]|6[1-46]|80|9[1-9])|6(?:3[1-5]|6[0238]|9[12])|7(?:01|[1579]\\d|2[248]|3[014-9]|4[3-6]|6[023689])|8(?:1[236-8]|2[5-7]|[37]\\d|5[1-9]|8[36-8]|9[1-8])|9(?:0[1-3689]|1[1-79]|3\\d|4[13]|5[1-5]|7[0-79]|9[0-35-9]))1", "10(?:1(?:0|23)|9[56])|2[0-57-9](?:1(?:00|23)|9[56])|80781|(?:3(?:[157]\\d|35|49|9[1-68])|4(?:1[124-9]|2[179]|[35][1-9]|6[47-9]|7\\d|8[23])|5(?:[1357]\\d|2[37]|4[36]|6[1-46]|80|9[1-9])|6(?:3[1-5]|6[0238]|9[12])|7(?:01|[1579]\\d|2[248]|3[014-9]|4[3-6]|6[023689])|8(?:1[236-8]|2[5-7]|[37]\\d|5[1-9]|8[36-8]|9[1-8])|9(?:0[1-3689]|1[1-79]|3\\d|4[13]|5[1-5]|7[0-79]|9[0-35-9]))12", "10(?:1(?:0|23)|9[56])|2[0-57-9](?:1(?:00|23)|9[56])|807812|(?:3(?:[157]\\d|35|49|9[1-68])|4(?:1[124-9]|2[179]|[35][1-9]|6[47-9]|7\\d|8[23])|5(?:[1357]\\d|2[37]|4[36]|6[1-46]|80|9[1-9])|6(?:3[1-5]|6[0238]|9[12])|7(?:01|[1579]\\d|2[248]|3[014-9]|4[3-6]|6[023689])|8(?:1[236-8]|2[5-7]|[37]\\d|5[1-9]|8[36-8]|9[1-8])|9(?:0[1-3689]|1[1-79]|3\\d|4[13]|5[1-5]|7[0-79]|9[0-35-9]))123", "10(?:1(?:0|23)|9[56])|2[0-57-9](?:1(?:00|23)|9[56])|(?:3(?:[157]\\d|35|49|9[1-68])|4(?:1[124-9]|2[179]|[35][1-9]|6[47-9]|7\\d|8[23])|5(?:[1357]\\d|2[37]|4[36]|6[1-46]|80|9[1-9])|6(?:3[1-5]|6[0238]|9[12])|7(?:01|[1579]\\d|2[248]|3[014-9]|4[3-6]|6[023689])|8(?:078|1[236-8]|2[5-7]|[37]\\d|5[1-9]|8[36-8]|9[1-8])|9(?:0[1-3689]|1[1-79]|3\\d|4[13]|5[1-5]|7[0-79]|9[0-35-9]))123"], "0$1"], ["(\\d{3})(\\d{5,6})", "$1 $2", ["3(?:[157]|35|49|9[1-68])|4(?:[17]|2[179]|6[47-9]|8[23])|5(?:[1357]|2[37]|4[36]|6[1-46]|80)|6(?:3[1-5]|6[0238]|9[12])|7(?:01|[1579]|2[248]|3[014-9]|4[3-6]|6[023689])|8(?:1[236-8]|2[5-7]|[37]|8[36-8]|9[1-8])|9(?:0[1-3689]|1[1-79]|[379]|4[13]|5[1-5])|(?:4[35]|59|85)[1-9]", "(?:3(?:[157]\\d|35|49|9[1-68])|4(?:[17]\\d|2[179]|[35][1-9]|6[47-9]|8[23])|5(?:[1357]\\d|2[37]|4[36]|6[1-46]|80|9[1-9])|6(?:3[1-5]|6[0238]|9[12])|7(?:01|[1579]\\d|2[248]|3[014-9]|4[3-6]|6[023689])|8(?:1[236-8]|2[5-7]|[37]\\d|5[1-9]|8[36-8]|9[1-8])|9(?:0[1-3689]|1[1-79]|[379]\\d|4[13]|5[1-5]))[19]", "85[23](?:10|95)|(?:3(?:[157]\\d|35|49|9[1-68])|4(?:[17]\\d|2[179]|[35][1-9]|6[47-9]|8[23])|5(?:[1357]\\d|2[37]|4[36]|6[1-46]|80|9[1-9])|6(?:3[1-5]|6[0238]|9[12])|7(?:01|[1579]\\d|2[248]|3[014-9]|4[3-6]|6[023689])|8(?:1[236-8]|2[5-7]|[37]\\d|5[14-9]|8[36-8]|9[1-8])|9(?:0[1-3689]|1[1-79]|[379]\\d|4[13]|5[1-5]))(?:10|9[56])", "85[23](?:100|95)|(?:3(?:[157]\\d|35|49|9[1-68])|4(?:[17]\\d|2[179]|[35][1-9]|6[47-9]|8[23])|5(?:[1357]\\d|2[37]|4[36]|6[1-46]|80|9[1-9])|6(?:3[1-5]|6[0238]|9[12])|7(?:01|[1579]\\d|2[248]|3[014-9]|4[3-6]|6[023689])|8(?:1[236-8]|2[5-7]|[37]\\d|5[14-9]|8[36-8]|9[1-8])|9(?:0[1-3689]|1[1-79]|[379]\\d|4[13]|5[1-5]))(?:100|9[56])"], "0$1"], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["(?:4|80)0"]], ["(\\d{2})(\\d{4})(\\d{4})", "$1 $2 $3", ["10|2(?:[02-57-9]|1[1-9])", "10|2(?:[02-57-9]|1[1-9])", "10[0-79]|2(?:[02-57-9]|1[1-79])|(?:10|21)8(?:0[1-9]|[1-9])"], "0$1", 1], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["3(?:[3-59]|7[02-68])|4(?:[26-8]|3[3-9]|5[2-9])|5(?:3[03-9]|[468]|7[028]|9[2-46-9])|6|7(?:[0-247]|3[04-9]|5[0-4689]|6[2368])|8(?:[1-358]|9[1-7])|9(?:[013479]|5[1-5])|(?:[34]1|55|79|87)[02-9]"], "0$1", 1], ["(\\d{3})(\\d{7,8})", "$1 $2", ["9"]], ["(\\d{4})(\\d{3})(\\d{4})", "$1 $2 $3", ["80"], "0$1", 1], ["(\\d{3})(\\d{4})(\\d{4})", "$1 $2 $3", ["[3-578]"], "0$1", 1], ["(\\d{3})(\\d{4})(\\d{4})", "$1 $2 $3", ["1[3-9]"]], ["(\\d{2})(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3 $4", ["[12]"], "0$1", 1]], "0", 0, "(1(?:[12]\\d|79)\\d\\d)|0", 0, 0, 0, 0, "00"], CO: ["57", "00(?:4(?:[14]4|56)|[579])", "(?:46|60\\d\\d)\\d{6}|(?:1\\d|[39])\\d{9}", [8, 10, 11], [["(\\d{4})(\\d{4})", "$1 $2", ["46"]], ["(\\d{3})(\\d{7})", "$1 $2", ["6|90"], "($1)"], ["(\\d{3})(\\d{7})", "$1 $2", ["3[0-357]|9[14]"]], ["(\\d)(\\d{3})(\\d{7})", "$1-$2-$3", ["1"], "0$1", 0, "$1 $2 $3"]], "0", 0, "0([3579]|4(?:[14]4|56))?"], CR: ["506", "00", "(?:8\\d|90)\\d{8}|(?:[24-8]\\d{3}|3005)\\d{4}", [8, 10], [["(\\d{4})(\\d{4})", "$1 $2", ["[2-7]|8[3-9]"]], ["(\\d{3})(\\d{3})(\\d{4})", "$1-$2-$3", ["[89]"]]], 0, 0, "(19(?:0[0-2468]|1[09]|20|66|77|99))"], CU: ["53", "119", "(?:[2-7]|8\\d\\d)\\d{7}|[2-47]\\d{6}|[34]\\d{5}", [6, 7, 8, 10], [["(\\d{2})(\\d{4,6})", "$1 $2", ["2[1-4]|[34]"], "(0$1)"], ["(\\d)(\\d{6,7})", "$1 $2", ["7"], "(0$1)"], ["(\\d)(\\d{7})", "$1 $2", ["[56]"], "0$1"], ["(\\d{3})(\\d{7})", "$1 $2", ["8"], "0$1"]], "0"], CV: ["238", "0", "(?:[2-59]\\d\\d|800)\\d{4}", [7], [["(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3", ["[2-589]"]]]], CW: ["599", "00", "(?:[34]1|60|(?:7|9\\d)\\d)\\d{5}", [7, 8], [["(\\d{3})(\\d{4})", "$1 $2", ["[3467]"]], ["(\\d)(\\d{3})(\\d{4})", "$1 $2 $3", ["9[4-8]"]]], 0, 0, 0, 0, 0, "[69]"], CX: ["61", "001[14-689]|14(?:1[14]|34|4[17]|[56]6|7[47]|88)0011", "1(?:[0-79]\\d{8}(?:\\d{2})?|8[0-24-9]\\d{7})|[148]\\d{8}|1\\d{5,7}", [6, 7, 8, 9, 10, 12], 0, "0", 0, "([59]\\d{7})$|0", "8$1", 0, 0, [["8(?:51(?:0(?:01|30|59|88)|1(?:17|46|75)|2(?:22|35))|91(?:00[6-9]|1(?:[28]1|49|78)|2(?:09|63)|3(?:12|26|75)|4(?:56|97)|64\\d|7(?:0[01]|1[0-2])|958))\\d{3}", [9]], ["4(?:79[01]|83[0-389]|94[0-478])\\d{5}|4(?:[0-36]\\d|4[047-9]|[58][0-24-9]|7[02-8]|9[0-37-9])\\d{6}", [9]], ["180(?:0\\d{3}|2)\\d{3}", [7, 10]], ["190[0-26]\\d{6}", [10]], 0, 0, 0, 0, ["14(?:5(?:1[0458]|[23][458])|71\\d)\\d{4}", [9]], ["13(?:00\\d{6}(?:\\d{2})?|45[0-4]\\d{3})|13\\d{4}", [6, 8, 10, 12]]], "0011"], CY: ["357", "00", "(?:[279]\\d|[58]0)\\d{6}", [8], [["(\\d{2})(\\d{6})", "$1 $2", ["[257-9]"]]]], CZ: ["420", "00", "(?:[2-578]\\d|60)\\d{7}|9\\d{8,11}", [9, 10, 11, 12], [["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[2-8]|9[015-7]"]], ["(\\d{2})(\\d{3})(\\d{3})(\\d{2})", "$1 $2 $3 $4", ["96"]], ["(\\d{2})(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3 $4", ["9"]], ["(\\d{3})(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3 $4", ["9"]]]], DE: ["49", "00", "[2579]\\d{5,14}|49(?:[34]0|69|8\\d)\\d\\d?|49(?:37|49|60|7[089]|9\\d)\\d{1,3}|49(?:2[024-9]|3[2-689]|7[1-7])\\d{1,8}|(?:1|[368]\\d|4[0-8])\\d{3,13}|49(?:[015]\\d|2[13]|31|[46][1-8])\\d{1,9}", [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], [["(\\d{2})(\\d{3,13})", "$1 $2", ["3[02]|40|[68]9"], "0$1"], ["(\\d{3})(\\d{3,12})", "$1 $2", ["2(?:0[1-389]|1[124]|2[18]|3[14])|3(?:[35-9][15]|4[015])|906|(?:2[4-9]|4[2-9]|[579][1-9]|[68][1-8])1", "2(?:0[1-389]|12[0-8])|3(?:[35-9][15]|4[015])|906|2(?:[13][14]|2[18])|(?:2[4-9]|4[2-9]|[579][1-9]|[68][1-8])1"], "0$1"], ["(\\d{4})(\\d{2,11})", "$1 $2", ["[24-6]|3(?:[3569][02-46-9]|4[2-4679]|7[2-467]|8[2-46-8])|70[2-8]|8(?:0[2-9]|[1-8])|90[7-9]|[79][1-9]", "[24-6]|3(?:3(?:0[1-467]|2[127-9]|3[124578]|7[1257-9]|8[1256]|9[145])|4(?:2[135]|4[13578]|9[1346])|5(?:0[14]|2[1-3589]|6[1-4]|7[13468]|8[13568])|6(?:2[1-489]|3[124-6]|6[13]|7[12579]|8[1-356]|9[135])|7(?:2[1-7]|4[145]|6[1-5]|7[1-4])|8(?:21|3[1468]|6|7[1467]|8[136])|9(?:0[12479]|2[1358]|4[134679]|6[1-9]|7[136]|8[147]|9[1468]))|70[2-8]|8(?:0[2-9]|[1-8])|90[7-9]|[79][1-9]|3[68]4[1347]|3(?:47|60)[1356]|3(?:3[46]|46|5[49])[1246]|3[4579]3[1357]"], "0$1"], ["(\\d{3})(\\d{4})", "$1 $2", ["138"], "0$1"], ["(\\d{5})(\\d{2,10})", "$1 $2", ["3"], "0$1"], ["(\\d{3})(\\d{5,11})", "$1 $2", ["181"], "0$1"], ["(\\d{3})(\\d)(\\d{4,10})", "$1 $2 $3", ["1(?:3|80)|9"], "0$1"], ["(\\d{3})(\\d{7,8})", "$1 $2", ["1[67]"], "0$1"], ["(\\d{3})(\\d{7,12})", "$1 $2", ["8"], "0$1"], ["(\\d{5})(\\d{6})", "$1 $2", ["185", "1850", "18500"], "0$1"], ["(\\d{3})(\\d{4})(\\d{4})", "$1 $2 $3", ["7"], "0$1"], ["(\\d{4})(\\d{7})", "$1 $2", ["18[68]"], "0$1"], ["(\\d{4})(\\d{7})", "$1 $2", ["15[1279]"], "0$1"], ["(\\d{5})(\\d{6})", "$1 $2", ["15[03568]", "15(?:[0568]|3[13])"], "0$1"], ["(\\d{3})(\\d{8})", "$1 $2", ["18"], "0$1"], ["(\\d{3})(\\d{2})(\\d{7,8})", "$1 $2 $3", ["1(?:6[023]|7)"], "0$1"], ["(\\d{4})(\\d{2})(\\d{7})", "$1 $2 $3", ["15[279]"], "0$1"], ["(\\d{3})(\\d{2})(\\d{8})", "$1 $2 $3", ["15"], "0$1"]], "0"], DJ: ["253", "00", "(?:2\\d|77)\\d{6}", [8], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[27]"]]]], DK: ["45", "00", "[2-9]\\d{7}", [8], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[2-9]"]]]], DM: ["1", "011", "(?:[58]\\d\\d|767|900)\\d{7}", [10], 0, "1", 0, "([2-7]\\d{6})$|1", "767$1", 0, "767"], DO: ["1", "011", "(?:[58]\\d\\d|900)\\d{7}", [10], 0, "1", 0, 0, 0, 0, "8001|8[024]9"], DZ: ["213", "00", "(?:[1-4]|[5-79]\\d|80)\\d{7}", [8, 9], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[1-4]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["9"], "0$1"], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[5-8]"], "0$1"]], "0"], EC: ["593", "00", "1\\d{9,10}|(?:[2-7]|9\\d)\\d{7}", [8, 9, 10, 11], [["(\\d)(\\d{3})(\\d{4})", "$1 $2-$3", ["[2-7]"], "(0$1)", 0, "$1-$2-$3"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["9"], "0$1"], ["(\\d{4})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["1"]]], "0"], EE: ["372", "00", "8\\d{9}|[4578]\\d{7}|(?:[3-8]\\d|90)\\d{5}", [7, 8, 10], [["(\\d{3})(\\d{4})", "$1 $2", ["[369]|4[3-8]|5(?:[0-2]|5[0-478]|6[45])|7[1-9]|88", "[369]|4[3-8]|5(?:[02]|1(?:[0-8]|95)|5[0-478]|6(?:4[0-4]|5[1-589]))|7[1-9]|88"]], ["(\\d{4})(\\d{3,4})", "$1 $2", ["[45]|8(?:00|[1-49])", "[45]|8(?:00[1-9]|[1-49])"]], ["(\\d{2})(\\d{2})(\\d{4})", "$1 $2 $3", ["7"]], ["(\\d{4})(\\d{3})(\\d{3})", "$1 $2 $3", ["8"]]]], EG: ["20", "00", "[189]\\d{8,9}|[24-6]\\d{8}|[135]\\d{7}", [8, 9, 10], [["(\\d)(\\d{7,8})", "$1 $2", ["[23]"], "0$1"], ["(\\d{2})(\\d{6,7})", "$1 $2", ["1[35]|[4-6]|8[2468]|9[235-7]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["[89]"], "0$1"], ["(\\d{2})(\\d{8})", "$1 $2", ["1"], "0$1"]], "0"], EH: ["212", "00", "[5-8]\\d{8}", [9], 0, "0", 0, 0, 0, 0, "528[89]"], ER: ["291", "00", "[178]\\d{6}", [7], [["(\\d)(\\d{3})(\\d{3})", "$1 $2 $3", ["[178]"], "0$1"]], "0"], ES: ["34", "00", "[5-9]\\d{8}", [9], [["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[89]00"]], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[5-9]"]]]], ET: ["251", "00", "(?:11|[2-579]\\d)\\d{7}", [9], [["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[1-579]"], "0$1"]], "0"], FI: ["358", "00|99(?:[01469]|5(?:[14]1|3[23]|5[59]|77|88|9[09]))", "[1-35689]\\d{4}|7\\d{10,11}|(?:[124-7]\\d|3[0-46-9])\\d{8}|[1-9]\\d{5,8}", [5, 6, 7, 8, 9, 10, 11, 12], [["(\\d{5})", "$1", ["20[2-59]"], "0$1"], ["(\\d{3})(\\d{3,7})", "$1 $2", ["(?:[1-3]0|[68])0|70[07-9]"], "0$1"], ["(\\d{2})(\\d{4,8})", "$1 $2", ["[14]|2[09]|50|7[135]"], "0$1"], ["(\\d{2})(\\d{6,10})", "$1 $2", ["7"], "0$1"], ["(\\d)(\\d{4,9})", "$1 $2", ["(?:19|[2568])[1-8]|3(?:0[1-9]|[1-9])|9"], "0$1"]], "0", 0, 0, 0, 0, "1[03-79]|[2-9]", 0, "00"], FJ: ["679", "0(?:0|52)", "45\\d{5}|(?:0800\\d|[235-9])\\d{6}", [7, 11], [["(\\d{3})(\\d{4})", "$1 $2", ["[235-9]|45"]], ["(\\d{4})(\\d{3})(\\d{4})", "$1 $2 $3", ["0"]]], 0, 0, 0, 0, 0, 0, 0, "00"], FK: ["500", "00", "[2-7]\\d{4}", [5]], FM: ["691", "00", "(?:[39]\\d\\d|820)\\d{4}", [7], [["(\\d{3})(\\d{4})", "$1 $2", ["[389]"]]]], FO: ["298", "00", "[2-9]\\d{5}", [6], [["(\\d{6})", "$1", ["[2-9]"]]], 0, 0, "(10(?:01|[12]0|88))"], FR: ["33", "00", "[1-9]\\d{8}", [9], [["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["8"], "0 $1"], ["(\\d)(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4 $5", ["[1-79]"], "0$1"]], "0"], GA: ["241", "00", "(?:[067]\\d|11)\\d{6}|[2-7]\\d{6}", [7, 8], [["(\\d)(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[2-7]"], "0$1"], ["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["0"]], ["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["11|[67]"], "0$1"]], 0, 0, "0(11\\d{6}|60\\d{6}|61\\d{6}|6[256]\\d{6}|7[467]\\d{6})", "$1"], GB: ["44", "00", "[1-357-9]\\d{9}|[18]\\d{8}|8\\d{6}", [7, 9, 10], [["(\\d{3})(\\d{4})", "$1 $2", ["800", "8001", "80011", "800111", "8001111"], "0$1"], ["(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3", ["845", "8454", "84546", "845464"], "0$1"], ["(\\d{3})(\\d{6})", "$1 $2", ["800"], "0$1"], ["(\\d{5})(\\d{4,5})", "$1 $2", ["1(?:38|5[23]|69|76|94)", "1(?:(?:38|69)7|5(?:24|39)|768|946)", "1(?:3873|5(?:242|39[4-6])|(?:697|768)[347]|9467)"], "0$1"], ["(\\d{4})(\\d{5,6})", "$1 $2", ["1(?:[2-69][02-9]|[78])"], "0$1"], ["(\\d{2})(\\d{4})(\\d{4})", "$1 $2 $3", ["[25]|7(?:0|6[02-9])", "[25]|7(?:0|6(?:[03-9]|2[356]))"], "0$1"], ["(\\d{4})(\\d{6})", "$1 $2", ["7"], "0$1"], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["[1389]"], "0$1"]], "0", 0, "0|180020", 0, 0, 0, [["(?:1(?:1(?:3(?:[0-58]\\d\\d|73[0-35])|4(?:(?:[0-5]\\d|70)\\d|69[7-9])|(?:(?:5[0-26-9]|[78][0-49])\\d|6(?:[0-4]\\d|50))\\d)|(?:2(?:(?:0[024-9]|2[3-9]|3[3-79]|4[1-689]|[58][02-9]|6[0-47-9]|7[013-9]|9\\d)\\d|1(?:[0-7]\\d|8[0-3]))|(?:3(?:0\\d|1[0-8]|[25][02-9]|3[02-579]|[468][0-46-9]|7[1-35-79]|9[2-578])|4(?:0[03-9]|[137]\\d|[28][02-57-9]|4[02-69]|5[0-8]|[69][0-79])|5(?:0[1-35-9]|[16]\\d|2[024-9]|3[015689]|4[02-9]|5[03-9]|7[0-35-9]|8[0-468]|9[0-57-9])|6(?:0[034689]|1\\d|2[0-35689]|[38][013-9]|4[1-467]|5[0-69]|6[13-9]|7[0-8]|9[0-24578])|7(?:0[0246-9]|2\\d|3[0236-8]|4[03-9]|5[0-46-9]|6[013-9]|7[0-35-9]|8[024-9]|9[02-9])|8(?:0[35-9]|2[1-57-9]|3[02-578]|4[0-578]|5[124-9]|6[2-69]|7\\d|8[02-9]|9[02569])|9(?:0[02-589]|[18]\\d|2[02-689]|3[1-57-9]|4[2-9]|5[0-579]|6[2-47-9]|7[0-24578]|9[2-57]))\\d)\\d)|2(?:0[013478]|3[0189]|4[017]|8[0-46-9]|9[0-2])\\d{3})\\d{4}|1(?:2(?:0(?:46[1-4]|87[2-9])|545[1-79]|76(?:2\\d|3[1-8]|6[1-6])|9(?:7(?:2[0-4]|3[2-5])|8(?:2[2-8]|7[0-47-9]|8[3-5])))|3(?:6(?:38[2-5]|47[23])|8(?:47[04-9]|64[0157-9]))|4(?:044[1-7]|20(?:2[23]|8\\d)|6(?:0(?:30|5[2-57]|6[1-8]|7[2-8])|140)|8(?:052|87[1-3]))|5(?:2(?:4(?:3[2-79]|6\\d)|76\\d)|6(?:26[06-9]|686))|6(?:06(?:4\\d|7[4-79])|295[5-7]|35[34]\\d|47(?:24|61)|59(?:5[08]|6[67]|74)|9(?:55[0-4]|77[23]))|7(?:26(?:6[13-9]|7[0-7])|(?:442|688)\\d|50(?:2[0-3]|[3-68]2|76))|8(?:27[56]\\d|37(?:5[2-5]|8[239])|843[2-58])|9(?:0(?:0(?:6[1-8]|85)|52\\d)|3583|4(?:66[1-8]|9(?:2[01]|81))|63(?:23|3[1-4])|9561))\\d{3}", [9, 10]], ["7(?:457[0-57-9]|700[01]|911[028])\\d{5}|7(?:[1-3]\\d\\d|4(?:[0-46-9]\\d|5[0-689])|5(?:0[0-8]|[13-9]\\d|2[0-35-9])|7(?:0[1-9]|[1-7]\\d|8[02-9]|9[0-689])|8(?:[014-9]\\d|[23][0-8])|9(?:[024-9]\\d|1[02-9]|3[0-689]))\\d{6}", [10]], ["80[08]\\d{7}|800\\d{6}|8001111"], ["(?:8(?:4[2-5]|7[0-3])|9(?:[01]\\d|8[2-49]))\\d{7}|845464\\d", [7, 10]], ["70\\d{8}", [10]], 0, ["(?:3[0347]|55)\\d{8}", [10]], ["76(?:464|652)\\d{5}|76(?:0[0-28]|2[356]|34|4[01347]|5[49]|6[0-369]|77|8[14]|9[139])\\d{6}", [10]], ["56\\d{8}", [10]]], 0, " x"], GD: ["1", "011", "(?:473|[58]\\d\\d|900)\\d{7}", [10], 0, "1", 0, "([2-9]\\d{6})$|1", "473$1", 0, "473"], GE: ["995", "00", "(?:[3-57]\\d\\d|800)\\d{6}", [9], [["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["70"], "0$1"], ["(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["32"], "0$1"], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[57]"]], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[348]"], "0$1"]], "0"], GF: ["594", "00", "(?:[56]94\\d|7093)\\d{5}|(?:80|9\\d)\\d{7}", [9], [["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[5-7]|9[47]"], "0$1"], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[89]"], "0$1"]], "0"], GG: ["44", "00", "(?:1481|[357-9]\\d{3})\\d{6}|8\\d{6}(?:\\d{2})?", [7, 9, 10], 0, "0", 0, "([25-9]\\d{5})$|0|180020", "1481$1", 0, 0, [["1481[25-9]\\d{5}", [10]], ["7(?:(?:781|839)\\d|911[17])\\d{5}", [10]], ["80[08]\\d{7}|800\\d{6}|8001111"], ["(?:8(?:4[2-5]|7[0-3])|9(?:[01]\\d|8[0-3]))\\d{7}|845464\\d", [7, 10]], ["70\\d{8}", [10]], 0, ["(?:3[0347]|55)\\d{8}", [10]], ["76(?:464|652)\\d{5}|76(?:0[0-28]|2[356]|34|4[01347]|5[49]|6[0-369]|77|8[14]|9[139])\\d{6}", [10]], ["56\\d{8}", [10]]]], GH: ["233", "00", "(?:[235]\\d{3}|800)\\d{5}", [8, 9], [["(\\d{3})(\\d{5})", "$1 $2", ["8"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[235]"], "0$1"]], "0"], GI: ["350", "00", "(?:[25]\\d|60)\\d{6}", [8], [["(\\d{3})(\\d{5})", "$1 $2", ["2"]]]], GL: ["299", "00", "(?:19|[2-689]\\d|70)\\d{4}", [6], [["(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3", ["19|[2-9]"]]]], GM: ["220", "00", "[2-9]\\d{6}", [7], [["(\\d{3})(\\d{4})", "$1 $2", ["[2-9]"]]]], GN: ["224", "00", "722\\d{6}|(?:3|6\\d)\\d{7}", [8, 9], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["3"]], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[67]"]]]], GP: ["590", "00", "(?:590\\d|7090)\\d{5}|(?:69|80|9\\d)\\d{7}", [9], [["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[5-79]"], "0$1"], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["8"], "0$1"]], "0", 0, 0, 0, 0, 0, [["590(?:0[1-68]|[14][0-24-9]|2[0-68]|3[1-9]|5[3-579]|[68][0-689]|7[08]|9\\d)\\d{4}"], ["(?:69(?:0\\d\\d|1(?:2[2-9]|3[0-5])|4(?:0[89]|1[2-6]|9\\d)|6(?:1[016-9]|5[0-4]|[67]\\d))|7090[0-4])\\d{4}"], ["80[0-5]\\d{6}"], 0, 0, 0, 0, 0, ["9(?:(?:39[5-7]|76[018])\\d|475[0-6])\\d{4}"]]], GQ: ["240", "00", "222\\d{6}|(?:3\\d|55|[89]0)\\d{7}", [9], [["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[235]"]], ["(\\d{3})(\\d{6})", "$1 $2", ["[89]"]]]], GR: ["30", "00", "5005000\\d{3}|8\\d{9,11}|(?:[269]\\d|70)\\d{8}", [10, 11, 12], [["(\\d{2})(\\d{4})(\\d{4})", "$1 $2 $3", ["21|7"]], ["(\\d{4})(\\d{6})", "$1 $2", ["2(?:2|3[2-57-9]|4[2-469]|5[2-59]|6[2-9]|7[2-69]|8[2-49])|5"]], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["[2689]"]], ["(\\d{3})(\\d{3,4})(\\d{5})", "$1 $2 $3", ["8"]]]], GT: ["502", "00", "80\\d{6}|(?:1\\d{3}|[2-7])\\d{7}", [8, 11], [["(\\d{4})(\\d{4})", "$1 $2", ["[2-8]"]], ["(\\d{4})(\\d{3})(\\d{4})", "$1 $2 $3", ["1"]]]], GU: ["1", "011", "(?:[58]\\d\\d|671|900)\\d{7}", [10], 0, "1", 0, "([2-9]\\d{6})$|1", "671$1", 0, "671"], GW: ["245", "00", "[49]\\d{8}|4\\d{6}", [7, 9], [["(\\d{3})(\\d{4})", "$1 $2", ["40"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[49]"]]]], GY: ["592", "001", "(?:[2-8]\\d{3}|9008)\\d{3}", [7], [["(\\d{3})(\\d{4})", "$1 $2", ["[2-9]"]]]], HK: ["852", "00(?:30|5[09]|[126-9]?)", "8[0-46-9]\\d{6,7}|9\\d{4,7}|(?:[2-7]|9\\d{3})\\d{7}", [5, 6, 7, 8, 9, 11], [["(\\d{3})(\\d{2,5})", "$1 $2", ["900", "9003"]], ["(\\d{4})(\\d{4})", "$1 $2", ["[2-7]|8[1-4]|9(?:0[1-9]|[1-8])"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["8"]], ["(\\d{3})(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3 $4", ["9"]]], 0, 0, 0, 0, 0, 0, 0, "00"], HN: ["504", "00", "8\\d{10}|[237-9]\\d{7}", [8, 11], [["(\\d{4})(\\d{4})", "$1-$2", ["[237-9]"]]]], HR: ["385", "00", "[2-69]\\d{8}|80\\d{5,7}|[1-79]\\d{7}|6\\d{6}", [7, 8, 9], [["(\\d{2})(\\d{2})(\\d{3})", "$1 $2 $3", ["6[01]"], "0$1"], ["(\\d{3})(\\d{2})(\\d{2,3})", "$1 $2 $3", ["8"], "0$1"], ["(\\d)(\\d{4})(\\d{3})", "$1 $2 $3", ["1"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["6|7[245]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["9"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[2-57]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["8"], "0$1"]], "0"], HT: ["509", "00", "[2-589]\\d{7}", [8], [["(\\d{2})(\\d{2})(\\d{4})", "$1 $2 $3", ["[2-589]"]]]], HU: ["36", "00", "[235-7]\\d{8}|[1-9]\\d{7}", [8, 9], [["(\\d)(\\d{3})(\\d{4})", "$1 $2 $3", ["1"], "(06 $1)"], ["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["[27][2-9]|3[2-7]|4[24-9]|5[2-79]|6|8[2-57-9]|9[2-69]"], "(06 $1)"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[2-9]"], "06 $1"]], "06"], ID: ["62", "00[89]", "00[1-9]\\d{9,14}|(?:[1-36]|8\\d{5})\\d{6}|00\\d{9}|[1-9]\\d{8,10}|[2-9]\\d{7}", [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17], [["(\\d)(\\d{3})(\\d{3})", "$1 $2 $3", ["15"]], ["(\\d{2})(\\d{5,9})", "$1 $2", ["2[124]|[36]1"], "(0$1)"], ["(\\d{3})(\\d{5,7})", "$1 $2", ["800"], "0$1"], ["(\\d{3})(\\d{5,8})", "$1 $2", ["[2-79]"], "(0$1)"], ["(\\d{3})(\\d{3,4})(\\d{3})", "$1-$2-$3", ["8[1-35-9]"], "0$1"], ["(\\d{3})(\\d{6,8})", "$1 $2", ["1"], "0$1"], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["804"], "0$1"], ["(\\d{3})(\\d)(\\d{3})(\\d{3})", "$1 $2 $3 $4", ["80"], "0$1"], ["(\\d{3})(\\d{4})(\\d{4,5})", "$1-$2-$3", ["8"], "0$1"]], "0"], IE: ["353", "00", "(?:1\\d|[2569])\\d{6,8}|4\\d{6,9}|7\\d{8}|8\\d{8,9}", [7, 8, 9, 10], [["(\\d{2})(\\d{5})", "$1 $2", ["2[24-9]|47|58|6[237-9]|9[35-9]"], "(0$1)"], ["(\\d{3})(\\d{5})", "$1 $2", ["[45]0"], "(0$1)"], ["(\\d)(\\d{3,4})(\\d{4})", "$1 $2 $3", ["1"], "(0$1)"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[2569]|4[1-69]|7[14]"], "(0$1)"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["70"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["81"], "(0$1)"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[78]"], "0$1"], ["(\\d{4})(\\d{3})(\\d{3})", "$1 $2 $3", ["1"]], ["(\\d{2})(\\d{4})(\\d{4})", "$1 $2 $3", ["4"], "(0$1)"], ["(\\d{2})(\\d)(\\d{3})(\\d{4})", "$1 $2 $3 $4", ["8"], "0$1"]], "0"], IL: ["972", "0(?:0|1[2-9])", "1\\d{6}(?:\\d{3,5})?|[57]\\d{8}|[1-489]\\d{7}", [7, 8, 9, 10, 11, 12], [["(\\d{4})(\\d{3})", "$1-$2", ["125"]], ["(\\d{4})(\\d{2})(\\d{2})", "$1-$2-$3", ["121"]], ["(\\d)(\\d{3})(\\d{4})", "$1-$2-$3", ["[2-489]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1-$2-$3", ["[57]"], "0$1"], ["(\\d{4})(\\d{3})(\\d{3})", "$1-$2-$3", ["12"]], ["(\\d{4})(\\d{6})", "$1-$2", ["159"]], ["(\\d)(\\d{3})(\\d{3})(\\d{3})", "$1-$2-$3-$4", ["1[7-9]"]], ["(\\d{3})(\\d{1,2})(\\d{3})(\\d{4})", "$1-$2 $3-$4", ["15"]]], "0"], IM: ["44", "00", "1624\\d{6}|(?:[3578]\\d|90)\\d{8}", [10], 0, "0", 0, "([25-8]\\d{5})$|0|180020", "1624$1", 0, "74576|(?:16|7[56])24"], IN: ["91", "00", "(?:000800|[2-9]\\d\\d)\\d{7}|1\\d{7,12}", [8, 9, 10, 11, 12, 13], [["(\\d{8})", "$1", ["5(?:0|2[23]|3[03]|[67]1|88)", "5(?:0|2(?:21|3)|3(?:0|3[23])|616|717|888)", "5(?:0|2(?:21|3)|3(?:0|3[23])|616|717|8888)"], 0, 1], ["(\\d{4})(\\d{4,5})", "$1 $2", ["180", "1800"], 0, 1], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["140"], 0, 1], ["(\\d{2})(\\d{4})(\\d{4})", "$1 $2 $3", ["11|2[02]|33|4[04]|79[1-7]|80[2-46]", "11|2[02]|33|4[04]|79(?:[1-6]|7[19])|80(?:[2-4]|6[0-589])", "11|2[02]|33|4[04]|79(?:[124-6]|3(?:[02-9]|1[0-24-9])|7(?:1|9[1-6]))|80(?:[2-4]|6[0-589])"], "0$1", 1], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["1(?:2[0-249]|3[0-25]|4[145]|[68]|7[1257])|2(?:1[257]|3[013]|4[01]|5[0137]|6[0158]|78|8[1568])|3(?:26|4[1-3]|5[34]|6[01489]|7[02-46]|8[159])|4(?:1[36]|2[1-47]|5[12]|6[0-26-9]|7[0-24-9]|8[013-57]|9[014-7])|5(?:1[025]|22|[36][25]|4[28]|5[12]|[78]1)|6(?:12|[2-4]1|5[17]|6[13]|80)|7(?:12|3[134]|4[47]|61|88)|8(?:16|2[014]|3[126]|6[136]|7[078]|8[34]|91)|(?:43|59|75)[15]|(?:1[59]|29|67|72)[14]", "1(?:2[0-24]|3[0-25]|4[145]|[59][14]|6[1-9]|7[1257]|8[1-57-9])|2(?:1[257]|3[013]|4[01]|5[0137]|6[058]|78|8[1568]|9[14])|3(?:26|4[1-3]|5[34]|6[01489]|7[02-46]|8[159])|4(?:1[36]|2[1-47]|3[15]|5[12]|6[0-26-9]|7[0-24-9]|8[013-57]|9[014-7])|5(?:1[025]|22|[36][25]|4[28]|[578]1|9[15])|674|7(?:(?:2[14]|3[34]|5[15])[2-6]|61[346]|88[0-8])|8(?:70[2-6]|84[235-7]|91[3-7])|(?:1(?:29|60|8[06])|261|552|6(?:12|[2-47]1|5[17]|6[13]|80)|7(?:12|31|4[47])|8(?:16|2[014]|3[126]|6[136]|7[78]|83))[2-7]", "1(?:2[0-24]|3[0-25]|4[145]|[59][14]|6[1-9]|7[1257]|8[1-57-9])|2(?:1[257]|3[013]|4[01]|5[0137]|6[058]|78|8[1568]|9[14])|3(?:26|4[1-3]|5[34]|6[01489]|7[02-46]|8[159])|4(?:1[36]|2[1-47]|3[15]|5[12]|6[0-26-9]|7[0-24-9]|8[013-57]|9[014-7])|5(?:1[025]|22|[36][25]|4[28]|[578]1|9[15])|6(?:12(?:[2-6]|7[0-8])|74[2-7])|7(?:(?:2[14]|5[15])[2-6]|3171|61[346]|88(?:[2-7]|82))|8(?:70[2-6]|84(?:[2356]|7[19])|91(?:[3-6]|7[19]))|73[134][2-6]|(?:74[47]|8(?:16|2[014]|3[126]|6[136]|7[78]|83))(?:[2-6]|7[19])|(?:1(?:29|60|8[06])|261|552|6(?:[2-4]1|5[17]|6[13]|7(?:1|4[0189])|80)|7(?:12|88[01]))[2-7]"], "0$1", 1], ["(\\d{4})(\\d{3})(\\d{3})", "$1 $2 $3", ["1(?:[2-479]|5[0235-9])|[2-5]|6(?:1[1358]|2[2457-9]|3[2-5]|4[235-7]|5[2-689]|6[24578]|7[235689]|8[1-6])|7(?:1[013-9]|28|3[129]|4[1-35689]|5[29]|6[02-5]|70)|807", "1(?:[2-479]|5[0235-9])|[2-5]|6(?:1[1358]|2(?:[2457]|84|95)|3(?:[2-4]|55)|4[235-7]|5[2-689]|6[24578]|7[235689]|8[1-6])|7(?:1(?:[013-8]|9[6-9])|28[6-8]|3(?:17|2[0-49]|9[2-57])|4(?:1[2-4]|[29][0-7]|3[0-8]|[56]|8[0-24-7])|5(?:2[1-3]|9[0-6])|6(?:0[5689]|2[5-9]|3[02-8]|4|5[0-367])|70[13-7])|807[19]", "1(?:[2-479]|5(?:[0236-9]|5[013-9]))|[2-5]|6(?:2(?:84|95)|355|83)|73179|807(?:1|9[1-3])|(?:1552|6(?:1[1358]|2[2457]|3[2-4]|4[235-7]|5[2-689]|6[24578]|7[235689]|8[124-6])\\d|7(?:1(?:[013-8]\\d|9[6-9])|28[6-8]|3(?:2[0-49]|9[2-57])|4(?:1[2-4]|[29][0-7]|3[0-8]|[56]\\d|8[0-24-7])|5(?:2[1-3]|9[0-6])|6(?:0[5689]|2[5-9]|3[02-8]|4\\d|5[0-367])|70[13-7]))[2-7]"], "0$1", 1], ["(\\d{5})(\\d{5})", "$1 $2", ["[6-9]"], "0$1", 1], ["(\\d{4})(\\d{2,4})(\\d{4})", "$1 $2 $3", ["1(?:6|8[06])", "1(?:6|8[06]0)"], 0, 1], ["(\\d{4})(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3 $4", ["18"], 0, 1]], "0"], IO: ["246", "00", "3\\d{6}", [7], [["(\\d{3})(\\d{4})", "$1 $2", ["3"]]]], IQ: ["964", "00", "(?:1|7\\d\\d)\\d{7}|[2-6]\\d{7,8}", [8, 9, 10], [["(\\d)(\\d{3})(\\d{4})", "$1 $2 $3", ["1"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[2-6]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["7"], "0$1"]], "0"], IR: ["98", "00", "[1-9]\\d{9}|(?:[1-8]\\d\\d|9)\\d{3,4}", [4, 5, 6, 7, 10], [["(\\d{4,5})", "$1", ["96"], "0$1"], ["(\\d{2})(\\d{4,5})", "$1 $2", ["(?:1[137]|2[13-68]|3[1458]|4[145]|5[1468]|6[16]|7[1467]|8[13467])[12689]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["9"], "0$1"], ["(\\d{2})(\\d{4})(\\d{4})", "$1 $2 $3", ["[1-8]"], "0$1"]], "0"], IS: ["354", "00|1(?:0(?:01|[12]0)|100)", "(?:38\\d|[4-9])\\d{6}", [7, 9], [["(\\d{3})(\\d{4})", "$1 $2", ["[4-9]"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["3"]]], 0, 0, 0, 0, 0, 0, 0, "00"], IT: ["39", "00", "0\\d{5,11}|1\\d{8,10}|3(?:[0-8]\\d{7,10}|9\\d{7,8})|(?:43|55|70)\\d{8}|8\\d{5}(?:\\d{2,4})?", [6, 7, 8, 9, 10, 11, 12], [["(\\d{2})(\\d{4,6})", "$1 $2", ["0[26]"]], ["(\\d{3})(\\d{3,6})", "$1 $2", ["0[13-57-9][0159]|8(?:03|4[17]|9[2-5])", "0[13-57-9][0159]|8(?:03|4[17]|9(?:2|3[04]|[45][0-4]))"]], ["(\\d{4})(\\d{2,6})", "$1 $2", ["0(?:[13-579][2-46-8]|8[236-8])"]], ["(\\d{4})(\\d{4})", "$1 $2", ["894"]], ["(\\d{2})(\\d{3,4})(\\d{4})", "$1 $2 $3", ["0[26]|5"]], ["(\\d{3})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["1(?:44|[679])|[378]|43"]], ["(\\d{3})(\\d{3,4})(\\d{4})", "$1 $2 $3", ["0[13-57-9][0159]|14"]], ["(\\d{2})(\\d{4})(\\d{5})", "$1 $2 $3", ["0[26]"]], ["(\\d{4})(\\d{3})(\\d{4})", "$1 $2 $3", ["0"]], ["(\\d{3})(\\d{4})(\\d{4,5})", "$1 $2 $3", ["[03]"]]], 0, 0, 0, 0, 0, 0, [["0(?:669[0-79]\\d{1,6}|831\\d{2,8})|0(?:1(?:[0159]\\d|[27][1-5]|31|4[1-4]|6[1356]|8[2-57])|2\\d\\d|3(?:[0159]\\d|2[1-4]|3[12]|[48][1-6]|6[2-59]|7[1-7])|4(?:[0159]\\d|[23][1-9]|4[245]|6[1-5]|7[1-4]|81)|5(?:[0159]\\d|2[1-5]|3[2-6]|4[1-79]|6[4-6]|7[1-578]|8[3-8])|6(?:[0-57-9]\\d|6[0-8])|7(?:[0159]\\d|2[12]|3[1-7]|4[2-46]|6[13569]|7[13-6]|8[1-59])|8(?:[0159]\\d|2[3-578]|3[2356]|[6-8][1-5])|9(?:[0159]\\d|[238][1-5]|4[12]|6[1-8]|7[1-6]))\\d{2,7}"], ["3[2-9]\\d{7,8}|(?:31|43)\\d{8}", [9, 10]], ["80(?:0\\d{3}|3)\\d{3}", [6, 9]], ["(?:0878\\d{3}|89(?:2\\d|3[04]|4(?:[0-4]|[5-9]\\d\\d)|5[0-4]))\\d\\d|(?:1(?:44|6[346])|89(?:38|5[5-9]|9))\\d{6}", [6, 8, 9, 10]], ["1(?:78\\d|99)\\d{6}", [9, 10]], ["3[2-8]\\d{9,10}", [11, 12]], 0, 0, ["55\\d{8}", [10]], ["84(?:[08]\\d{3}|[17])\\d{3}", [6, 9]]]], JE: ["44", "00", "1534\\d{6}|(?:[3578]\\d|90)\\d{8}", [10], 0, "0", 0, "([0-24-8]\\d{5})$|0|180020", "1534$1", 0, 0, [["1534[0-24-8]\\d{5}"], ["7(?:(?:(?:50|82)9|937)\\d|7(?:00[378]|97\\d))\\d{5}"], ["80(?:07(?:35|81)|8901)\\d{4}"], ["(?:8(?:4(?:4(?:4(?:05|42|69)|703)|5(?:041|800))|7(?:0002|1206))|90(?:066[59]|1810|71(?:07|55)))\\d{4}"], ["701511\\d{4}"], 0, ["(?:3(?:0(?:07(?:35|81)|8901)|3\\d{4}|4(?:4(?:4(?:05|42|69)|703)|5(?:041|800))|7(?:0002|1206))|55\\d{4})\\d{4}"], ["76(?:464|652)\\d{5}|76(?:0[0-28]|2[356]|34|4[01347]|5[49]|6[0-369]|77|8[14]|9[139])\\d{6}"], ["56\\d{8}"]]], JM: ["1", "011", "(?:[58]\\d\\d|658|900)\\d{7}", [10], 0, "1", 0, 0, 0, 0, "658|876"], JO: ["962", "00", "(?:(?:[2689]|7\\d)\\d|32|53)\\d{6}", [8, 9], [["(\\d)(\\d{3})(\\d{4})", "$1 $2 $3", ["[2356]|87"], "(0$1)"], ["(\\d{3})(\\d{5,6})", "$1 $2", ["[89]"], "0$1"], ["(\\d{2})(\\d{7})", "$1 $2", ["70"], "0$1"], ["(\\d)(\\d{4})(\\d{4})", "$1 $2 $3", ["7"], "0$1"]], "0"], JP: ["81", "010", "00[1-9]\\d{6,14}|[25-9]\\d{9}|(?:00|[1-9]\\d\\d)\\d{6}", [8, 9, 10, 11, 12, 13, 14, 15, 16, 17], [["(\\d{3})(\\d{3})(\\d{3})", "$1-$2-$3", ["(?:12|57|99)0"], "0$1"], ["(\\d{4})(\\d)(\\d{4})", "$1-$2-$3", ["1(?:26|3[79]|4[56]|5[4-68]|6[3-5])|499|5(?:76|97)|746|8(?:3[89]|47|51)|9(?:80|9[16])", "1(?:267|3(?:7[247]|9[278])|466|5(?:47|58|64)|6(?:3[245]|48|5[4-68]))|499[2468]|5(?:76|97)9|7468|8(?:3(?:8[7-9]|96)|477|51[2-9])|9(?:802|9(?:1[23]|69))|1(?:45|58)[67]", "1(?:267|3(?:7[247]|9[278])|466|5(?:47|58|64)|6(?:3[245]|48|5[4-68]))|499[2468]|5(?:769|979[2-69])|7468|8(?:3(?:8[7-9]|96[2457-9])|477|51[2-9])|9(?:802|9(?:1[23]|69))|1(?:45|58)[67]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1-$2-$3", ["60"], "0$1"], ["(\\d)(\\d{4})(\\d{4})", "$1-$2-$3", ["3|4(?:2[09]|7[01])|6[1-9]", "3|4(?:2(?:0|9[02-69])|7(?:0[019]|1))|6[1-9]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1-$2-$3", ["1(?:1|5[45]|77|88|9[69])|2(?:2[1-37]|3[0-269]|4[59]|5|6[24]|7[1-358]|8[1369]|9[0-38])|4(?:[28][1-9]|3[0-57]|[45]|6[248]|7[2-579]|9[29])|5(?:2|3[0459]|4[0-369]|5[29]|8[02389]|9[0-389])|7(?:2[02-46-9]|34|[58]|6[0249]|7[57]|9[2-6])|8(?:2[124589]|3[26-9]|49|51|6|7[0-468]|8[68]|9[019])|9(?:[23][1-9]|4[15]|5[138]|6[1-3]|7[156]|8[189]|9[1-489])", "1(?:1|5(?:4[018]|5[017])|77|88|9[69])|2(?:2(?:[127]|3[014-9])|3[0-269]|4[59]|5(?:[1-3]|5[0-69]|9[19])|62|7(?:[1-35]|8[0189])|8(?:[16]|3[0134]|9[0-5])|9(?:[028]|17))|4(?:2(?:[13-79]|8[014-6])|3[0-57]|[45]|6[248]|7[2-47]|8[1-9]|9[29])|5(?:2|3(?:[045]|9[0-8])|4[0-369]|5[29]|8[02389]|9[0-3])|7(?:2[02-46-9]|34|[58]|6[0249]|7[57]|9(?:[23]|4[0-59]|5[01569]|6[0167]))|8(?:2(?:[1258]|4[0-39]|9[0-2469])|3(?:[29]|60)|49|51|6(?:[0-24]|36|5[0-3589]|7[23]|9[01459])|7[0-468]|8[68])|9(?:[23][1-9]|4[15]|5[138]|6[1-3]|7[156]|8[189]|9(?:[1289]|3[34]|4[0178]))|(?:264|837)[016-9]|2(?:57|93)[015-9]|(?:25[0468]|422|838)[01]|(?:47[59]|59[89]|8(?:6[68]|9))[019]", "1(?:1|5(?:4[018]|5[017])|77|88|9[69])|2(?:2[127]|3[0-269]|4[59]|5(?:[1-3]|5[0-69]|9(?:17|99))|6(?:2|4[016-9])|7(?:[1-35]|8[0189])|8(?:[16]|3[0134]|9[0-5])|9(?:[028]|17))|4(?:2(?:[13-79]|8[014-6])|3[0-57]|[45]|6[248]|7[2-47]|9[29])|5(?:2|3(?:[045]|9(?:[0-58]|6[4-9]|7[0-35689]))|4[0-369]|5[29]|8[02389]|9[0-3])|7(?:2[02-46-9]|34|[58]|6[0249]|7[57]|9(?:[23]|4[0-59]|5[01569]|6[0167]))|8(?:2(?:[1258]|4[0-39]|9[0169])|3(?:[29]|60|7(?:[017-9]|6[6-8]))|49|51|6(?:[0-24]|36[2-57-9]|5(?:[0-389]|5[23])|6(?:[01]|9[178])|7(?:2[2-468]|3[78])|9[0145])|7[0-468]|8[68])|9(?:4[15]|5[138]|7[156]|8[189]|9(?:[1289]|3(?:31|4[357])|4[0178]))|(?:8294|96)[1-3]|2(?:57|93)[015-9]|(?:223|8699)[014-9]|(?:25[0468]|422|838)[01]|(?:48|8292|9[23])[1-9]|(?:47[59]|59[89]|8(?:68|9))[019]"], "0$1"], ["(\\d{3})(\\d{2})(\\d{4})", "$1-$2-$3", ["[14]|[289][2-9]|5[3-9]|7[2-4679]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{4})", "$1-$2-$3", ["800"], "0$1"], ["(\\d{2})(\\d{4})(\\d{4})", "$1-$2-$3", ["[25-9]"], "0$1"]], "0", 0, "(000[2569]\\d{4,6})$|(?:(?:003768)0?)|0", "$1"], KE: ["254", "000", "(?:[17]\\d\\d|900)\\d{6}|(?:2|80)0\\d{6,7}|[4-6]\\d{6,8}", [7, 8, 9, 10], [["(\\d{2})(\\d{5,7})", "$1 $2", ["[24-6]"], "0$1"], ["(\\d{3})(\\d{6})", "$1 $2", ["[17]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[89]"], "0$1"]], "0"], KG: ["996", "00", "8\\d{9}|[235-9]\\d{8}", [9, 10], [["(\\d{4})(\\d{5})", "$1 $2", ["3(?:1[346]|[24-79])"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[235-79]|88"], "0$1"], ["(\\d{3})(\\d{3})(\\d)(\\d{2,3})", "$1 $2 $3 $4", ["8"], "0$1"]], "0"], KH: ["855", "00[14-9]", "1\\d{9}|[1-9]\\d{7,8}", [8, 9, 10], [["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[1-9]"], "0$1"], ["(\\d{4})(\\d{3})(\\d{3})", "$1 $2 $3", ["1"]]], "0"], KI: ["686", "00", "(?:[37]\\d|6[0-79])\\d{6}|(?:[2-48]\\d|50)\\d{3}", [5, 8], 0, "0"], KM: ["269", "00", "[3478]\\d{6}", [7], [["(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3", ["[3478]"]]]], KN: ["1", "011", "(?:[58]\\d\\d|900)\\d{7}", [10], 0, "1", 0, "([2-7]\\d{6})$|1", "869$1", 0, "869"], KP: ["850", "00|99", "85\\d{6}|(?:19\\d|[2-7])\\d{7}", [8, 10], [["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["8"], "0$1"], ["(\\d)(\\d{3})(\\d{4})", "$1 $2 $3", ["[2-7]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["1"], "0$1"]], "0"], KR: ["82", "00(?:[125689]|3(?:[46]5|91)|7(?:00|27|3|55|6[126]))", "00[1-9]\\d{8,11}|(?:[12]|5\\d{3})\\d{7}|[13-6]\\d{9}|(?:[1-6]\\d|80)\\d{7}|[3-6]\\d{4,5}|(?:00|7)0\\d{8}", [5, 6, 8, 9, 10, 11, 12, 13, 14], [["(\\d{2})(\\d{3,4})", "$1-$2", ["(?:3[1-3]|[46][1-4]|5[1-5])1"], "0$1"], ["(\\d{4})(\\d{4})", "$1-$2", ["1"]], ["(\\d)(\\d{3,4})(\\d{4})", "$1-$2-$3", ["2"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1-$2-$3", ["[36]0|8"], "0$1"], ["(\\d{2})(\\d{3,4})(\\d{4})", "$1-$2-$3", ["[1346]|5[1-5]"], "0$1"], ["(\\d{2})(\\d{4})(\\d{4})", "$1-$2-$3", ["[57]"], "0$1"], ["(\\d{2})(\\d{5})(\\d{4})", "$1-$2-$3", ["5"], "0$1"]], "0", 0, "0(8(?:[1-46-8]|5\\d\\d))?"], KW: ["965", "00", "18\\d{5}|(?:[2569]\\d|41)\\d{6}", [7, 8], [["(\\d{4})(\\d{3,4})", "$1 $2", ["[169]|2(?:[235]|4[1-35-9])|52"]], ["(\\d{3})(\\d{5})", "$1 $2", ["[245]"]]]], KY: ["1", "011", "(?:345|[58]\\d\\d|900)\\d{7}", [10], 0, "1", 0, "([2-9]\\d{6})$|1", "345$1", 0, "345"], KZ: ["7", "810", "(?:33622|8\\d{8})\\d{5}|[78]\\d{9}", [10, 14], 0, "8", 0, 0, 0, 0, "33622|7", 0, "8~10"], LA: ["856", "00", "[23]\\d{9}|3\\d{8}|(?:[235-8]\\d|41)\\d{6}", [8, 9, 10], [["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["2[13]|3[14]|[4-8]"], "0$1"], ["(\\d{2})(\\d{2})(\\d{2})(\\d{3})", "$1 $2 $3 $4", ["3"], "0$1"], ["(\\d{2})(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3 $4", ["[23]"], "0$1"]], "0"], LB: ["961", "00", "[27-9]\\d{7}|[13-9]\\d{6}", [7, 8], [["(\\d)(\\d{3})(\\d{3})", "$1 $2 $3", ["[13-69]|7(?:[2-57]|62|8[0-6]|9[04-9])|8[02-9]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["[27-9]"]]], "0"], LC: ["1", "011", "(?:[58]\\d\\d|758|900)\\d{7}", [10], 0, "1", 0, "([2-8]\\d{6})$|1", "758$1", 0, "758"], LI: ["423", "00", "[68]\\d{8}|(?:[2378]\\d|90)\\d{5}", [7, 9], [["(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3", ["[2379]|8(?:0[09]|7)", "[2379]|8(?:0(?:02|9)|7)"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["8"]], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["69"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["6"]]], "0", 0, "(1001)|0"], LK: ["94", "00", "[1-9]\\d{8}", [9], [["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["7"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[1-689]"], "0$1"]], "0"], LR: ["231", "00", "(?:[2457]\\d|33|88)\\d{7}|(?:2\\d|[4-6])\\d{6}", [7, 8, 9], [["(\\d)(\\d{3})(\\d{3})", "$1 $2 $3", ["4[67]|[56]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["2"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[2-578]"], "0$1"]], "0"], LS: ["266", "00", "(?:[256]\\d\\d|800)\\d{5}", [8], [["(\\d{4})(\\d{4})", "$1 $2", ["[2568]"]]]], LT: ["370", "00", "(?:[3469]\\d|52|[78]0)\\d{6}", [8], [["(\\d)(\\d{3})(\\d{4})", "$1 $2 $3", ["52[0-7]"], "(0-$1)", 1], ["(\\d{3})(\\d{2})(\\d{3})", "$1 $2 $3", ["[7-9]"], "0 $1", 1], ["(\\d{2})(\\d{6})", "$1 $2", ["37|4(?:[15]|6[1-8])"], "(0-$1)", 1], ["(\\d{3})(\\d{5})", "$1 $2", ["[3-6]"], "(0-$1)", 1]], "0", 0, "[08]"], LU: ["352", "00", "35[013-9]\\d{4,8}|6\\d{8}|35\\d{2,4}|(?:[2457-9]\\d|3[0-46-9])\\d{2,9}", [4, 5, 6, 7, 8, 9, 10, 11], [["(\\d{2})(\\d{3})", "$1 $2", ["2(?:0[2-689]|[2-9])|[3-57]|8(?:0[2-9]|[13-9])|9(?:0[89]|[2-579])"]], ["(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3", ["2(?:0[2-689]|[2-9])|[3-57]|8(?:0[2-9]|[13-9])|9(?:0[89]|[2-579])"]], ["(\\d{2})(\\d{2})(\\d{3})", "$1 $2 $3", ["20[2-689]"]], ["(\\d{2})(\\d{2})(\\d{2})(\\d{1,2})", "$1 $2 $3 $4", ["2(?:[0367]|4[3-8])"]], ["(\\d{3})(\\d{2})(\\d{3})", "$1 $2 $3", ["80[01]|90[015]"]], ["(\\d{2})(\\d{2})(\\d{2})(\\d{3})", "$1 $2 $3 $4", ["20"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["6"]], ["(\\d{2})(\\d{2})(\\d{2})(\\d{2})(\\d{1,2})", "$1 $2 $3 $4 $5", ["2(?:[0367]|4[3-8])"]], ["(\\d{2})(\\d{2})(\\d{2})(\\d{1,5})", "$1 $2 $3 $4", ["[3-57]|8[13-9]|9(?:0[89]|[2-579])|(?:2|80)[2-9]"]]], 0, 0, "(15(?:0[06]|1[12]|[35]5|4[04]|6[26]|77|88|99)\\d)"], LV: ["371", "00", "(?:[268]\\d|78|90)\\d{6}", [8], [["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["[2679]|8[01]"]]]], LY: ["218", "00", "[2-9]\\d{8}", [9], [["(\\d{2})(\\d{7})", "$1-$2", ["[2-9]"], "0$1"]], "0"], MA: ["212", "00", "[5-8]\\d{8}", [9], [["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["5[45]"], "0$1"], ["(\\d{4})(\\d{5})", "$1-$2", ["5(?:2[2-46-9]|3[3-9]|9)|8(?:0[89]|92)"], "0$1"], ["(\\d{2})(\\d{7})", "$1-$2", ["8"], "0$1"], ["(\\d{3})(\\d{6})", "$1-$2", ["[5-7]"], "0$1"]], "0", 0, 0, 0, 0, 0, [["5(?:2(?:[0-25-79]\\d|3[1-578]|4[02-46-8]|8[0235-7])|3(?:[0-47]\\d|5[02-9]|6[02-8]|8[014-9]|9[3-9])|(?:4[067]|5[03])\\d)\\d{5}"], ["(?:6(?:[0-79]\\d|8[0-247-9])|7(?:[0167]\\d|2[0-8]|5[0-5]|8[0-7]))\\d{6}"], ["80[0-7]\\d{6}"], ["89\\d{7}"], 0, 0, 0, 0, ["(?:592(?:4[0-2]|93)|80[89]\\d\\d)\\d{4}"]]], MC: ["377", "00", "(?:[3489]|6\\d)\\d{7}", [8, 9], [["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["4"], "0$1"], ["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[389]"]], ["(\\d)(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4 $5", ["6"], "0$1"]], "0"], MD: ["373", "00", "(?:[235-7]\\d|[89]0)\\d{6}", [8], [["(\\d{3})(\\d{5})", "$1 $2", ["[89]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["22|3"], "0$1"], ["(\\d{3})(\\d{2})(\\d{3})", "$1 $2 $3", ["[25-7]"], "0$1"]], "0"], ME: ["382", "00", "(?:20|[3-79]\\d)\\d{6}|80\\d{6,7}", [8, 9], [["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[2-9]"], "0$1"]], "0"], MF: ["590", "00", "(?:590\\d|7090)\\d{5}|(?:69|80|9\\d)\\d{7}", [9], 0, "0", 0, 0, 0, 0, 0, [["590(?:0[079]|[14]3|[27][79]|3[03-7]|5[0-268]|87)\\d{4}"], ["(?:69(?:0\\d\\d|1(?:2[2-9]|3[0-5])|4(?:0[89]|1[2-6]|9\\d)|6(?:1[016-9]|5[0-4]|[67]\\d))|7090[0-4])\\d{4}"], ["80[0-5]\\d{6}"], 0, 0, 0, 0, 0, ["9(?:(?:39[5-7]|76[018])\\d|475[0-6])\\d{4}"]]], MG: ["261", "00", "[23]\\d{8}", [9], [["(\\d{2})(\\d{2})(\\d{3})(\\d{2})", "$1 $2 $3 $4", ["[23]"], "0$1"]], "0", 0, "([24-9]\\d{6})$|0", "20$1"], MH: ["692", "011", "329\\d{4}|(?:[256]\\d|45)\\d{5}", [7], [["(\\d{3})(\\d{4})", "$1-$2", ["[2-6]"]]], "1"], MK: ["389", "00", "[2-578]\\d{7}", [8], [["(\\d)(\\d{3})(\\d{4})", "$1 $2 $3", ["2|34[47]|4(?:[37]7|5[47]|64)"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["[347]"], "0$1"], ["(\\d{3})(\\d)(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[58]"], "0$1"]], "0"], ML: ["223", "00", "[24-9]\\d{7}", [8], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[24-9]"]]]], MM: ["95", "00", "1\\d{5,7}|95\\d{6}|(?:[4-7]|9[0-46-9])\\d{6,8}|(?:2|8\\d)\\d{5,8}", [6, 7, 8, 9, 10], [["(\\d)(\\d{2})(\\d{3})", "$1 $2 $3", ["16|2"], "0$1"], ["(\\d{2})(\\d{2})(\\d{3})", "$1 $2 $3", ["4(?:[2-46]|5[3-5])|5|6(?:[1-689]|7[235-7])|7(?:[0-4]|5[2-7])|8[1-5]|(?:60|86)[23]"], "0$1"], ["(\\d)(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[12]|452|678|86", "[12]|452|6788|86"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[4-7]|8[1-35]"], "0$1"], ["(\\d)(\\d{3})(\\d{4,6})", "$1 $2 $3", ["9(?:2[0-4]|[35-9]|4[137-9])"], "0$1"], ["(\\d)(\\d{4})(\\d{4})", "$1 $2 $3", ["2"], "0$1"], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["8"], "0$1"], ["(\\d)(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3 $4", ["92"], "0$1"], ["(\\d)(\\d{5})(\\d{4})", "$1 $2 $3", ["9"], "0$1"]], "0"], MN: ["976", "001", "[12]\\d{7,9}|[5-9]\\d{7}", [8, 9, 10], [["(\\d{2})(\\d{2})(\\d{4})", "$1 $2 $3", ["[12]1"], "0$1"], ["(\\d{4})(\\d{4})", "$1 $2", ["[5-9]"]], ["(\\d{3})(\\d{5,6})", "$1 $2", ["[12]2[1-3]"], "0$1"], ["(\\d{4})(\\d{5,6})", "$1 $2", ["[12](?:27|3[2-8]|4[2-68]|5[1-4689])", "[12](?:27|3[2-8]|4[2-68]|5[1-4689])[0-3]"], "0$1"], ["(\\d{5})(\\d{4,5})", "$1 $2", ["[12]"], "0$1"]], "0"], MO: ["853", "00", "0800\\d{3}|(?:28|[68]\\d)\\d{6}", [7, 8], [["(\\d{4})(\\d{3})", "$1 $2", ["0"]], ["(\\d{4})(\\d{4})", "$1 $2", ["[268]"]]]], MP: ["1", "011", "[58]\\d{9}|(?:67|90)0\\d{7}", [10], 0, "1", 0, "([2-9]\\d{6})$|1", "670$1", 0, "670"], MQ: ["596", "00", "(?:596\\d|7091)\\d{5}|(?:69|[89]\\d)\\d{7}", [9], [["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[5-79]|8(?:0[6-9]|[36])"], "0$1"], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["8"], "0$1"]], "0"], MR: ["222", "00", "(?:[2-4]\\d\\d|800)\\d{5}", [8], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[2-48]"]]]], MS: ["1", "011", "(?:[58]\\d\\d|664|900)\\d{7}", [10], 0, "1", 0, "([34]\\d{6})$|1", "664$1", 0, "664"], MT: ["356", "00", "3550\\d{4}|(?:[2579]\\d\\d|800)\\d{5}", [8], [["(\\d{4})(\\d{4})", "$1 $2", ["[2357-9]"]]]], MU: ["230", "0(?:0|[24-7]0|3[03])", "(?:[57]|8\\d\\d)\\d{7}|[2-468]\\d{6}", [7, 8, 10], [["(\\d{3})(\\d{4})", "$1 $2", ["[2-46]|8[013]"]], ["(\\d{4})(\\d{4})", "$1 $2", ["[57]"]], ["(\\d{5})(\\d{5})", "$1 $2", ["8"]]], 0, 0, 0, 0, 0, 0, 0, "020"], MV: ["960", "0(?:0|19)", "(?:800|9[0-57-9]\\d)\\d{7}|[34679]\\d{6}", [7, 10], [["(\\d{3})(\\d{4})", "$1-$2", ["[34679]"]], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["[89]"]]], 0, 0, 0, 0, 0, 0, 0, "00"], MW: ["265", "00", "(?:[1289]\\d|31|77)\\d{7}|1\\d{6}", [7, 9], [["(\\d)(\\d{3})(\\d{3})", "$1 $2 $3", ["1[2-9]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["2"], "0$1"], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[137-9]"], "0$1"]], "0"], MX: ["52", "0[09]", "[2-9]\\d{9}", [10], [["(\\d{2})(\\d{4})(\\d{4})", "$1 $2 $3", ["33|5[56]|81"]], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["[2-9]"]]], 0, 0, 0, 0, 0, 0, 0, "00"], MY: ["60", "00", "1\\d{8,9}|(?:3\\d|[4-9])\\d{7}", [8, 9, 10], [["(\\d)(\\d{3})(\\d{4})", "$1-$2 $3", ["[4-79]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1-$2 $3", ["1(?:[02469]|[378][1-9]|53)|8", "1(?:[02469]|[37][1-9]|53|8(?:[1-46-9]|5[7-9]))|8"], "0$1"], ["(\\d)(\\d{4})(\\d{4})", "$1-$2 $3", ["3"], "0$1"], ["(\\d)(\\d{3})(\\d{2})(\\d{4})", "$1-$2-$3-$4", ["1(?:[367]|80)"]], ["(\\d{3})(\\d{3})(\\d{4})", "$1-$2 $3", ["15"], "0$1"], ["(\\d{2})(\\d{4})(\\d{4})", "$1-$2 $3", ["1"], "0$1"]], "0"], MZ: ["258", "00", "(?:2|8\\d)\\d{7}", [8, 9], [["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["2|8[2-79]"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["8"]]]], NA: ["264", "00", "[68]\\d{7,8}", [8, 9], [["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["88"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["6"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["87"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["8"], "0$1"]], "0"], NC: ["687", "00", "(?:050|[2-57-9]\\d\\d)\\d{3}", [6], [["(\\d{2})(\\d{2})(\\d{2})", "$1.$2.$3", ["[02-57-9]"]]]], NE: ["227", "00", "[027-9]\\d{7}", [8], [["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["08"]], ["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[089]|2[013]|7[0467]"]]]], NF: ["672", "00", "[13]\\d{5}", [6], [["(\\d{2})(\\d{4})", "$1 $2", ["1[0-3]"]], ["(\\d)(\\d{5})", "$1 $2", ["[13]"]]], 0, 0, "([0-258]\\d{4})$", "3$1"], NG: ["234", "009", "(?:20|9\\d)\\d{8}|[78]\\d{9,13}", [10, 11, 12, 13, 14], [["(\\d{3})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[7-9]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["20[129]"], "0$1"], ["(\\d{4})(\\d{2})(\\d{4})", "$1 $2 $3", ["2"], "0$1"], ["(\\d{3})(\\d{4})(\\d{4,5})", "$1 $2 $3", ["[78]"], "0$1"], ["(\\d{3})(\\d{5})(\\d{5,6})", "$1 $2 $3", ["[78]"], "0$1"]], "0"], NI: ["505", "00", "(?:1800|[25-8]\\d{3})\\d{4}", [8], [["(\\d{4})(\\d{4})", "$1 $2", ["[125-8]"]]]], NL: ["31", "00", "(?:[124-7]\\d\\d|3(?:[02-9]\\d|1[0-8]))\\d{6}|8\\d{6,9}|9\\d{6,10}|1\\d{4,5}", [5, 6, 7, 8, 9, 10, 11], [["(\\d{3})(\\d{4,7})", "$1 $2", ["[89]0"], "0$1"], ["(\\d{2})(\\d{7})", "$1 $2", ["66"], "0$1"], ["(\\d)(\\d{8})", "$1 $2", ["6"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["1[16-8]|2[259]|3[124]|4[17-9]|5[124679]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[1-578]|91"], "0$1"], ["(\\d{3})(\\d{3})(\\d{5})", "$1 $2 $3", ["9"], "0$1"]], "0"], NO: ["47", "00", "(?:0|[2-9]\\d{3})\\d{4}", [5, 8], [["(\\d{3})(\\d{2})(\\d{3})", "$1 $2 $3", ["8"]], ["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[2-79]"]]], 0, 0, 0, 0, 0, "[02-689]|7[0-8]"], NP: ["977", "00", "(?:1\\d|9)\\d{9}|[1-9]\\d{7}", [8, 10, 11], [["(\\d)(\\d{7})", "$1-$2", ["1[2-6]"], "0$1"], ["(\\d{2})(\\d{6})", "$1-$2", ["1[01]|[2-8]|9(?:[1-59]|[67][2-6])"], "0$1"], ["(\\d{3})(\\d{7})", "$1-$2", ["9"]]], "0"], NR: ["674", "00", "(?:222|444|(?:55|8\\d)\\d|666|777|999)\\d{4}", [7], [["(\\d{3})(\\d{4})", "$1 $2", ["[24-9]"]]]], NU: ["683", "00", "(?:[4-7]|888\\d)\\d{3}", [4, 7], [["(\\d{3})(\\d{4})", "$1 $2", ["8"]]]], NZ: ["64", "0(?:0|161)", "[1289]\\d{9}|50\\d{5}(?:\\d{2,3})?|[27-9]\\d{7,8}|(?:[34]\\d|6[0-35-9])\\d{6}|8\\d{4,6}", [5, 6, 7, 8, 9, 10], [["(\\d{2})(\\d{3,8})", "$1 $2", ["8[1-79]"], "0$1"], ["(\\d{3})(\\d{2})(\\d{2,3})", "$1 $2 $3", ["50[036-8]|8|90", "50(?:[0367]|88)|8|90"], "0$1"], ["(\\d)(\\d{3})(\\d{4})", "$1 $2 $3", ["24|[346]|7[2-57-9]|9[2-9]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["2(?:10|74)|[589]"], "0$1"], ["(\\d{2})(\\d{3,4})(\\d{4})", "$1 $2 $3", ["1|2[028]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3,5})", "$1 $2 $3", ["2(?:[169]|7[0-35-9])|7"], "0$1"]], "0", 0, 0, 0, 0, 0, 0, "00"], OM: ["968", "00", "(?:1505|[279]\\d{3}|500)\\d{4}|800\\d{5,6}", [7, 8, 9], [["(\\d{3})(\\d{4,6})", "$1 $2", ["[58]"]], ["(\\d{2})(\\d{6})", "$1 $2", ["2"]], ["(\\d{4})(\\d{4})", "$1 $2", ["[179]"]]]], PA: ["507", "00", "(?:00800|8\\d{3})\\d{6}|[68]\\d{7}|[1-57-9]\\d{6}", [7, 8, 10, 11], [["(\\d{3})(\\d{4})", "$1-$2", ["[1-57-9]"]], ["(\\d{4})(\\d{4})", "$1-$2", ["[68]"]], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["8"]]]], PE: ["51", "00|19(?:1[124]|77|90)00", "(?:[14-8]|9\\d)\\d{7}", [8, 9], [["(\\d{3})(\\d{5})", "$1 $2", ["80"], "(0$1)"], ["(\\d)(\\d{7})", "$1 $2", ["1"], "(0$1)"], ["(\\d{2})(\\d{6})", "$1 $2", ["[4-8]"], "(0$1)"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["9"]]], "0", 0, 0, 0, 0, 0, 0, "00", " Anexo "], PF: ["689", "00", "4\\d{5}(?:\\d{2})?|8\\d{7,8}", [6, 8, 9], [["(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3", ["44"]], ["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["4|8[7-9]"]], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["8"]]]], PG: ["675", "00|140[1-3]", "(?:180|[78]\\d{3})\\d{4}|(?:[2-589]\\d|64)\\d{5}", [7, 8], [["(\\d{3})(\\d{4})", "$1 $2", ["18|[2-69]|85"]], ["(\\d{4})(\\d{4})", "$1 $2", ["[78]"]]], 0, 0, 0, 0, 0, 0, 0, "00"], PH: ["63", "00", "(?:[2-7]|9\\d)\\d{8}|2\\d{5}|(?:1800|8)\\d{7,9}", [6, 8, 9, 10, 11, 12, 13], [["(\\d)(\\d{5})", "$1 $2", ["2"], "(0$1)"], ["(\\d{4})(\\d{4,6})", "$1 $2", ["3(?:23|39|46)|4(?:2[3-6]|[35]9|4[26]|76)|544|88[245]|(?:52|64|86)2", "3(?:230|397|461)|4(?:2(?:35|[46]4|51)|396|4(?:22|63)|59[347]|76[15])|5(?:221|446)|642[23]|8(?:622|8(?:[24]2|5[13]))"], "(0$1)"], ["(\\d{5})(\\d{4})", "$1 $2", ["346|4(?:27|9[35])|883", "3469|4(?:279|9(?:30|56))|8834"], "(0$1)"], ["(\\d)(\\d{4})(\\d{4})", "$1 $2 $3", ["2"], "(0$1)"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[3-7]|8[2-8]"], "(0$1)"], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["[89]"], "0$1"], ["(\\d{4})(\\d{3})(\\d{4})", "$1 $2 $3", ["1"]], ["(\\d{4})(\\d{1,2})(\\d{3})(\\d{4})", "$1 $2 $3 $4", ["1"]]], "0"], PK: ["92", "00", "122\\d{6}|[24-8]\\d{10,11}|9(?:[013-9]\\d{8,10}|2(?:[01]\\d\\d|2(?:[06-8]\\d|1[01]))\\d{7})|(?:[2-8]\\d{3}|92(?:[0-7]\\d|8[1-9]))\\d{6}|[24-9]\\d{8}|[89]\\d{7}", [8, 9, 10, 11, 12], [["(\\d{3})(\\d{3})(\\d{2,7})", "$1 $2 $3", ["[89]0"], "0$1"], ["(\\d{4})(\\d{5})", "$1 $2", ["1"]], ["(\\d{3})(\\d{6,7})", "$1 $2", ["2(?:3[2358]|4[2-4]|9[2-8])|45[3479]|54[2-467]|60[468]|72[236]|8(?:2[2-689]|3[23578]|4[3478]|5[2356])|9(?:2[2-8]|3[27-9]|4[2-6]|6[3569]|9[25-8])", "9(?:2[3-8]|98)|(?:2(?:3[2358]|4[2-4]|9[2-8])|45[3479]|54[2-467]|60[468]|72[236]|8(?:2[2-689]|3[23578]|4[3478]|5[2356])|9(?:22|3[27-9]|4[2-6]|6[3569]|9[25-7]))[2-9]"], "(0$1)"], ["(\\d{2})(\\d{7,8})", "$1 $2", ["(?:2[125]|4[0-246-9]|5[1-35-7]|6[1-8]|7[14]|8[16]|91)[2-9]"], "(0$1)"], ["(\\d{5})(\\d{5})", "$1 $2", ["58"], "(0$1)"], ["(\\d{3})(\\d{7})", "$1 $2", ["3"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3 $4", ["2[125]|4[0-246-9]|5[1-35-7]|6[1-8]|7[14]|8[16]|91"], "(0$1)"], ["(\\d{3})(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3 $4", ["[24-9]"], "(0$1)"]], "0"], PL: ["48", "00", "(?:6|8\\d\\d)\\d{7}|[1-9]\\d{6}(?:\\d{2})?|[26]\\d{5}", [6, 7, 8, 9, 10], [["(\\d{5})", "$1", ["19"]], ["(\\d{3})(\\d{3})", "$1 $2", ["11|20|64"]], ["(\\d{2})(\\d{2})(\\d{3})", "$1 $2 $3", ["(?:1[2-8]|2[2-69]|3[2-4]|4[1-468]|5[24-689]|6[1-3578]|7[14-7]|8[1-79]|9[145])1", "(?:1[2-8]|2[2-69]|3[2-4]|4[1-468]|5[24-689]|6[1-3578]|7[14-7]|8[1-79]|9[145])19"]], ["(\\d{3})(\\d{2})(\\d{2,3})", "$1 $2 $3", ["64"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["21|39|45|5[0137]|6[0469]|7[02389]|8(?:0[14]|8)"]], ["(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["1[2-8]|[2-7]|8[1-79]|9[145]"]], ["(\\d{3})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["8"]]]], PM: ["508", "00", "[45]\\d{5}|(?:708|8\\d\\d)\\d{6}", [6, 9], [["(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3", ["[45]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["7"]], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["8"], "0$1"]], "0"], PR: ["1", "011", "(?:[589]\\d\\d|787)\\d{7}", [10], 0, "1", 0, 0, 0, 0, "787|939"], PS: ["970", "00", "[2489]2\\d{6}|(?:1\\d|5)\\d{8}", [8, 9, 10], [["(\\d)(\\d{3})(\\d{4})", "$1 $2 $3", ["[2489]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["5"], "0$1"], ["(\\d{4})(\\d{3})(\\d{3})", "$1 $2 $3", ["1"]]], "0"], PT: ["351", "00", "1693\\d{5}|(?:[26-9]\\d|30)\\d{7}", [9], [["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["2[12]"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["16|[236-9]"]]]], PW: ["680", "01[12]", "(?:[24-8]\\d\\d|345|900)\\d{4}", [7], [["(\\d{3})(\\d{4})", "$1 $2", ["[2-9]"]]]], PY: ["595", "00", "59\\d{4,6}|9\\d{5,10}|(?:[2-46-8]\\d|5[0-8])\\d{4,7}", [6, 7, 8, 9, 10, 11], [["(\\d{3})(\\d{3,6})", "$1 $2", ["[2-9]0"], "0$1"], ["(\\d{2})(\\d{5})", "$1 $2", ["[26]1|3[289]|4[1246-8]|7[1-3]|8[1-36]"], "(0$1)"], ["(\\d{3})(\\d{4,5})", "$1 $2", ["2[279]|3[13-5]|4[359]|5|6(?:[34]|7[1-46-8])|7[46-8]|85"], "(0$1)"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["2[14-68]|3[26-9]|4[1246-8]|6(?:1|75)|7[1-35]|8[1-36]"], "(0$1)"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["87"]], ["(\\d{3})(\\d{6})", "$1 $2", ["9(?:[5-79]|8[1-7])"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[2-8]"], "0$1"], ["(\\d{4})(\\d{3})(\\d{4})", "$1 $2 $3", ["9"]]], "0"], QA: ["974", "00", "800\\d{4}|(?:2|800)\\d{6}|(?:0080|[3-7])\\d{7}", [7, 8, 9, 11], [["(\\d{3})(\\d{4})", "$1 $2", ["2[136]|8"]], ["(\\d{4})(\\d{4})", "$1 $2", ["[3-7]"]]]], RE: ["262", "00", "709\\d{6}|(?:26|[689]\\d)\\d{7}", [9], [["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[26-9]"], "0$1"]], "0", 0, 0, 0, 0, 0, [["26(?:2\\d\\d|3(?:0\\d|1[0-6]))\\d{4}"], ["(?:69(?:2\\d\\d|3(?:[06][0-6]|1[0-3]|2[0-2]|3[0-39]|4\\d|5[0-5]|7[0-37]|8[0-8]|9[0-479]))|7092[0-3])\\d{4}"], ["80\\d{7}"], ["89[1-37-9]\\d{6}"], 0, 0, 0, 0, ["9(?:399[0-3]|479[0-6]|76(?:2[278]|3[0-37]))\\d{4}"], ["8(?:1[019]|2[0156]|84|90)\\d{6}"]]], RO: ["40", "00", "(?:[236-8]\\d|90)\\d{7}|[23]\\d{5}", [6, 9], [["(\\d{3})(\\d{3})", "$1 $2", ["2[3-6]", "2[3-6]\\d9"], "0$1"], ["(\\d{2})(\\d{4})", "$1 $2", ["219|31"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[23]1"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[236-9]"], "0$1"]], "0", 0, 0, 0, 0, 0, 0, 0, " int "], RS: ["381", "00", "38[02-9]\\d{6,9}|6\\d{7,9}|90\\d{4,8}|38\\d{5,6}|(?:7\\d\\d|800)\\d{3,9}|(?:[12]\\d|3[0-79])\\d{5,10}", [6, 7, 8, 9, 10, 11, 12], [["(\\d{3})(\\d{3,9})", "$1 $2", ["(?:2[389]|39)0|[7-9]"], "0$1"], ["(\\d{2})(\\d{5,10})", "$1 $2", ["[1-36]"], "0$1"]], "0"], RU: ["7", "810", "8\\d{13}|[347-9]\\d{9}", [10, 14], [["(\\d{4})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["7(?:1[0-8]|2[1-9])", "7(?:1(?:[0-356]2|4[29]|7|8[27])|2(?:1[23]|[2-9]2))", "7(?:1(?:[0-356]2|4[29]|7|8[27])|2(?:13[03-69]|62[013-9]))|72[1-57-9]2"], "8 ($1)", 1], ["(\\d{5})(\\d)(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["7(?:1[0-68]|2[1-9])", "7(?:1(?:[06][3-6]|[18]|2[35]|[3-5][3-5])|2(?:[13][3-5]|[24-689]|7[457]))", "7(?:1(?:0(?:[356]|4[023])|[18]|2(?:3[013-9]|5)|3[45]|43[013-79]|5(?:3[1-8]|4[1-7]|5)|6(?:3[0-35-9]|[4-6]))|2(?:1(?:3[178]|[45])|[24-689]|3[35]|7[457]))|7(?:14|23)4[0-8]|71(?:33|45)[1-79]"], "8 ($1)", 1], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["7"], "8 ($1)", 1], ["(\\d{3})(\\d{3})(\\d{2})(\\d{2})", "$1 $2-$3-$4", ["[349]|8(?:[02-7]|1[1-8])"], "8 ($1)", 1], ["(\\d{4})(\\d{4})(\\d{3})(\\d{3})", "$1 $2 $3 $4", ["8"], "8 ($1)"]], "8", 0, 0, 0, 0, 0, [["336(?:[013-9]\\d|2[013-9])\\d{5}|(?:3(?:0[12]|4[1-35-79]|5[1-3]|65|8[1-58]|9[0145])|4(?:01|1[1356]|2[13467]|7[1-5]|8[1-7]|9[1-689])|8(?:1[1-8]|2[01]|3[13-6]|4[0-8]|5[15-7]|6[0-35-79]|7[1-37-9]))\\d{7}", [10]], ["9\\d{9}", [10]], ["8(?:0[04]|108\\d{3})\\d{7}"], ["80[39]\\d{7}", [10]], ["808\\d{7}", [10]]], "8~10"], RW: ["250", "00", "(?:06|[27]\\d\\d|[89]00)\\d{6}", [8, 9], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["0"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["2"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[7-9]"], "0$1"]], "0"], SA: ["966", "00", "(?:[15]\\d|800|92)\\d{7}", [9, 10], [["(\\d{4})(\\d{5})", "$1 $2", ["9"]], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["1"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["5"], "0$1"], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["8"]]], "0"], SB: ["677", "0[01]", "[6-9]\\d{6}|[1-6]\\d{4}", [5, 7], [["(\\d{2})(\\d{5})", "$1 $2", ["6[89]|7|8[4-9]|9(?:[1-8]|9[0-8])"]]]], SC: ["248", "010|0[0-2]", "(?:[2489]\\d|64)\\d{5}", [7], [["(\\d)(\\d{3})(\\d{3})", "$1 $2 $3", ["[246]|9[57]"]]], 0, 0, 0, 0, 0, 0, 0, "00"], SD: ["249", "00", "[19]\\d{8}", [9], [["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[19]"], "0$1"]], "0"], SE: ["46", "00", "(?:[26]\\d\\d|9)\\d{9}|[1-9]\\d{8}|[1-689]\\d{7}|[1-4689]\\d{6}|2\\d{5}", [6, 7, 8, 9, 10, 12], [["(\\d{2})(\\d{2,3})(\\d{2})", "$1-$2 $3", ["20"], "0$1", 0, "$1 $2 $3"], ["(\\d{3})(\\d{4})", "$1-$2", ["9(?:00|39|44|9)"], "0$1", 0, "$1 $2"], ["(\\d{2})(\\d{3})(\\d{2})", "$1-$2 $3", ["[12][136]|3[356]|4[0246]|6[03]|90[1-9]"], "0$1", 0, "$1 $2 $3"], ["(\\d)(\\d{2,3})(\\d{2})(\\d{2})", "$1-$2 $3 $4", ["8"], "0$1", 0, "$1 $2 $3 $4"], ["(\\d{3})(\\d{2,3})(\\d{2})", "$1-$2 $3", ["1[2457]|2(?:[247-9]|5[0138])|3[0247-9]|4[1357-9]|5[0-35-9]|6(?:[125689]|4[02-57]|7[0-2])|9(?:[125-8]|3[02-5]|4[0-3])"], "0$1", 0, "$1 $2 $3"], ["(\\d{3})(\\d{2,3})(\\d{3})", "$1-$2 $3", ["9(?:00|39|44)"], "0$1", 0, "$1 $2 $3"], ["(\\d{2})(\\d{2,3})(\\d{2})(\\d{2})", "$1-$2 $3 $4", ["1[13689]|2[0136]|3[1356]|4[0246]|54|6[03]|90[1-9]"], "0$1", 0, "$1 $2 $3 $4"], ["(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1-$2 $3 $4", ["10|7"], "0$1", 0, "$1 $2 $3 $4"], ["(\\d)(\\d{3})(\\d{3})(\\d{2})", "$1-$2 $3 $4", ["8"], "0$1", 0, "$1 $2 $3 $4"], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1-$2 $3 $4", ["[13-5]|2(?:[247-9]|5[0138])|6(?:[124-689]|7[0-2])|9(?:[125-8]|3[02-5]|4[0-3])"], "0$1", 0, "$1 $2 $3 $4"], ["(\\d{3})(\\d{2})(\\d{2})(\\d{3})", "$1-$2 $3 $4", ["9"], "0$1", 0, "$1 $2 $3 $4"], ["(\\d{3})(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1-$2 $3 $4 $5", ["[26]"], "0$1", 0, "$1 $2 $3 $4 $5"]], "0"], SG: ["65", "0[0-3]\\d", "(?:(?:1\\d|8)\\d\\d|7000)\\d{7}|[3689]\\d{7}", [8, 10, 11], [["(\\d{4})(\\d{4})", "$1 $2", ["[369]|8(?:0[1-9]|[1-9])"]], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["8"]], ["(\\d{4})(\\d{4})(\\d{3})", "$1 $2 $3", ["7"]], ["(\\d{4})(\\d{3})(\\d{4})", "$1 $2 $3", ["1"]]]], SH: ["290", "00", "(?:[256]\\d|8)\\d{3}", [4, 5], 0, 0, 0, 0, 0, 0, "[256]"], SI: ["386", "00|10(?:22|66|88|99)", "[1-7]\\d{7}|8\\d{4,7}|90\\d{4,6}", [5, 6, 7, 8], [["(\\d{2})(\\d{3,6})", "$1 $2", ["8[09]|9"], "0$1"], ["(\\d{3})(\\d{5})", "$1 $2", ["59|8"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["[37][01]|4[0139]|51|6"], "0$1"], ["(\\d)(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[1-57]"], "(0$1)"]], "0", 0, 0, 0, 0, 0, 0, "00"], SJ: ["47", "00", "0\\d{4}|(?:[489]\\d|79)\\d{6}", [5, 8], 0, 0, 0, 0, 0, 0, "79"], SK: ["421", "00", "[2-689]\\d{8}|[2-59]\\d{6}|[2-5]\\d{5}", [6, 7, 9], [["(\\d)(\\d{2})(\\d{3,4})", "$1 $2 $3", ["21"], "0$1"], ["(\\d{2})(\\d{2})(\\d{2,3})", "$1 $2 $3", ["[3-5][1-8]1", "[3-5][1-8]1[67]"], "0$1"], ["(\\d)(\\d{3})(\\d{3})(\\d{2})", "$1/$2 $3 $4", ["2"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[689]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1/$2 $3 $4", ["[3-5]"], "0$1"]], "0"], SL: ["232", "00", "(?:[237-9]\\d|66)\\d{6}", [8], [["(\\d{2})(\\d{6})", "$1 $2", ["[236-9]"], "(0$1)"]], "0"], SM: ["378", "00", "(?:0549|[5-7]\\d)\\d{6}", [8, 10], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[5-7]"]], ["(\\d{4})(\\d{6})", "$1 $2", ["0"]]], 0, 0, "([89]\\d{5})$", "0549$1"], SN: ["221", "00", "(?:[378]\\d|93)\\d{7}", [9], [["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["8"]], ["(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[379]"]]]], SO: ["252", "00", "[346-9]\\d{8}|[12679]\\d{7}|[1-5]\\d{6}|[1348]\\d{5}", [6, 7, 8, 9], [["(\\d{2})(\\d{4})", "$1 $2", ["8[125]"]], ["(\\d{6})", "$1", ["[134]"]], ["(\\d)(\\d{6})", "$1 $2", ["[15]|2[0-79]|3[0-46-8]|4[0-7]"]], ["(\\d)(\\d{7})", "$1 $2", ["(?:2|90)4|[67]"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[348]|64|79|90"]], ["(\\d{2})(\\d{5,7})", "$1 $2", ["1|28|6[0-35-9]|7[67]|9[2-9]"]]], "0"], SR: ["597", "00", "(?:[2-5]|[6-8]\\d|90)\\d{5}", [6, 7], [["(\\d{2})(\\d{2})(\\d{2})", "$1-$2-$3", ["56"]], ["(\\d{3})(\\d{3})", "$1-$2", ["[2-5]"]], ["(\\d{3})(\\d{4})", "$1-$2", ["[6-9]"]]]], SS: ["211", "00", "[19]\\d{8}", [9], [["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[19]"], "0$1"]], "0"], ST: ["239", "00", "(?:22|9\\d)\\d{5}", [7], [["(\\d{3})(\\d{4})", "$1 $2", ["[29]"]]]], SV: ["503", "00", "[267]\\d{7}|(?:80\\d|900)\\d{4}(?:\\d{4})?", [7, 8, 11], [["(\\d{3})(\\d{4})", "$1 $2", ["[89]"]], ["(\\d{4})(\\d{4})", "$1 $2", ["[267]"]], ["(\\d{3})(\\d{4})(\\d{4})", "$1 $2 $3", ["[89]"]]]], SX: ["1", "011", "7215\\d{6}|(?:[58]\\d\\d|900)\\d{7}", [10], 0, "1", 0, "(5\\d{6})$|1", "721$1", 0, "721"], SY: ["963", "00", "[1-359]\\d{8}|[1-5]\\d{7}", [8, 9], [["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[1-4]|5[1-3]"], "0$1", 1], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[59]"], "0$1", 1]], "0"], SZ: ["268", "00", "0800\\d{4}|(?:[237]\\d|900)\\d{6}", [8, 9], [["(\\d{4})(\\d{4})", "$1 $2", ["[0237]"]], ["(\\d{5})(\\d{4})", "$1 $2", ["9"]]]], TA: ["290", "00", "8\\d{3}", [4], 0, 0, 0, 0, 0, 0, "8"], TC: ["1", "011", "(?:[58]\\d\\d|649|900)\\d{7}", [10], 0, "1", 0, "([2-479]\\d{6})$|1", "649$1", 0, "649"], TD: ["235", "00|16", "(?:22|30|[689]\\d|77)\\d{6}", [8], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[236-9]"]]], 0, 0, 0, 0, 0, 0, 0, "00"], TG: ["228", "00", "[279]\\d{7}", [8], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[279]"]]]], TH: ["66", "00[1-9]", "(?:001800|[2-57]|[689]\\d)\\d{7}|1\\d{7,9}", [8, 9, 10, 13], [["(\\d)(\\d{3})(\\d{4})", "$1 $2 $3", ["2"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[13-9]"], "0$1"], ["(\\d{4})(\\d{3})(\\d{3})", "$1 $2 $3", ["1"]]], "0"], TJ: ["992", "810", "[0-57-9]\\d{8}", [9], [["(\\d{6})(\\d)(\\d{2})", "$1 $2 $3", ["331", "3317"]], ["(\\d{3})(\\d{2})(\\d{4})", "$1 $2 $3", ["44[02-479]|[34]7"]], ["(\\d{4})(\\d)(\\d{4})", "$1 $2 $3", ["3(?:[1245]|3[12])"]], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[0-57-9]"]]], 0, 0, 0, 0, 0, 0, 0, "8~10"], TK: ["690", "00", "[2-47]\\d{3,6}", [4, 5, 6, 7]], TL: ["670", "00", "7\\d{7}|(?:[2-47]\\d|[89]0)\\d{5}", [7, 8], [["(\\d{3})(\\d{4})", "$1 $2", ["[2-489]|70"]], ["(\\d{4})(\\d{4})", "$1 $2", ["7"]]]], TM: ["993", "810", "(?:[1-6]\\d|71)\\d{6}", [8], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2-$3-$4", ["12"], "(8 $1)"], ["(\\d{3})(\\d)(\\d{2})(\\d{2})", "$1 $2-$3-$4", ["[1-5]"], "(8 $1)"], ["(\\d{2})(\\d{6})", "$1 $2", ["[67]"], "8 $1"]], "8", 0, 0, 0, 0, 0, 0, "8~10"], TN: ["216", "00", "[2-57-9]\\d{7}", [8], [["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["[2-57-9]"]]]], TO: ["676", "00", "(?:0800|(?:[5-8]\\d\\d|999)\\d)\\d{3}|[2-8]\\d{4}", [5, 7], [["(\\d{2})(\\d{3})", "$1-$2", ["[2-4]|50|6[09]|7[0-24-69]|8[05]"]], ["(\\d{4})(\\d{3})", "$1 $2", ["0"]], ["(\\d{3})(\\d{4})", "$1 $2", ["[5-9]"]]]], TR: ["90", "00", "4\\d{6}|8\\d{11,12}|(?:[2-58]\\d\\d|900)\\d{7}", [7, 10, 12, 13], [["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["512|8[01589]|90"], "0$1", 1], ["(\\d{3})(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["5(?:[0-59]|61)", "5(?:[0-59]|61[06])", "5(?:[0-59]|61[06]1)"], "0$1", 1], ["(\\d{3})(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[24][1-8]|3[1-9]"], "(0$1)", 1], ["(\\d{3})(\\d{3})(\\d{6,7})", "$1 $2 $3", ["80"], "0$1", 1]], "0"], TT: ["1", "011", "(?:[58]\\d\\d|900)\\d{7}", [10], 0, "1", 0, "([2-46-8]\\d{6})$|1", "868$1", 0, "868"], TV: ["688", "00", "(?:2|7\\d\\d|90)\\d{4}", [5, 6, 7], [["(\\d{2})(\\d{3})", "$1 $2", ["2"]], ["(\\d{2})(\\d{4})", "$1 $2", ["90"]], ["(\\d{2})(\\d{5})", "$1 $2", ["7"]]]], TW: ["886", "0(?:0[25-79]|19)", "[2-689]\\d{8}|7\\d{9,10}|[2-8]\\d{7}|2\\d{6}", [7, 8, 9, 10, 11], [["(\\d{2})(\\d)(\\d{4})", "$1 $2 $3", ["202"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[258]0"], "0$1"], ["(\\d)(\\d{3,4})(\\d{4})", "$1 $2 $3", ["[23568]|4(?:0[02-48]|[1-47-9])|7[1-9]", "[23568]|4(?:0[2-48]|[1-47-9])|(?:400|7)[1-9]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[49]"], "0$1"], ["(\\d{2})(\\d{4})(\\d{4,5})", "$1 $2 $3", ["7"], "0$1"]], "0", 0, 0, 0, 0, 0, 0, 0, "#"], TZ: ["255", "00[056]", "(?:[25-8]\\d|41|90)\\d{7}", [9], [["(\\d{3})(\\d{2})(\\d{4})", "$1 $2 $3", ["[89]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[24]"], "0$1"], ["(\\d{2})(\\d{7})", "$1 $2", ["5"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[67]"], "0$1"]], "0"], UA: ["380", "00", "[89]\\d{9}|[3-9]\\d{8}", [9, 10], [["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["6[12][29]|(?:3[1-8]|4[136-8]|5[12457]|6[49])2|(?:56|65)[24]", "6[12][29]|(?:35|4[1378]|5[12457]|6[49])2|(?:56|65)[24]|(?:3[1-46-8]|46)2[013-9]"], "0$1"], ["(\\d{4})(\\d{5})", "$1 $2", ["3[1-8]|4(?:[1367]|[45][6-9]|8[4-6])|5(?:[1-5]|6[0135689]|7[4-6])|6(?:[12][3-7]|[459])", "3[1-8]|4(?:[1367]|[45][6-9]|8[4-6])|5(?:[1-5]|6(?:[015689]|3[02389])|7[4-6])|6(?:[12][3-7]|[459])"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[3-7]|89|9[1-9]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[89]"], "0$1"]], "0", 0, 0, 0, 0, 0, 0, "0~0"], UG: ["256", "00[057]", "800\\d{6}|(?:[29]0|[347]\\d)\\d{7}", [9], [["(\\d{4})(\\d{5})", "$1 $2", ["202", "2024"], "0$1"], ["(\\d{3})(\\d{6})", "$1 $2", ["[27-9]|4(?:6[45]|[7-9])"], "0$1"], ["(\\d{2})(\\d{7})", "$1 $2", ["[34]"], "0$1"]], "0"], US: ["1", "011", "[2-9]\\d{9}|3\\d{6}", [10], [["(\\d{3})(\\d{4})", "$1-$2", ["310"], 0, 1], ["(\\d{3})(\\d{3})(\\d{4})", "($1) $2-$3", ["[2-9]"], 0, 1, "$1-$2-$3"]], "1", 0, 0, 0, 0, 0, [["(?:3052(?:0[0-8]|[1-9]\\d)|5056(?:[0-35-9]\\d|4[0-68]))\\d{4}|(?:2742|305[3-9]|(?:472|983)[2-47-9]|505[2-57-9])\\d{6}|(?:2(?:0[1-35-9]|1[02-9]|2[03-57-9]|3[1459]|4[08]|5[1-46]|6[0279]|7[0269]|8[13])|3(?:0[1-47-9]|1[02-9]|2[0135-79]|3[0-24679]|4[167]|5[0-2]|6[01349]|8[056])|4(?:0[124-9]|1[02-579]|2[3-5]|3[0245]|4[023578]|58|6[349]|7[0589]|8[04])|5(?:0[1-47-9]|1[0235-8]|20|3[0149]|4[01]|5[179]|6[1-47]|7[0-5]|8[0256])|6(?:0[1-35-9]|1[024-9]|2[03689]|3[016]|4[0156]|5[01679]|6[0-279]|78|8[0-269])|7(?:0[1-46-8]|1[2-9]|2[04-8]|3[0-247]|4[0378]|5[47]|6[02359]|7[0-59]|8[156])|8(?:0[1-68]|1[02-8]|2[0168]|3[0-2589]|4[03578]|5[046-9]|6[02-5]|7[028])|9(?:0[1346-9]|1[02-9]|2[0589]|3[0146-8]|4[01357-9]|5[12469]|7[0-3589]|8[04-69]))[2-9]\\d{6}"], [""], ["8(?:00|33|44|55|66|77|88)[2-9]\\d{6}"], ["900[2-9]\\d{6}"], ["52(?:3(?:[2-46-9][02-9]\\d|5(?:[02-46-9]\\d|5[0-46-9]))|4(?:[2-478][02-9]\\d|5(?:[034]\\d|2[024-9]|5[0-46-9])|6(?:0[1-9]|[2-9]\\d)|9(?:[05-9]\\d|2[0-5]|49)))\\d{4}|52[34][2-9]1[02-9]\\d{4}|5(?:00|2[125-9]|33|44|66|77|88)[2-9]\\d{6}"], 0, 0, 0, ["305209\\d{4}"]]], UY: ["598", "0(?:0|1[3-9]\\d)", "0004\\d{2,9}|[1249]\\d{7}|2\\d{3,4}|(?:[49]\\d|80)\\d{5}", [4, 5, 6, 7, 8, 9, 10, 11, 12, 13], [["(\\d{4,5})", "$1", ["21"]], ["(\\d{3})(\\d{3,4})", "$1 $2", ["0"]], ["(\\d{3})(\\d{4})", "$1 $2", ["[49]0|8"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["9"], "0$1"], ["(\\d{4})(\\d{4})", "$1 $2", ["[124]"]], ["(\\d{3})(\\d{3})(\\d{2,4})", "$1 $2 $3", ["0"]], ["(\\d{3})(\\d{3})(\\d{3})(\\d{2,4})", "$1 $2 $3 $4", ["0"]]], "0", 0, 0, 0, 0, 0, 0, "00", " int. "], UZ: ["998", "00", "(?:20|33|[5-9]\\d)\\d{7}", [9], [["(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[235-9]"]]]], VA: ["39", "00", "0\\d{5,10}|3[0-8]\\d{7,10}|55\\d{8}|8\\d{5}(?:\\d{2,4})?|(?:1\\d|39)\\d{7,8}", [6, 7, 8, 9, 10, 11, 12], 0, 0, 0, 0, 0, 0, "06698"], VC: ["1", "011", "(?:[58]\\d\\d|784|900)\\d{7}", [10], 0, "1", 0, "([2-7]\\d{6})$|1", "784$1", 0, "784"], VE: ["58", "00", "[68]00\\d{7}|(?:[24]\\d|[59]0)\\d{8}", [10], [["(\\d{3})(\\d{7})", "$1-$2", ["[24-689]"], "0$1"]], "0"], VG: ["1", "011", "(?:284|[58]\\d\\d|900)\\d{7}", [10], 0, "1", 0, "([2-578]\\d{6})$|1", "284$1", 0, "284"], VI: ["1", "011", "[58]\\d{9}|(?:34|90)0\\d{7}", [10], 0, "1", 0, "([2-9]\\d{6})$|1", "340$1", 0, "340"], VN: ["84", "00", "[12]\\d{9}|[135-9]\\d{8}|[16]\\d{7}|[16-8]\\d{6}", [7, 8, 9, 10], [["(\\d{2})(\\d{5})", "$1 $2", ["80"], "0$1", 1], ["(\\d{4})(\\d{4,6})", "$1 $2", ["1"], 0, 1], ["(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["6"], "0$1", 1], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[357-9]"], "0$1", 1], ["(\\d{2})(\\d{4})(\\d{4})", "$1 $2 $3", ["2[48]"], "0$1", 1], ["(\\d{3})(\\d{4})(\\d{3})", "$1 $2 $3", ["2"], "0$1", 1]], "0"], VU: ["678", "00", "[57-9]\\d{6}|(?:[238]\\d|48)\\d{3}", [5, 7], [["(\\d{3})(\\d{4})", "$1 $2", ["[57-9]"]]]], WF: ["681", "00", "(?:40|72|8\\d{4})\\d{4}|[89]\\d{5}", [6, 9], [["(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3", ["[47-9]"]], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["8"]]]], WS: ["685", "0", "(?:[2-6]|8\\d{5})\\d{4}|[78]\\d{6}|[68]\\d{5}", [5, 6, 7, 10], [["(\\d{5})", "$1", ["[2-5]|6[1-9]"]], ["(\\d{3})(\\d{3,7})", "$1 $2", ["[68]"]], ["(\\d{2})(\\d{5})", "$1 $2", ["7"]]]], XK: ["383", "00", "2\\d{7,8}|3\\d{7,11}|(?:4\\d\\d|[89]00)\\d{5}", [8, 9, 10, 11, 12], [["(\\d{3})(\\d{5})", "$1 $2", ["[89]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["[2-4]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["2|39"], "0$1"], ["(\\d{2})(\\d{7,10})", "$1 $2", ["3"], "0$1"]], "0"], YE: ["967", "00", "(?:1|7\\d)\\d{7}|[1-7]\\d{6}", [7, 8, 9], [["(\\d)(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[1-6]|7(?:[24-6]|8[0-7])"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["7"], "0$1"]], "0"], YT: ["262", "00", "7093\\d{5}|(?:80|9\\d)\\d{7}|(?:26|63)9\\d{6}", [9], 0, "0", 0, 0, 0, 0, 0, [["269(?:0[0-467]|15|5[0-4]|6\\d|[78]0)\\d{4}"], ["(?:639(?:0[0-79]|1[019]|[267]\\d|3[09]|40|5[05-9]|9[04-79])|7093[5-7])\\d{4}"], ["80\\d{7}"], 0, 0, 0, 0, 0, ["9(?:(?:39|47)8[01]|769\\d)\\d{4}"]]], ZA: ["27", "00", "[1-79]\\d{8}|8\\d{4,9}", [5, 6, 7, 8, 9, 10], [["(\\d{2})(\\d{3,4})", "$1 $2", ["8[1-4]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{2,3})", "$1 $2 $3", ["8[1-4]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["860"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[1-9]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["8"], "0$1"]], "0"], ZM: ["260", "00", "800\\d{6}|(?:21|[579]\\d|63)\\d{7}", [9], [["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[28]"], "0$1"], ["(\\d{2})(\\d{7})", "$1 $2", ["[579]"], "0$1"]], "0"], ZW: ["263", "00", "2(?:[0-57-9]\\d{6,8}|6[0-24-9]\\d{6,7})|[38]\\d{9}|[35-8]\\d{8}|[3-6]\\d{7}|[1-689]\\d{6}|[1-3569]\\d{5}|[1356]\\d{4}", [5, 6, 7, 8, 9, 10], [["(\\d{3})(\\d{3,5})", "$1 $2", ["2(?:0[45]|2[278]|[49]8)|3(?:[09]8|17)|6(?:[29]8|37|75)|[23][78]|(?:33|5[15]|6[68])[78]"], "0$1"], ["(\\d)(\\d{3})(\\d{2,4})", "$1 $2 $3", ["[49]"], "0$1"], ["(\\d{3})(\\d{4})", "$1 $2", ["80"], "0$1"], ["(\\d{2})(\\d{7})", "$1 $2", ["24|8[13-59]|(?:2[05-79]|39|5[45]|6[15-8])2", "2(?:02[014]|4|[56]20|[79]2)|392|5(?:42|525)|6(?:[16-8]21|52[013])|8[13-59]"], "(0$1)"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["7"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["2(?:1[39]|2[0157]|[378]|[56][14])|3(?:12|29)", "2(?:1[39]|2[0157]|[378]|[56][14])|3(?:123|29)"], "0$1"], ["(\\d{4})(\\d{6})", "$1 $2", ["8"], "0$1"], ["(\\d{2})(\\d{3,5})", "$1 $2", ["1|2(?:0[0-36-9]|12|29|[56])|3(?:1[0-689]|[24-6])|5(?:[0236-9]|1[2-4])|6(?:[013-59]|7[0-46-9])|(?:33|55|6[68])[0-69]|(?:29|3[09]|62)[0-79]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["29[013-9]|39|54"], "0$1"], ["(\\d{4})(\\d{3,5})", "$1 $2", ["(?:25|54)8", "258|5483"], "0$1"]], "0"] }, nonGeographic: { 800: ["800", 0, "(?:00|[1-9]\\d)\\d{6}", [8], [["(\\d{4})(\\d{4})", "$1 $2", ["\\d"]]], 0, 0, 0, 0, 0, 0, [0, 0, ["(?:00|[1-9]\\d)\\d{6}"]]], 808: ["808", 0, "[1-9]\\d{7}", [8], [["(\\d{4})(\\d{4})", "$1 $2", ["[1-9]"]]], 0, 0, 0, 0, 0, 0, [0, 0, 0, 0, 0, 0, 0, 0, 0, ["[1-9]\\d{7}"]]], 870: ["870", 0, "7\\d{11}|[235-7]\\d{8}", [9, 12], [["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[235-7]"]]], 0, 0, 0, 0, 0, 0, [0, ["(?:[356]|774[45])\\d{8}|7[6-8]\\d{7}"], 0, 0, 0, 0, 0, 0, ["2\\d{8}", [9]]]], 878: ["878", 0, "10\\d{10}", [12], [["(\\d{2})(\\d{5})(\\d{5})", "$1 $2 $3", ["1"]]], 0, 0, 0, 0, 0, 0, [0, 0, 0, 0, 0, 0, 0, 0, ["10\\d{10}"]]], 881: ["881", 0, "6\\d{9}|[0-36-9]\\d{8}", [9, 10], [["(\\d)(\\d{3})(\\d{5})", "$1 $2 $3", ["[0-37-9]"]], ["(\\d)(\\d{3})(\\d{5,6})", "$1 $2 $3", ["6"]]], 0, 0, 0, 0, 0, 0, [0, ["6\\d{9}|[0-36-9]\\d{8}"]]], 882: ["882", 0, "[13]\\d{6}(?:\\d{2,5})?|[19]\\d{7}|(?:[25]\\d\\d|4)\\d{7}(?:\\d{2})?", [7, 8, 9, 10, 11, 12], [["(\\d{2})(\\d{5})", "$1 $2", ["16|342"]], ["(\\d{2})(\\d{6})", "$1 $2", ["49"]], ["(\\d{2})(\\d{2})(\\d{4})", "$1 $2 $3", ["1[36]|9"]], ["(\\d{2})(\\d{4})(\\d{3})", "$1 $2 $3", ["3[23]"]], ["(\\d{2})(\\d{3,4})(\\d{4})", "$1 $2 $3", ["16"]], ["(\\d{2})(\\d{4})(\\d{4})", "$1 $2 $3", ["10|23|3(?:[15]|4[57])|4|51"]], ["(\\d{3})(\\d{4})(\\d{4})", "$1 $2 $3", ["34"]], ["(\\d{2})(\\d{4,5})(\\d{5})", "$1 $2 $3", ["[1-35]"]]], 0, 0, 0, 0, 0, 0, [0, ["342\\d{4}|(?:337|49)\\d{6}|(?:3(?:2|47|7\\d{3})|50\\d{3})\\d{7}", [7, 8, 9, 10, 12]], 0, 0, 0, ["348[57]\\d{7}", [11]], 0, 0, ["1(?:3(?:0[0347]|[13][0139]|2[035]|4[013568]|6[0459]|7[06]|8[15-8]|9[0689])\\d{4}|6\\d{5,10})|(?:345\\d|9[89])\\d{6}|(?:10|2(?:3|85\\d)|3(?:[15]|[69]\\d\\d)|4[15-8]|51)\\d{8}"]]], 883: ["883", 0, "(?:[1-4]\\d|51)\\d{6,10}", [8, 9, 10, 11, 12], [["(\\d{3})(\\d{3})(\\d{2,8})", "$1 $2 $3", ["[14]|2[24-689]|3[02-689]|51[24-9]"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["510"]], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["21"]], ["(\\d{4})(\\d{4})(\\d{4})", "$1 $2 $3", ["51[13]"]], ["(\\d{3})(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3 $4", ["[235]"]]], 0, 0, 0, 0, 0, 0, [0, 0, 0, 0, 0, 0, 0, 0, ["(?:2(?:00\\d\\d|10)|(?:370[1-9]|51\\d0)\\d)\\d{7}|51(?:00\\d{5}|[24-9]0\\d{4,7})|(?:1[0-79]|2[24-689]|3[02-689]|4[0-4])0\\d{5,9}"]]], 888: ["888", 0, "\\d{11}", [11], [["(\\d{3})(\\d{3})(\\d{5})", "$1 $2 $3"]], 0, 0, 0, 0, 0, 0, [0, 0, 0, 0, 0, 0, ["\\d{11}"]]], 979: ["979", 0, "[1359]\\d{8}", [9], [["(\\d)(\\d{4})(\\d{4})", "$1 $2 $3", ["[1359]"]]], 0, 0, 0, 0, 0, 0, [0, 0, 0, ["[1359]\\d{8}"]]] } };
-var Ft = { exports: {} }, at = { exports: {} }, G = {};
+}, Oa = { version: 4, country_calling_codes: { 1: ["US", "AG", "AI", "AS", "BB", "BM", "BS", "CA", "DM", "DO", "GD", "GU", "JM", "KN", "KY", "LC", "MP", "MS", "PR", "SX", "TC", "TT", "VC", "VG", "VI"], 7: ["RU", "KZ"], 20: ["EG"], 27: ["ZA"], 30: ["GR"], 31: ["NL"], 32: ["BE"], 33: ["FR"], 34: ["ES"], 36: ["HU"], 39: ["IT", "VA"], 40: ["RO"], 41: ["CH"], 43: ["AT"], 44: ["GB", "GG", "IM", "JE"], 45: ["DK"], 46: ["SE"], 47: ["NO", "SJ"], 48: ["PL"], 49: ["DE"], 51: ["PE"], 52: ["MX"], 53: ["CU"], 54: ["AR"], 55: ["BR"], 56: ["CL"], 57: ["CO"], 58: ["VE"], 60: ["MY"], 61: ["AU", "CC", "CX"], 62: ["ID"], 63: ["PH"], 64: ["NZ"], 65: ["SG"], 66: ["TH"], 81: ["JP"], 82: ["KR"], 84: ["VN"], 86: ["CN"], 90: ["TR"], 91: ["IN"], 92: ["PK"], 93: ["AF"], 94: ["LK"], 95: ["MM"], 98: ["IR"], 211: ["SS"], 212: ["MA", "EH"], 213: ["DZ"], 216: ["TN"], 218: ["LY"], 220: ["GM"], 221: ["SN"], 222: ["MR"], 223: ["ML"], 224: ["GN"], 225: ["CI"], 226: ["BF"], 227: ["NE"], 228: ["TG"], 229: ["BJ"], 230: ["MU"], 231: ["LR"], 232: ["SL"], 233: ["GH"], 234: ["NG"], 235: ["TD"], 236: ["CF"], 237: ["CM"], 238: ["CV"], 239: ["ST"], 240: ["GQ"], 241: ["GA"], 242: ["CG"], 243: ["CD"], 244: ["AO"], 245: ["GW"], 246: ["IO"], 247: ["AC"], 248: ["SC"], 249: ["SD"], 250: ["RW"], 251: ["ET"], 252: ["SO"], 253: ["DJ"], 254: ["KE"], 255: ["TZ"], 256: ["UG"], 257: ["BI"], 258: ["MZ"], 260: ["ZM"], 261: ["MG"], 262: ["RE", "YT"], 263: ["ZW"], 264: ["NA"], 265: ["MW"], 266: ["LS"], 267: ["BW"], 268: ["SZ"], 269: ["KM"], 290: ["SH", "TA"], 291: ["ER"], 297: ["AW"], 298: ["FO"], 299: ["GL"], 350: ["GI"], 351: ["PT"], 352: ["LU"], 353: ["IE"], 354: ["IS"], 355: ["AL"], 356: ["MT"], 357: ["CY"], 358: ["FI", "AX"], 359: ["BG"], 370: ["LT"], 371: ["LV"], 372: ["EE"], 373: ["MD"], 374: ["AM"], 375: ["BY"], 376: ["AD"], 377: ["MC"], 378: ["SM"], 380: ["UA"], 381: ["RS"], 382: ["ME"], 383: ["XK"], 385: ["HR"], 386: ["SI"], 387: ["BA"], 389: ["MK"], 420: ["CZ"], 421: ["SK"], 423: ["LI"], 500: ["FK"], 501: ["BZ"], 502: ["GT"], 503: ["SV"], 504: ["HN"], 505: ["NI"], 506: ["CR"], 507: ["PA"], 508: ["PM"], 509: ["HT"], 590: ["GP", "BL", "MF"], 591: ["BO"], 592: ["GY"], 593: ["EC"], 594: ["GF"], 595: ["PY"], 596: ["MQ"], 597: ["SR"], 598: ["UY"], 599: ["CW", "BQ"], 670: ["TL"], 672: ["NF"], 673: ["BN"], 674: ["NR"], 675: ["PG"], 676: ["TO"], 677: ["SB"], 678: ["VU"], 679: ["FJ"], 680: ["PW"], 681: ["WF"], 682: ["CK"], 683: ["NU"], 685: ["WS"], 686: ["KI"], 687: ["NC"], 688: ["TV"], 689: ["PF"], 690: ["TK"], 691: ["FM"], 692: ["MH"], 850: ["KP"], 852: ["HK"], 853: ["MO"], 855: ["KH"], 856: ["LA"], 880: ["BD"], 886: ["TW"], 960: ["MV"], 961: ["LB"], 962: ["JO"], 963: ["SY"], 964: ["IQ"], 965: ["KW"], 966: ["SA"], 967: ["YE"], 968: ["OM"], 970: ["PS"], 971: ["AE"], 972: ["IL"], 973: ["BH"], 974: ["QA"], 975: ["BT"], 976: ["MN"], 977: ["NP"], 992: ["TJ"], 993: ["TM"], 994: ["AZ"], 995: ["GE"], 996: ["KG"], 998: ["UZ"] }, countries: { AC: ["247", "00", "(?:[01589]\\d|[46])\\d{4}", [5, 6]], AD: ["376", "00", "(?:1|6\\d)\\d{7}|[135-9]\\d{5}", [6, 8, 9], [["(\\d{3})(\\d{3})", "$1 $2", ["[135-9]"]], ["(\\d{4})(\\d{4})", "$1 $2", ["1"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["6"]]]], AE: ["971", "00", "(?:[4-7]\\d|9[0-689])\\d{7}|800\\d{2,9}|[2-4679]\\d{7}", [5, 6, 7, 8, 9, 10, 11, 12], [["(\\d{3})(\\d{2,9})", "$1 $2", ["60|8"]], ["(\\d)(\\d{3})(\\d{4})", "$1 $2 $3", ["[236]|[479][2-8]"], "0$1"], ["(\\d{3})(\\d)(\\d{5})", "$1 $2 $3", ["[479]"]], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["5"], "0$1"]], "0"], AF: ["93", "00", "[2-7]\\d{8}", [9], [["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[2-7]"], "0$1"]], "0"], AG: ["1", "011", "(?:268|[58]\\d\\d|900)\\d{7}", [10], 0, "1", 0, "([457]\\d{6})$|1", "268$1", 0, "268"], AI: ["1", "011", "(?:264|[58]\\d\\d|900)\\d{7}", [10], 0, "1", 0, "([2457]\\d{6})$|1", "264$1", 0, "264"], AL: ["355", "00", "(?:700\\d\\d|900)\\d{3}|8\\d{5,7}|(?:[2-5]|6\\d)\\d{7}", [6, 7, 8, 9], [["(\\d{3})(\\d{3,4})", "$1 $2", ["80|9"], "0$1"], ["(\\d)(\\d{3})(\\d{4})", "$1 $2 $3", ["4[2-6]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["[2358][2-5]|4"], "0$1"], ["(\\d{3})(\\d{5})", "$1 $2", ["[23578]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["6"], "0$1"]], "0"], AM: ["374", "00", "(?:[1-489]\\d|55|60|77)\\d{6}", [8], [["(\\d{3})(\\d{2})(\\d{3})", "$1 $2 $3", ["[89]0"], "0 $1"], ["(\\d{3})(\\d{5})", "$1 $2", ["2|3[12]"], "(0$1)"], ["(\\d{2})(\\d{6})", "$1 $2", ["1|47"], "(0$1)"], ["(\\d{2})(\\d{6})", "$1 $2", ["[3-9]"], "0$1"]], "0"], AO: ["244", "00", "[29]\\d{8}", [9], [["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[29]"]]]], AR: ["54", "00", "(?:11|[89]\\d\\d)\\d{8}|[2368]\\d{9}", [10, 11], [["(\\d{4})(\\d{2})(\\d{4})", "$1 $2-$3", ["2(?:2[024-9]|3[0-59]|47|6[245]|9[02-8])|3(?:3[28]|4[03-9]|5[2-46-8]|7[1-578]|8[2-9])", "2(?:[23]02|6(?:[25]|4[6-8])|9(?:[02356]|4[02568]|72|8[23]))|3(?:3[28]|4(?:[04679]|3[5-8]|5[4-68]|8[2379])|5(?:[2467]|3[237]|8[2-5])|7[1-578]|8(?:[2469]|3[2578]|5[4-8]|7[36-8]|8[5-8]))|2(?:2[24-9]|3[1-59]|47)", "2(?:[23]02|6(?:[25]|4(?:64|[78]))|9(?:[02356]|4(?:[0268]|5[2-6])|72|8[23]))|3(?:3[28]|4(?:[04679]|3[78]|5(?:4[46]|8)|8[2379])|5(?:[2467]|3[237]|8[23])|7[1-578]|8(?:[2469]|3[278]|5[56][46]|86[3-6]))|2(?:2[24-9]|3[1-59]|47)|38(?:[58][78]|7[378])|3(?:4[35][56]|58[45]|8(?:[38]5|54|76))[4-6]", "2(?:[23]02|6(?:[25]|4(?:64|[78]))|9(?:[02356]|4(?:[0268]|5[2-6])|72|8[23]))|3(?:3[28]|4(?:[04679]|3(?:5(?:4[0-25689]|[56])|[78])|58|8[2379])|5(?:[2467]|3[237]|8(?:[23]|4(?:[45]|60)|5(?:4[0-39]|5|64)))|7[1-578]|8(?:[2469]|3[278]|54(?:4|5[13-7]|6[89])|86[3-6]))|2(?:2[24-9]|3[1-59]|47)|38(?:[58][78]|7[378])|3(?:454|85[56])[46]|3(?:4(?:36|5[56])|8(?:[38]5|76))[4-6]"], "0$1", 1], ["(\\d{2})(\\d{4})(\\d{4})", "$1 $2-$3", ["1"], "0$1", 1], ["(\\d{3})(\\d{3})(\\d{4})", "$1-$2-$3", ["[68]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2-$3", ["[23]"], "0$1", 1], ["(\\d)(\\d{4})(\\d{2})(\\d{4})", "$2 15-$3-$4", ["9(?:2[2-469]|3[3-578])", "9(?:2(?:2[024-9]|3[0-59]|47|6[245]|9[02-8])|3(?:3[28]|4[03-9]|5[2-46-8]|7[1-578]|8[2-9]))", "9(?:2(?:[23]02|6(?:[25]|4[6-8])|9(?:[02356]|4[02568]|72|8[23]))|3(?:3[28]|4(?:[04679]|3[5-8]|5[4-68]|8[2379])|5(?:[2467]|3[237]|8[2-5])|7[1-578]|8(?:[2469]|3[2578]|5[4-8]|7[36-8]|8[5-8])))|92(?:2[24-9]|3[1-59]|47)", "9(?:2(?:[23]02|6(?:[25]|4(?:64|[78]))|9(?:[02356]|4(?:[0268]|5[2-6])|72|8[23]))|3(?:3[28]|4(?:[04679]|3[78]|5(?:4[46]|8)|8[2379])|5(?:[2467]|3[237]|8[23])|7[1-578]|8(?:[2469]|3[278]|5(?:[56][46]|[78])|7[378]|8(?:6[3-6]|[78]))))|92(?:2[24-9]|3[1-59]|47)|93(?:4[35][56]|58[45]|8(?:[38]5|54|76))[4-6]", "9(?:2(?:[23]02|6(?:[25]|4(?:64|[78]))|9(?:[02356]|4(?:[0268]|5[2-6])|72|8[23]))|3(?:3[28]|4(?:[04679]|3(?:5(?:4[0-25689]|[56])|[78])|5(?:4[46]|8)|8[2379])|5(?:[2467]|3[237]|8(?:[23]|4(?:[45]|60)|5(?:4[0-39]|5|64)))|7[1-578]|8(?:[2469]|3[278]|5(?:4(?:4|5[13-7]|6[89])|[56][46]|[78])|7[378]|8(?:6[3-6]|[78]))))|92(?:2[24-9]|3[1-59]|47)|93(?:4(?:36|5[56])|8(?:[38]5|76))[4-6]"], "0$1", 0, "$1 $2 $3-$4"], ["(\\d)(\\d{2})(\\d{4})(\\d{4})", "$2 15-$3-$4", ["91"], "0$1", 0, "$1 $2 $3-$4"], ["(\\d{3})(\\d{3})(\\d{5})", "$1-$2-$3", ["8"], "0$1"], ["(\\d)(\\d{3})(\\d{3})(\\d{4})", "$2 15-$3-$4", ["9"], "0$1", 0, "$1 $2 $3-$4"]], "0", 0, "0?(?:(11|2(?:2(?:02?|[13]|2[13-79]|4[1-6]|5[2457]|6[124-8]|7[1-4]|8[13-6]|9[1267])|3(?:02?|1[467]|2[03-6]|3[13-8]|[49][2-6]|5[2-8]|[67])|4(?:7[3-578]|9)|6(?:[0136]|2[24-6]|4[6-8]?|5[15-8])|80|9(?:0[1-3]|[19]|2\\d|3[1-6]|4[02568]?|5[2-4]|6[2-46]|72?|8[23]?))|3(?:3(?:2[79]|6|8[2578])|4(?:0[0-24-9]|[12]|3[5-8]?|4[24-7]|5[4-68]?|6[02-9]|7[126]|8[2379]?|9[1-36-8])|5(?:1|2[1245]|3[237]?|4[1-46-9]|6[2-4]|7[1-6]|8[2-5]?)|6[24]|7(?:[069]|1[1568]|2[15]|3[145]|4[13]|5[14-8]|7[2-57]|8[126])|8(?:[01]|2[15-7]|3[2578]?|4[13-6]|5[4-8]?|6[1-357-9]|7[36-8]?|8[5-8]?|9[124])))15)?", "9$1"], AS: ["1", "011", "(?:[58]\\d\\d|684|900)\\d{7}", [10], 0, "1", 0, "([267]\\d{6})$|1", "684$1", 0, "684"], AT: ["43", "00", "1\\d{3,12}|2\\d{6,12}|43(?:(?:0\\d|5[02-9])\\d{3,9}|2\\d{4,5}|[3467]\\d{4}|8\\d{4,6}|9\\d{4,7})|5\\d{4,12}|8\\d{7,12}|9\\d{8,12}|(?:[367]\\d|4[0-24-9])\\d{4,11}", [4, 5, 6, 7, 8, 9, 10, 11, 12, 13], [["(\\d)(\\d{3,12})", "$1 $2", ["1(?:11|[2-9])"], "0$1"], ["(\\d{3})(\\d{2})", "$1 $2", ["517"], "0$1"], ["(\\d{2})(\\d{3,5})", "$1 $2", ["5[079]"], "0$1"], ["(\\d{3})(\\d{3,10})", "$1 $2", ["(?:31|4)6|51|6(?:48|5[0-3579]|[6-9])|7(?:20|32|8)|[89]", "(?:31|4)6|51|6(?:485|5[0-3579]|[6-9])|7(?:20|32|8)|[89]"], "0$1"], ["(\\d{4})(\\d{3,9})", "$1 $2", ["[2-467]|5[2-6]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["5"], "0$1"], ["(\\d{2})(\\d{4})(\\d{4,7})", "$1 $2 $3", ["5"], "0$1"]], "0"], AU: ["61", "001[14-689]|14(?:1[14]|34|4[17]|[56]6|7[47]|88)0011", "1(?:[0-79]\\d{7}(?:\\d(?:\\d{2})?)?|8[0-24-9]\\d{7})|[2-478]\\d{8}|1\\d{4,7}", [5, 6, 7, 8, 9, 10, 12], [["(\\d{2})(\\d{3,4})", "$1 $2", ["16"], "0$1"], ["(\\d{2})(\\d{3})(\\d{2,4})", "$1 $2 $3", ["16"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["14|4"], "0$1"], ["(\\d)(\\d{4})(\\d{4})", "$1 $2 $3", ["[2378]"], "(0$1)"], ["(\\d{4})(\\d{3})(\\d{3})", "$1 $2 $3", ["1(?:30|[89])"]]], "0", 0, "(183[12])|0", 0, 0, 0, [["(?:(?:2(?:(?:[0-26-9]\\d|3[0-8]|5[0135-9])\\d|4(?:[02-9]\\d|10))|3(?:(?:[0-3589]\\d|6[1-9]|7[0-35-9])\\d|4(?:[0-578]\\d|90))|7(?:[013-57-9]\\d|2[0-8])\\d)\\d\\d|8(?:51(?:0(?:0[03-9]|[12479]\\d|3[2-9]|5[0-8]|6[1-9]|8[0-7])|1(?:[0235689]\\d|1[0-69]|4[0-589]|7[0-47-9])|2(?:0[0-79]|[18][13579]|2[14-9]|3[0-46-9]|[4-6]\\d|7[89]|9[0-4])|[34]\\d\\d)|(?:6[0-8]|[78]\\d)\\d{3}|9(?:[02-9]\\d{3}|1(?:(?:[0-58]\\d|6[0135-9])\\d|7(?:0[0-24-9]|[1-9]\\d)|9(?:[0-46-9]\\d|5[0-79])))))\\d{3}", [9]], ["4(?:79[01]|83[0-389]|94[0-478])\\d{5}|4(?:[0-36]\\d|4[047-9]|[58][0-24-9]|7[02-8]|9[0-37-9])\\d{6}", [9]], ["180(?:0\\d{3}|2)\\d{3}", [7, 10]], ["190[0-26]\\d{6}", [10]], 0, 0, 0, ["163\\d{2,6}", [5, 6, 7, 8, 9]], ["14(?:5(?:1[0458]|[23][458])|71\\d)\\d{4}", [9]], ["13(?:00\\d{6}(?:\\d{2})?|45[0-4]\\d{3})|13\\d{4}", [6, 8, 10, 12]]], "0011"], AW: ["297", "00", "(?:[25-79]\\d\\d|800)\\d{4}", [7], [["(\\d{3})(\\d{4})", "$1 $2", ["[25-9]"]]]], AX: ["358", "00|99(?:[01469]|5(?:[14]1|3[23]|5[59]|77|88|9[09]))", "2\\d{4,9}|35\\d{4,5}|(?:60\\d\\d|800)\\d{4,6}|7\\d{5,11}|(?:[14]\\d|3[0-46-9]|50)\\d{4,8}", [5, 6, 7, 8, 9, 10, 11, 12], 0, "0", 0, 0, 0, 0, "18", 0, "00"], AZ: ["994", "00", "365\\d{6}|(?:[124579]\\d|60|88)\\d{7}", [9], [["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["90"], "0$1"], ["(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["1[28]|2|365|46", "1[28]|2|365[45]|46", "1[28]|2|365(?:4|5[02])|46"], "(0$1)"], ["(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[13-9]"], "0$1"]], "0"], BA: ["387", "00", "6\\d{8}|(?:[35689]\\d|49|70)\\d{6}", [8, 9], [["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["6[1-3]|[7-9]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3})", "$1 $2-$3", ["[3-5]|6[56]"], "0$1"], ["(\\d{2})(\\d{2})(\\d{2})(\\d{3})", "$1 $2 $3 $4", ["6"], "0$1"]], "0"], BB: ["1", "011", "(?:246|[58]\\d\\d|900)\\d{7}", [10], 0, "1", 0, "([2-9]\\d{6})$|1", "246$1", 0, "246"], BD: ["880", "00", "[1-469]\\d{9}|8[0-79]\\d{7,8}|[2-79]\\d{8}|[2-9]\\d{7}|[3-9]\\d{6}|[57-9]\\d{5}", [6, 7, 8, 9, 10], [["(\\d{2})(\\d{4,6})", "$1-$2", ["31[5-8]|[459]1"], "0$1"], ["(\\d{3})(\\d{3,7})", "$1-$2", ["3(?:[67]|8[013-9])|4(?:6[168]|7|[89][18])|5(?:6[128]|9)|6(?:[15]|28|4[14])|7[2-589]|8(?:0[014-9]|[12])|9[358]|(?:3[2-5]|4[235]|5[2-578]|6[0389]|76|8[3-7]|9[24])1|(?:44|66)[01346-9]"], "0$1"], ["(\\d{4})(\\d{3,6})", "$1-$2", ["[13-9]|2[23]"], "0$1"], ["(\\d)(\\d{7,8})", "$1-$2", ["2"], "0$1"]], "0"], BE: ["32", "00", "4\\d{8}|[1-9]\\d{7}", [8, 9], [["(\\d{3})(\\d{2})(\\d{3})", "$1 $2 $3", ["(?:80|9)0"], "0$1"], ["(\\d)(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[239]|4[23]"], "0$1"], ["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[15-8]"], "0$1"], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["4"], "0$1"]], "0"], BF: ["226", "00", "(?:[025-7]\\d|44)\\d{6}", [8], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[024-7]"]]]], BG: ["359", "00", "00800\\d{7}|[2-7]\\d{6,7}|[89]\\d{6,8}|2\\d{5}", [6, 7, 8, 9, 12], [["(\\d)(\\d)(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["2"], "0$1"], ["(\\d{3})(\\d{4})", "$1 $2", ["43[1-6]|70[1-9]"], "0$1"], ["(\\d)(\\d{3})(\\d{3,4})", "$1 $2 $3", ["2"], "0$1"], ["(\\d{2})(\\d{3})(\\d{2,3})", "$1 $2 $3", ["[356]|4[124-7]|7[1-9]|8[1-6]|9[1-7]"], "0$1"], ["(\\d{3})(\\d{2})(\\d{3})", "$1 $2 $3", ["(?:70|8)0"], "0$1"], ["(\\d{3})(\\d{3})(\\d{2})", "$1 $2 $3", ["43[1-7]|7"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[48]|9[08]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["9"], "0$1"]], "0"], BH: ["973", "00", "[136-9]\\d{7}", [8], [["(\\d{4})(\\d{4})", "$1 $2", ["[13679]|8[02-4679]"]]]], BI: ["257", "00", "(?:[267]\\d|31)\\d{6}", [8], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[2367]"]]]], BJ: ["229", "00", "(?:01\\d|[24-689])\\d{7}", [8, 10], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[24-689]"]], ["(\\d{2})(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4 $5", ["0"]]]], BL: ["590", "00", "(?:590\\d|7090)\\d{5}|(?:69|80|9\\d)\\d{7}", [9], 0, "0", 0, 0, 0, 0, 0, [["590(?:2[7-9]|3[3-7]|5[12]|87)\\d{4}"], ["(?:69(?:0\\d\\d|1(?:2[2-9]|3[0-5])|4(?:0[89]|1[2-6]|9\\d)|6(?:1[016-9]|5[0-4]|[67]\\d))|7090[0-4])\\d{4}"], ["80[0-5]\\d{6}"], 0, 0, 0, 0, 0, ["9(?:(?:39[5-7]|76[018])\\d|475[0-6])\\d{4}"]]], BM: ["1", "011", "(?:441|[58]\\d\\d|900)\\d{7}", [10], 0, "1", 0, "([2-9]\\d{6})$|1", "441$1", 0, "441"], BN: ["673", "00", "[2-578]\\d{6}", [7], [["(\\d{3})(\\d{4})", "$1 $2", ["[2-578]"]]]], BO: ["591", "00(?:1\\d)?", "8001\\d{5}|(?:[2-467]\\d|50)\\d{6}", [8, 9], [["(\\d)(\\d{7})", "$1 $2", ["[235]|4[46]"]], ["(\\d{8})", "$1", ["[67]"]], ["(\\d{3})(\\d{2})(\\d{4})", "$1 $2 $3", ["8"]]], "0", 0, "0(1\\d)?"], BQ: ["599", "00", "(?:[34]1|7\\d)\\d{5}", [7], 0, 0, 0, 0, 0, 0, "[347]"], BR: ["55", "00(?:1[245]|2[1-35]|31|4[13]|[56]5|99)", "[1-467]\\d{9,10}|55[0-46-9]\\d{8}|[34]\\d{7}|55\\d{7,8}|(?:5[0-46-9]|[89]\\d)\\d{7,9}", [8, 9, 10, 11], [["(\\d{4})(\\d{4})", "$1-$2", ["300|4(?:0[02]|37|86)", "300|4(?:0(?:0|20)|370|864)"]], ["(\\d{3})(\\d{2,3})(\\d{4})", "$1 $2 $3", ["(?:[358]|90)0"], "0$1"], ["(\\d{2})(\\d{4})(\\d{4})", "$1 $2-$3", ["(?:[14689][1-9]|2[12478]|3[1-578]|5[13-5]|7[13-579])[2-57]"], "($1)"], ["(\\d{2})(\\d{5})(\\d{4})", "$1 $2-$3", ["[16][1-9]|[2-57-9]"], "($1)"]], "0", 0, "(?:0|90)(?:(1[245]|2[1-35]|31|4[13]|[56]5|99)(\\d{10,11}))?", "$2"], BS: ["1", "011", "(?:242|[58]\\d\\d|900)\\d{7}", [10], 0, "1", 0, "([3-8]\\d{6})$|1", "242$1", 0, "242"], BT: ["975", "00", "[178]\\d{7}|[2-8]\\d{6}", [7, 8], [["(\\d)(\\d{3})(\\d{3})", "$1 $2 $3", ["[2-6]|7[246]|8[2-4]"]], ["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["1[67]|[78]"]]]], BW: ["267", "00", "(?:0800|(?:[37]|800)\\d)\\d{6}|(?:[2-6]\\d|90)\\d{5}", [7, 8, 10], [["(\\d{2})(\\d{5})", "$1 $2", ["90"]], ["(\\d{3})(\\d{4})", "$1 $2", ["[24-6]|3[15-9]"]], ["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["[37]"]], ["(\\d{4})(\\d{3})(\\d{3})", "$1 $2 $3", ["0"]], ["(\\d{3})(\\d{4})(\\d{3})", "$1 $2 $3", ["8"]]]], BY: ["375", "810", "(?:[12]\\d|33|44|902)\\d{7}|8(?:0[0-79]\\d{5,7}|[1-7]\\d{9})|8(?:1[0-489]|[5-79]\\d)\\d{7}|8[1-79]\\d{6,7}|8[0-79]\\d{5}|8\\d{5}", [6, 7, 8, 9, 10, 11], [["(\\d{3})(\\d{3})", "$1 $2", ["800"], "8 $1"], ["(\\d{3})(\\d{2})(\\d{2,4})", "$1 $2 $3", ["800"], "8 $1"], ["(\\d{4})(\\d{2})(\\d{3})", "$1 $2-$3", ["1(?:5[169]|6[3-5]|7[179])|2(?:1[35]|2[34]|3[3-5])", "1(?:5[169]|6(?:3[1-3]|4|5[125])|7(?:1[3-9]|7[0-24-6]|9[2-7]))|2(?:1[35]|2[34]|3[3-5])"], "8 0$1"], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2-$3-$4", ["1(?:[56]|7[467])|2[1-3]"], "8 0$1"], ["(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1 $2-$3-$4", ["[1-4]"], "8 0$1"], ["(\\d{3})(\\d{3,4})(\\d{4})", "$1 $2 $3", ["[89]"], "8 $1"]], "8", 0, "0|80?", 0, 0, 0, 0, "8~10"], BZ: ["501", "00", "(?:0800\\d|[2-8])\\d{6}", [7, 11], [["(\\d{3})(\\d{4})", "$1-$2", ["[2-8]"]], ["(\\d)(\\d{3})(\\d{4})(\\d{3})", "$1-$2-$3-$4", ["0"]]]], CA: ["1", "011", "[2-9]\\d{9}|3\\d{6}", [7, 10], 0, "1", 0, 0, 0, 0, 0, [["(?:2(?:04|[23]6|[48]9|5[07]|63)|3(?:06|43|54|6[578]|82)|4(?:03|1[68]|[26]8|3[178]|50|74)|5(?:06|1[49]|48|79|8[147])|6(?:04|[18]3|39|47|72)|7(?:0[59]|42|53|78|8[02])|8(?:[06]7|19|25|7[39])|9(?:0[25]|42))[2-9]\\d{6}", [10]], ["", [10]], ["8(?:00|33|44|55|66|77|88)[2-9]\\d{6}", [10]], ["900[2-9]\\d{6}", [10]], ["52(?:3(?:[2-46-9][02-9]\\d|5(?:[02-46-9]\\d|5[0-46-9]))|4(?:[2-478][02-9]\\d|5(?:[034]\\d|2[024-9]|5[0-46-9])|6(?:0[1-9]|[2-9]\\d)|9(?:[05-9]\\d|2[0-5]|49)))\\d{4}|52[34][2-9]1[02-9]\\d{4}|(?:5(?:2[125-9]|33|44|66|77|88)|6(?:22|33))[2-9]\\d{6}", [10]], 0, ["310\\d{4}", [7]], 0, ["600[2-9]\\d{6}", [10]]]], CC: ["61", "001[14-689]|14(?:1[14]|34|4[17]|[56]6|7[47]|88)0011", "1(?:[0-79]\\d{8}(?:\\d{2})?|8[0-24-9]\\d{7})|[148]\\d{8}|1\\d{5,7}", [6, 7, 8, 9, 10, 12], 0, "0", 0, "([59]\\d{7})$|0", "8$1", 0, 0, [["8(?:51(?:0(?:02|31|60|89)|1(?:18|76)|223)|91(?:0(?:1[0-2]|29)|1(?:[28]2|50|79)|2(?:10|64)|3(?:[06]8|22)|4[29]8|62\\d|70[23]|959))\\d{3}", [9]], ["4(?:79[01]|83[0-389]|94[0-478])\\d{5}|4(?:[0-36]\\d|4[047-9]|[58][0-24-9]|7[02-8]|9[0-37-9])\\d{6}", [9]], ["180(?:0\\d{3}|2)\\d{3}", [7, 10]], ["190[0-26]\\d{6}", [10]], 0, 0, 0, 0, ["14(?:5(?:1[0458]|[23][458])|71\\d)\\d{4}", [9]], ["13(?:00\\d{6}(?:\\d{2})?|45[0-4]\\d{3})|13\\d{4}", [6, 8, 10, 12]]], "0011"], CD: ["243", "00", "(?:(?:[189]|5\\d)\\d|2)\\d{7}|[1-68]\\d{6}", [7, 8, 9, 10], [["(\\d{2})(\\d{2})(\\d{3})", "$1 $2 $3", ["88"], "0$1"], ["(\\d{2})(\\d{5})", "$1 $2", ["[1-6]"], "0$1"], ["(\\d{2})(\\d{2})(\\d{4})", "$1 $2 $3", ["2"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["1"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[89]"], "0$1"], ["(\\d{2})(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3 $4", ["5"], "0$1"]], "0"], CF: ["236", "00", "(?:[27]\\d{3}|8776)\\d{4}", [8], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[278]"]]]], CG: ["242", "00", "222\\d{6}|(?:0\\d|80)\\d{7}", [9], [["(\\d)(\\d{4})(\\d{4})", "$1 $2 $3", ["8"]], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[02]"]]]], CH: ["41", "00", "8\\d{11}|[2-9]\\d{8}", [9, 12], [["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["8[047]|90"], "0$1"], ["(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[2-79]|81"], "0$1"], ["(\\d{3})(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4 $5", ["8"], "0$1"]], "0"], CI: ["225", "00", "[02]\\d{9}", [10], [["(\\d{2})(\\d{2})(\\d)(\\d{5})", "$1 $2 $3 $4", ["2"]], ["(\\d{2})(\\d{2})(\\d{2})(\\d{4})", "$1 $2 $3 $4", ["0"]]]], CK: ["682", "00", "[2-578]\\d{4}", [5], [["(\\d{2})(\\d{3})", "$1 $2", ["[2-578]"]]]], CL: ["56", "(?:0|1(?:1[0-69]|2[02-5]|5[13-58]|69|7[0167]|8[018]))0", "12300\\d{6}|6\\d{9,10}|[2-9]\\d{8}", [9, 10, 11], [["(\\d{5})(\\d{4})", "$1 $2", ["219", "2196"], "($1)"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["60|809"]], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["44"]], ["(\\d)(\\d{4})(\\d{4})", "$1 $2 $3", ["2[1-36]"], "($1)"], ["(\\d)(\\d{4})(\\d{4})", "$1 $2 $3", ["9(?:10|[2-9])"]], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["3[2-5]|[47]|5[1-3578]|6[13-57]|8(?:0[1-8]|[1-9])"], "($1)"], ["(\\d{3})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["60|8"]], ["(\\d{4})(\\d{3})(\\d{4})", "$1 $2 $3", ["1"]], ["(\\d{3})(\\d{3})(\\d{2})(\\d{3})", "$1 $2 $3 $4", ["60"]]]], CM: ["237", "00", "[26]\\d{8}|88\\d{6,7}", [8, 9], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["88"]], ["(\\d)(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4 $5", ["[26]|88"]]]], CN: ["86", "00|1(?:[12]\\d|79)\\d\\d00", "(?:(?:1[03-689]|2\\d)\\d\\d|6)\\d{8}|1\\d{10}|[126]\\d{6}(?:\\d(?:\\d{2})?)?|86\\d{5,6}|(?:[3-579]\\d|8[0-57-9])\\d{5,9}", [7, 8, 9, 10, 11, 12], [["(\\d{2})(\\d{5,6})", "$1 $2", ["(?:10|2[0-57-9])[19]|3(?:[157]|35|49|9[1-68])|4(?:1[124-9]|2[179]|6[47-9]|7|8[23])|5(?:[1357]|2[37]|4[36]|6[1-46]|80)|6(?:3[1-5]|6[0238]|9[12])|7(?:01|[1579]|2[248]|3[014-9]|4[3-6]|6[023689])|8(?:07|1[236-8]|2[5-7]|[37]|8[36-8]|9[1-8])|9(?:0[1-3689]|1[1-79]|3|4[13]|5[1-5]|7[0-79]|9[0-35-9])|(?:4[35]|59|85)[1-9]", "(?:10|2[0-57-9])(?:1[02]|9[56])|8078|(?:3(?:[157]\\d|35|49|9[1-68])|4(?:1[124-9]|2[179]|[35][1-9]|6[47-9]|7\\d|8[23])|5(?:[1357]\\d|2[37]|4[36]|6[1-46]|80|9[1-9])|6(?:3[1-5]|6[0238]|9[12])|7(?:01|[1579]\\d|2[248]|3[014-9]|4[3-6]|6[023689])|8(?:1[236-8]|2[5-7]|[37]\\d|5[1-9]|8[36-8]|9[1-8])|9(?:0[1-3689]|1[1-79]|3\\d|4[13]|5[1-5]|7[0-79]|9[0-35-9]))1", "10(?:1(?:0|23)|9[56])|2[0-57-9](?:1(?:00|23)|9[56])|80781|(?:3(?:[157]\\d|35|49|9[1-68])|4(?:1[124-9]|2[179]|[35][1-9]|6[47-9]|7\\d|8[23])|5(?:[1357]\\d|2[37]|4[36]|6[1-46]|80|9[1-9])|6(?:3[1-5]|6[0238]|9[12])|7(?:01|[1579]\\d|2[248]|3[014-9]|4[3-6]|6[023689])|8(?:1[236-8]|2[5-7]|[37]\\d|5[1-9]|8[36-8]|9[1-8])|9(?:0[1-3689]|1[1-79]|3\\d|4[13]|5[1-5]|7[0-79]|9[0-35-9]))12", "10(?:1(?:0|23)|9[56])|2[0-57-9](?:1(?:00|23)|9[56])|807812|(?:3(?:[157]\\d|35|49|9[1-68])|4(?:1[124-9]|2[179]|[35][1-9]|6[47-9]|7\\d|8[23])|5(?:[1357]\\d|2[37]|4[36]|6[1-46]|80|9[1-9])|6(?:3[1-5]|6[0238]|9[12])|7(?:01|[1579]\\d|2[248]|3[014-9]|4[3-6]|6[023689])|8(?:1[236-8]|2[5-7]|[37]\\d|5[1-9]|8[36-8]|9[1-8])|9(?:0[1-3689]|1[1-79]|3\\d|4[13]|5[1-5]|7[0-79]|9[0-35-9]))123", "10(?:1(?:0|23)|9[56])|2[0-57-9](?:1(?:00|23)|9[56])|(?:3(?:[157]\\d|35|49|9[1-68])|4(?:1[124-9]|2[179]|[35][1-9]|6[47-9]|7\\d|8[23])|5(?:[1357]\\d|2[37]|4[36]|6[1-46]|80|9[1-9])|6(?:3[1-5]|6[0238]|9[12])|7(?:01|[1579]\\d|2[248]|3[014-9]|4[3-6]|6[023689])|8(?:078|1[236-8]|2[5-7]|[37]\\d|5[1-9]|8[36-8]|9[1-8])|9(?:0[1-3689]|1[1-79]|3\\d|4[13]|5[1-5]|7[0-79]|9[0-35-9]))123"], "0$1"], ["(\\d{3})(\\d{5,6})", "$1 $2", ["3(?:[157]|35|49|9[1-68])|4(?:[17]|2[179]|6[47-9]|8[23])|5(?:[1357]|2[37]|4[36]|6[1-46]|80)|6(?:3[1-5]|6[0238]|9[12])|7(?:01|[1579]|2[248]|3[014-9]|4[3-6]|6[023689])|8(?:1[236-8]|2[5-7]|[37]|8[36-8]|9[1-8])|9(?:0[1-3689]|1[1-79]|[379]|4[13]|5[1-5])|(?:4[35]|59|85)[1-9]", "(?:3(?:[157]\\d|35|49|9[1-68])|4(?:[17]\\d|2[179]|[35][1-9]|6[47-9]|8[23])|5(?:[1357]\\d|2[37]|4[36]|6[1-46]|80|9[1-9])|6(?:3[1-5]|6[0238]|9[12])|7(?:01|[1579]\\d|2[248]|3[014-9]|4[3-6]|6[023689])|8(?:1[236-8]|2[5-7]|[37]\\d|5[1-9]|8[36-8]|9[1-8])|9(?:0[1-3689]|1[1-79]|[379]\\d|4[13]|5[1-5]))[19]", "85[23](?:10|95)|(?:3(?:[157]\\d|35|49|9[1-68])|4(?:[17]\\d|2[179]|[35][1-9]|6[47-9]|8[23])|5(?:[1357]\\d|2[37]|4[36]|6[1-46]|80|9[1-9])|6(?:3[1-5]|6[0238]|9[12])|7(?:01|[1579]\\d|2[248]|3[014-9]|4[3-6]|6[023689])|8(?:1[236-8]|2[5-7]|[37]\\d|5[14-9]|8[36-8]|9[1-8])|9(?:0[1-3689]|1[1-79]|[379]\\d|4[13]|5[1-5]))(?:10|9[56])", "85[23](?:100|95)|(?:3(?:[157]\\d|35|49|9[1-68])|4(?:[17]\\d|2[179]|[35][1-9]|6[47-9]|8[23])|5(?:[1357]\\d|2[37]|4[36]|6[1-46]|80|9[1-9])|6(?:3[1-5]|6[0238]|9[12])|7(?:01|[1579]\\d|2[248]|3[014-9]|4[3-6]|6[023689])|8(?:1[236-8]|2[5-7]|[37]\\d|5[14-9]|8[36-8]|9[1-8])|9(?:0[1-3689]|1[1-79]|[379]\\d|4[13]|5[1-5]))(?:100|9[56])"], "0$1"], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["(?:4|80)0"]], ["(\\d{2})(\\d{4})(\\d{4})", "$1 $2 $3", ["10|2(?:[02-57-9]|1[1-9])", "10|2(?:[02-57-9]|1[1-9])", "10[0-79]|2(?:[02-57-9]|1[1-79])|(?:10|21)8(?:0[1-9]|[1-9])"], "0$1", 1], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["3(?:[3-59]|7[02-68])|4(?:[26-8]|3[3-9]|5[2-9])|5(?:3[03-9]|[468]|7[028]|9[2-46-9])|6|7(?:[0-247]|3[04-9]|5[0-4689]|6[2368])|8(?:[1-358]|9[1-7])|9(?:[013479]|5[1-5])|(?:[34]1|55|79|87)[02-9]"], "0$1", 1], ["(\\d{3})(\\d{7,8})", "$1 $2", ["9"]], ["(\\d{4})(\\d{3})(\\d{4})", "$1 $2 $3", ["80"], "0$1", 1], ["(\\d{3})(\\d{4})(\\d{4})", "$1 $2 $3", ["[3-578]"], "0$1", 1], ["(\\d{3})(\\d{4})(\\d{4})", "$1 $2 $3", ["1[3-9]"]], ["(\\d{2})(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3 $4", ["[12]"], "0$1", 1]], "0", 0, "(1(?:[12]\\d|79)\\d\\d)|0", 0, 0, 0, 0, "00"], CO: ["57", "00(?:4(?:[14]4|56)|[579])", "(?:46|60\\d\\d)\\d{6}|(?:1\\d|[39])\\d{9}", [8, 10, 11], [["(\\d{4})(\\d{4})", "$1 $2", ["46"]], ["(\\d{3})(\\d{7})", "$1 $2", ["6|90"], "($1)"], ["(\\d{3})(\\d{7})", "$1 $2", ["3[0-357]|9[14]"]], ["(\\d)(\\d{3})(\\d{7})", "$1-$2-$3", ["1"], "0$1", 0, "$1 $2 $3"]], "0", 0, "0([3579]|4(?:[14]4|56))?"], CR: ["506", "00", "(?:8\\d|90)\\d{8}|(?:[24-8]\\d{3}|3005)\\d{4}", [8, 10], [["(\\d{4})(\\d{4})", "$1 $2", ["[2-7]|8[3-9]"]], ["(\\d{3})(\\d{3})(\\d{4})", "$1-$2-$3", ["[89]"]]], 0, 0, "(19(?:0[0-2468]|1[09]|20|66|77|99))"], CU: ["53", "119", "(?:[2-7]|8\\d\\d)\\d{7}|[2-47]\\d{6}|[34]\\d{5}", [6, 7, 8, 10], [["(\\d{2})(\\d{4,6})", "$1 $2", ["2[1-4]|[34]"], "(0$1)"], ["(\\d)(\\d{6,7})", "$1 $2", ["7"], "(0$1)"], ["(\\d)(\\d{7})", "$1 $2", ["[56]"], "0$1"], ["(\\d{3})(\\d{7})", "$1 $2", ["8"], "0$1"]], "0"], CV: ["238", "0", "(?:[2-59]\\d\\d|800)\\d{4}", [7], [["(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3", ["[2-589]"]]]], CW: ["599", "00", "(?:[34]1|60|(?:7|9\\d)\\d)\\d{5}", [7, 8], [["(\\d{3})(\\d{4})", "$1 $2", ["[3467]"]], ["(\\d)(\\d{3})(\\d{4})", "$1 $2 $3", ["9[4-8]"]]], 0, 0, 0, 0, 0, "[69]"], CX: ["61", "001[14-689]|14(?:1[14]|34|4[17]|[56]6|7[47]|88)0011", "1(?:[0-79]\\d{8}(?:\\d{2})?|8[0-24-9]\\d{7})|[148]\\d{8}|1\\d{5,7}", [6, 7, 8, 9, 10, 12], 0, "0", 0, "([59]\\d{7})$|0", "8$1", 0, 0, [["8(?:51(?:0(?:01|30|59|88)|1(?:17|46|75)|2(?:22|35))|91(?:00[6-9]|1(?:[28]1|49|78)|2(?:09|63)|3(?:12|26|75)|4(?:56|97)|64\\d|7(?:0[01]|1[0-2])|958))\\d{3}", [9]], ["4(?:79[01]|83[0-389]|94[0-478])\\d{5}|4(?:[0-36]\\d|4[047-9]|[58][0-24-9]|7[02-8]|9[0-37-9])\\d{6}", [9]], ["180(?:0\\d{3}|2)\\d{3}", [7, 10]], ["190[0-26]\\d{6}", [10]], 0, 0, 0, 0, ["14(?:5(?:1[0458]|[23][458])|71\\d)\\d{4}", [9]], ["13(?:00\\d{6}(?:\\d{2})?|45[0-4]\\d{3})|13\\d{4}", [6, 8, 10, 12]]], "0011"], CY: ["357", "00", "(?:[279]\\d|[58]0)\\d{6}", [8], [["(\\d{2})(\\d{6})", "$1 $2", ["[257-9]"]]]], CZ: ["420", "00", "(?:[2-578]\\d|60)\\d{7}|9\\d{8,11}", [9, 10, 11, 12], [["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[2-8]|9[015-7]"]], ["(\\d{2})(\\d{3})(\\d{3})(\\d{2})", "$1 $2 $3 $4", ["96"]], ["(\\d{2})(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3 $4", ["9"]], ["(\\d{3})(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3 $4", ["9"]]]], DE: ["49", "00", "[2579]\\d{5,14}|49(?:[34]0|69|8\\d)\\d\\d?|49(?:37|49|60|7[089]|9\\d)\\d{1,3}|49(?:2[024-9]|3[2-689]|7[1-7])\\d{1,8}|(?:1|[368]\\d|4[0-8])\\d{3,13}|49(?:[015]\\d|2[13]|31|[46][1-8])\\d{1,9}", [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], [["(\\d{2})(\\d{3,13})", "$1 $2", ["3[02]|40|[68]9"], "0$1"], ["(\\d{3})(\\d{3,12})", "$1 $2", ["2(?:0[1-389]|1[124]|2[18]|3[14])|3(?:[35-9][15]|4[015])|906|(?:2[4-9]|4[2-9]|[579][1-9]|[68][1-8])1", "2(?:0[1-389]|12[0-8])|3(?:[35-9][15]|4[015])|906|2(?:[13][14]|2[18])|(?:2[4-9]|4[2-9]|[579][1-9]|[68][1-8])1"], "0$1"], ["(\\d{4})(\\d{2,11})", "$1 $2", ["[24-6]|3(?:[3569][02-46-9]|4[2-4679]|7[2-467]|8[2-46-8])|70[2-8]|8(?:0[2-9]|[1-8])|90[7-9]|[79][1-9]", "[24-6]|3(?:3(?:0[1-467]|2[127-9]|3[124578]|7[1257-9]|8[1256]|9[145])|4(?:2[135]|4[13578]|9[1346])|5(?:0[14]|2[1-3589]|6[1-4]|7[13468]|8[13568])|6(?:2[1-489]|3[124-6]|6[13]|7[12579]|8[1-356]|9[135])|7(?:2[1-7]|4[145]|6[1-5]|7[1-4])|8(?:21|3[1468]|6|7[1467]|8[136])|9(?:0[12479]|2[1358]|4[134679]|6[1-9]|7[136]|8[147]|9[1468]))|70[2-8]|8(?:0[2-9]|[1-8])|90[7-9]|[79][1-9]|3[68]4[1347]|3(?:47|60)[1356]|3(?:3[46]|46|5[49])[1246]|3[4579]3[1357]"], "0$1"], ["(\\d{3})(\\d{4})", "$1 $2", ["138"], "0$1"], ["(\\d{5})(\\d{2,10})", "$1 $2", ["3"], "0$1"], ["(\\d{3})(\\d{5,11})", "$1 $2", ["181"], "0$1"], ["(\\d{3})(\\d)(\\d{4,10})", "$1 $2 $3", ["1(?:3|80)|9"], "0$1"], ["(\\d{3})(\\d{7,8})", "$1 $2", ["1[67]"], "0$1"], ["(\\d{3})(\\d{7,12})", "$1 $2", ["8"], "0$1"], ["(\\d{5})(\\d{6})", "$1 $2", ["185", "1850", "18500"], "0$1"], ["(\\d{3})(\\d{4})(\\d{4})", "$1 $2 $3", ["7"], "0$1"], ["(\\d{4})(\\d{7})", "$1 $2", ["18[68]"], "0$1"], ["(\\d{4})(\\d{7})", "$1 $2", ["15[1279]"], "0$1"], ["(\\d{5})(\\d{6})", "$1 $2", ["15[03568]", "15(?:[0568]|3[13])"], "0$1"], ["(\\d{3})(\\d{8})", "$1 $2", ["18"], "0$1"], ["(\\d{3})(\\d{2})(\\d{7,8})", "$1 $2 $3", ["1(?:6[023]|7)"], "0$1"], ["(\\d{4})(\\d{2})(\\d{7})", "$1 $2 $3", ["15[279]"], "0$1"], ["(\\d{3})(\\d{2})(\\d{8})", "$1 $2 $3", ["15"], "0$1"]], "0"], DJ: ["253", "00", "(?:2\\d|77)\\d{6}", [8], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[27]"]]]], DK: ["45", "00", "[2-9]\\d{7}", [8], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[2-9]"]]]], DM: ["1", "011", "(?:[58]\\d\\d|767|900)\\d{7}", [10], 0, "1", 0, "([2-7]\\d{6})$|1", "767$1", 0, "767"], DO: ["1", "011", "(?:[58]\\d\\d|900)\\d{7}", [10], 0, "1", 0, 0, 0, 0, "8001|8[024]9"], DZ: ["213", "00", "(?:[1-4]|[5-79]\\d|80)\\d{7}", [8, 9], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[1-4]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["9"], "0$1"], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[5-8]"], "0$1"]], "0"], EC: ["593", "00", "1\\d{9,10}|(?:[2-7]|9\\d)\\d{7}", [8, 9, 10, 11], [["(\\d)(\\d{3})(\\d{4})", "$1 $2-$3", ["[2-7]"], "(0$1)", 0, "$1-$2-$3"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["9"], "0$1"], ["(\\d{4})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["1"]]], "0"], EE: ["372", "00", "8\\d{9}|[4578]\\d{7}|(?:[3-8]\\d|90)\\d{5}", [7, 8, 10], [["(\\d{3})(\\d{4})", "$1 $2", ["[369]|4[3-8]|5(?:[0-2]|5[0-478]|6[45])|7[1-9]|88", "[369]|4[3-8]|5(?:[02]|1(?:[0-8]|95)|5[0-478]|6(?:4[0-4]|5[1-589]))|7[1-9]|88"]], ["(\\d{4})(\\d{3,4})", "$1 $2", ["[45]|8(?:00|[1-49])", "[45]|8(?:00[1-9]|[1-49])"]], ["(\\d{2})(\\d{2})(\\d{4})", "$1 $2 $3", ["7"]], ["(\\d{4})(\\d{3})(\\d{3})", "$1 $2 $3", ["8"]]]], EG: ["20", "00", "[189]\\d{8,9}|[24-6]\\d{8}|[135]\\d{7}", [8, 9, 10], [["(\\d)(\\d{7,8})", "$1 $2", ["[23]"], "0$1"], ["(\\d{2})(\\d{6,7})", "$1 $2", ["1[35]|[4-6]|8[2468]|9[235-7]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["[89]"], "0$1"], ["(\\d{2})(\\d{8})", "$1 $2", ["1"], "0$1"]], "0"], EH: ["212", "00", "[5-8]\\d{8}", [9], 0, "0", 0, 0, 0, 0, "528[89]"], ER: ["291", "00", "[178]\\d{6}", [7], [["(\\d)(\\d{3})(\\d{3})", "$1 $2 $3", ["[178]"], "0$1"]], "0"], ES: ["34", "00", "[5-9]\\d{8}", [9], [["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[89]00"]], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[5-9]"]]]], ET: ["251", "00", "(?:11|[2-579]\\d)\\d{7}", [9], [["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[1-579]"], "0$1"]], "0"], FI: ["358", "00|99(?:[01469]|5(?:[14]1|3[23]|5[59]|77|88|9[09]))", "[1-35689]\\d{4}|7\\d{10,11}|(?:[124-7]\\d|3[0-46-9])\\d{8}|[1-9]\\d{5,8}", [5, 6, 7, 8, 9, 10, 11, 12], [["(\\d{5})", "$1", ["20[2-59]"], "0$1"], ["(\\d{3})(\\d{3,7})", "$1 $2", ["(?:[1-3]0|[68])0|70[07-9]"], "0$1"], ["(\\d{2})(\\d{4,8})", "$1 $2", ["[14]|2[09]|50|7[135]"], "0$1"], ["(\\d{2})(\\d{6,10})", "$1 $2", ["7"], "0$1"], ["(\\d)(\\d{4,9})", "$1 $2", ["(?:19|[2568])[1-8]|3(?:0[1-9]|[1-9])|9"], "0$1"]], "0", 0, 0, 0, 0, "1[03-79]|[2-9]", 0, "00"], FJ: ["679", "0(?:0|52)", "45\\d{5}|(?:0800\\d|[235-9])\\d{6}", [7, 11], [["(\\d{3})(\\d{4})", "$1 $2", ["[235-9]|45"]], ["(\\d{4})(\\d{3})(\\d{4})", "$1 $2 $3", ["0"]]], 0, 0, 0, 0, 0, 0, 0, "00"], FK: ["500", "00", "[2-7]\\d{4}", [5]], FM: ["691", "00", "(?:[39]\\d\\d|820)\\d{4}", [7], [["(\\d{3})(\\d{4})", "$1 $2", ["[389]"]]]], FO: ["298", "00", "[2-9]\\d{5}", [6], [["(\\d{6})", "$1", ["[2-9]"]]], 0, 0, "(10(?:01|[12]0|88))"], FR: ["33", "00", "[1-9]\\d{8}", [9], [["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["8"], "0 $1"], ["(\\d)(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4 $5", ["[1-79]"], "0$1"]], "0"], GA: ["241", "00", "(?:[067]\\d|11)\\d{6}|[2-7]\\d{6}", [7, 8], [["(\\d)(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[2-7]"], "0$1"], ["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["0"]], ["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["11|[67]"], "0$1"]], 0, 0, "0(11\\d{6}|60\\d{6}|61\\d{6}|6[256]\\d{6}|7[467]\\d{6})", "$1"], GB: ["44", "00", "[1-357-9]\\d{9}|[18]\\d{8}|8\\d{6}", [7, 9, 10], [["(\\d{3})(\\d{4})", "$1 $2", ["800", "8001", "80011", "800111", "8001111"], "0$1"], ["(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3", ["845", "8454", "84546", "845464"], "0$1"], ["(\\d{3})(\\d{6})", "$1 $2", ["800"], "0$1"], ["(\\d{5})(\\d{4,5})", "$1 $2", ["1(?:38|5[23]|69|76|94)", "1(?:(?:38|69)7|5(?:24|39)|768|946)", "1(?:3873|5(?:242|39[4-6])|(?:697|768)[347]|9467)"], "0$1"], ["(\\d{4})(\\d{5,6})", "$1 $2", ["1(?:[2-69][02-9]|[78])"], "0$1"], ["(\\d{2})(\\d{4})(\\d{4})", "$1 $2 $3", ["[25]|7(?:0|6[02-9])", "[25]|7(?:0|6(?:[03-9]|2[356]))"], "0$1"], ["(\\d{4})(\\d{6})", "$1 $2", ["7"], "0$1"], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["[1389]"], "0$1"]], "0", 0, "0|180020", 0, 0, 0, [["(?:1(?:1(?:3(?:[0-58]\\d\\d|73[0-35])|4(?:(?:[0-5]\\d|70)\\d|69[7-9])|(?:(?:5[0-26-9]|[78][0-49])\\d|6(?:[0-4]\\d|50))\\d)|(?:2(?:(?:0[024-9]|2[3-9]|3[3-79]|4[1-689]|[58][02-9]|6[0-47-9]|7[013-9]|9\\d)\\d|1(?:[0-7]\\d|8[0-3]))|(?:3(?:0\\d|1[0-8]|[25][02-9]|3[02-579]|[468][0-46-9]|7[1-35-79]|9[2-578])|4(?:0[03-9]|[137]\\d|[28][02-57-9]|4[02-69]|5[0-8]|[69][0-79])|5(?:0[1-35-9]|[16]\\d|2[024-9]|3[015689]|4[02-9]|5[03-9]|7[0-35-9]|8[0-468]|9[0-57-9])|6(?:0[034689]|1\\d|2[0-35689]|[38][013-9]|4[1-467]|5[0-69]|6[13-9]|7[0-8]|9[0-24578])|7(?:0[0246-9]|2\\d|3[0236-8]|4[03-9]|5[0-46-9]|6[013-9]|7[0-35-9]|8[024-9]|9[02-9])|8(?:0[35-9]|2[1-57-9]|3[02-578]|4[0-578]|5[124-9]|6[2-69]|7\\d|8[02-9]|9[02569])|9(?:0[02-589]|[18]\\d|2[02-689]|3[1-57-9]|4[2-9]|5[0-579]|6[2-47-9]|7[0-24578]|9[2-57]))\\d)\\d)|2(?:0[013478]|3[0189]|4[017]|8[0-46-9]|9[0-2])\\d{3})\\d{4}|1(?:2(?:0(?:46[1-4]|87[2-9])|545[1-79]|76(?:2\\d|3[1-8]|6[1-6])|9(?:7(?:2[0-4]|3[2-5])|8(?:2[2-8]|7[0-47-9]|8[3-5])))|3(?:6(?:38[2-5]|47[23])|8(?:47[04-9]|64[0157-9]))|4(?:044[1-7]|20(?:2[23]|8\\d)|6(?:0(?:30|5[2-57]|6[1-8]|7[2-8])|140)|8(?:052|87[1-3]))|5(?:2(?:4(?:3[2-79]|6\\d)|76\\d)|6(?:26[06-9]|686))|6(?:06(?:4\\d|7[4-79])|295[5-7]|35[34]\\d|47(?:24|61)|59(?:5[08]|6[67]|74)|9(?:55[0-4]|77[23]))|7(?:26(?:6[13-9]|7[0-7])|(?:442|688)\\d|50(?:2[0-3]|[3-68]2|76))|8(?:27[56]\\d|37(?:5[2-5]|8[239])|843[2-58])|9(?:0(?:0(?:6[1-8]|85)|52\\d)|3583|4(?:66[1-8]|9(?:2[01]|81))|63(?:23|3[1-4])|9561))\\d{3}", [9, 10]], ["7(?:457[0-57-9]|700[01]|911[028])\\d{5}|7(?:[1-3]\\d\\d|4(?:[0-46-9]\\d|5[0-689])|5(?:0[0-8]|[13-9]\\d|2[0-35-9])|7(?:0[1-9]|[1-7]\\d|8[02-9]|9[0-689])|8(?:[014-9]\\d|[23][0-8])|9(?:[024-9]\\d|1[02-9]|3[0-689]))\\d{6}", [10]], ["80[08]\\d{7}|800\\d{6}|8001111"], ["(?:8(?:4[2-5]|7[0-3])|9(?:[01]\\d|8[2-49]))\\d{7}|845464\\d", [7, 10]], ["70\\d{8}", [10]], 0, ["(?:3[0347]|55)\\d{8}", [10]], ["76(?:464|652)\\d{5}|76(?:0[0-28]|2[356]|34|4[01347]|5[49]|6[0-369]|77|8[14]|9[139])\\d{6}", [10]], ["56\\d{8}", [10]]], 0, " x"], GD: ["1", "011", "(?:473|[58]\\d\\d|900)\\d{7}", [10], 0, "1", 0, "([2-9]\\d{6})$|1", "473$1", 0, "473"], GE: ["995", "00", "(?:[3-57]\\d\\d|800)\\d{6}", [9], [["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["70"], "0$1"], ["(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["32"], "0$1"], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[57]"]], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[348]"], "0$1"]], "0"], GF: ["594", "00", "(?:[56]94\\d|7093)\\d{5}|(?:80|9\\d)\\d{7}", [9], [["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[5-7]|9[47]"], "0$1"], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[89]"], "0$1"]], "0"], GG: ["44", "00", "(?:1481|[357-9]\\d{3})\\d{6}|8\\d{6}(?:\\d{2})?", [7, 9, 10], 0, "0", 0, "([25-9]\\d{5})$|0|180020", "1481$1", 0, 0, [["1481[25-9]\\d{5}", [10]], ["7(?:(?:781|839)\\d|911[17])\\d{5}", [10]], ["80[08]\\d{7}|800\\d{6}|8001111"], ["(?:8(?:4[2-5]|7[0-3])|9(?:[01]\\d|8[0-3]))\\d{7}|845464\\d", [7, 10]], ["70\\d{8}", [10]], 0, ["(?:3[0347]|55)\\d{8}", [10]], ["76(?:464|652)\\d{5}|76(?:0[0-28]|2[356]|34|4[01347]|5[49]|6[0-369]|77|8[14]|9[139])\\d{6}", [10]], ["56\\d{8}", [10]]]], GH: ["233", "00", "(?:[235]\\d{3}|800)\\d{5}", [8, 9], [["(\\d{3})(\\d{5})", "$1 $2", ["8"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[235]"], "0$1"]], "0"], GI: ["350", "00", "(?:[25]\\d|60)\\d{6}", [8], [["(\\d{3})(\\d{5})", "$1 $2", ["2"]]]], GL: ["299", "00", "(?:19|[2-689]\\d|70)\\d{4}", [6], [["(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3", ["19|[2-9]"]]]], GM: ["220", "00", "[2-9]\\d{6}", [7], [["(\\d{3})(\\d{4})", "$1 $2", ["[2-9]"]]]], GN: ["224", "00", "722\\d{6}|(?:3|6\\d)\\d{7}", [8, 9], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["3"]], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[67]"]]]], GP: ["590", "00", "(?:590\\d|7090)\\d{5}|(?:69|80|9\\d)\\d{7}", [9], [["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[5-79]"], "0$1"], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["8"], "0$1"]], "0", 0, 0, 0, 0, 0, [["590(?:0[1-68]|[14][0-24-9]|2[0-68]|3[1-9]|5[3-579]|[68][0-689]|7[08]|9\\d)\\d{4}"], ["(?:69(?:0\\d\\d|1(?:2[2-9]|3[0-5])|4(?:0[89]|1[2-6]|9\\d)|6(?:1[016-9]|5[0-4]|[67]\\d))|7090[0-4])\\d{4}"], ["80[0-5]\\d{6}"], 0, 0, 0, 0, 0, ["9(?:(?:39[5-7]|76[018])\\d|475[0-6])\\d{4}"]]], GQ: ["240", "00", "222\\d{6}|(?:3\\d|55|[89]0)\\d{7}", [9], [["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[235]"]], ["(\\d{3})(\\d{6})", "$1 $2", ["[89]"]]]], GR: ["30", "00", "5005000\\d{3}|8\\d{9,11}|(?:[269]\\d|70)\\d{8}", [10, 11, 12], [["(\\d{2})(\\d{4})(\\d{4})", "$1 $2 $3", ["21|7"]], ["(\\d{4})(\\d{6})", "$1 $2", ["2(?:2|3[2-57-9]|4[2-469]|5[2-59]|6[2-9]|7[2-69]|8[2-49])|5"]], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["[2689]"]], ["(\\d{3})(\\d{3,4})(\\d{5})", "$1 $2 $3", ["8"]]]], GT: ["502", "00", "80\\d{6}|(?:1\\d{3}|[2-7])\\d{7}", [8, 11], [["(\\d{4})(\\d{4})", "$1 $2", ["[2-8]"]], ["(\\d{4})(\\d{3})(\\d{4})", "$1 $2 $3", ["1"]]]], GU: ["1", "011", "(?:[58]\\d\\d|671|900)\\d{7}", [10], 0, "1", 0, "([2-9]\\d{6})$|1", "671$1", 0, "671"], GW: ["245", "00", "[49]\\d{8}|4\\d{6}", [7, 9], [["(\\d{3})(\\d{4})", "$1 $2", ["40"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[49]"]]]], GY: ["592", "001", "(?:[2-8]\\d{3}|9008)\\d{3}", [7], [["(\\d{3})(\\d{4})", "$1 $2", ["[2-9]"]]]], HK: ["852", "00(?:30|5[09]|[126-9]?)", "8[0-46-9]\\d{6,7}|9\\d{4,7}|(?:[2-7]|9\\d{3})\\d{7}", [5, 6, 7, 8, 9, 11], [["(\\d{3})(\\d{2,5})", "$1 $2", ["900", "9003"]], ["(\\d{4})(\\d{4})", "$1 $2", ["[2-7]|8[1-4]|9(?:0[1-9]|[1-8])"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["8"]], ["(\\d{3})(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3 $4", ["9"]]], 0, 0, 0, 0, 0, 0, 0, "00"], HN: ["504", "00", "8\\d{10}|[237-9]\\d{7}", [8, 11], [["(\\d{4})(\\d{4})", "$1-$2", ["[237-9]"]]]], HR: ["385", "00", "[2-69]\\d{8}|80\\d{5,7}|[1-79]\\d{7}|6\\d{6}", [7, 8, 9], [["(\\d{2})(\\d{2})(\\d{3})", "$1 $2 $3", ["6[01]"], "0$1"], ["(\\d{3})(\\d{2})(\\d{2,3})", "$1 $2 $3", ["8"], "0$1"], ["(\\d)(\\d{4})(\\d{3})", "$1 $2 $3", ["1"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["6|7[245]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["9"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[2-57]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["8"], "0$1"]], "0"], HT: ["509", "00", "[2-589]\\d{7}", [8], [["(\\d{2})(\\d{2})(\\d{4})", "$1 $2 $3", ["[2-589]"]]]], HU: ["36", "00", "[235-7]\\d{8}|[1-9]\\d{7}", [8, 9], [["(\\d)(\\d{3})(\\d{4})", "$1 $2 $3", ["1"], "(06 $1)"], ["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["[27][2-9]|3[2-7]|4[24-9]|5[2-79]|6|8[2-57-9]|9[2-69]"], "(06 $1)"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[2-9]"], "06 $1"]], "06"], ID: ["62", "00[89]", "00[1-9]\\d{9,14}|(?:[1-36]|8\\d{5})\\d{6}|00\\d{9}|[1-9]\\d{8,10}|[2-9]\\d{7}", [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17], [["(\\d)(\\d{3})(\\d{3})", "$1 $2 $3", ["15"]], ["(\\d{2})(\\d{5,9})", "$1 $2", ["2[124]|[36]1"], "(0$1)"], ["(\\d{3})(\\d{5,7})", "$1 $2", ["800"], "0$1"], ["(\\d{3})(\\d{5,8})", "$1 $2", ["[2-79]"], "(0$1)"], ["(\\d{3})(\\d{3,4})(\\d{3})", "$1-$2-$3", ["8[1-35-9]"], "0$1"], ["(\\d{3})(\\d{6,8})", "$1 $2", ["1"], "0$1"], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["804"], "0$1"], ["(\\d{3})(\\d)(\\d{3})(\\d{3})", "$1 $2 $3 $4", ["80"], "0$1"], ["(\\d{3})(\\d{4})(\\d{4,5})", "$1-$2-$3", ["8"], "0$1"]], "0"], IE: ["353", "00", "(?:1\\d|[2569])\\d{6,8}|4\\d{6,9}|7\\d{8}|8\\d{8,9}", [7, 8, 9, 10], [["(\\d{2})(\\d{5})", "$1 $2", ["2[24-9]|47|58|6[237-9]|9[35-9]"], "(0$1)"], ["(\\d{3})(\\d{5})", "$1 $2", ["[45]0"], "(0$1)"], ["(\\d)(\\d{3,4})(\\d{4})", "$1 $2 $3", ["1"], "(0$1)"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[2569]|4[1-69]|7[14]"], "(0$1)"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["70"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["81"], "(0$1)"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[78]"], "0$1"], ["(\\d{4})(\\d{3})(\\d{3})", "$1 $2 $3", ["1"]], ["(\\d{2})(\\d{4})(\\d{4})", "$1 $2 $3", ["4"], "(0$1)"], ["(\\d{2})(\\d)(\\d{3})(\\d{4})", "$1 $2 $3 $4", ["8"], "0$1"]], "0"], IL: ["972", "0(?:0|1[2-9])", "1\\d{6}(?:\\d{3,5})?|[57]\\d{8}|[1-489]\\d{7}", [7, 8, 9, 10, 11, 12], [["(\\d{4})(\\d{3})", "$1-$2", ["125"]], ["(\\d{4})(\\d{2})(\\d{2})", "$1-$2-$3", ["121"]], ["(\\d)(\\d{3})(\\d{4})", "$1-$2-$3", ["[2-489]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1-$2-$3", ["[57]"], "0$1"], ["(\\d{4})(\\d{3})(\\d{3})", "$1-$2-$3", ["12"]], ["(\\d{4})(\\d{6})", "$1-$2", ["159"]], ["(\\d)(\\d{3})(\\d{3})(\\d{3})", "$1-$2-$3-$4", ["1[7-9]"]], ["(\\d{3})(\\d{1,2})(\\d{3})(\\d{4})", "$1-$2 $3-$4", ["15"]]], "0"], IM: ["44", "00", "1624\\d{6}|(?:[3578]\\d|90)\\d{8}", [10], 0, "0", 0, "([25-8]\\d{5})$|0|180020", "1624$1", 0, "74576|(?:16|7[56])24"], IN: ["91", "00", "(?:000800|[2-9]\\d\\d)\\d{7}|1\\d{7,12}", [8, 9, 10, 11, 12, 13], [["(\\d{8})", "$1", ["5(?:0|2[23]|3[03]|[67]1|88)", "5(?:0|2(?:21|3)|3(?:0|3[23])|616|717|888)", "5(?:0|2(?:21|3)|3(?:0|3[23])|616|717|8888)"], 0, 1], ["(\\d{4})(\\d{4,5})", "$1 $2", ["180", "1800"], 0, 1], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["140"], 0, 1], ["(\\d{2})(\\d{4})(\\d{4})", "$1 $2 $3", ["11|2[02]|33|4[04]|79[1-7]|80[2-46]", "11|2[02]|33|4[04]|79(?:[1-6]|7[19])|80(?:[2-4]|6[0-589])", "11|2[02]|33|4[04]|79(?:[124-6]|3(?:[02-9]|1[0-24-9])|7(?:1|9[1-6]))|80(?:[2-4]|6[0-589])"], "0$1", 1], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["1(?:2[0-249]|3[0-25]|4[145]|[68]|7[1257])|2(?:1[257]|3[013]|4[01]|5[0137]|6[0158]|78|8[1568])|3(?:26|4[1-3]|5[34]|6[01489]|7[02-46]|8[159])|4(?:1[36]|2[1-47]|5[12]|6[0-26-9]|7[0-24-9]|8[013-57]|9[014-7])|5(?:1[025]|22|[36][25]|4[28]|5[12]|[78]1)|6(?:12|[2-4]1|5[17]|6[13]|80)|7(?:12|3[134]|4[47]|61|88)|8(?:16|2[014]|3[126]|6[136]|7[078]|8[34]|91)|(?:43|59|75)[15]|(?:1[59]|29|67|72)[14]", "1(?:2[0-24]|3[0-25]|4[145]|[59][14]|6[1-9]|7[1257]|8[1-57-9])|2(?:1[257]|3[013]|4[01]|5[0137]|6[058]|78|8[1568]|9[14])|3(?:26|4[1-3]|5[34]|6[01489]|7[02-46]|8[159])|4(?:1[36]|2[1-47]|3[15]|5[12]|6[0-26-9]|7[0-24-9]|8[013-57]|9[014-7])|5(?:1[025]|22|[36][25]|4[28]|[578]1|9[15])|674|7(?:(?:2[14]|3[34]|5[15])[2-6]|61[346]|88[0-8])|8(?:70[2-6]|84[235-7]|91[3-7])|(?:1(?:29|60|8[06])|261|552|6(?:12|[2-47]1|5[17]|6[13]|80)|7(?:12|31|4[47])|8(?:16|2[014]|3[126]|6[136]|7[78]|83))[2-7]", "1(?:2[0-24]|3[0-25]|4[145]|[59][14]|6[1-9]|7[1257]|8[1-57-9])|2(?:1[257]|3[013]|4[01]|5[0137]|6[058]|78|8[1568]|9[14])|3(?:26|4[1-3]|5[34]|6[01489]|7[02-46]|8[159])|4(?:1[36]|2[1-47]|3[15]|5[12]|6[0-26-9]|7[0-24-9]|8[013-57]|9[014-7])|5(?:1[025]|22|[36][25]|4[28]|[578]1|9[15])|6(?:12(?:[2-6]|7[0-8])|74[2-7])|7(?:(?:2[14]|5[15])[2-6]|3171|61[346]|88(?:[2-7]|82))|8(?:70[2-6]|84(?:[2356]|7[19])|91(?:[3-6]|7[19]))|73[134][2-6]|(?:74[47]|8(?:16|2[014]|3[126]|6[136]|7[78]|83))(?:[2-6]|7[19])|(?:1(?:29|60|8[06])|261|552|6(?:[2-4]1|5[17]|6[13]|7(?:1|4[0189])|80)|7(?:12|88[01]))[2-7]"], "0$1", 1], ["(\\d{4})(\\d{3})(\\d{3})", "$1 $2 $3", ["1(?:[2-479]|5[0235-9])|[2-5]|6(?:1[1358]|2[2457-9]|3[2-5]|4[235-7]|5[2-689]|6[24578]|7[235689]|8[1-6])|7(?:1[013-9]|28|3[129]|4[1-35689]|5[29]|6[02-5]|70)|807", "1(?:[2-479]|5[0235-9])|[2-5]|6(?:1[1358]|2(?:[2457]|84|95)|3(?:[2-4]|55)|4[235-7]|5[2-689]|6[24578]|7[235689]|8[1-6])|7(?:1(?:[013-8]|9[6-9])|28[6-8]|3(?:17|2[0-49]|9[2-57])|4(?:1[2-4]|[29][0-7]|3[0-8]|[56]|8[0-24-7])|5(?:2[1-3]|9[0-6])|6(?:0[5689]|2[5-9]|3[02-8]|4|5[0-367])|70[13-7])|807[19]", "1(?:[2-479]|5(?:[0236-9]|5[013-9]))|[2-5]|6(?:2(?:84|95)|355|83)|73179|807(?:1|9[1-3])|(?:1552|6(?:1[1358]|2[2457]|3[2-4]|4[235-7]|5[2-689]|6[24578]|7[235689]|8[124-6])\\d|7(?:1(?:[013-8]\\d|9[6-9])|28[6-8]|3(?:2[0-49]|9[2-57])|4(?:1[2-4]|[29][0-7]|3[0-8]|[56]\\d|8[0-24-7])|5(?:2[1-3]|9[0-6])|6(?:0[5689]|2[5-9]|3[02-8]|4\\d|5[0-367])|70[13-7]))[2-7]"], "0$1", 1], ["(\\d{5})(\\d{5})", "$1 $2", ["[6-9]"], "0$1", 1], ["(\\d{4})(\\d{2,4})(\\d{4})", "$1 $2 $3", ["1(?:6|8[06])", "1(?:6|8[06]0)"], 0, 1], ["(\\d{4})(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3 $4", ["18"], 0, 1]], "0"], IO: ["246", "00", "3\\d{6}", [7], [["(\\d{3})(\\d{4})", "$1 $2", ["3"]]]], IQ: ["964", "00", "(?:1|7\\d\\d)\\d{7}|[2-6]\\d{7,8}", [8, 9, 10], [["(\\d)(\\d{3})(\\d{4})", "$1 $2 $3", ["1"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[2-6]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["7"], "0$1"]], "0"], IR: ["98", "00", "[1-9]\\d{9}|(?:[1-8]\\d\\d|9)\\d{3,4}", [4, 5, 6, 7, 10], [["(\\d{4,5})", "$1", ["96"], "0$1"], ["(\\d{2})(\\d{4,5})", "$1 $2", ["(?:1[137]|2[13-68]|3[1458]|4[145]|5[1468]|6[16]|7[1467]|8[13467])[12689]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["9"], "0$1"], ["(\\d{2})(\\d{4})(\\d{4})", "$1 $2 $3", ["[1-8]"], "0$1"]], "0"], IS: ["354", "00|1(?:0(?:01|[12]0)|100)", "(?:38\\d|[4-9])\\d{6}", [7, 9], [["(\\d{3})(\\d{4})", "$1 $2", ["[4-9]"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["3"]]], 0, 0, 0, 0, 0, 0, 0, "00"], IT: ["39", "00", "0\\d{5,11}|1\\d{8,10}|3(?:[0-8]\\d{7,10}|9\\d{7,8})|(?:43|55|70)\\d{8}|8\\d{5}(?:\\d{2,4})?", [6, 7, 8, 9, 10, 11, 12], [["(\\d{2})(\\d{4,6})", "$1 $2", ["0[26]"]], ["(\\d{3})(\\d{3,6})", "$1 $2", ["0[13-57-9][0159]|8(?:03|4[17]|9[2-5])", "0[13-57-9][0159]|8(?:03|4[17]|9(?:2|3[04]|[45][0-4]))"]], ["(\\d{4})(\\d{2,6})", "$1 $2", ["0(?:[13-579][2-46-8]|8[236-8])"]], ["(\\d{4})(\\d{4})", "$1 $2", ["894"]], ["(\\d{2})(\\d{3,4})(\\d{4})", "$1 $2 $3", ["0[26]|5"]], ["(\\d{3})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["1(?:44|[679])|[378]|43"]], ["(\\d{3})(\\d{3,4})(\\d{4})", "$1 $2 $3", ["0[13-57-9][0159]|14"]], ["(\\d{2})(\\d{4})(\\d{5})", "$1 $2 $3", ["0[26]"]], ["(\\d{4})(\\d{3})(\\d{4})", "$1 $2 $3", ["0"]], ["(\\d{3})(\\d{4})(\\d{4,5})", "$1 $2 $3", ["[03]"]]], 0, 0, 0, 0, 0, 0, [["0(?:669[0-79]\\d{1,6}|831\\d{2,8})|0(?:1(?:[0159]\\d|[27][1-5]|31|4[1-4]|6[1356]|8[2-57])|2\\d\\d|3(?:[0159]\\d|2[1-4]|3[12]|[48][1-6]|6[2-59]|7[1-7])|4(?:[0159]\\d|[23][1-9]|4[245]|6[1-5]|7[1-4]|81)|5(?:[0159]\\d|2[1-5]|3[2-6]|4[1-79]|6[4-6]|7[1-578]|8[3-8])|6(?:[0-57-9]\\d|6[0-8])|7(?:[0159]\\d|2[12]|3[1-7]|4[2-46]|6[13569]|7[13-6]|8[1-59])|8(?:[0159]\\d|2[3-578]|3[2356]|[6-8][1-5])|9(?:[0159]\\d|[238][1-5]|4[12]|6[1-8]|7[1-6]))\\d{2,7}"], ["3[2-9]\\d{7,8}|(?:31|43)\\d{8}", [9, 10]], ["80(?:0\\d{3}|3)\\d{3}", [6, 9]], ["(?:0878\\d{3}|89(?:2\\d|3[04]|4(?:[0-4]|[5-9]\\d\\d)|5[0-4]))\\d\\d|(?:1(?:44|6[346])|89(?:38|5[5-9]|9))\\d{6}", [6, 8, 9, 10]], ["1(?:78\\d|99)\\d{6}", [9, 10]], ["3[2-8]\\d{9,10}", [11, 12]], 0, 0, ["55\\d{8}", [10]], ["84(?:[08]\\d{3}|[17])\\d{3}", [6, 9]]]], JE: ["44", "00", "1534\\d{6}|(?:[3578]\\d|90)\\d{8}", [10], 0, "0", 0, "([0-24-8]\\d{5})$|0|180020", "1534$1", 0, 0, [["1534[0-24-8]\\d{5}"], ["7(?:(?:(?:50|82)9|937)\\d|7(?:00[378]|97\\d))\\d{5}"], ["80(?:07(?:35|81)|8901)\\d{4}"], ["(?:8(?:4(?:4(?:4(?:05|42|69)|703)|5(?:041|800))|7(?:0002|1206))|90(?:066[59]|1810|71(?:07|55)))\\d{4}"], ["701511\\d{4}"], 0, ["(?:3(?:0(?:07(?:35|81)|8901)|3\\d{4}|4(?:4(?:4(?:05|42|69)|703)|5(?:041|800))|7(?:0002|1206))|55\\d{4})\\d{4}"], ["76(?:464|652)\\d{5}|76(?:0[0-28]|2[356]|34|4[01347]|5[49]|6[0-369]|77|8[14]|9[139])\\d{6}"], ["56\\d{8}"]]], JM: ["1", "011", "(?:[58]\\d\\d|658|900)\\d{7}", [10], 0, "1", 0, 0, 0, 0, "658|876"], JO: ["962", "00", "(?:(?:[2689]|7\\d)\\d|32|53)\\d{6}", [8, 9], [["(\\d)(\\d{3})(\\d{4})", "$1 $2 $3", ["[2356]|87"], "(0$1)"], ["(\\d{3})(\\d{5,6})", "$1 $2", ["[89]"], "0$1"], ["(\\d{2})(\\d{7})", "$1 $2", ["70"], "0$1"], ["(\\d)(\\d{4})(\\d{4})", "$1 $2 $3", ["7"], "0$1"]], "0"], JP: ["81", "010", "00[1-9]\\d{6,14}|[25-9]\\d{9}|(?:00|[1-9]\\d\\d)\\d{6}", [8, 9, 10, 11, 12, 13, 14, 15, 16, 17], [["(\\d{3})(\\d{3})(\\d{3})", "$1-$2-$3", ["(?:12|57|99)0"], "0$1"], ["(\\d{4})(\\d)(\\d{4})", "$1-$2-$3", ["1(?:26|3[79]|4[56]|5[4-68]|6[3-5])|499|5(?:76|97)|746|8(?:3[89]|47|51)|9(?:80|9[16])", "1(?:267|3(?:7[247]|9[278])|466|5(?:47|58|64)|6(?:3[245]|48|5[4-68]))|499[2468]|5(?:76|97)9|7468|8(?:3(?:8[7-9]|96)|477|51[2-9])|9(?:802|9(?:1[23]|69))|1(?:45|58)[67]", "1(?:267|3(?:7[247]|9[278])|466|5(?:47|58|64)|6(?:3[245]|48|5[4-68]))|499[2468]|5(?:769|979[2-69])|7468|8(?:3(?:8[7-9]|96[2457-9])|477|51[2-9])|9(?:802|9(?:1[23]|69))|1(?:45|58)[67]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1-$2-$3", ["60"], "0$1"], ["(\\d)(\\d{4})(\\d{4})", "$1-$2-$3", ["3|4(?:2[09]|7[01])|6[1-9]", "3|4(?:2(?:0|9[02-69])|7(?:0[019]|1))|6[1-9]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1-$2-$3", ["1(?:1|5[45]|77|88|9[69])|2(?:2[1-37]|3[0-269]|4[59]|5|6[24]|7[1-358]|8[1369]|9[0-38])|4(?:[28][1-9]|3[0-57]|[45]|6[248]|7[2-579]|9[29])|5(?:2|3[0459]|4[0-369]|5[29]|8[02389]|9[0-389])|7(?:2[02-46-9]|34|[58]|6[0249]|7[57]|9[2-6])|8(?:2[124589]|3[26-9]|49|51|6|7[0-468]|8[68]|9[019])|9(?:[23][1-9]|4[15]|5[138]|6[1-3]|7[156]|8[189]|9[1-489])", "1(?:1|5(?:4[018]|5[017])|77|88|9[69])|2(?:2(?:[127]|3[014-9])|3[0-269]|4[59]|5(?:[1-3]|5[0-69]|9[19])|62|7(?:[1-35]|8[0189])|8(?:[16]|3[0134]|9[0-5])|9(?:[028]|17))|4(?:2(?:[13-79]|8[014-6])|3[0-57]|[45]|6[248]|7[2-47]|8[1-9]|9[29])|5(?:2|3(?:[045]|9[0-8])|4[0-369]|5[29]|8[02389]|9[0-3])|7(?:2[02-46-9]|34|[58]|6[0249]|7[57]|9(?:[23]|4[0-59]|5[01569]|6[0167]))|8(?:2(?:[1258]|4[0-39]|9[0-2469])|3(?:[29]|60)|49|51|6(?:[0-24]|36|5[0-3589]|7[23]|9[01459])|7[0-468]|8[68])|9(?:[23][1-9]|4[15]|5[138]|6[1-3]|7[156]|8[189]|9(?:[1289]|3[34]|4[0178]))|(?:264|837)[016-9]|2(?:57|93)[015-9]|(?:25[0468]|422|838)[01]|(?:47[59]|59[89]|8(?:6[68]|9))[019]", "1(?:1|5(?:4[018]|5[017])|77|88|9[69])|2(?:2[127]|3[0-269]|4[59]|5(?:[1-3]|5[0-69]|9(?:17|99))|6(?:2|4[016-9])|7(?:[1-35]|8[0189])|8(?:[16]|3[0134]|9[0-5])|9(?:[028]|17))|4(?:2(?:[13-79]|8[014-6])|3[0-57]|[45]|6[248]|7[2-47]|9[29])|5(?:2|3(?:[045]|9(?:[0-58]|6[4-9]|7[0-35689]))|4[0-369]|5[29]|8[02389]|9[0-3])|7(?:2[02-46-9]|34|[58]|6[0249]|7[57]|9(?:[23]|4[0-59]|5[01569]|6[0167]))|8(?:2(?:[1258]|4[0-39]|9[0169])|3(?:[29]|60|7(?:[017-9]|6[6-8]))|49|51|6(?:[0-24]|36[2-57-9]|5(?:[0-389]|5[23])|6(?:[01]|9[178])|7(?:2[2-468]|3[78])|9[0145])|7[0-468]|8[68])|9(?:4[15]|5[138]|7[156]|8[189]|9(?:[1289]|3(?:31|4[357])|4[0178]))|(?:8294|96)[1-3]|2(?:57|93)[015-9]|(?:223|8699)[014-9]|(?:25[0468]|422|838)[01]|(?:48|8292|9[23])[1-9]|(?:47[59]|59[89]|8(?:68|9))[019]"], "0$1"], ["(\\d{3})(\\d{2})(\\d{4})", "$1-$2-$3", ["[14]|[289][2-9]|5[3-9]|7[2-4679]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{4})", "$1-$2-$3", ["800"], "0$1"], ["(\\d{2})(\\d{4})(\\d{4})", "$1-$2-$3", ["[25-9]"], "0$1"]], "0", 0, "(000[2569]\\d{4,6})$|(?:(?:003768)0?)|0", "$1"], KE: ["254", "000", "(?:[17]\\d\\d|900)\\d{6}|(?:2|80)0\\d{6,7}|[4-6]\\d{6,8}", [7, 8, 9, 10], [["(\\d{2})(\\d{5,7})", "$1 $2", ["[24-6]"], "0$1"], ["(\\d{3})(\\d{6})", "$1 $2", ["[17]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[89]"], "0$1"]], "0"], KG: ["996", "00", "8\\d{9}|[235-9]\\d{8}", [9, 10], [["(\\d{4})(\\d{5})", "$1 $2", ["3(?:1[346]|[24-79])"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[235-79]|88"], "0$1"], ["(\\d{3})(\\d{3})(\\d)(\\d{2,3})", "$1 $2 $3 $4", ["8"], "0$1"]], "0"], KH: ["855", "00[14-9]", "1\\d{9}|[1-9]\\d{7,8}", [8, 9, 10], [["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[1-9]"], "0$1"], ["(\\d{4})(\\d{3})(\\d{3})", "$1 $2 $3", ["1"]]], "0"], KI: ["686", "00", "(?:[37]\\d|6[0-79])\\d{6}|(?:[2-48]\\d|50)\\d{3}", [5, 8], 0, "0"], KM: ["269", "00", "[3478]\\d{6}", [7], [["(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3", ["[3478]"]]]], KN: ["1", "011", "(?:[58]\\d\\d|900)\\d{7}", [10], 0, "1", 0, "([2-7]\\d{6})$|1", "869$1", 0, "869"], KP: ["850", "00|99", "85\\d{6}|(?:19\\d|[2-7])\\d{7}", [8, 10], [["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["8"], "0$1"], ["(\\d)(\\d{3})(\\d{4})", "$1 $2 $3", ["[2-7]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["1"], "0$1"]], "0"], KR: ["82", "00(?:[125689]|3(?:[46]5|91)|7(?:00|27|3|55|6[126]))", "00[1-9]\\d{8,11}|(?:[12]|5\\d{3})\\d{7}|[13-6]\\d{9}|(?:[1-6]\\d|80)\\d{7}|[3-6]\\d{4,5}|(?:00|7)0\\d{8}", [5, 6, 8, 9, 10, 11, 12, 13, 14], [["(\\d{2})(\\d{3,4})", "$1-$2", ["(?:3[1-3]|[46][1-4]|5[1-5])1"], "0$1"], ["(\\d{4})(\\d{4})", "$1-$2", ["1"]], ["(\\d)(\\d{3,4})(\\d{4})", "$1-$2-$3", ["2"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1-$2-$3", ["[36]0|8"], "0$1"], ["(\\d{2})(\\d{3,4})(\\d{4})", "$1-$2-$3", ["[1346]|5[1-5]"], "0$1"], ["(\\d{2})(\\d{4})(\\d{4})", "$1-$2-$3", ["[57]"], "0$1"], ["(\\d{2})(\\d{5})(\\d{4})", "$1-$2-$3", ["5"], "0$1"]], "0", 0, "0(8(?:[1-46-8]|5\\d\\d))?"], KW: ["965", "00", "18\\d{5}|(?:[2569]\\d|41)\\d{6}", [7, 8], [["(\\d{4})(\\d{3,4})", "$1 $2", ["[169]|2(?:[235]|4[1-35-9])|52"]], ["(\\d{3})(\\d{5})", "$1 $2", ["[245]"]]]], KY: ["1", "011", "(?:345|[58]\\d\\d|900)\\d{7}", [10], 0, "1", 0, "([2-9]\\d{6})$|1", "345$1", 0, "345"], KZ: ["7", "810", "(?:33622|8\\d{8})\\d{5}|[78]\\d{9}", [10, 14], 0, "8", 0, 0, 0, 0, "33622|7", 0, "8~10"], LA: ["856", "00", "[23]\\d{9}|3\\d{8}|(?:[235-8]\\d|41)\\d{6}", [8, 9, 10], [["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["2[13]|3[14]|[4-8]"], "0$1"], ["(\\d{2})(\\d{2})(\\d{2})(\\d{3})", "$1 $2 $3 $4", ["3"], "0$1"], ["(\\d{2})(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3 $4", ["[23]"], "0$1"]], "0"], LB: ["961", "00", "[27-9]\\d{7}|[13-9]\\d{6}", [7, 8], [["(\\d)(\\d{3})(\\d{3})", "$1 $2 $3", ["[13-69]|7(?:[2-57]|62|8[0-6]|9[04-9])|8[02-9]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["[27-9]"]]], "0"], LC: ["1", "011", "(?:[58]\\d\\d|758|900)\\d{7}", [10], 0, "1", 0, "([2-8]\\d{6})$|1", "758$1", 0, "758"], LI: ["423", "00", "[68]\\d{8}|(?:[2378]\\d|90)\\d{5}", [7, 9], [["(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3", ["[2379]|8(?:0[09]|7)", "[2379]|8(?:0(?:02|9)|7)"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["8"]], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["69"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["6"]]], "0", 0, "(1001)|0"], LK: ["94", "00", "[1-9]\\d{8}", [9], [["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["7"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[1-689]"], "0$1"]], "0"], LR: ["231", "00", "(?:[2457]\\d|33|88)\\d{7}|(?:2\\d|[4-6])\\d{6}", [7, 8, 9], [["(\\d)(\\d{3})(\\d{3})", "$1 $2 $3", ["4[67]|[56]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["2"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[2-578]"], "0$1"]], "0"], LS: ["266", "00", "(?:[256]\\d\\d|800)\\d{5}", [8], [["(\\d{4})(\\d{4})", "$1 $2", ["[2568]"]]]], LT: ["370", "00", "(?:[3469]\\d|52|[78]0)\\d{6}", [8], [["(\\d)(\\d{3})(\\d{4})", "$1 $2 $3", ["52[0-7]"], "(0-$1)", 1], ["(\\d{3})(\\d{2})(\\d{3})", "$1 $2 $3", ["[7-9]"], "0 $1", 1], ["(\\d{2})(\\d{6})", "$1 $2", ["37|4(?:[15]|6[1-8])"], "(0-$1)", 1], ["(\\d{3})(\\d{5})", "$1 $2", ["[3-6]"], "(0-$1)", 1]], "0", 0, "[08]"], LU: ["352", "00", "35[013-9]\\d{4,8}|6\\d{8}|35\\d{2,4}|(?:[2457-9]\\d|3[0-46-9])\\d{2,9}", [4, 5, 6, 7, 8, 9, 10, 11], [["(\\d{2})(\\d{3})", "$1 $2", ["2(?:0[2-689]|[2-9])|[3-57]|8(?:0[2-9]|[13-9])|9(?:0[89]|[2-579])"]], ["(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3", ["2(?:0[2-689]|[2-9])|[3-57]|8(?:0[2-9]|[13-9])|9(?:0[89]|[2-579])"]], ["(\\d{2})(\\d{2})(\\d{3})", "$1 $2 $3", ["20[2-689]"]], ["(\\d{2})(\\d{2})(\\d{2})(\\d{1,2})", "$1 $2 $3 $4", ["2(?:[0367]|4[3-8])"]], ["(\\d{3})(\\d{2})(\\d{3})", "$1 $2 $3", ["80[01]|90[015]"]], ["(\\d{2})(\\d{2})(\\d{2})(\\d{3})", "$1 $2 $3 $4", ["20"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["6"]], ["(\\d{2})(\\d{2})(\\d{2})(\\d{2})(\\d{1,2})", "$1 $2 $3 $4 $5", ["2(?:[0367]|4[3-8])"]], ["(\\d{2})(\\d{2})(\\d{2})(\\d{1,5})", "$1 $2 $3 $4", ["[3-57]|8[13-9]|9(?:0[89]|[2-579])|(?:2|80)[2-9]"]]], 0, 0, "(15(?:0[06]|1[12]|[35]5|4[04]|6[26]|77|88|99)\\d)"], LV: ["371", "00", "(?:[268]\\d|78|90)\\d{6}", [8], [["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["[2679]|8[01]"]]]], LY: ["218", "00", "[2-9]\\d{8}", [9], [["(\\d{2})(\\d{7})", "$1-$2", ["[2-9]"], "0$1"]], "0"], MA: ["212", "00", "[5-8]\\d{8}", [9], [["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["5[45]"], "0$1"], ["(\\d{4})(\\d{5})", "$1-$2", ["5(?:2[2-46-9]|3[3-9]|9)|8(?:0[89]|92)"], "0$1"], ["(\\d{2})(\\d{7})", "$1-$2", ["8"], "0$1"], ["(\\d{3})(\\d{6})", "$1-$2", ["[5-7]"], "0$1"]], "0", 0, 0, 0, 0, 0, [["5(?:2(?:[0-25-79]\\d|3[1-578]|4[02-46-8]|8[0235-7])|3(?:[0-47]\\d|5[02-9]|6[02-8]|8[014-9]|9[3-9])|(?:4[067]|5[03])\\d)\\d{5}"], ["(?:6(?:[0-79]\\d|8[0-247-9])|7(?:[0167]\\d|2[0-8]|5[0-5]|8[0-7]))\\d{6}"], ["80[0-7]\\d{6}"], ["89\\d{7}"], 0, 0, 0, 0, ["(?:592(?:4[0-2]|93)|80[89]\\d\\d)\\d{4}"]]], MC: ["377", "00", "(?:[3489]|6\\d)\\d{7}", [8, 9], [["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["4"], "0$1"], ["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[389]"]], ["(\\d)(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4 $5", ["6"], "0$1"]], "0"], MD: ["373", "00", "(?:[235-7]\\d|[89]0)\\d{6}", [8], [["(\\d{3})(\\d{5})", "$1 $2", ["[89]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["22|3"], "0$1"], ["(\\d{3})(\\d{2})(\\d{3})", "$1 $2 $3", ["[25-7]"], "0$1"]], "0"], ME: ["382", "00", "(?:20|[3-79]\\d)\\d{6}|80\\d{6,7}", [8, 9], [["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[2-9]"], "0$1"]], "0"], MF: ["590", "00", "(?:590\\d|7090)\\d{5}|(?:69|80|9\\d)\\d{7}", [9], 0, "0", 0, 0, 0, 0, 0, [["590(?:0[079]|[14]3|[27][79]|3[03-7]|5[0-268]|87)\\d{4}"], ["(?:69(?:0\\d\\d|1(?:2[2-9]|3[0-5])|4(?:0[89]|1[2-6]|9\\d)|6(?:1[016-9]|5[0-4]|[67]\\d))|7090[0-4])\\d{4}"], ["80[0-5]\\d{6}"], 0, 0, 0, 0, 0, ["9(?:(?:39[5-7]|76[018])\\d|475[0-6])\\d{4}"]]], MG: ["261", "00", "[23]\\d{8}", [9], [["(\\d{2})(\\d{2})(\\d{3})(\\d{2})", "$1 $2 $3 $4", ["[23]"], "0$1"]], "0", 0, "([24-9]\\d{6})$|0", "20$1"], MH: ["692", "011", "329\\d{4}|(?:[256]\\d|45)\\d{5}", [7], [["(\\d{3})(\\d{4})", "$1-$2", ["[2-6]"]]], "1"], MK: ["389", "00", "[2-578]\\d{7}", [8], [["(\\d)(\\d{3})(\\d{4})", "$1 $2 $3", ["2|34[47]|4(?:[37]7|5[47]|64)"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["[347]"], "0$1"], ["(\\d{3})(\\d)(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[58]"], "0$1"]], "0"], ML: ["223", "00", "[24-9]\\d{7}", [8], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[24-9]"]]]], MM: ["95", "00", "1\\d{5,7}|95\\d{6}|(?:[4-7]|9[0-46-9])\\d{6,8}|(?:2|8\\d)\\d{5,8}", [6, 7, 8, 9, 10], [["(\\d)(\\d{2})(\\d{3})", "$1 $2 $3", ["16|2"], "0$1"], ["(\\d{2})(\\d{2})(\\d{3})", "$1 $2 $3", ["4(?:[2-46]|5[3-5])|5|6(?:[1-689]|7[235-7])|7(?:[0-4]|5[2-7])|8[1-5]|(?:60|86)[23]"], "0$1"], ["(\\d)(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[12]|452|678|86", "[12]|452|6788|86"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[4-7]|8[1-35]"], "0$1"], ["(\\d)(\\d{3})(\\d{4,6})", "$1 $2 $3", ["9(?:2[0-4]|[35-9]|4[137-9])"], "0$1"], ["(\\d)(\\d{4})(\\d{4})", "$1 $2 $3", ["2"], "0$1"], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["8"], "0$1"], ["(\\d)(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3 $4", ["92"], "0$1"], ["(\\d)(\\d{5})(\\d{4})", "$1 $2 $3", ["9"], "0$1"]], "0"], MN: ["976", "001", "[12]\\d{7,9}|[5-9]\\d{7}", [8, 9, 10], [["(\\d{2})(\\d{2})(\\d{4})", "$1 $2 $3", ["[12]1"], "0$1"], ["(\\d{4})(\\d{4})", "$1 $2", ["[5-9]"]], ["(\\d{3})(\\d{5,6})", "$1 $2", ["[12]2[1-3]"], "0$1"], ["(\\d{4})(\\d{5,6})", "$1 $2", ["[12](?:27|3[2-8]|4[2-68]|5[1-4689])", "[12](?:27|3[2-8]|4[2-68]|5[1-4689])[0-3]"], "0$1"], ["(\\d{5})(\\d{4,5})", "$1 $2", ["[12]"], "0$1"]], "0"], MO: ["853", "00", "0800\\d{3}|(?:28|[68]\\d)\\d{6}", [7, 8], [["(\\d{4})(\\d{3})", "$1 $2", ["0"]], ["(\\d{4})(\\d{4})", "$1 $2", ["[268]"]]]], MP: ["1", "011", "[58]\\d{9}|(?:67|90)0\\d{7}", [10], 0, "1", 0, "([2-9]\\d{6})$|1", "670$1", 0, "670"], MQ: ["596", "00", "(?:596\\d|7091)\\d{5}|(?:69|[89]\\d)\\d{7}", [9], [["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[5-79]|8(?:0[6-9]|[36])"], "0$1"], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["8"], "0$1"]], "0"], MR: ["222", "00", "(?:[2-4]\\d\\d|800)\\d{5}", [8], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[2-48]"]]]], MS: ["1", "011", "(?:[58]\\d\\d|664|900)\\d{7}", [10], 0, "1", 0, "([34]\\d{6})$|1", "664$1", 0, "664"], MT: ["356", "00", "3550\\d{4}|(?:[2579]\\d\\d|800)\\d{5}", [8], [["(\\d{4})(\\d{4})", "$1 $2", ["[2357-9]"]]]], MU: ["230", "0(?:0|[24-7]0|3[03])", "(?:[57]|8\\d\\d)\\d{7}|[2-468]\\d{6}", [7, 8, 10], [["(\\d{3})(\\d{4})", "$1 $2", ["[2-46]|8[013]"]], ["(\\d{4})(\\d{4})", "$1 $2", ["[57]"]], ["(\\d{5})(\\d{5})", "$1 $2", ["8"]]], 0, 0, 0, 0, 0, 0, 0, "020"], MV: ["960", "0(?:0|19)", "(?:800|9[0-57-9]\\d)\\d{7}|[34679]\\d{6}", [7, 10], [["(\\d{3})(\\d{4})", "$1-$2", ["[34679]"]], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["[89]"]]], 0, 0, 0, 0, 0, 0, 0, "00"], MW: ["265", "00", "(?:[1289]\\d|31|77)\\d{7}|1\\d{6}", [7, 9], [["(\\d)(\\d{3})(\\d{3})", "$1 $2 $3", ["1[2-9]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["2"], "0$1"], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[137-9]"], "0$1"]], "0"], MX: ["52", "0[09]", "[2-9]\\d{9}", [10], [["(\\d{2})(\\d{4})(\\d{4})", "$1 $2 $3", ["33|5[56]|81"]], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["[2-9]"]]], 0, 0, 0, 0, 0, 0, 0, "00"], MY: ["60", "00", "1\\d{8,9}|(?:3\\d|[4-9])\\d{7}", [8, 9, 10], [["(\\d)(\\d{3})(\\d{4})", "$1-$2 $3", ["[4-79]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1-$2 $3", ["1(?:[02469]|[378][1-9]|53)|8", "1(?:[02469]|[37][1-9]|53|8(?:[1-46-9]|5[7-9]))|8"], "0$1"], ["(\\d)(\\d{4})(\\d{4})", "$1-$2 $3", ["3"], "0$1"], ["(\\d)(\\d{3})(\\d{2})(\\d{4})", "$1-$2-$3-$4", ["1(?:[367]|80)"]], ["(\\d{3})(\\d{3})(\\d{4})", "$1-$2 $3", ["15"], "0$1"], ["(\\d{2})(\\d{4})(\\d{4})", "$1-$2 $3", ["1"], "0$1"]], "0"], MZ: ["258", "00", "(?:2|8\\d)\\d{7}", [8, 9], [["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["2|8[2-79]"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["8"]]]], NA: ["264", "00", "[68]\\d{7,8}", [8, 9], [["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["88"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["6"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["87"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["8"], "0$1"]], "0"], NC: ["687", "00", "(?:050|[2-57-9]\\d\\d)\\d{3}", [6], [["(\\d{2})(\\d{2})(\\d{2})", "$1.$2.$3", ["[02-57-9]"]]]], NE: ["227", "00", "[027-9]\\d{7}", [8], [["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["08"]], ["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[089]|2[013]|7[0467]"]]]], NF: ["672", "00", "[13]\\d{5}", [6], [["(\\d{2})(\\d{4})", "$1 $2", ["1[0-3]"]], ["(\\d)(\\d{5})", "$1 $2", ["[13]"]]], 0, 0, "([0-258]\\d{4})$", "3$1"], NG: ["234", "009", "(?:20|9\\d)\\d{8}|[78]\\d{9,13}", [10, 11, 12, 13, 14], [["(\\d{3})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[7-9]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["20[129]"], "0$1"], ["(\\d{4})(\\d{2})(\\d{4})", "$1 $2 $3", ["2"], "0$1"], ["(\\d{3})(\\d{4})(\\d{4,5})", "$1 $2 $3", ["[78]"], "0$1"], ["(\\d{3})(\\d{5})(\\d{5,6})", "$1 $2 $3", ["[78]"], "0$1"]], "0"], NI: ["505", "00", "(?:1800|[25-8]\\d{3})\\d{4}", [8], [["(\\d{4})(\\d{4})", "$1 $2", ["[125-8]"]]]], NL: ["31", "00", "(?:[124-7]\\d\\d|3(?:[02-9]\\d|1[0-8]))\\d{6}|8\\d{6,9}|9\\d{6,10}|1\\d{4,5}", [5, 6, 7, 8, 9, 10, 11], [["(\\d{3})(\\d{4,7})", "$1 $2", ["[89]0"], "0$1"], ["(\\d{2})(\\d{7})", "$1 $2", ["66"], "0$1"], ["(\\d)(\\d{8})", "$1 $2", ["6"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["1[16-8]|2[259]|3[124]|4[17-9]|5[124679]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[1-578]|91"], "0$1"], ["(\\d{3})(\\d{3})(\\d{5})", "$1 $2 $3", ["9"], "0$1"]], "0"], NO: ["47", "00", "(?:0|[2-9]\\d{3})\\d{4}", [5, 8], [["(\\d{3})(\\d{2})(\\d{3})", "$1 $2 $3", ["8"]], ["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[2-79]"]]], 0, 0, 0, 0, 0, "[02-689]|7[0-8]"], NP: ["977", "00", "(?:1\\d|9)\\d{9}|[1-9]\\d{7}", [8, 10, 11], [["(\\d)(\\d{7})", "$1-$2", ["1[2-6]"], "0$1"], ["(\\d{2})(\\d{6})", "$1-$2", ["1[01]|[2-8]|9(?:[1-59]|[67][2-6])"], "0$1"], ["(\\d{3})(\\d{7})", "$1-$2", ["9"]]], "0"], NR: ["674", "00", "(?:222|444|(?:55|8\\d)\\d|666|777|999)\\d{4}", [7], [["(\\d{3})(\\d{4})", "$1 $2", ["[24-9]"]]]], NU: ["683", "00", "(?:[4-7]|888\\d)\\d{3}", [4, 7], [["(\\d{3})(\\d{4})", "$1 $2", ["8"]]]], NZ: ["64", "0(?:0|161)", "[1289]\\d{9}|50\\d{5}(?:\\d{2,3})?|[27-9]\\d{7,8}|(?:[34]\\d|6[0-35-9])\\d{6}|8\\d{4,6}", [5, 6, 7, 8, 9, 10], [["(\\d{2})(\\d{3,8})", "$1 $2", ["8[1-79]"], "0$1"], ["(\\d{3})(\\d{2})(\\d{2,3})", "$1 $2 $3", ["50[036-8]|8|90", "50(?:[0367]|88)|8|90"], "0$1"], ["(\\d)(\\d{3})(\\d{4})", "$1 $2 $3", ["24|[346]|7[2-57-9]|9[2-9]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["2(?:10|74)|[589]"], "0$1"], ["(\\d{2})(\\d{3,4})(\\d{4})", "$1 $2 $3", ["1|2[028]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3,5})", "$1 $2 $3", ["2(?:[169]|7[0-35-9])|7"], "0$1"]], "0", 0, 0, 0, 0, 0, 0, "00"], OM: ["968", "00", "(?:1505|[279]\\d{3}|500)\\d{4}|800\\d{5,6}", [7, 8, 9], [["(\\d{3})(\\d{4,6})", "$1 $2", ["[58]"]], ["(\\d{2})(\\d{6})", "$1 $2", ["2"]], ["(\\d{4})(\\d{4})", "$1 $2", ["[179]"]]]], PA: ["507", "00", "(?:00800|8\\d{3})\\d{6}|[68]\\d{7}|[1-57-9]\\d{6}", [7, 8, 10, 11], [["(\\d{3})(\\d{4})", "$1-$2", ["[1-57-9]"]], ["(\\d{4})(\\d{4})", "$1-$2", ["[68]"]], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["8"]]]], PE: ["51", "00|19(?:1[124]|77|90)00", "(?:[14-8]|9\\d)\\d{7}", [8, 9], [["(\\d{3})(\\d{5})", "$1 $2", ["80"], "(0$1)"], ["(\\d)(\\d{7})", "$1 $2", ["1"], "(0$1)"], ["(\\d{2})(\\d{6})", "$1 $2", ["[4-8]"], "(0$1)"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["9"]]], "0", 0, 0, 0, 0, 0, 0, "00", " Anexo "], PF: ["689", "00", "4\\d{5}(?:\\d{2})?|8\\d{7,8}", [6, 8, 9], [["(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3", ["44"]], ["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["4|8[7-9]"]], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["8"]]]], PG: ["675", "00|140[1-3]", "(?:180|[78]\\d{3})\\d{4}|(?:[2-589]\\d|64)\\d{5}", [7, 8], [["(\\d{3})(\\d{4})", "$1 $2", ["18|[2-69]|85"]], ["(\\d{4})(\\d{4})", "$1 $2", ["[78]"]]], 0, 0, 0, 0, 0, 0, 0, "00"], PH: ["63", "00", "(?:[2-7]|9\\d)\\d{8}|2\\d{5}|(?:1800|8)\\d{7,9}", [6, 8, 9, 10, 11, 12, 13], [["(\\d)(\\d{5})", "$1 $2", ["2"], "(0$1)"], ["(\\d{4})(\\d{4,6})", "$1 $2", ["3(?:23|39|46)|4(?:2[3-6]|[35]9|4[26]|76)|544|88[245]|(?:52|64|86)2", "3(?:230|397|461)|4(?:2(?:35|[46]4|51)|396|4(?:22|63)|59[347]|76[15])|5(?:221|446)|642[23]|8(?:622|8(?:[24]2|5[13]))"], "(0$1)"], ["(\\d{5})(\\d{4})", "$1 $2", ["346|4(?:27|9[35])|883", "3469|4(?:279|9(?:30|56))|8834"], "(0$1)"], ["(\\d)(\\d{4})(\\d{4})", "$1 $2 $3", ["2"], "(0$1)"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[3-7]|8[2-8]"], "(0$1)"], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["[89]"], "0$1"], ["(\\d{4})(\\d{3})(\\d{4})", "$1 $2 $3", ["1"]], ["(\\d{4})(\\d{1,2})(\\d{3})(\\d{4})", "$1 $2 $3 $4", ["1"]]], "0"], PK: ["92", "00", "122\\d{6}|[24-8]\\d{10,11}|9(?:[013-9]\\d{8,10}|2(?:[01]\\d\\d|2(?:[06-8]\\d|1[01]))\\d{7})|(?:[2-8]\\d{3}|92(?:[0-7]\\d|8[1-9]))\\d{6}|[24-9]\\d{8}|[89]\\d{7}", [8, 9, 10, 11, 12], [["(\\d{3})(\\d{3})(\\d{2,7})", "$1 $2 $3", ["[89]0"], "0$1"], ["(\\d{4})(\\d{5})", "$1 $2", ["1"]], ["(\\d{3})(\\d{6,7})", "$1 $2", ["2(?:3[2358]|4[2-4]|9[2-8])|45[3479]|54[2-467]|60[468]|72[236]|8(?:2[2-689]|3[23578]|4[3478]|5[2356])|9(?:2[2-8]|3[27-9]|4[2-6]|6[3569]|9[25-8])", "9(?:2[3-8]|98)|(?:2(?:3[2358]|4[2-4]|9[2-8])|45[3479]|54[2-467]|60[468]|72[236]|8(?:2[2-689]|3[23578]|4[3478]|5[2356])|9(?:22|3[27-9]|4[2-6]|6[3569]|9[25-7]))[2-9]"], "(0$1)"], ["(\\d{2})(\\d{7,8})", "$1 $2", ["(?:2[125]|4[0-246-9]|5[1-35-7]|6[1-8]|7[14]|8[16]|91)[2-9]"], "(0$1)"], ["(\\d{5})(\\d{5})", "$1 $2", ["58"], "(0$1)"], ["(\\d{3})(\\d{7})", "$1 $2", ["3"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3 $4", ["2[125]|4[0-246-9]|5[1-35-7]|6[1-8]|7[14]|8[16]|91"], "(0$1)"], ["(\\d{3})(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3 $4", ["[24-9]"], "(0$1)"]], "0"], PL: ["48", "00", "(?:6|8\\d\\d)\\d{7}|[1-9]\\d{6}(?:\\d{2})?|[26]\\d{5}", [6, 7, 8, 9, 10], [["(\\d{5})", "$1", ["19"]], ["(\\d{3})(\\d{3})", "$1 $2", ["11|20|64"]], ["(\\d{2})(\\d{2})(\\d{3})", "$1 $2 $3", ["(?:1[2-8]|2[2-69]|3[2-4]|4[1-468]|5[24-689]|6[1-3578]|7[14-7]|8[1-79]|9[145])1", "(?:1[2-8]|2[2-69]|3[2-4]|4[1-468]|5[24-689]|6[1-3578]|7[14-7]|8[1-79]|9[145])19"]], ["(\\d{3})(\\d{2})(\\d{2,3})", "$1 $2 $3", ["64"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["21|39|45|5[0137]|6[0469]|7[02389]|8(?:0[14]|8)"]], ["(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["1[2-8]|[2-7]|8[1-79]|9[145]"]], ["(\\d{3})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["8"]]]], PM: ["508", "00", "[45]\\d{5}|(?:708|8\\d\\d)\\d{6}", [6, 9], [["(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3", ["[45]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["7"]], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["8"], "0$1"]], "0"], PR: ["1", "011", "(?:[589]\\d\\d|787)\\d{7}", [10], 0, "1", 0, 0, 0, 0, "787|939"], PS: ["970", "00", "[2489]2\\d{6}|(?:1\\d|5)\\d{8}", [8, 9, 10], [["(\\d)(\\d{3})(\\d{4})", "$1 $2 $3", ["[2489]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["5"], "0$1"], ["(\\d{4})(\\d{3})(\\d{3})", "$1 $2 $3", ["1"]]], "0"], PT: ["351", "00", "1693\\d{5}|(?:[26-9]\\d|30)\\d{7}", [9], [["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["2[12]"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["16|[236-9]"]]]], PW: ["680", "01[12]", "(?:[24-8]\\d\\d|345|900)\\d{4}", [7], [["(\\d{3})(\\d{4})", "$1 $2", ["[2-9]"]]]], PY: ["595", "00", "59\\d{4,6}|9\\d{5,10}|(?:[2-46-8]\\d|5[0-8])\\d{4,7}", [6, 7, 8, 9, 10, 11], [["(\\d{3})(\\d{3,6})", "$1 $2", ["[2-9]0"], "0$1"], ["(\\d{2})(\\d{5})", "$1 $2", ["[26]1|3[289]|4[1246-8]|7[1-3]|8[1-36]"], "(0$1)"], ["(\\d{3})(\\d{4,5})", "$1 $2", ["2[279]|3[13-5]|4[359]|5|6(?:[34]|7[1-46-8])|7[46-8]|85"], "(0$1)"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["2[14-68]|3[26-9]|4[1246-8]|6(?:1|75)|7[1-35]|8[1-36]"], "(0$1)"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["87"]], ["(\\d{3})(\\d{6})", "$1 $2", ["9(?:[5-79]|8[1-7])"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[2-8]"], "0$1"], ["(\\d{4})(\\d{3})(\\d{4})", "$1 $2 $3", ["9"]]], "0"], QA: ["974", "00", "800\\d{4}|(?:2|800)\\d{6}|(?:0080|[3-7])\\d{7}", [7, 8, 9, 11], [["(\\d{3})(\\d{4})", "$1 $2", ["2[136]|8"]], ["(\\d{4})(\\d{4})", "$1 $2", ["[3-7]"]]]], RE: ["262", "00", "709\\d{6}|(?:26|[689]\\d)\\d{7}", [9], [["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[26-9]"], "0$1"]], "0", 0, 0, 0, 0, 0, [["26(?:2\\d\\d|3(?:0\\d|1[0-6]))\\d{4}"], ["(?:69(?:2\\d\\d|3(?:[06][0-6]|1[0-3]|2[0-2]|3[0-39]|4\\d|5[0-5]|7[0-37]|8[0-8]|9[0-479]))|7092[0-3])\\d{4}"], ["80\\d{7}"], ["89[1-37-9]\\d{6}"], 0, 0, 0, 0, ["9(?:399[0-3]|479[0-6]|76(?:2[278]|3[0-37]))\\d{4}"], ["8(?:1[019]|2[0156]|84|90)\\d{6}"]]], RO: ["40", "00", "(?:[236-8]\\d|90)\\d{7}|[23]\\d{5}", [6, 9], [["(\\d{3})(\\d{3})", "$1 $2", ["2[3-6]", "2[3-6]\\d9"], "0$1"], ["(\\d{2})(\\d{4})", "$1 $2", ["219|31"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[23]1"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[236-9]"], "0$1"]], "0", 0, 0, 0, 0, 0, 0, 0, " int "], RS: ["381", "00", "38[02-9]\\d{6,9}|6\\d{7,9}|90\\d{4,8}|38\\d{5,6}|(?:7\\d\\d|800)\\d{3,9}|(?:[12]\\d|3[0-79])\\d{5,10}", [6, 7, 8, 9, 10, 11, 12], [["(\\d{3})(\\d{3,9})", "$1 $2", ["(?:2[389]|39)0|[7-9]"], "0$1"], ["(\\d{2})(\\d{5,10})", "$1 $2", ["[1-36]"], "0$1"]], "0"], RU: ["7", "810", "8\\d{13}|[347-9]\\d{9}", [10, 14], [["(\\d{4})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["7(?:1[0-8]|2[1-9])", "7(?:1(?:[0-356]2|4[29]|7|8[27])|2(?:1[23]|[2-9]2))", "7(?:1(?:[0-356]2|4[29]|7|8[27])|2(?:13[03-69]|62[013-9]))|72[1-57-9]2"], "8 ($1)", 1], ["(\\d{5})(\\d)(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["7(?:1[0-68]|2[1-9])", "7(?:1(?:[06][3-6]|[18]|2[35]|[3-5][3-5])|2(?:[13][3-5]|[24-689]|7[457]))", "7(?:1(?:0(?:[356]|4[023])|[18]|2(?:3[013-9]|5)|3[45]|43[013-79]|5(?:3[1-8]|4[1-7]|5)|6(?:3[0-35-9]|[4-6]))|2(?:1(?:3[178]|[45])|[24-689]|3[35]|7[457]))|7(?:14|23)4[0-8]|71(?:33|45)[1-79]"], "8 ($1)", 1], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["7"], "8 ($1)", 1], ["(\\d{3})(\\d{3})(\\d{2})(\\d{2})", "$1 $2-$3-$4", ["[349]|8(?:[02-7]|1[1-8])"], "8 ($1)", 1], ["(\\d{4})(\\d{4})(\\d{3})(\\d{3})", "$1 $2 $3 $4", ["8"], "8 ($1)"]], "8", 0, 0, 0, 0, 0, [["336(?:[013-9]\\d|2[013-9])\\d{5}|(?:3(?:0[12]|4[1-35-79]|5[1-3]|65|8[1-58]|9[0145])|4(?:01|1[1356]|2[13467]|7[1-5]|8[1-7]|9[1-689])|8(?:1[1-8]|2[01]|3[13-6]|4[0-8]|5[15-7]|6[0-35-79]|7[1-37-9]))\\d{7}", [10]], ["9\\d{9}", [10]], ["8(?:0[04]|108\\d{3})\\d{7}"], ["80[39]\\d{7}", [10]], ["808\\d{7}", [10]]], "8~10"], RW: ["250", "00", "(?:06|[27]\\d\\d|[89]00)\\d{6}", [8, 9], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["0"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["2"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[7-9]"], "0$1"]], "0"], SA: ["966", "00", "(?:[15]\\d|800|92)\\d{7}", [9, 10], [["(\\d{4})(\\d{5})", "$1 $2", ["9"]], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["1"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["5"], "0$1"], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["8"]]], "0"], SB: ["677", "0[01]", "[6-9]\\d{6}|[1-6]\\d{4}", [5, 7], [["(\\d{2})(\\d{5})", "$1 $2", ["6[89]|7|8[4-9]|9(?:[1-8]|9[0-8])"]]]], SC: ["248", "010|0[0-2]", "(?:[2489]\\d|64)\\d{5}", [7], [["(\\d)(\\d{3})(\\d{3})", "$1 $2 $3", ["[246]|9[57]"]]], 0, 0, 0, 0, 0, 0, 0, "00"], SD: ["249", "00", "[19]\\d{8}", [9], [["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[19]"], "0$1"]], "0"], SE: ["46", "00", "(?:[26]\\d\\d|9)\\d{9}|[1-9]\\d{8}|[1-689]\\d{7}|[1-4689]\\d{6}|2\\d{5}", [6, 7, 8, 9, 10, 12], [["(\\d{2})(\\d{2,3})(\\d{2})", "$1-$2 $3", ["20"], "0$1", 0, "$1 $2 $3"], ["(\\d{3})(\\d{4})", "$1-$2", ["9(?:00|39|44|9)"], "0$1", 0, "$1 $2"], ["(\\d{2})(\\d{3})(\\d{2})", "$1-$2 $3", ["[12][136]|3[356]|4[0246]|6[03]|90[1-9]"], "0$1", 0, "$1 $2 $3"], ["(\\d)(\\d{2,3})(\\d{2})(\\d{2})", "$1-$2 $3 $4", ["8"], "0$1", 0, "$1 $2 $3 $4"], ["(\\d{3})(\\d{2,3})(\\d{2})", "$1-$2 $3", ["1[2457]|2(?:[247-9]|5[0138])|3[0247-9]|4[1357-9]|5[0-35-9]|6(?:[125689]|4[02-57]|7[0-2])|9(?:[125-8]|3[02-5]|4[0-3])"], "0$1", 0, "$1 $2 $3"], ["(\\d{3})(\\d{2,3})(\\d{3})", "$1-$2 $3", ["9(?:00|39|44)"], "0$1", 0, "$1 $2 $3"], ["(\\d{2})(\\d{2,3})(\\d{2})(\\d{2})", "$1-$2 $3 $4", ["1[13689]|2[0136]|3[1356]|4[0246]|54|6[03]|90[1-9]"], "0$1", 0, "$1 $2 $3 $4"], ["(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1-$2 $3 $4", ["10|7"], "0$1", 0, "$1 $2 $3 $4"], ["(\\d)(\\d{3})(\\d{3})(\\d{2})", "$1-$2 $3 $4", ["8"], "0$1", 0, "$1 $2 $3 $4"], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1-$2 $3 $4", ["[13-5]|2(?:[247-9]|5[0138])|6(?:[124-689]|7[0-2])|9(?:[125-8]|3[02-5]|4[0-3])"], "0$1", 0, "$1 $2 $3 $4"], ["(\\d{3})(\\d{2})(\\d{2})(\\d{3})", "$1-$2 $3 $4", ["9"], "0$1", 0, "$1 $2 $3 $4"], ["(\\d{3})(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1-$2 $3 $4 $5", ["[26]"], "0$1", 0, "$1 $2 $3 $4 $5"]], "0"], SG: ["65", "0[0-3]\\d", "(?:(?:1\\d|8)\\d\\d|7000)\\d{7}|[3689]\\d{7}", [8, 10, 11], [["(\\d{4})(\\d{4})", "$1 $2", ["[369]|8(?:0[1-9]|[1-9])"]], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["8"]], ["(\\d{4})(\\d{4})(\\d{3})", "$1 $2 $3", ["7"]], ["(\\d{4})(\\d{3})(\\d{4})", "$1 $2 $3", ["1"]]]], SH: ["290", "00", "(?:[256]\\d|8)\\d{3}", [4, 5], 0, 0, 0, 0, 0, 0, "[256]"], SI: ["386", "00|10(?:22|66|88|99)", "[1-7]\\d{7}|8\\d{4,7}|90\\d{4,6}", [5, 6, 7, 8], [["(\\d{2})(\\d{3,6})", "$1 $2", ["8[09]|9"], "0$1"], ["(\\d{3})(\\d{5})", "$1 $2", ["59|8"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["[37][01]|4[0139]|51|6"], "0$1"], ["(\\d)(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[1-57]"], "(0$1)"]], "0", 0, 0, 0, 0, 0, 0, "00"], SJ: ["47", "00", "0\\d{4}|(?:[489]\\d|79)\\d{6}", [5, 8], 0, 0, 0, 0, 0, 0, "79"], SK: ["421", "00", "[2-689]\\d{8}|[2-59]\\d{6}|[2-5]\\d{5}", [6, 7, 9], [["(\\d)(\\d{2})(\\d{3,4})", "$1 $2 $3", ["21"], "0$1"], ["(\\d{2})(\\d{2})(\\d{2,3})", "$1 $2 $3", ["[3-5][1-8]1", "[3-5][1-8]1[67]"], "0$1"], ["(\\d)(\\d{3})(\\d{3})(\\d{2})", "$1/$2 $3 $4", ["2"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[689]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1/$2 $3 $4", ["[3-5]"], "0$1"]], "0"], SL: ["232", "00", "(?:[237-9]\\d|66)\\d{6}", [8], [["(\\d{2})(\\d{6})", "$1 $2", ["[236-9]"], "(0$1)"]], "0"], SM: ["378", "00", "(?:0549|[5-7]\\d)\\d{6}", [8, 10], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[5-7]"]], ["(\\d{4})(\\d{6})", "$1 $2", ["0"]]], 0, 0, "([89]\\d{5})$", "0549$1"], SN: ["221", "00", "(?:[378]\\d|93)\\d{7}", [9], [["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["8"]], ["(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[379]"]]]], SO: ["252", "00", "[346-9]\\d{8}|[12679]\\d{7}|[1-5]\\d{6}|[1348]\\d{5}", [6, 7, 8, 9], [["(\\d{2})(\\d{4})", "$1 $2", ["8[125]"]], ["(\\d{6})", "$1", ["[134]"]], ["(\\d)(\\d{6})", "$1 $2", ["[15]|2[0-79]|3[0-46-8]|4[0-7]"]], ["(\\d)(\\d{7})", "$1 $2", ["(?:2|90)4|[67]"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[348]|64|79|90"]], ["(\\d{2})(\\d{5,7})", "$1 $2", ["1|28|6[0-35-9]|7[67]|9[2-9]"]]], "0"], SR: ["597", "00", "(?:[2-5]|[6-8]\\d|90)\\d{5}", [6, 7], [["(\\d{2})(\\d{2})(\\d{2})", "$1-$2-$3", ["56"]], ["(\\d{3})(\\d{3})", "$1-$2", ["[2-5]"]], ["(\\d{3})(\\d{4})", "$1-$2", ["[6-9]"]]]], SS: ["211", "00", "[19]\\d{8}", [9], [["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[19]"], "0$1"]], "0"], ST: ["239", "00", "(?:22|9\\d)\\d{5}", [7], [["(\\d{3})(\\d{4})", "$1 $2", ["[29]"]]]], SV: ["503", "00", "[267]\\d{7}|(?:80\\d|900)\\d{4}(?:\\d{4})?", [7, 8, 11], [["(\\d{3})(\\d{4})", "$1 $2", ["[89]"]], ["(\\d{4})(\\d{4})", "$1 $2", ["[267]"]], ["(\\d{3})(\\d{4})(\\d{4})", "$1 $2 $3", ["[89]"]]]], SX: ["1", "011", "7215\\d{6}|(?:[58]\\d\\d|900)\\d{7}", [10], 0, "1", 0, "(5\\d{6})$|1", "721$1", 0, "721"], SY: ["963", "00", "[1-359]\\d{8}|[1-5]\\d{7}", [8, 9], [["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[1-4]|5[1-3]"], "0$1", 1], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[59]"], "0$1", 1]], "0"], SZ: ["268", "00", "0800\\d{4}|(?:[237]\\d|900)\\d{6}", [8, 9], [["(\\d{4})(\\d{4})", "$1 $2", ["[0237]"]], ["(\\d{5})(\\d{4})", "$1 $2", ["9"]]]], TA: ["290", "00", "8\\d{3}", [4], 0, 0, 0, 0, 0, 0, "8"], TC: ["1", "011", "(?:[58]\\d\\d|649|900)\\d{7}", [10], 0, "1", 0, "([2-479]\\d{6})$|1", "649$1", 0, "649"], TD: ["235", "00|16", "(?:22|30|[689]\\d|77)\\d{6}", [8], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[236-9]"]]], 0, 0, 0, 0, 0, 0, 0, "00"], TG: ["228", "00", "[279]\\d{7}", [8], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[279]"]]]], TH: ["66", "00[1-9]", "(?:001800|[2-57]|[689]\\d)\\d{7}|1\\d{7,9}", [8, 9, 10, 13], [["(\\d)(\\d{3})(\\d{4})", "$1 $2 $3", ["2"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[13-9]"], "0$1"], ["(\\d{4})(\\d{3})(\\d{3})", "$1 $2 $3", ["1"]]], "0"], TJ: ["992", "810", "[0-57-9]\\d{8}", [9], [["(\\d{6})(\\d)(\\d{2})", "$1 $2 $3", ["331", "3317"]], ["(\\d{3})(\\d{2})(\\d{4})", "$1 $2 $3", ["44[02-479]|[34]7"]], ["(\\d{4})(\\d)(\\d{4})", "$1 $2 $3", ["3(?:[1245]|3[12])"]], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[0-57-9]"]]], 0, 0, 0, 0, 0, 0, 0, "8~10"], TK: ["690", "00", "[2-47]\\d{3,6}", [4, 5, 6, 7]], TL: ["670", "00", "7\\d{7}|(?:[2-47]\\d|[89]0)\\d{5}", [7, 8], [["(\\d{3})(\\d{4})", "$1 $2", ["[2-489]|70"]], ["(\\d{4})(\\d{4})", "$1 $2", ["7"]]]], TM: ["993", "810", "(?:[1-6]\\d|71)\\d{6}", [8], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2-$3-$4", ["12"], "(8 $1)"], ["(\\d{3})(\\d)(\\d{2})(\\d{2})", "$1 $2-$3-$4", ["[1-5]"], "(8 $1)"], ["(\\d{2})(\\d{6})", "$1 $2", ["[67]"], "8 $1"]], "8", 0, 0, 0, 0, 0, 0, "8~10"], TN: ["216", "00", "[2-57-9]\\d{7}", [8], [["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["[2-57-9]"]]]], TO: ["676", "00", "(?:0800|(?:[5-8]\\d\\d|999)\\d)\\d{3}|[2-8]\\d{4}", [5, 7], [["(\\d{2})(\\d{3})", "$1-$2", ["[2-4]|50|6[09]|7[0-24-69]|8[05]"]], ["(\\d{4})(\\d{3})", "$1 $2", ["0"]], ["(\\d{3})(\\d{4})", "$1 $2", ["[5-9]"]]]], TR: ["90", "00", "4\\d{6}|8\\d{11,12}|(?:[2-58]\\d\\d|900)\\d{7}", [7, 10, 12, 13], [["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["512|8[01589]|90"], "0$1", 1], ["(\\d{3})(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["5(?:[0-59]|61)", "5(?:[0-59]|61[06])", "5(?:[0-59]|61[06]1)"], "0$1", 1], ["(\\d{3})(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[24][1-8]|3[1-9]"], "(0$1)", 1], ["(\\d{3})(\\d{3})(\\d{6,7})", "$1 $2 $3", ["80"], "0$1", 1]], "0"], TT: ["1", "011", "(?:[58]\\d\\d|900)\\d{7}", [10], 0, "1", 0, "([2-46-8]\\d{6})$|1", "868$1", 0, "868"], TV: ["688", "00", "(?:2|7\\d\\d|90)\\d{4}", [5, 6, 7], [["(\\d{2})(\\d{3})", "$1 $2", ["2"]], ["(\\d{2})(\\d{4})", "$1 $2", ["90"]], ["(\\d{2})(\\d{5})", "$1 $2", ["7"]]]], TW: ["886", "0(?:0[25-79]|19)", "[2-689]\\d{8}|7\\d{9,10}|[2-8]\\d{7}|2\\d{6}", [7, 8, 9, 10, 11], [["(\\d{2})(\\d)(\\d{4})", "$1 $2 $3", ["202"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[258]0"], "0$1"], ["(\\d)(\\d{3,4})(\\d{4})", "$1 $2 $3", ["[23568]|4(?:0[02-48]|[1-47-9])|7[1-9]", "[23568]|4(?:0[2-48]|[1-47-9])|(?:400|7)[1-9]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[49]"], "0$1"], ["(\\d{2})(\\d{4})(\\d{4,5})", "$1 $2 $3", ["7"], "0$1"]], "0", 0, 0, 0, 0, 0, 0, 0, "#"], TZ: ["255", "00[056]", "(?:[25-8]\\d|41|90)\\d{7}", [9], [["(\\d{3})(\\d{2})(\\d{4})", "$1 $2 $3", ["[89]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[24]"], "0$1"], ["(\\d{2})(\\d{7})", "$1 $2", ["5"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[67]"], "0$1"]], "0"], UA: ["380", "00", "[89]\\d{9}|[3-9]\\d{8}", [9, 10], [["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["6[12][29]|(?:3[1-8]|4[136-8]|5[12457]|6[49])2|(?:56|65)[24]", "6[12][29]|(?:35|4[1378]|5[12457]|6[49])2|(?:56|65)[24]|(?:3[1-46-8]|46)2[013-9]"], "0$1"], ["(\\d{4})(\\d{5})", "$1 $2", ["3[1-8]|4(?:[1367]|[45][6-9]|8[4-6])|5(?:[1-5]|6[0135689]|7[4-6])|6(?:[12][3-7]|[459])", "3[1-8]|4(?:[1367]|[45][6-9]|8[4-6])|5(?:[1-5]|6(?:[015689]|3[02389])|7[4-6])|6(?:[12][3-7]|[459])"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[3-7]|89|9[1-9]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[89]"], "0$1"]], "0", 0, 0, 0, 0, 0, 0, "0~0"], UG: ["256", "00[057]", "800\\d{6}|(?:[29]0|[347]\\d)\\d{7}", [9], [["(\\d{4})(\\d{5})", "$1 $2", ["202", "2024"], "0$1"], ["(\\d{3})(\\d{6})", "$1 $2", ["[27-9]|4(?:6[45]|[7-9])"], "0$1"], ["(\\d{2})(\\d{7})", "$1 $2", ["[34]"], "0$1"]], "0"], US: ["1", "011", "[2-9]\\d{9}|3\\d{6}", [10], [["(\\d{3})(\\d{4})", "$1-$2", ["310"], 0, 1], ["(\\d{3})(\\d{3})(\\d{4})", "($1) $2-$3", ["[2-9]"], 0, 1, "$1-$2-$3"]], "1", 0, 0, 0, 0, 0, [["(?:3052(?:0[0-8]|[1-9]\\d)|5056(?:[0-35-9]\\d|4[0-68]))\\d{4}|(?:2742|305[3-9]|(?:472|983)[2-47-9]|505[2-57-9])\\d{6}|(?:2(?:0[1-35-9]|1[02-9]|2[03-57-9]|3[1459]|4[08]|5[1-46]|6[0279]|7[0269]|8[13])|3(?:0[1-47-9]|1[02-9]|2[0135-79]|3[0-24679]|4[167]|5[0-2]|6[01349]|8[056])|4(?:0[124-9]|1[02-579]|2[3-5]|3[0245]|4[023578]|58|6[349]|7[0589]|8[04])|5(?:0[1-47-9]|1[0235-8]|20|3[0149]|4[01]|5[179]|6[1-47]|7[0-5]|8[0256])|6(?:0[1-35-9]|1[024-9]|2[03689]|3[016]|4[0156]|5[01679]|6[0-279]|78|8[0-269])|7(?:0[1-46-8]|1[2-9]|2[04-8]|3[0-247]|4[0378]|5[47]|6[02359]|7[0-59]|8[156])|8(?:0[1-68]|1[02-8]|2[0168]|3[0-2589]|4[03578]|5[046-9]|6[02-5]|7[028])|9(?:0[1346-9]|1[02-9]|2[0589]|3[0146-8]|4[01357-9]|5[12469]|7[0-3589]|8[04-69]))[2-9]\\d{6}"], [""], ["8(?:00|33|44|55|66|77|88)[2-9]\\d{6}"], ["900[2-9]\\d{6}"], ["52(?:3(?:[2-46-9][02-9]\\d|5(?:[02-46-9]\\d|5[0-46-9]))|4(?:[2-478][02-9]\\d|5(?:[034]\\d|2[024-9]|5[0-46-9])|6(?:0[1-9]|[2-9]\\d)|9(?:[05-9]\\d|2[0-5]|49)))\\d{4}|52[34][2-9]1[02-9]\\d{4}|5(?:00|2[125-9]|33|44|66|77|88)[2-9]\\d{6}"], 0, 0, 0, ["305209\\d{4}"]]], UY: ["598", "0(?:0|1[3-9]\\d)", "0004\\d{2,9}|[1249]\\d{7}|2\\d{3,4}|(?:[49]\\d|80)\\d{5}", [4, 5, 6, 7, 8, 9, 10, 11, 12, 13], [["(\\d{4,5})", "$1", ["21"]], ["(\\d{3})(\\d{3,4})", "$1 $2", ["0"]], ["(\\d{3})(\\d{4})", "$1 $2", ["[49]0|8"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["9"], "0$1"], ["(\\d{4})(\\d{4})", "$1 $2", ["[124]"]], ["(\\d{3})(\\d{3})(\\d{2,4})", "$1 $2 $3", ["0"]], ["(\\d{3})(\\d{3})(\\d{3})(\\d{2,4})", "$1 $2 $3 $4", ["0"]]], "0", 0, 0, 0, 0, 0, 0, "00", " int. "], UZ: ["998", "00", "(?:20|33|[5-9]\\d)\\d{7}", [9], [["(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[235-9]"]]]], VA: ["39", "00", "0\\d{5,10}|3[0-8]\\d{7,10}|55\\d{8}|8\\d{5}(?:\\d{2,4})?|(?:1\\d|39)\\d{7,8}", [6, 7, 8, 9, 10, 11, 12], 0, 0, 0, 0, 0, 0, "06698"], VC: ["1", "011", "(?:[58]\\d\\d|784|900)\\d{7}", [10], 0, "1", 0, "([2-7]\\d{6})$|1", "784$1", 0, "784"], VE: ["58", "00", "[68]00\\d{7}|(?:[24]\\d|[59]0)\\d{8}", [10], [["(\\d{3})(\\d{7})", "$1-$2", ["[24-689]"], "0$1"]], "0"], VG: ["1", "011", "(?:284|[58]\\d\\d|900)\\d{7}", [10], 0, "1", 0, "([2-578]\\d{6})$|1", "284$1", 0, "284"], VI: ["1", "011", "[58]\\d{9}|(?:34|90)0\\d{7}", [10], 0, "1", 0, "([2-9]\\d{6})$|1", "340$1", 0, "340"], VN: ["84", "00", "[12]\\d{9}|[135-9]\\d{8}|[16]\\d{7}|[16-8]\\d{6}", [7, 8, 9, 10], [["(\\d{2})(\\d{5})", "$1 $2", ["80"], "0$1", 1], ["(\\d{4})(\\d{4,6})", "$1 $2", ["1"], 0, 1], ["(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["6"], "0$1", 1], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[357-9]"], "0$1", 1], ["(\\d{2})(\\d{4})(\\d{4})", "$1 $2 $3", ["2[48]"], "0$1", 1], ["(\\d{3})(\\d{4})(\\d{3})", "$1 $2 $3", ["2"], "0$1", 1]], "0"], VU: ["678", "00", "[57-9]\\d{6}|(?:[238]\\d|48)\\d{3}", [5, 7], [["(\\d{3})(\\d{4})", "$1 $2", ["[57-9]"]]]], WF: ["681", "00", "(?:40|72|8\\d{4})\\d{4}|[89]\\d{5}", [6, 9], [["(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3", ["[47-9]"]], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["8"]]]], WS: ["685", "0", "(?:[2-6]|8\\d{5})\\d{4}|[78]\\d{6}|[68]\\d{5}", [5, 6, 7, 10], [["(\\d{5})", "$1", ["[2-5]|6[1-9]"]], ["(\\d{3})(\\d{3,7})", "$1 $2", ["[68]"]], ["(\\d{2})(\\d{5})", "$1 $2", ["7"]]]], XK: ["383", "00", "2\\d{7,8}|3\\d{7,11}|(?:4\\d\\d|[89]00)\\d{5}", [8, 9, 10, 11, 12], [["(\\d{3})(\\d{5})", "$1 $2", ["[89]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["[2-4]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["2|39"], "0$1"], ["(\\d{2})(\\d{7,10})", "$1 $2", ["3"], "0$1"]], "0"], YE: ["967", "00", "(?:1|7\\d)\\d{7}|[1-7]\\d{6}", [7, 8, 9], [["(\\d)(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[1-6]|7(?:[24-6]|8[0-7])"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["7"], "0$1"]], "0"], YT: ["262", "00", "7093\\d{5}|(?:80|9\\d)\\d{7}|(?:26|63)9\\d{6}", [9], 0, "0", 0, 0, 0, 0, 0, [["269(?:0[0-467]|15|5[0-4]|6\\d|[78]0)\\d{4}"], ["(?:639(?:0[0-79]|1[019]|[267]\\d|3[09]|40|5[05-9]|9[04-79])|7093[5-7])\\d{4}"], ["80\\d{7}"], 0, 0, 0, 0, 0, ["9(?:(?:39|47)8[01]|769\\d)\\d{4}"]]], ZA: ["27", "00", "[1-79]\\d{8}|8\\d{4,9}", [5, 6, 7, 8, 9, 10], [["(\\d{2})(\\d{3,4})", "$1 $2", ["8[1-4]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{2,3})", "$1 $2 $3", ["8[1-4]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["860"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[1-9]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["8"], "0$1"]], "0"], ZM: ["260", "00", "800\\d{6}|(?:21|[579]\\d|63)\\d{7}", [9], [["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[28]"], "0$1"], ["(\\d{2})(\\d{7})", "$1 $2", ["[579]"], "0$1"]], "0"], ZW: ["263", "00", "2(?:[0-57-9]\\d{6,8}|6[0-24-9]\\d{6,7})|[38]\\d{9}|[35-8]\\d{8}|[3-6]\\d{7}|[1-689]\\d{6}|[1-3569]\\d{5}|[1356]\\d{4}", [5, 6, 7, 8, 9, 10], [["(\\d{3})(\\d{3,5})", "$1 $2", ["2(?:0[45]|2[278]|[49]8)|3(?:[09]8|17)|6(?:[29]8|37|75)|[23][78]|(?:33|5[15]|6[68])[78]"], "0$1"], ["(\\d)(\\d{3})(\\d{2,4})", "$1 $2 $3", ["[49]"], "0$1"], ["(\\d{3})(\\d{4})", "$1 $2", ["80"], "0$1"], ["(\\d{2})(\\d{7})", "$1 $2", ["24|8[13-59]|(?:2[05-79]|39|5[45]|6[15-8])2", "2(?:02[014]|4|[56]20|[79]2)|392|5(?:42|525)|6(?:[16-8]21|52[013])|8[13-59]"], "(0$1)"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["7"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["2(?:1[39]|2[0157]|[378]|[56][14])|3(?:12|29)", "2(?:1[39]|2[0157]|[378]|[56][14])|3(?:123|29)"], "0$1"], ["(\\d{4})(\\d{6})", "$1 $2", ["8"], "0$1"], ["(\\d{2})(\\d{3,5})", "$1 $2", ["1|2(?:0[0-36-9]|12|29|[56])|3(?:1[0-689]|[24-6])|5(?:[0236-9]|1[2-4])|6(?:[013-59]|7[0-46-9])|(?:33|55|6[68])[0-69]|(?:29|3[09]|62)[0-79]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["29[013-9]|39|54"], "0$1"], ["(\\d{4})(\\d{3,5})", "$1 $2", ["(?:25|54)8", "258|5483"], "0$1"]], "0"] }, nonGeographic: { 800: ["800", 0, "(?:00|[1-9]\\d)\\d{6}", [8], [["(\\d{4})(\\d{4})", "$1 $2", ["\\d"]]], 0, 0, 0, 0, 0, 0, [0, 0, ["(?:00|[1-9]\\d)\\d{6}"]]], 808: ["808", 0, "[1-9]\\d{7}", [8], [["(\\d{4})(\\d{4})", "$1 $2", ["[1-9]"]]], 0, 0, 0, 0, 0, 0, [0, 0, 0, 0, 0, 0, 0, 0, 0, ["[1-9]\\d{7}"]]], 870: ["870", 0, "7\\d{11}|[235-7]\\d{8}", [9, 12], [["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[235-7]"]]], 0, 0, 0, 0, 0, 0, [0, ["(?:[356]|774[45])\\d{8}|7[6-8]\\d{7}"], 0, 0, 0, 0, 0, 0, ["2\\d{8}", [9]]]], 878: ["878", 0, "10\\d{10}", [12], [["(\\d{2})(\\d{5})(\\d{5})", "$1 $2 $3", ["1"]]], 0, 0, 0, 0, 0, 0, [0, 0, 0, 0, 0, 0, 0, 0, ["10\\d{10}"]]], 881: ["881", 0, "6\\d{9}|[0-36-9]\\d{8}", [9, 10], [["(\\d)(\\d{3})(\\d{5})", "$1 $2 $3", ["[0-37-9]"]], ["(\\d)(\\d{3})(\\d{5,6})", "$1 $2 $3", ["6"]]], 0, 0, 0, 0, 0, 0, [0, ["6\\d{9}|[0-36-9]\\d{8}"]]], 882: ["882", 0, "[13]\\d{6}(?:\\d{2,5})?|[19]\\d{7}|(?:[25]\\d\\d|4)\\d{7}(?:\\d{2})?", [7, 8, 9, 10, 11, 12], [["(\\d{2})(\\d{5})", "$1 $2", ["16|342"]], ["(\\d{2})(\\d{6})", "$1 $2", ["49"]], ["(\\d{2})(\\d{2})(\\d{4})", "$1 $2 $3", ["1[36]|9"]], ["(\\d{2})(\\d{4})(\\d{3})", "$1 $2 $3", ["3[23]"]], ["(\\d{2})(\\d{3,4})(\\d{4})", "$1 $2 $3", ["16"]], ["(\\d{2})(\\d{4})(\\d{4})", "$1 $2 $3", ["10|23|3(?:[15]|4[57])|4|51"]], ["(\\d{3})(\\d{4})(\\d{4})", "$1 $2 $3", ["34"]], ["(\\d{2})(\\d{4,5})(\\d{5})", "$1 $2 $3", ["[1-35]"]]], 0, 0, 0, 0, 0, 0, [0, ["342\\d{4}|(?:337|49)\\d{6}|(?:3(?:2|47|7\\d{3})|50\\d{3})\\d{7}", [7, 8, 9, 10, 12]], 0, 0, 0, ["348[57]\\d{7}", [11]], 0, 0, ["1(?:3(?:0[0347]|[13][0139]|2[035]|4[013568]|6[0459]|7[06]|8[15-8]|9[0689])\\d{4}|6\\d{5,10})|(?:345\\d|9[89])\\d{6}|(?:10|2(?:3|85\\d)|3(?:[15]|[69]\\d\\d)|4[15-8]|51)\\d{8}"]]], 883: ["883", 0, "(?:[1-4]\\d|51)\\d{6,10}", [8, 9, 10, 11, 12], [["(\\d{3})(\\d{3})(\\d{2,8})", "$1 $2 $3", ["[14]|2[24-689]|3[02-689]|51[24-9]"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["510"]], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["21"]], ["(\\d{4})(\\d{4})(\\d{4})", "$1 $2 $3", ["51[13]"]], ["(\\d{3})(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3 $4", ["[235]"]]], 0, 0, 0, 0, 0, 0, [0, 0, 0, 0, 0, 0, 0, 0, ["(?:2(?:00\\d\\d|10)|(?:370[1-9]|51\\d0)\\d)\\d{7}|51(?:00\\d{5}|[24-9]0\\d{4,7})|(?:1[0-79]|2[24-689]|3[02-689]|4[0-4])0\\d{5,9}"]]], 888: ["888", 0, "\\d{11}", [11], [["(\\d{3})(\\d{3})(\\d{5})", "$1 $2 $3"]], 0, 0, 0, 0, 0, 0, [0, 0, 0, 0, 0, 0, ["\\d{11}"]]], 979: ["979", 0, "[1359]\\d{8}", [9], [["(\\d)(\\d{4})(\\d{4})", "$1 $2 $3", ["[1359]"]]], 0, 0, 0, 0, 0, 0, [0, 0, 0, ["[1359]\\d{8}"]]] } };
+var $n = { exports: {} }, Mt = { exports: {} }, X = {};
 /** @license React v16.13.1
  * react-is.production.min.js
  *
@@ -838,20 +1195,20 @@ var Ft = { exports: {} }, at = { exports: {} }, G = {};
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-var Nn;
-function vi() {
-  if (Nn)
-    return G;
-  Nn = 1;
-  var e = typeof Symbol == "function" && Symbol.for, t = e ? Symbol.for("react.element") : 60103, n = e ? Symbol.for("react.portal") : 60106, r = e ? Symbol.for("react.fragment") : 60107, a = e ? Symbol.for("react.strict_mode") : 60108, i = e ? Symbol.for("react.profiler") : 60114, o = e ? Symbol.for("react.provider") : 60109, d = e ? Symbol.for("react.context") : 60110, u = e ? Symbol.for("react.async_mode") : 60111, c = e ? Symbol.for("react.concurrent_mode") : 60111, f = e ? Symbol.for("react.forward_ref") : 60112, $ = e ? Symbol.for("react.suspense") : 60113, g = e ? Symbol.for("react.suspense_list") : 60120, y = e ? Symbol.for("react.memo") : 60115, C = e ? Symbol.for("react.lazy") : 60116, S = e ? Symbol.for("react.block") : 60121, h = e ? Symbol.for("react.fundamental") : 60117, O = e ? Symbol.for("react.responder") : 60118, L = e ? Symbol.for("react.scope") : 60119;
-  function A(v) {
+var Qn;
+function Qi() {
+  if (Qn)
+    return X;
+  Qn = 1;
+  var e = typeof Symbol == "function" && Symbol.for, t = e ? Symbol.for("react.element") : 60103, n = e ? Symbol.for("react.portal") : 60106, r = e ? Symbol.for("react.fragment") : 60107, a = e ? Symbol.for("react.strict_mode") : 60108, i = e ? Symbol.for("react.profiler") : 60114, o = e ? Symbol.for("react.provider") : 60109, d = e ? Symbol.for("react.context") : 60110, s = e ? Symbol.for("react.async_mode") : 60111, l = e ? Symbol.for("react.concurrent_mode") : 60111, f = e ? Symbol.for("react.forward_ref") : 60112, $ = e ? Symbol.for("react.suspense") : 60113, h = e ? Symbol.for("react.suspense_list") : 60120, m = e ? Symbol.for("react.memo") : 60115, P = e ? Symbol.for("react.lazy") : 60116, E = e ? Symbol.for("react.block") : 60121, y = e ? Symbol.for("react.fundamental") : 60117, x = e ? Symbol.for("react.responder") : 60118, T = e ? Symbol.for("react.scope") : 60119;
+  function j(v) {
     if (typeof v == "object" && v !== null) {
-      var B = v.$$typeof;
-      switch (B) {
+      var V = v.$$typeof;
+      switch (V) {
         case t:
           switch (v = v.type, v) {
-            case u:
-            case c:
+            case s:
+            case l:
             case r:
             case i:
             case a:
@@ -861,51 +1218,51 @@ function vi() {
               switch (v = v && v.$$typeof, v) {
                 case d:
                 case f:
-                case C:
-                case y:
+                case P:
+                case m:
                 case o:
                   return v;
                 default:
-                  return B;
+                  return V;
               }
           }
         case n:
-          return B;
+          return V;
       }
     }
   }
-  function M(v) {
-    return A(v) === c;
+  function L(v) {
+    return j(v) === l;
   }
-  return G.AsyncMode = u, G.ConcurrentMode = c, G.ContextConsumer = d, G.ContextProvider = o, G.Element = t, G.ForwardRef = f, G.Fragment = r, G.Lazy = C, G.Memo = y, G.Portal = n, G.Profiler = i, G.StrictMode = a, G.Suspense = $, G.isAsyncMode = function(v) {
-    return M(v) || A(v) === u;
-  }, G.isConcurrentMode = M, G.isContextConsumer = function(v) {
-    return A(v) === d;
-  }, G.isContextProvider = function(v) {
-    return A(v) === o;
-  }, G.isElement = function(v) {
+  return X.AsyncMode = s, X.ConcurrentMode = l, X.ContextConsumer = d, X.ContextProvider = o, X.Element = t, X.ForwardRef = f, X.Fragment = r, X.Lazy = P, X.Memo = m, X.Portal = n, X.Profiler = i, X.StrictMode = a, X.Suspense = $, X.isAsyncMode = function(v) {
+    return L(v) || j(v) === s;
+  }, X.isConcurrentMode = L, X.isContextConsumer = function(v) {
+    return j(v) === d;
+  }, X.isContextProvider = function(v) {
+    return j(v) === o;
+  }, X.isElement = function(v) {
     return typeof v == "object" && v !== null && v.$$typeof === t;
-  }, G.isForwardRef = function(v) {
-    return A(v) === f;
-  }, G.isFragment = function(v) {
-    return A(v) === r;
-  }, G.isLazy = function(v) {
-    return A(v) === C;
-  }, G.isMemo = function(v) {
-    return A(v) === y;
-  }, G.isPortal = function(v) {
-    return A(v) === n;
-  }, G.isProfiler = function(v) {
-    return A(v) === i;
-  }, G.isStrictMode = function(v) {
-    return A(v) === a;
-  }, G.isSuspense = function(v) {
-    return A(v) === $;
-  }, G.isValidElementType = function(v) {
-    return typeof v == "string" || typeof v == "function" || v === r || v === c || v === i || v === a || v === $ || v === g || typeof v == "object" && v !== null && (v.$$typeof === C || v.$$typeof === y || v.$$typeof === o || v.$$typeof === d || v.$$typeof === f || v.$$typeof === h || v.$$typeof === O || v.$$typeof === L || v.$$typeof === S);
-  }, G.typeOf = A, G;
+  }, X.isForwardRef = function(v) {
+    return j(v) === f;
+  }, X.isFragment = function(v) {
+    return j(v) === r;
+  }, X.isLazy = function(v) {
+    return j(v) === P;
+  }, X.isMemo = function(v) {
+    return j(v) === m;
+  }, X.isPortal = function(v) {
+    return j(v) === n;
+  }, X.isProfiler = function(v) {
+    return j(v) === i;
+  }, X.isStrictMode = function(v) {
+    return j(v) === a;
+  }, X.isSuspense = function(v) {
+    return j(v) === $;
+  }, X.isValidElementType = function(v) {
+    return typeof v == "string" || typeof v == "function" || v === r || v === l || v === i || v === a || v === $ || v === h || typeof v == "object" && v !== null && (v.$$typeof === P || v.$$typeof === m || v.$$typeof === o || v.$$typeof === d || v.$$typeof === f || v.$$typeof === y || v.$$typeof === x || v.$$typeof === T || v.$$typeof === E);
+  }, X.typeOf = j, X;
 }
-var W = {};
+var Z = {};
 /** @license React v16.13.1
  * react-is.development.js
  *
@@ -914,103 +1271,103 @@ var W = {};
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-var Sn;
-function bi() {
-  return Sn || (Sn = 1, process.env.NODE_ENV !== "production" && function() {
-    var e = typeof Symbol == "function" && Symbol.for, t = e ? Symbol.for("react.element") : 60103, n = e ? Symbol.for("react.portal") : 60106, r = e ? Symbol.for("react.fragment") : 60107, a = e ? Symbol.for("react.strict_mode") : 60108, i = e ? Symbol.for("react.profiler") : 60114, o = e ? Symbol.for("react.provider") : 60109, d = e ? Symbol.for("react.context") : 60110, u = e ? Symbol.for("react.async_mode") : 60111, c = e ? Symbol.for("react.concurrent_mode") : 60111, f = e ? Symbol.for("react.forward_ref") : 60112, $ = e ? Symbol.for("react.suspense") : 60113, g = e ? Symbol.for("react.suspense_list") : 60120, y = e ? Symbol.for("react.memo") : 60115, C = e ? Symbol.for("react.lazy") : 60116, S = e ? Symbol.for("react.block") : 60121, h = e ? Symbol.for("react.fundamental") : 60117, O = e ? Symbol.for("react.responder") : 60118, L = e ? Symbol.for("react.scope") : 60119;
-    function A(N) {
-      return typeof N == "string" || typeof N == "function" || // Note: its typeof might be other than 'symbol' or 'number' if it's a polyfill.
-      N === r || N === c || N === i || N === a || N === $ || N === g || typeof N == "object" && N !== null && (N.$$typeof === C || N.$$typeof === y || N.$$typeof === o || N.$$typeof === d || N.$$typeof === f || N.$$typeof === h || N.$$typeof === O || N.$$typeof === L || N.$$typeof === S);
+var er;
+function eo() {
+  return er || (er = 1, process.env.NODE_ENV !== "production" && function() {
+    var e = typeof Symbol == "function" && Symbol.for, t = e ? Symbol.for("react.element") : 60103, n = e ? Symbol.for("react.portal") : 60106, r = e ? Symbol.for("react.fragment") : 60107, a = e ? Symbol.for("react.strict_mode") : 60108, i = e ? Symbol.for("react.profiler") : 60114, o = e ? Symbol.for("react.provider") : 60109, d = e ? Symbol.for("react.context") : 60110, s = e ? Symbol.for("react.async_mode") : 60111, l = e ? Symbol.for("react.concurrent_mode") : 60111, f = e ? Symbol.for("react.forward_ref") : 60112, $ = e ? Symbol.for("react.suspense") : 60113, h = e ? Symbol.for("react.suspense_list") : 60120, m = e ? Symbol.for("react.memo") : 60115, P = e ? Symbol.for("react.lazy") : 60116, E = e ? Symbol.for("react.block") : 60121, y = e ? Symbol.for("react.fundamental") : 60117, x = e ? Symbol.for("react.responder") : 60118, T = e ? Symbol.for("react.scope") : 60119;
+    function j(S) {
+      return typeof S == "string" || typeof S == "function" || // Note: its typeof might be other than 'symbol' or 'number' if it's a polyfill.
+      S === r || S === l || S === i || S === a || S === $ || S === h || typeof S == "object" && S !== null && (S.$$typeof === P || S.$$typeof === m || S.$$typeof === o || S.$$typeof === d || S.$$typeof === f || S.$$typeof === y || S.$$typeof === x || S.$$typeof === T || S.$$typeof === E);
     }
-    function M(N) {
-      if (typeof N == "object" && N !== null) {
-        var de = N.$$typeof;
-        switch (de) {
+    function L(S) {
+      if (typeof S == "object" && S !== null) {
+        var me = S.$$typeof;
+        switch (me) {
           case t:
-            var Ce = N.type;
-            switch (Ce) {
-              case u:
-              case c:
+            var Te = S.type;
+            switch (Te) {
+              case s:
+              case l:
               case r:
               case i:
               case a:
               case $:
-                return Ce;
+                return Te;
               default:
-                var Re = Ce && Ce.$$typeof;
-                switch (Re) {
+                var Ae = Te && Te.$$typeof;
+                switch (Ae) {
                   case d:
                   case f:
-                  case C:
-                  case y:
+                  case P:
+                  case m:
                   case o:
-                    return Re;
+                    return Ae;
                   default:
-                    return de;
+                    return me;
                 }
             }
           case n:
-            return de;
+            return me;
         }
       }
     }
-    var v = u, B = c, q = d, K = o, z = t, Z = f, V = r, se = C, le = y, ne = n, ie = i, Q = a, X = $, re = !1;
-    function oe(N) {
-      return re || (re = !0, console.warn("The ReactIs.isAsyncMode() alias has been deprecated, and will be removed in React 17+. Update your code to use ReactIs.isConcurrentMode() instead. It has the exact same API.")), s(N) || M(N) === u;
+    var v = s, V = l, ee = d, te = o, ne = t, $e = f, ge = r, Ie = P, re = m, ae = n, ie = i, ce = a, fe = $, pe = !1;
+    function Ce(S) {
+      return pe || (pe = !0, console.warn("The ReactIs.isAsyncMode() alias has been deprecated, and will be removed in React 17+. Update your code to use ReactIs.isConcurrentMode() instead. It has the exact same API.")), b(S) || L(S) === s;
     }
-    function s(N) {
-      return M(N) === c;
+    function b(S) {
+      return L(S) === l;
     }
-    function p(N) {
-      return M(N) === d;
+    function w(S) {
+      return L(S) === d;
     }
-    function w(N) {
-      return M(N) === o;
+    function U(S) {
+      return L(S) === o;
     }
-    function x(N) {
-      return typeof N == "object" && N !== null && N.$$typeof === t;
+    function k(S) {
+      return typeof S == "object" && S !== null && S.$$typeof === t;
     }
-    function m(N) {
-      return M(N) === f;
+    function M(S) {
+      return L(S) === f;
     }
-    function R(N) {
-      return M(N) === r;
+    function G(S) {
+      return L(S) === r;
     }
-    function _(N) {
-      return M(N) === C;
+    function D(S) {
+      return L(S) === P;
     }
-    function F(N) {
-      return M(N) === y;
+    function W(S) {
+      return L(S) === m;
     }
-    function E(N) {
-      return M(N) === n;
+    function p(S) {
+      return L(S) === n;
     }
-    function D(N) {
-      return M(N) === i;
+    function H(S) {
+      return L(S) === i;
     }
-    function k(N) {
-      return M(N) === a;
+    function R(S) {
+      return L(S) === a;
     }
-    function ee(N) {
-      return M(N) === $;
+    function ue(S) {
+      return L(S) === $;
     }
-    W.AsyncMode = v, W.ConcurrentMode = B, W.ContextConsumer = q, W.ContextProvider = K, W.Element = z, W.ForwardRef = Z, W.Fragment = V, W.Lazy = se, W.Memo = le, W.Portal = ne, W.Profiler = ie, W.StrictMode = Q, W.Suspense = X, W.isAsyncMode = oe, W.isConcurrentMode = s, W.isContextConsumer = p, W.isContextProvider = w, W.isElement = x, W.isForwardRef = m, W.isFragment = R, W.isLazy = _, W.isMemo = F, W.isPortal = E, W.isProfiler = D, W.isStrictMode = k, W.isSuspense = ee, W.isValidElementType = A, W.typeOf = M;
-  }()), W;
+    Z.AsyncMode = v, Z.ConcurrentMode = V, Z.ContextConsumer = ee, Z.ContextProvider = te, Z.Element = ne, Z.ForwardRef = $e, Z.Fragment = ge, Z.Lazy = Ie, Z.Memo = re, Z.Portal = ae, Z.Profiler = ie, Z.StrictMode = ce, Z.Suspense = fe, Z.isAsyncMode = Ce, Z.isConcurrentMode = b, Z.isContextConsumer = w, Z.isContextProvider = U, Z.isElement = k, Z.isForwardRef = M, Z.isFragment = G, Z.isLazy = D, Z.isMemo = W, Z.isPortal = p, Z.isProfiler = H, Z.isStrictMode = R, Z.isSuspense = ue, Z.isValidElementType = j, Z.typeOf = L;
+  }()), Z;
 }
-var On;
-function Xr() {
-  return On || (On = 1, process.env.NODE_ENV === "production" ? at.exports = vi() : at.exports = bi()), at.exports;
+var tr;
+function wa() {
+  return tr || (tr = 1, process.env.NODE_ENV === "production" ? Mt.exports = Qi() : Mt.exports = eo()), Mt.exports;
 }
 /*
 object-assign
 (c) Sindre Sorhus
 @license MIT
 */
-var Nt, wn;
-function Ci() {
-  if (wn)
-    return Nt;
-  wn = 1;
+var en, nr;
+function to() {
+  if (nr)
+    return en;
+  nr = 1;
   var e = Object.getOwnPropertySymbols, t = Object.prototype.hasOwnProperty, n = Object.prototype.propertyIsEnumerable;
   function r(i) {
     if (i == null)
@@ -1026,54 +1383,54 @@ function Ci() {
         return !1;
       for (var o = {}, d = 0; d < 10; d++)
         o["_" + String.fromCharCode(d)] = d;
-      var u = Object.getOwnPropertyNames(o).map(function(f) {
+      var s = Object.getOwnPropertyNames(o).map(function(f) {
         return o[f];
       });
-      if (u.join("") !== "0123456789")
+      if (s.join("") !== "0123456789")
         return !1;
-      var c = {};
+      var l = {};
       return "abcdefghijklmnopqrst".split("").forEach(function(f) {
-        c[f] = f;
-      }), Object.keys(Object.assign({}, c)).join("") === "abcdefghijklmnopqrst";
+        l[f] = f;
+      }), Object.keys(Object.assign({}, l)).join("") === "abcdefghijklmnopqrst";
     } catch {
       return !1;
     }
   }
-  return Nt = a() ? Object.assign : function(i, o) {
-    for (var d, u = r(i), c, f = 1; f < arguments.length; f++) {
+  return en = a() ? Object.assign : function(i, o) {
+    for (var d, s = r(i), l, f = 1; f < arguments.length; f++) {
       d = Object(arguments[f]);
       for (var $ in d)
-        t.call(d, $) && (u[$] = d[$]);
+        t.call(d, $) && (s[$] = d[$]);
       if (e) {
-        c = e(d);
-        for (var g = 0; g < c.length; g++)
-          n.call(d, c[g]) && (u[c[g]] = d[c[g]]);
+        l = e(d);
+        for (var h = 0; h < l.length; h++)
+          n.call(d, l[h]) && (s[l[h]] = d[l[h]]);
       }
     }
-    return u;
-  }, Nt;
+    return s;
+  }, en;
 }
-var St, xn;
-function Qt() {
-  if (xn)
-    return St;
-  xn = 1;
+var tn, rr;
+function Tn() {
+  if (rr)
+    return tn;
+  rr = 1;
   var e = "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED";
-  return St = e, St;
+  return tn = e, tn;
 }
-var Ot, En;
-function Zr() {
-  return En || (En = 1, Ot = Function.call.bind(Object.prototype.hasOwnProperty)), Ot;
+var nn, ar;
+function xa() {
+  return ar || (ar = 1, nn = Function.call.bind(Object.prototype.hasOwnProperty)), nn;
 }
-var wt, In;
-function Pi() {
-  if (In)
-    return wt;
-  In = 1;
+var rn, ir;
+function no() {
+  if (ir)
+    return rn;
+  ir = 1;
   var e = function() {
   };
   if (process.env.NODE_ENV !== "production") {
-    var t = Qt(), n = {}, r = Zr();
+    var t = Tn(), n = {}, r = xa();
     e = function(i) {
       var o = "Warning: " + i;
       typeof console < "u" && console.error(o);
@@ -1083,29 +1440,29 @@ function Pi() {
       }
     };
   }
-  function a(i, o, d, u, c) {
+  function a(i, o, d, s, l) {
     if (process.env.NODE_ENV !== "production") {
       for (var f in i)
         if (r(i, f)) {
           var $;
           try {
             if (typeof i[f] != "function") {
-              var g = Error(
-                (u || "React class") + ": " + d + " type `" + f + "` is invalid; it must be a function, usually from the `prop-types` package, but received `" + typeof i[f] + "`.This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`."
+              var h = Error(
+                (s || "React class") + ": " + d + " type `" + f + "` is invalid; it must be a function, usually from the `prop-types` package, but received `" + typeof i[f] + "`.This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`."
               );
-              throw g.name = "Invariant Violation", g;
+              throw h.name = "Invariant Violation", h;
             }
-            $ = i[f](o, f, u, d, null, t);
-          } catch (C) {
-            $ = C;
+            $ = i[f](o, f, s, d, null, t);
+          } catch (P) {
+            $ = P;
           }
           if ($ && !($ instanceof Error) && e(
-            (u || "React class") + ": type specification of " + d + " `" + f + "` is invalid; the type checker function must return `null` or an `Error` but returned a " + typeof $ + ". You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument)."
+            (s || "React class") + ": type specification of " + d + " `" + f + "` is invalid; the type checker function must return `null` or an `Error` but returned a " + typeof $ + ". You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument)."
           ), $ instanceof Error && !($.message in n)) {
             n[$.message] = !0;
-            var y = c ? c() : "";
+            var m = l ? l() : "";
             e(
-              "Failed " + d + " type: " + $.message + (y ?? "")
+              "Failed " + d + " type: " + $.message + (m ?? "")
             );
           }
         }
@@ -1113,282 +1470,282 @@ function Pi() {
   }
   return a.resetWarningCache = function() {
     process.env.NODE_ENV !== "production" && (n = {});
-  }, wt = a, wt;
+  }, rn = a, rn;
 }
-var xt, _n;
-function Ni() {
-  if (_n)
-    return xt;
-  _n = 1;
-  var e = Xr(), t = Ci(), n = Qt(), r = Zr(), a = Pi(), i = function() {
+var an, or;
+function ro() {
+  if (or)
+    return an;
+  or = 1;
+  var e = wa(), t = to(), n = Tn(), r = xa(), a = no(), i = function() {
   };
   process.env.NODE_ENV !== "production" && (i = function(d) {
-    var u = "Warning: " + d;
-    typeof console < "u" && console.error(u);
+    var s = "Warning: " + d;
+    typeof console < "u" && console.error(s);
     try {
-      throw new Error(u);
+      throw new Error(s);
     } catch {
     }
   });
   function o() {
     return null;
   }
-  return xt = function(d, u) {
-    var c = typeof Symbol == "function" && Symbol.iterator, f = "@@iterator";
-    function $(s) {
-      var p = s && (c && s[c] || s[f]);
-      if (typeof p == "function")
-        return p;
+  return an = function(d, s) {
+    var l = typeof Symbol == "function" && Symbol.iterator, f = "@@iterator";
+    function $(b) {
+      var w = b && (l && b[l] || b[f]);
+      if (typeof w == "function")
+        return w;
     }
-    var g = "<<anonymous>>", y = {
-      array: O("array"),
-      bigint: O("bigint"),
-      bool: O("boolean"),
-      func: O("function"),
-      number: O("number"),
-      object: O("object"),
-      string: O("string"),
-      symbol: O("symbol"),
-      any: L(),
-      arrayOf: A,
-      element: M(),
+    var h = "<<anonymous>>", m = {
+      array: x("array"),
+      bigint: x("bigint"),
+      bool: x("boolean"),
+      func: x("function"),
+      number: x("number"),
+      object: x("object"),
+      string: x("string"),
+      symbol: x("symbol"),
+      any: T(),
+      arrayOf: j,
+      element: L(),
       elementType: v(),
-      instanceOf: B,
-      node: Z(),
-      objectOf: K,
-      oneOf: q,
-      oneOfType: z,
-      shape: se,
-      exact: le
+      instanceOf: V,
+      node: $e(),
+      objectOf: te,
+      oneOf: ee,
+      oneOfType: ne,
+      shape: Ie,
+      exact: re
     };
-    function C(s, p) {
-      return s === p ? s !== 0 || 1 / s === 1 / p : s !== s && p !== p;
+    function P(b, w) {
+      return b === w ? b !== 0 || 1 / b === 1 / w : b !== b && w !== w;
     }
-    function S(s, p) {
-      this.message = s, this.data = p && typeof p == "object" ? p : {}, this.stack = "";
+    function E(b, w) {
+      this.message = b, this.data = w && typeof w == "object" ? w : {}, this.stack = "";
     }
-    S.prototype = Error.prototype;
-    function h(s) {
+    E.prototype = Error.prototype;
+    function y(b) {
       if (process.env.NODE_ENV !== "production")
-        var p = {}, w = 0;
-      function x(R, _, F, E, D, k, ee) {
-        if (E = E || g, k = k || F, ee !== n) {
-          if (u) {
-            var N = new Error(
+        var w = {}, U = 0;
+      function k(G, D, W, p, H, R, ue) {
+        if (p = p || h, R = R || W, ue !== n) {
+          if (s) {
+            var S = new Error(
               "Calling PropTypes validators directly is not supported by the `prop-types` package. Use `PropTypes.checkPropTypes()` to call them. Read more at http://fb.me/use-check-prop-types"
             );
-            throw N.name = "Invariant Violation", N;
+            throw S.name = "Invariant Violation", S;
           } else if (process.env.NODE_ENV !== "production" && typeof console < "u") {
-            var de = E + ":" + F;
-            !p[de] && // Avoid spamming the console because they are often not actionable except for lib authors
-            w < 3 && (i(
-              "You are manually calling a React.PropTypes validation function for the `" + k + "` prop on `" + E + "`. This is deprecated and will throw in the standalone `prop-types` package. You may be seeing this warning due to a third-party PropTypes library. See https://fb.me/react-warning-dont-call-proptypes for details."
-            ), p[de] = !0, w++);
+            var me = p + ":" + W;
+            !w[me] && // Avoid spamming the console because they are often not actionable except for lib authors
+            U < 3 && (i(
+              "You are manually calling a React.PropTypes validation function for the `" + R + "` prop on `" + p + "`. This is deprecated and will throw in the standalone `prop-types` package. You may be seeing this warning due to a third-party PropTypes library. See https://fb.me/react-warning-dont-call-proptypes for details."
+            ), w[me] = !0, U++);
           }
         }
-        return _[F] == null ? R ? _[F] === null ? new S("The " + D + " `" + k + "` is marked as required " + ("in `" + E + "`, but its value is `null`.")) : new S("The " + D + " `" + k + "` is marked as required in " + ("`" + E + "`, but its value is `undefined`.")) : null : s(_, F, E, D, k);
+        return D[W] == null ? G ? D[W] === null ? new E("The " + H + " `" + R + "` is marked as required " + ("in `" + p + "`, but its value is `null`.")) : new E("The " + H + " `" + R + "` is marked as required in " + ("`" + p + "`, but its value is `undefined`.")) : null : b(D, W, p, H, R);
       }
-      var m = x.bind(null, !1);
-      return m.isRequired = x.bind(null, !0), m;
+      var M = k.bind(null, !1);
+      return M.isRequired = k.bind(null, !0), M;
     }
-    function O(s) {
-      function p(w, x, m, R, _, F) {
-        var E = w[x], D = Q(E);
-        if (D !== s) {
-          var k = X(E);
-          return new S(
-            "Invalid " + R + " `" + _ + "` of type " + ("`" + k + "` supplied to `" + m + "`, expected ") + ("`" + s + "`."),
-            { expectedType: s }
+    function x(b) {
+      function w(U, k, M, G, D, W) {
+        var p = U[k], H = ce(p);
+        if (H !== b) {
+          var R = fe(p);
+          return new E(
+            "Invalid " + G + " `" + D + "` of type " + ("`" + R + "` supplied to `" + M + "`, expected ") + ("`" + b + "`."),
+            { expectedType: b }
           );
         }
         return null;
       }
-      return h(p);
+      return y(w);
+    }
+    function T() {
+      return y(o);
+    }
+    function j(b) {
+      function w(U, k, M, G, D) {
+        if (typeof b != "function")
+          return new E("Property `" + D + "` of component `" + M + "` has invalid PropType notation inside arrayOf.");
+        var W = U[k];
+        if (!Array.isArray(W)) {
+          var p = ce(W);
+          return new E("Invalid " + G + " `" + D + "` of type " + ("`" + p + "` supplied to `" + M + "`, expected an array."));
+        }
+        for (var H = 0; H < W.length; H++) {
+          var R = b(W, H, M, G, D + "[" + H + "]", n);
+          if (R instanceof Error)
+            return R;
+        }
+        return null;
+      }
+      return y(w);
     }
     function L() {
-      return h(o);
-    }
-    function A(s) {
-      function p(w, x, m, R, _) {
-        if (typeof s != "function")
-          return new S("Property `" + _ + "` of component `" + m + "` has invalid PropType notation inside arrayOf.");
-        var F = w[x];
-        if (!Array.isArray(F)) {
-          var E = Q(F);
-          return new S("Invalid " + R + " `" + _ + "` of type " + ("`" + E + "` supplied to `" + m + "`, expected an array."));
-        }
-        for (var D = 0; D < F.length; D++) {
-          var k = s(F, D, m, R, _ + "[" + D + "]", n);
-          if (k instanceof Error)
-            return k;
+      function b(w, U, k, M, G) {
+        var D = w[U];
+        if (!d(D)) {
+          var W = ce(D);
+          return new E("Invalid " + M + " `" + G + "` of type " + ("`" + W + "` supplied to `" + k + "`, expected a single ReactElement."));
         }
         return null;
       }
-      return h(p);
-    }
-    function M() {
-      function s(p, w, x, m, R) {
-        var _ = p[w];
-        if (!d(_)) {
-          var F = Q(_);
-          return new S("Invalid " + m + " `" + R + "` of type " + ("`" + F + "` supplied to `" + x + "`, expected a single ReactElement."));
-        }
-        return null;
-      }
-      return h(s);
+      return y(b);
     }
     function v() {
-      function s(p, w, x, m, R) {
-        var _ = p[w];
-        if (!e.isValidElementType(_)) {
-          var F = Q(_);
-          return new S("Invalid " + m + " `" + R + "` of type " + ("`" + F + "` supplied to `" + x + "`, expected a single ReactElement type."));
+      function b(w, U, k, M, G) {
+        var D = w[U];
+        if (!e.isValidElementType(D)) {
+          var W = ce(D);
+          return new E("Invalid " + M + " `" + G + "` of type " + ("`" + W + "` supplied to `" + k + "`, expected a single ReactElement type."));
         }
         return null;
       }
-      return h(s);
+      return y(b);
     }
-    function B(s) {
-      function p(w, x, m, R, _) {
-        if (!(w[x] instanceof s)) {
-          var F = s.name || g, E = oe(w[x]);
-          return new S("Invalid " + R + " `" + _ + "` of type " + ("`" + E + "` supplied to `" + m + "`, expected ") + ("instance of `" + F + "`."));
+    function V(b) {
+      function w(U, k, M, G, D) {
+        if (!(U[k] instanceof b)) {
+          var W = b.name || h, p = Ce(U[k]);
+          return new E("Invalid " + G + " `" + D + "` of type " + ("`" + p + "` supplied to `" + M + "`, expected ") + ("instance of `" + W + "`."));
         }
         return null;
       }
-      return h(p);
+      return y(w);
     }
-    function q(s) {
-      if (!Array.isArray(s))
+    function ee(b) {
+      if (!Array.isArray(b))
         return process.env.NODE_ENV !== "production" && (arguments.length > 1 ? i(
           "Invalid arguments supplied to oneOf, expected an array, got " + arguments.length + " arguments. A common mistake is to write oneOf(x, y, z) instead of oneOf([x, y, z])."
         ) : i("Invalid argument supplied to oneOf, expected an array.")), o;
-      function p(w, x, m, R, _) {
-        for (var F = w[x], E = 0; E < s.length; E++)
-          if (C(F, s[E]))
+      function w(U, k, M, G, D) {
+        for (var W = U[k], p = 0; p < b.length; p++)
+          if (P(W, b[p]))
             return null;
-        var D = JSON.stringify(s, function(ee, N) {
-          var de = X(N);
-          return de === "symbol" ? String(N) : N;
+        var H = JSON.stringify(b, function(ue, S) {
+          var me = fe(S);
+          return me === "symbol" ? String(S) : S;
         });
-        return new S("Invalid " + R + " `" + _ + "` of value `" + String(F) + "` " + ("supplied to `" + m + "`, expected one of " + D + "."));
+        return new E("Invalid " + G + " `" + D + "` of value `" + String(W) + "` " + ("supplied to `" + M + "`, expected one of " + H + "."));
       }
-      return h(p);
+      return y(w);
     }
-    function K(s) {
-      function p(w, x, m, R, _) {
-        if (typeof s != "function")
-          return new S("Property `" + _ + "` of component `" + m + "` has invalid PropType notation inside objectOf.");
-        var F = w[x], E = Q(F);
-        if (E !== "object")
-          return new S("Invalid " + R + " `" + _ + "` of type " + ("`" + E + "` supplied to `" + m + "`, expected an object."));
-        for (var D in F)
-          if (r(F, D)) {
-            var k = s(F, D, m, R, _ + "." + D, n);
-            if (k instanceof Error)
-              return k;
+    function te(b) {
+      function w(U, k, M, G, D) {
+        if (typeof b != "function")
+          return new E("Property `" + D + "` of component `" + M + "` has invalid PropType notation inside objectOf.");
+        var W = U[k], p = ce(W);
+        if (p !== "object")
+          return new E("Invalid " + G + " `" + D + "` of type " + ("`" + p + "` supplied to `" + M + "`, expected an object."));
+        for (var H in W)
+          if (r(W, H)) {
+            var R = b(W, H, M, G, D + "." + H, n);
+            if (R instanceof Error)
+              return R;
           }
         return null;
       }
-      return h(p);
+      return y(w);
     }
-    function z(s) {
-      if (!Array.isArray(s))
+    function ne(b) {
+      if (!Array.isArray(b))
         return process.env.NODE_ENV !== "production" && i("Invalid argument supplied to oneOfType, expected an instance of array."), o;
-      for (var p = 0; p < s.length; p++) {
-        var w = s[p];
-        if (typeof w != "function")
+      for (var w = 0; w < b.length; w++) {
+        var U = b[w];
+        if (typeof U != "function")
           return i(
-            "Invalid argument supplied to oneOfType. Expected an array of check functions, but received " + re(w) + " at index " + p + "."
+            "Invalid argument supplied to oneOfType. Expected an array of check functions, but received " + pe(U) + " at index " + w + "."
           ), o;
       }
-      function x(m, R, _, F, E) {
-        for (var D = [], k = 0; k < s.length; k++) {
-          var ee = s[k], N = ee(m, R, _, F, E, n);
-          if (N == null)
+      function k(M, G, D, W, p) {
+        for (var H = [], R = 0; R < b.length; R++) {
+          var ue = b[R], S = ue(M, G, D, W, p, n);
+          if (S == null)
             return null;
-          N.data && r(N.data, "expectedType") && D.push(N.data.expectedType);
+          S.data && r(S.data, "expectedType") && H.push(S.data.expectedType);
         }
-        var de = D.length > 0 ? ", expected one of type [" + D.join(", ") + "]" : "";
-        return new S("Invalid " + F + " `" + E + "` supplied to " + ("`" + _ + "`" + de + "."));
+        var me = H.length > 0 ? ", expected one of type [" + H.join(", ") + "]" : "";
+        return new E("Invalid " + W + " `" + p + "` supplied to " + ("`" + D + "`" + me + "."));
       }
-      return h(x);
+      return y(k);
     }
-    function Z() {
-      function s(p, w, x, m, R) {
-        return ne(p[w]) ? null : new S("Invalid " + m + " `" + R + "` supplied to " + ("`" + x + "`, expected a ReactNode."));
+    function $e() {
+      function b(w, U, k, M, G) {
+        return ae(w[U]) ? null : new E("Invalid " + M + " `" + G + "` supplied to " + ("`" + k + "`, expected a ReactNode."));
       }
-      return h(s);
+      return y(b);
     }
-    function V(s, p, w, x, m) {
-      return new S(
-        (s || "React class") + ": " + p + " type `" + w + "." + x + "` is invalid; it must be a function, usually from the `prop-types` package, but received `" + m + "`."
+    function ge(b, w, U, k, M) {
+      return new E(
+        (b || "React class") + ": " + w + " type `" + U + "." + k + "` is invalid; it must be a function, usually from the `prop-types` package, but received `" + M + "`."
       );
     }
-    function se(s) {
-      function p(w, x, m, R, _) {
-        var F = w[x], E = Q(F);
-        if (E !== "object")
-          return new S("Invalid " + R + " `" + _ + "` of type `" + E + "` " + ("supplied to `" + m + "`, expected `object`."));
-        for (var D in s) {
-          var k = s[D];
-          if (typeof k != "function")
-            return V(m, R, _, D, X(k));
-          var ee = k(F, D, m, R, _ + "." + D, n);
-          if (ee)
-            return ee;
+    function Ie(b) {
+      function w(U, k, M, G, D) {
+        var W = U[k], p = ce(W);
+        if (p !== "object")
+          return new E("Invalid " + G + " `" + D + "` of type `" + p + "` " + ("supplied to `" + M + "`, expected `object`."));
+        for (var H in b) {
+          var R = b[H];
+          if (typeof R != "function")
+            return ge(M, G, D, H, fe(R));
+          var ue = R(W, H, M, G, D + "." + H, n);
+          if (ue)
+            return ue;
         }
         return null;
       }
-      return h(p);
+      return y(w);
     }
-    function le(s) {
-      function p(w, x, m, R, _) {
-        var F = w[x], E = Q(F);
-        if (E !== "object")
-          return new S("Invalid " + R + " `" + _ + "` of type `" + E + "` " + ("supplied to `" + m + "`, expected `object`."));
-        var D = t({}, w[x], s);
-        for (var k in D) {
-          var ee = s[k];
-          if (r(s, k) && typeof ee != "function")
-            return V(m, R, _, k, X(ee));
-          if (!ee)
-            return new S(
-              "Invalid " + R + " `" + _ + "` key `" + k + "` supplied to `" + m + "`.\nBad object: " + JSON.stringify(w[x], null, "  ") + `
-Valid keys: ` + JSON.stringify(Object.keys(s), null, "  ")
+    function re(b) {
+      function w(U, k, M, G, D) {
+        var W = U[k], p = ce(W);
+        if (p !== "object")
+          return new E("Invalid " + G + " `" + D + "` of type `" + p + "` " + ("supplied to `" + M + "`, expected `object`."));
+        var H = t({}, U[k], b);
+        for (var R in H) {
+          var ue = b[R];
+          if (r(b, R) && typeof ue != "function")
+            return ge(M, G, D, R, fe(ue));
+          if (!ue)
+            return new E(
+              "Invalid " + G + " `" + D + "` key `" + R + "` supplied to `" + M + "`.\nBad object: " + JSON.stringify(U[k], null, "  ") + `
+Valid keys: ` + JSON.stringify(Object.keys(b), null, "  ")
             );
-          var N = ee(F, k, m, R, _ + "." + k, n);
-          if (N)
-            return N;
+          var S = ue(W, R, M, G, D + "." + R, n);
+          if (S)
+            return S;
         }
         return null;
       }
-      return h(p);
+      return y(w);
     }
-    function ne(s) {
-      switch (typeof s) {
+    function ae(b) {
+      switch (typeof b) {
         case "number":
         case "string":
         case "undefined":
           return !0;
         case "boolean":
-          return !s;
+          return !b;
         case "object":
-          if (Array.isArray(s))
-            return s.every(ne);
-          if (s === null || d(s))
+          if (Array.isArray(b))
+            return b.every(ae);
+          if (b === null || d(b))
             return !0;
-          var p = $(s);
-          if (p) {
-            var w = p.call(s), x;
-            if (p !== s.entries) {
-              for (; !(x = w.next()).done; )
-                if (!ne(x.value))
+          var w = $(b);
+          if (w) {
+            var U = w.call(b), k;
+            if (w !== b.entries) {
+              for (; !(k = U.next()).done; )
+                if (!ae(k.value))
                   return !1;
             } else
-              for (; !(x = w.next()).done; ) {
-                var m = x.value;
-                if (m && !ne(m[1]))
+              for (; !(k = U.next()).done; ) {
+                var M = k.value;
+                if (M && !ae(M[1]))
                   return !1;
               }
           } else
@@ -1398,62 +1755,62 @@ Valid keys: ` + JSON.stringify(Object.keys(s), null, "  ")
           return !1;
       }
     }
-    function ie(s, p) {
-      return s === "symbol" ? !0 : p ? p["@@toStringTag"] === "Symbol" || typeof Symbol == "function" && p instanceof Symbol : !1;
+    function ie(b, w) {
+      return b === "symbol" ? !0 : w ? w["@@toStringTag"] === "Symbol" || typeof Symbol == "function" && w instanceof Symbol : !1;
     }
-    function Q(s) {
-      var p = typeof s;
-      return Array.isArray(s) ? "array" : s instanceof RegExp ? "object" : ie(p, s) ? "symbol" : p;
+    function ce(b) {
+      var w = typeof b;
+      return Array.isArray(b) ? "array" : b instanceof RegExp ? "object" : ie(w, b) ? "symbol" : w;
     }
-    function X(s) {
-      if (typeof s > "u" || s === null)
-        return "" + s;
-      var p = Q(s);
-      if (p === "object") {
-        if (s instanceof Date)
+    function fe(b) {
+      if (typeof b > "u" || b === null)
+        return "" + b;
+      var w = ce(b);
+      if (w === "object") {
+        if (b instanceof Date)
           return "date";
-        if (s instanceof RegExp)
+        if (b instanceof RegExp)
           return "regexp";
       }
-      return p;
+      return w;
     }
-    function re(s) {
-      var p = X(s);
-      switch (p) {
+    function pe(b) {
+      var w = fe(b);
+      switch (w) {
         case "array":
         case "object":
-          return "an " + p;
+          return "an " + w;
         case "boolean":
         case "date":
         case "regexp":
-          return "a " + p;
+          return "a " + w;
         default:
-          return p;
+          return w;
       }
     }
-    function oe(s) {
-      return !s.constructor || !s.constructor.name ? g : s.constructor.name;
+    function Ce(b) {
+      return !b.constructor || !b.constructor.name ? h : b.constructor.name;
     }
-    return y.checkPropTypes = a, y.resetWarningCache = a.resetWarningCache, y.PropTypes = y, y;
-  }, xt;
+    return m.checkPropTypes = a, m.resetWarningCache = a.resetWarningCache, m.PropTypes = m, m;
+  }, an;
 }
-var Et, Tn;
-function Si() {
-  if (Tn)
-    return Et;
-  Tn = 1;
-  var e = Qt();
+var on, dr;
+function ao() {
+  if (dr)
+    return on;
+  dr = 1;
+  var e = Tn();
   function t() {
   }
   function n() {
   }
-  return n.resetWarningCache = t, Et = function() {
-    function r(o, d, u, c, f, $) {
+  return n.resetWarningCache = t, on = function() {
+    function r(o, d, s, l, f, $) {
       if ($ !== e) {
-        var g = new Error(
+        var h = new Error(
           "Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types"
         );
-        throw g.name = "Invariant Violation", g;
+        throw h.name = "Invariant Violation", h;
       }
     }
     r.isRequired = r;
@@ -1484,16 +1841,16 @@ function Si() {
       resetWarningCache: t
     };
     return i.PropTypes = i, i;
-  }, Et;
+  }, on;
 }
 if (process.env.NODE_ENV !== "production") {
-  var Oi = Xr(), wi = !0;
-  Ft.exports = Ni()(Oi.isElement, wi);
+  var io = wa(), oo = !0;
+  $n.exports = ro()(io.isElement, oo);
 } else
-  Ft.exports = Si()();
-var xi = Ft.exports;
-const b = /* @__PURE__ */ Kr(xi);
-var Jr = { exports: {} };
+  $n.exports = ao()();
+var uo = $n.exports;
+const C = /* @__PURE__ */ Pa(uo);
+var Ea = { exports: {} };
 /*!
 	Copyright (c) 2018 Jed Watson.
 	Licensed under the MIT License (MIT), see
@@ -1528,10 +1885,10 @@ var Jr = { exports: {} };
     }
     e.exports ? (n.default = n, e.exports = n) : window.classNames = n;
   })();
-})(Jr);
-var Ei = Jr.exports;
-const dt = /* @__PURE__ */ Kr(Ei);
-function Ii(e, t, n) {
+})(Ea);
+var so = Ea.exports;
+const Lt = /* @__PURE__ */ Pa(so);
+function lo(e, t, n) {
   switch (n) {
     case "Backspace":
       t > 0 && (e = e.slice(0, t - 1) + e.slice(t), t--);
@@ -1545,23 +1902,23 @@ function Ii(e, t, n) {
     caret: t
   };
 }
-function _i(e, t, n) {
+function co(e, t, n) {
   for (var r = {}, a = "", i = 0, o = 0; o < e.length; ) {
     var d = n(e[o], a, r);
     d !== void 0 && (a += d, t !== void 0 && (t === o ? i = a.length - 1 : t > o && (i = a.length))), o++;
   }
   t === void 0 && (i = a.length);
-  var u = {
+  var s = {
     value: a,
     caret: i
   };
-  return u;
+  return s;
 }
-function Ti(e, t) {
+function fo(e, t) {
   var n = typeof Symbol < "u" && e[Symbol.iterator] || e["@@iterator"];
   if (n)
     return (n = n.call(e)).next.bind(n);
-  if (Array.isArray(e) || (n = Ai(e)) || t && e && typeof e.length == "number") {
+  if (Array.isArray(e) || (n = $o(e)) || t && e && typeof e.length == "number") {
     n && (e = n);
     var r = 0;
     return function() {
@@ -1571,40 +1928,40 @@ function Ti(e, t) {
   throw new TypeError(`Invalid attempt to iterate non-iterable instance.
 In order to be iterable, non-array objects must have a [Symbol.iterator]() method.`);
 }
-function Ai(e, t) {
+function $o(e, t) {
   if (e) {
     if (typeof e == "string")
-      return An(e, t);
+      return ur(e, t);
     var n = Object.prototype.toString.call(e).slice(8, -1);
     if (n === "Object" && e.constructor && (n = e.constructor.name), n === "Map" || n === "Set")
       return Array.from(e);
     if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return An(e, t);
+      return ur(e, t);
   }
 }
-function An(e, t) {
+function ur(e, t) {
   (t == null || t > e.length) && (t = e.length);
   for (var n = 0, r = new Array(t); n < t; n++)
     r[n] = e[n];
   return r;
 }
-function Mt(e, t) {
-  for (var n = 0, r = Ti(t.split("")), a; !(a = r()).done; ) {
+function pn(e, t) {
+  for (var n = 0, r = fo(t.split("")), a; !(a = r()).done; ) {
     var i = a.value;
     i === e && n++;
   }
   return n;
 }
-function ji(e, t) {
-  for (var n = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : "x", r = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : " ", a = e.length, i = Mt("(", e), o = Mt(")", e), d = i - o; d > 0 && a < t.length; )
+function po(e, t) {
+  for (var n = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : "x", r = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : " ", a = e.length, i = pn("(", e), o = pn(")", e), d = i - o; d > 0 && a < t.length; )
     e += t[a].replace(n, r), t[a] === ")" && d--, a++;
   return e;
 }
-function Ri(e, t) {
+function mo(e, t) {
   var n = typeof Symbol < "u" && e[Symbol.iterator] || e["@@iterator"];
   if (n)
     return (n = n.call(e)).next.bind(n);
-  if (Array.isArray(e) || (n = Fi(e)) || t && e && typeof e.length == "number") {
+  if (Array.isArray(e) || (n = yo(e)) || t && e && typeof e.length == "number") {
     n && (e = n);
     var r = 0;
     return function() {
@@ -1614,24 +1971,24 @@ function Ri(e, t) {
   throw new TypeError(`Invalid attempt to iterate non-iterable instance.
 In order to be iterable, non-array objects must have a [Symbol.iterator]() method.`);
 }
-function Fi(e, t) {
+function yo(e, t) {
   if (e) {
     if (typeof e == "string")
-      return jn(e, t);
+      return sr(e, t);
     var n = Object.prototype.toString.call(e).slice(8, -1);
     if (n === "Object" && e.constructor && (n = e.constructor.name), n === "Map" || n === "Set")
       return Array.from(e);
     if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return jn(e, t);
+      return sr(e, t);
   }
 }
-function jn(e, t) {
+function sr(e, t) {
   (t == null || t > e.length) && (t = e.length);
   for (var n = 0, r = new Array(t); n < t; n++)
     r[n] = e[n];
   return r;
 }
-function Mi(e) {
+function ho(e) {
   var t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "x", n = arguments.length > 2 ? arguments[2] : void 0;
   if (!e)
     return function(a) {
@@ -1639,117 +1996,117 @@ function Mi(e) {
         text: a
       };
     };
-  var r = Mt(t, e);
+  var r = pn(t, e);
   return function(a) {
     if (!a)
       return {
         text: "",
         template: e
       };
-    for (var i = 0, o = "", d = Ri(e.split("")), u; !(u = d()).done; ) {
-      var c = u.value;
-      if (c !== t) {
-        o += c;
+    for (var i = 0, o = "", d = mo(e.split("")), s; !(s = d()).done; ) {
+      var l = s.value;
+      if (l !== t) {
+        o += l;
         continue;
       }
       if (o += a[i], i++, i === a.length && a.length < r)
         break;
     }
-    return n && (o = ji(o, e)), {
+    return n && (o = po(o, e)), {
       text: o,
       template: e
     };
   };
 }
-function ki(e, t, n) {
-  typeof n == "string" && (n = Mi(n));
+function go(e, t, n) {
+  typeof n == "string" && (n = ho(n));
   var r = n(e) || {}, a = r.text, i = r.template;
   if (a === void 0 && (a = e), i)
     if (t === void 0)
       t = a.length;
     else {
-      for (var o = 0, d = !1, u = -1; o < a.length && o < i.length; ) {
+      for (var o = 0, d = !1, s = -1; o < a.length && o < i.length; ) {
         if (a[o] !== i[o]) {
           if (t === 0) {
             d = !0, t = o;
             break;
           }
-          u = o, t--;
+          s = o, t--;
         }
         o++;
       }
-      d || (t = u + 1);
+      d || (t = s + 1);
     }
   return {
     text: a,
     caret: t
   };
 }
-function Di(e) {
+function vo(e) {
   return e.hasAttribute("readonly");
 }
-function Li(e) {
+function bo(e) {
   if (e.selectionStart !== e.selectionEnd)
     return {
       start: e.selectionStart,
       end: e.selectionEnd
     };
 }
-var Rn = {
+var lr = {
   Backspace: 8,
   Delete: 46
 };
-function Bi(e) {
+function Co(e) {
   switch (e.keyCode) {
-    case Rn.Backspace:
+    case lr.Backspace:
       return "Backspace";
-    case Rn.Delete:
+    case lr.Delete:
       return "Delete";
   }
 }
-function Ui(e) {
+function Po(e) {
   return e.selectionStart;
 }
-function Qr(e, t) {
-  t !== void 0 && (Gi() ? setTimeout(function() {
+function _a(e, t) {
+  t !== void 0 && (No() ? setTimeout(function() {
     return e.setSelectionRange(t, t);
   }, 0) : e.setSelectionRange(t, t));
 }
-function Gi() {
+function No() {
   if (typeof navigator < "u")
-    return Wi.test(navigator.userAgent);
+    return So.test(navigator.userAgent);
 }
-var Wi = /Android/i;
-function Hi(e, t, n, r, a) {
-  kt(t, n, r, void 0, a);
+var So = /Android/i;
+function Oo(e, t, n, r, a) {
+  mn(t, n, r, void 0, a);
 }
-function Vi(e, t, n, r, a) {
-  if (!Di(t)) {
-    var i = Bi(e);
+function wo(e, t, n, r, a) {
+  if (!vo(t)) {
+    var i = Co(e);
     switch (i) {
       case "Delete":
       case "Backspace":
         e.preventDefault();
-        var o = Li(t);
-        return o ? (Ki(t, o), kt(t, n, r, void 0, a)) : kt(t, n, r, i, a);
+        var o = bo(t);
+        return o ? (xo(t, o), mn(t, n, r, void 0, a)) : mn(t, n, r, i, a);
     }
   }
 }
-function Ki(e, t) {
+function xo(e, t) {
   var n = e.value;
-  n = n.slice(0, t.start) + n.slice(t.end), e.value = n, Qr(e, t.start);
+  n = n.slice(0, t.start) + n.slice(t.end), e.value = n, _a(e, t.start);
 }
-function kt(e, t, n, r, a) {
-  var i = _i(e.value, Ui(e), t), o = i.value, d = i.caret;
+function mn(e, t, n, r, a) {
+  var i = co(e.value, Po(e), t), o = i.value, d = i.caret;
   if (r) {
-    var u = Ii(o, d, r);
-    o = u.value, d = u.caret;
+    var s = lo(o, d, r);
+    o = s.value, d = s.caret;
   }
-  var c = ki(o, d, n), f = c.text;
-  d = c.caret, e.value = f, Qr(e, d), a && a(o);
+  var l = go(o, d, n), f = l.text;
+  d = l.caret, e.value = f, _a(e, d), a && a(o);
 }
-var zi = ["ref", "parse", "format", "value", "defaultValue", "controlled", "onChange", "onKeyDown"];
-function Fn(e, t) {
+var Eo = ["ref", "parse", "format", "value", "defaultValue", "controlled", "onChange", "onKeyDown"];
+function cr(e, t) {
   var n = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var r = Object.getOwnPropertySymbols(e);
@@ -1759,24 +2116,24 @@ function Fn(e, t) {
   }
   return n;
 }
-function Oe(e) {
+function Xe(e) {
   for (var t = 1; t < arguments.length; t++) {
     var n = arguments[t] != null ? arguments[t] : {};
-    t % 2 ? Fn(Object(n), !0).forEach(function(r) {
-      Yi(e, r, n[r]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n)) : Fn(Object(n)).forEach(function(r) {
+    t % 2 ? cr(Object(n), !0).forEach(function(r) {
+      _o(e, r, n[r]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n)) : cr(Object(n)).forEach(function(r) {
       Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(n, r));
     });
   }
   return e;
 }
-function Yi(e, t, n) {
+function _o(e, t, n) {
   return t in e ? Object.defineProperty(e, t, { value: n, enumerable: !0, configurable: !0, writable: !0 }) : e[t] = n, e;
 }
-function qi(e, t) {
+function Io(e, t) {
   if (e == null)
     return {};
-  var n = Xi(e, t), r, a;
+  var n = To(e, t), r, a;
   if (Object.getOwnPropertySymbols) {
     var i = Object.getOwnPropertySymbols(e);
     for (a = 0; a < i.length; a++)
@@ -1784,7 +2141,7 @@ function qi(e, t) {
   }
   return n;
 }
-function Xi(e, t) {
+function To(e, t) {
   if (e == null)
     return {};
   var n = {}, r = Object.keys(e), a, i;
@@ -1792,30 +2149,30 @@ function Xi(e, t) {
     a = r[i], !(t.indexOf(a) >= 0) && (n[a] = e[a]);
   return n;
 }
-function Zi(e) {
-  var t = e.ref, n = e.parse, r = e.format, a = e.value, i = e.defaultValue, o = e.controlled, d = o === void 0 ? !0 : o, u = e.onChange, c = e.onKeyDown, f = qi(e, zi), $ = Pe(), g = ue(function(h) {
-    $.current = h, t && (typeof t == "function" ? t(h) : t.current = h);
-  }, [t]), y = ue(function(h) {
-    return Hi(h, $.current, n, r, u);
-  }, [$, n, r, u]), C = ue(function(h) {
-    if (c && c(h), !h.defaultPrevented)
-      return Vi(h, $.current, n, r, u);
-  }, [$, n, r, u, c]), S = Oe(Oe({}, f), {}, {
-    ref: g,
-    onChange: y,
-    onKeyDown: C
+function Ao(e) {
+  var t = e.ref, n = e.parse, r = e.format, a = e.value, i = e.defaultValue, o = e.controlled, d = o === void 0 ? !0 : o, s = e.onChange, l = e.onKeyDown, f = Io(e, Eo), $ = Ke(), h = be(function(y) {
+    $.current = y, t && (typeof t == "function" ? t(y) : t.current = y);
+  }, [t]), m = be(function(y) {
+    return Oo(y, $.current, n, r, s);
+  }, [$, n, r, s]), P = be(function(y) {
+    if (l && l(y), !y.defaultPrevented)
+      return wo(y, $.current, n, r, s);
+  }, [$, n, r, s, l]), E = Xe(Xe({}, f), {}, {
+    ref: h,
+    onChange: m,
+    onKeyDown: P
   });
-  return d ? Oe(Oe({}, S), {}, {
-    value: r(Mn(a) ? "" : a).text
-  }) : Oe(Oe({}, S), {}, {
-    defaultValue: r(Mn(i) ? "" : i).text
+  return d ? Xe(Xe({}, E), {}, {
+    value: r(fr(a) ? "" : a).text
+  }) : Xe(Xe({}, E), {}, {
+    defaultValue: r(fr(i) ? "" : i).text
   });
 }
-function Mn(e) {
+function fr(e) {
   return e == null;
 }
-var Ji = ["inputComponent", "parse", "format", "value", "defaultValue", "onChange", "controlled", "onKeyDown", "type"];
-function kn(e, t) {
+var Ro = ["inputComponent", "parse", "format", "value", "defaultValue", "onChange", "controlled", "onKeyDown", "type"];
+function $r(e, t) {
   var n = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var r = Object.getOwnPropertySymbols(e);
@@ -1825,24 +2182,24 @@ function kn(e, t) {
   }
   return n;
 }
-function Qi(e) {
+function jo(e) {
   for (var t = 1; t < arguments.length; t++) {
     var n = arguments[t] != null ? arguments[t] : {};
-    t % 2 ? kn(Object(n), !0).forEach(function(r) {
-      eo(e, r, n[r]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n)) : kn(Object(n)).forEach(function(r) {
+    t % 2 ? $r(Object(n), !0).forEach(function(r) {
+      Fo(e, r, n[r]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n)) : $r(Object(n)).forEach(function(r) {
       Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(n, r));
     });
   }
   return e;
 }
-function eo(e, t, n) {
+function Fo(e, t, n) {
   return t in e ? Object.defineProperty(e, t, { value: n, enumerable: !0, configurable: !0, writable: !0 }) : e[t] = n, e;
 }
-function to(e, t) {
+function Mo(e, t) {
   if (e == null)
     return {};
-  var n = no(e, t), r, a;
+  var n = Do(e, t), r, a;
   if (Object.getOwnPropertySymbols) {
     var i = Object.getOwnPropertySymbols(e);
     for (a = 0; a < i.length; a++)
@@ -1850,7 +2207,7 @@ function to(e, t) {
   }
   return n;
 }
-function no(e, t) {
+function Do(e, t) {
   if (e == null)
     return {};
   var n = {}, r = Object.keys(e), a, i;
@@ -1858,46 +2215,46 @@ function no(e, t) {
     a = r[i], !(t.indexOf(a) >= 0) && (n[a] = e[a]);
   return n;
 }
-function ut(e, t) {
-  var n = e.inputComponent, r = n === void 0 ? "input" : n, a = e.parse, i = e.format, o = e.value, d = e.defaultValue, u = e.onChange, c = e.controlled, f = e.onKeyDown, $ = e.type, g = $ === void 0 ? "text" : $, y = to(e, Ji), C = Zi(Qi({
+function Bt(e, t) {
+  var n = e.inputComponent, r = n === void 0 ? "input" : n, a = e.parse, i = e.format, o = e.value, d = e.defaultValue, s = e.onChange, l = e.controlled, f = e.onKeyDown, $ = e.type, h = $ === void 0 ? "text" : $, m = Mo(e, Ro), P = Ao(jo({
     ref: t,
     parse: a,
     format: i,
     value: o,
     defaultValue: d,
-    onChange: u,
-    controlled: c,
+    onChange: s,
+    controlled: l,
     onKeyDown: f,
-    type: g
-  }, y));
-  return /* @__PURE__ */ I.createElement(r, C);
+    type: h
+  }, m));
+  return /* @__PURE__ */ A.createElement(r, P);
 }
-ut = /* @__PURE__ */ I.forwardRef(ut);
-ut.propTypes = {
+Bt = /* @__PURE__ */ A.forwardRef(Bt);
+Bt.propTypes = {
   // Parses a single characher of `<input/>` text.
-  parse: b.func.isRequired,
+  parse: C.func.isRequired,
   // Formats `value` into `<input/>` text.
-  format: b.func.isRequired,
+  format: C.func.isRequired,
   // Renders `<input/>` by default.
-  inputComponent: b.elementType,
+  inputComponent: C.elementType,
   // `<input/>` `type` attribute.
-  type: b.string,
+  type: C.string,
   // Is parsed from <input/> text.
-  value: b.string,
+  value: C.string,
   // An initial value for an "uncontrolled" <input/>.
-  defaultValue: b.string,
+  defaultValue: C.string,
   // This handler is called each time `<input/>` text is changed.
-  onChange: b.func,
+  onChange: C.func,
   // Whether this input should be "controlled" or "uncontrolled".
   // The default value is `true` meaning "uncontrolled".
-  controlled: b.bool,
+  controlled: C.bool,
   // Passthrough
-  onKeyDown: b.func,
-  onCut: b.func,
-  onPaste: b.func
+  onKeyDown: C.func,
+  onCut: C.func,
+  onPaste: C.func
 };
-const ro = ut;
-function Dn(e, t) {
+const ko = Bt;
+function pr(e, t) {
   e = e.split("-"), t = t.split("-");
   for (var n = e[0].split("."), r = t[0].split("."), a = 0; a < 3; a++) {
     var i = Number(n[a]), o = Number(r[a]);
@@ -1912,52 +2269,52 @@ function Dn(e, t) {
   }
   return e[1] && t[1] ? e[1] > t[1] ? 1 : e[1] < t[1] ? -1 : 0 : !e[1] && t[1] ? 1 : e[1] && !t[1] ? -1 : 0;
 }
-var ao = {}.constructor;
-function Ne(e) {
-  return e != null && e.constructor === ao;
+var Lo = {}.constructor;
+function He(e) {
+  return e != null && e.constructor === Lo;
 }
-function _e(e) {
+function nt(e) {
   "@babel/helpers - typeof";
-  return _e = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(t) {
+  return nt = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(t) {
     return typeof t;
   } : function(t) {
     return t && typeof Symbol == "function" && t.constructor === Symbol && t !== Symbol.prototype ? "symbol" : typeof t;
-  }, _e(e);
+  }, nt(e);
 }
-function mt(e, t) {
+function Ht(e, t) {
   if (!(e instanceof t))
     throw new TypeError("Cannot call a class as a function");
 }
-function Ln(e, t) {
+function mr(e, t) {
   for (var n = 0; n < t.length; n++) {
     var r = t[n];
-    r.enumerable = r.enumerable || !1, r.configurable = !0, "value" in r && (r.writable = !0), Object.defineProperty(e, io(r.key), r);
+    r.enumerable = r.enumerable || !1, r.configurable = !0, "value" in r && (r.writable = !0), Object.defineProperty(e, Bo(r.key), r);
   }
 }
-function pt(e, t, n) {
-  return t && Ln(e.prototype, t), n && Ln(e, n), Object.defineProperty(e, "prototype", { writable: !1 }), e;
+function Yt(e, t, n) {
+  return t && mr(e.prototype, t), n && mr(e, n), Object.defineProperty(e, "prototype", { writable: !1 }), e;
 }
-function io(e) {
-  var t = oo(e, "string");
-  return _e(t) == "symbol" ? t : t + "";
+function Bo(e) {
+  var t = Uo(e, "string");
+  return nt(t) == "symbol" ? t : t + "";
 }
-function oo(e, t) {
-  if (_e(e) != "object" || !e)
+function Uo(e, t) {
+  if (nt(e) != "object" || !e)
     return e;
   var n = e[Symbol.toPrimitive];
   if (n !== void 0) {
     var r = n.call(e, t || "default");
-    if (_e(r) != "object")
+    if (nt(r) != "object")
       return r;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return (t === "string" ? String : Number)(e);
 }
-var uo = "1.2.0", so = "1.7.35", Bn = " ext. ", lo = /^\d+$/, J = /* @__PURE__ */ function() {
+var Go = "1.2.0", Wo = "1.7.35", yr = " ext. ", Vo = /^\d+$/, le = /* @__PURE__ */ function() {
   function e(t) {
-    mt(this, e), ea(t), this.metadata = t, na.call(this, t);
+    Ht(this, e), Ia(t), this.metadata = t, Aa.call(this, t);
   }
-  return pt(e, [{
+  return Yt(e, [{
     key: "getCountries",
     value: function() {
       return Object.keys(this.metadata.countries).filter(function(n) {
@@ -2008,14 +2365,14 @@ var uo = "1.2.0", so = "1.7.35", Bn = " ext. ", lo = /^\d+$/, J = /* @__PURE__ *
   }, {
     key: "selectNumberingPlan",
     value: function(n, r) {
-      if (n && lo.test(n) && (r = n, n = null), n && n !== "001") {
+      if (n && Vo.test(n) && (r = n, n = null), n && n !== "001") {
         if (!this.hasCountry(n))
           throw new Error("Unknown country: ".concat(n));
-        this.numberingPlan = new Un(this.getCountryMetadata(n), this);
+        this.numberingPlan = new hr(this.getCountryMetadata(n), this);
       } else if (r) {
         if (!this.hasCallingCode(r))
           throw new Error("Unknown calling code: ".concat(r));
-        this.numberingPlan = new Un(this.getNumberingPlanMetadata(r), this);
+        this.numberingPlan = new hr(this.getNumberingPlanMetadata(r), this);
       } else
         this.numberingPlan = void 0;
       return this;
@@ -2139,11 +2496,11 @@ var uo = "1.2.0", so = "1.7.35", Bn = " ext. ", lo = /^\d+$/, J = /* @__PURE__ *
       return this.numberingPlan !== void 0;
     }
   }]);
-}(), Un = /* @__PURE__ */ function() {
+}(), hr = /* @__PURE__ */ function() {
   function e(t, n) {
-    mt(this, e), this.globalMetadataObject = n, this.metadata = t, na.call(this, n.metadata);
+    Ht(this, e), this.globalMetadataObject = n, this.metadata = t, Aa.call(this, n.metadata);
   }
-  return pt(e, [{
+  return Yt(e, [{
     key: "callingCode",
     value: function() {
       return this.metadata[0];
@@ -2198,7 +2555,7 @@ var uo = "1.2.0", so = "1.7.35", Bn = " ext. ", lo = /^\d+$/, J = /* @__PURE__ *
     value: function() {
       var n = this, r = this._getFormats(this.metadata) || this._getFormats(this.getDefaultCountryMetadataForRegion()) || [];
       return r.map(function(a) {
-        return new co(a, n);
+        return new Ko(a, n);
       });
     }
   }, {
@@ -2266,20 +2623,20 @@ var uo = "1.2.0", so = "1.7.35", Bn = " ext. ", lo = /^\d+$/, J = /* @__PURE__ *
   }, {
     key: "type",
     value: function(n) {
-      if (this.hasTypes() && Gn(this.types(), n))
-        return new $o(Gn(this.types(), n), this);
+      if (this.hasTypes() && gr(this.types(), n))
+        return new Yo(gr(this.types(), n), this);
     }
   }, {
     key: "ext",
     value: function() {
-      return this.v1 || this.v2 ? Bn : this.metadata[13] || Bn;
+      return this.v1 || this.v2 ? yr : this.metadata[13] || yr;
     }
   }]);
-}(), co = /* @__PURE__ */ function() {
+}(), Ko = /* @__PURE__ */ function() {
   function e(t, n) {
-    mt(this, e), this._format = t, this.metadata = n;
+    Ht(this, e), this._format = t, this.metadata = n;
   }
-  return pt(e, [{
+  return Yt(e, [{
     key: "pattern",
     value: function() {
       return this._format[0];
@@ -2314,7 +2671,7 @@ var uo = "1.2.0", so = "1.7.35", Bn = " ext. ", lo = /^\d+$/, J = /* @__PURE__ *
     key: "usesNationalPrefix",
     value: function() {
       return !!(this.nationalPrefixFormattingRule() && // Check that national prefix formatting rule is not a "dummy" one.
-      !fo.test(this.nationalPrefixFormattingRule()));
+      !Ho.test(this.nationalPrefixFormattingRule()));
     }
   }, {
     key: "internationalFormat",
@@ -2322,11 +2679,11 @@ var uo = "1.2.0", so = "1.7.35", Bn = " ext. ", lo = /^\d+$/, J = /* @__PURE__ *
       return this._format[5] || this.format();
     }
   }]);
-}(), fo = /^\(?\$1\)?$/, $o = /* @__PURE__ */ function() {
+}(), Ho = /^\(?\$1\)?$/, Yo = /* @__PURE__ */ function() {
   function e(t, n) {
-    mt(this, e), this.type = t, this.metadata = n;
+    Ht(this, e), this.type = t, this.metadata = n;
   }
-  return pt(e, [{
+  return Yt(e, [{
     key: "pattern",
     value: function() {
       return this.metadata.v1 ? this.type : this.type[0];
@@ -2339,7 +2696,7 @@ var uo = "1.2.0", so = "1.7.35", Bn = " ext. ", lo = /^\d+$/, J = /* @__PURE__ *
     }
   }]);
 }();
-function Gn(e, t) {
+function gr(e, t) {
   switch (t) {
     case "FIXED_LINE":
       return e[0];
@@ -2363,32 +2720,32 @@ function Gn(e, t) {
       return e[9];
   }
 }
-function ea(e) {
+function Ia(e) {
   if (!e)
     throw new Error("[libphonenumber-js] `metadata` argument not passed. Check your arguments.");
-  if (!Ne(e) || !Ne(e.countries))
-    throw new Error("[libphonenumber-js] `metadata` argument was passed but it's not a valid metadata. Must be an object having `.countries` child object property. Got ".concat(Ne(e) ? "an object of shape: { " + Object.keys(e).join(", ") + " }" : "a " + mo(e) + ": " + e, "."));
+  if (!He(e) || !He(e.countries))
+    throw new Error("[libphonenumber-js] `metadata` argument was passed but it's not a valid metadata. Must be an object having `.countries` child object property. Got ".concat(He(e) ? "an object of shape: { " + Object.keys(e).join(", ") + " }" : "a " + zo(e) + ": " + e, "."));
 }
-var mo = function(t) {
-  return _e(t);
+var zo = function(t) {
+  return nt(t);
 };
-function be(e, t) {
-  if (t = new J(t), t.hasCountry(e))
+function Ue(e, t) {
+  if (t = new le(t), t.hasCountry(e))
     return t.selectNumberingPlan(e).countryCallingCode();
   throw new Error("Unknown country: ".concat(e));
 }
-function ta(e, t) {
+function Ta(e, t) {
   return t.countries.hasOwnProperty(e);
 }
-function na(e) {
+function Aa(e) {
   var t = e.version;
-  typeof t == "number" ? (this.v1 = t === 1, this.v2 = t === 2, this.v3 = t === 3, this.v4 = t === 4) : t ? Dn(t, uo) === -1 ? this.v2 = !0 : Dn(t, so) === -1 ? this.v3 = !0 : this.v4 = !0 : this.v1 = !0;
+  typeof t == "number" ? (this.v1 = t === 1, this.v2 = t === 2, this.v3 = t === 3, this.v4 = t === 4) : t ? pr(t, Go) === -1 ? this.v2 = !0 : pr(t, Wo) === -1 ? this.v3 = !0 : this.v4 = !0 : this.v1 = !0;
 }
-function po(e, t) {
+function qo(e, t) {
   var n = typeof Symbol < "u" && e[Symbol.iterator] || e["@@iterator"];
   if (n)
     return (n = n.call(e)).next.bind(n);
-  if (Array.isArray(e) || (n = yo(e)) || t && e && typeof e.length == "number") {
+  if (Array.isArray(e) || (n = Xo(e)) || t && e && typeof e.length == "number") {
     n && (e = n);
     var r = 0;
     return function() {
@@ -2398,22 +2755,22 @@ function po(e, t) {
   throw new TypeError(`Invalid attempt to iterate non-iterable instance.
 In order to be iterable, non-array objects must have a [Symbol.iterator]() method.`);
 }
-function yo(e, t) {
+function Xo(e, t) {
   if (e) {
     if (typeof e == "string")
-      return Wn(e, t);
+      return vr(e, t);
     var n = {}.toString.call(e).slice(8, -1);
-    return n === "Object" && e.constructor && (n = e.constructor.name), n === "Map" || n === "Set" ? Array.from(e) : n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? Wn(e, t) : void 0;
+    return n === "Object" && e.constructor && (n = e.constructor.name), n === "Map" || n === "Set" ? Array.from(e) : n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? vr(e, t) : void 0;
   }
 }
-function Wn(e, t) {
+function vr(e, t) {
   (t == null || t > e.length) && (t = e.length);
   for (var n = 0, r = Array(t); n < t; n++)
     r[n] = e[n];
   return r;
 }
-function ho(e, t) {
-  for (var n = e.slice(), r = po(t), a; !(a = r()).done; ) {
+function Zo(e, t) {
+  for (var n = e.slice(), r = qo(t), a; !(a = r()).done; ) {
     var i = a.value;
     e.indexOf(i) < 0 && n.push(i);
   }
@@ -2421,26 +2778,26 @@ function ho(e, t) {
     return o - d;
   });
 }
-function yt(e, t, n) {
-  return ra(e, t, void 0, n);
+function zt(e, t, n) {
+  return Ra(e, t, void 0, n);
 }
-function ra(e, t, n, r) {
-  t && (r = new J(r.metadata), r.selectNumberingPlan(t));
+function Ra(e, t, n, r) {
+  t && (r = new le(r.metadata), r.selectNumberingPlan(t));
   var a = r.type(n), i = a && a.possibleLengths() || r.possibleLengths();
   if (!i)
     return "IS_POSSIBLE";
   if (n === "FIXED_LINE_OR_MOBILE") {
     if (!r.type("FIXED_LINE"))
-      return ra(e, t, "MOBILE", r);
+      return Ra(e, t, "MOBILE", r);
     var o = r.type("MOBILE");
-    o && (i = ho(i, o.possibleLengths()));
+    o && (i = Zo(i, o.possibleLengths()));
   } else if (n && !a)
     return "INVALID_LENGTH";
-  var d = e.length, u = i[0];
-  return u === d ? "IS_POSSIBLE" : u > d ? "TOO_SHORT" : i[i.length - 1] < d ? "TOO_LONG" : i.indexOf(d, 1) >= 0 ? "IS_POSSIBLE" : "INVALID_LENGTH";
+  var d = e.length, s = i[0];
+  return s === d ? "IS_POSSIBLE" : s > d ? "TOO_SHORT" : i[i.length - 1] < d ? "TOO_LONG" : i.indexOf(d, 1) >= 0 ? "IS_POSSIBLE" : "INVALID_LENGTH";
 }
-function go(e, t, n) {
-  if (t === void 0 && (t = {}), n = new J(n), t.v2) {
+function Jo(e, t, n) {
+  if (t === void 0 && (t = {}), n = new le(n), t.v2) {
     if (!e.countryCallingCode)
       throw new Error("Invalid phone number object passed");
     n.selectNumberingPlan(e.countryCallingCode);
@@ -2458,27 +2815,27 @@ function go(e, t, n) {
     }
   }
   if (n.possibleLengths())
-    return aa(e.phone || e.nationalNumber, e.country, n);
+    return ja(e.phone || e.nationalNumber, e.country, n);
   if (e.countryCallingCode && n.isNonGeographicCallingCode(e.countryCallingCode))
     return !0;
   throw new Error('Missing "possibleLengths" in metadata. Perhaps the metadata has been generated before v1.0.18.');
 }
-function aa(e, t, n) {
-  switch (yt(e, t, n)) {
+function ja(e, t, n) {
+  switch (zt(e, t, n)) {
     case "IS_POSSIBLE":
       return !0;
     default:
       return !1;
   }
 }
-function ve(e, t) {
+function Me(e, t) {
   return e = e || "", new RegExp("^(?:" + t + ")$").test(e);
 }
-function vo(e, t) {
+function Qo(e, t) {
   var n = typeof Symbol < "u" && e[Symbol.iterator] || e["@@iterator"];
   if (n)
     return (n = n.call(e)).next.bind(n);
-  if (Array.isArray(e) || (n = bo(e)) || t && e && typeof e.length == "number") {
+  if (Array.isArray(e) || (n = ed(e)) || t && e && typeof e.length == "number") {
     n && (e = n);
     var r = 0;
     return function() {
@@ -2488,70 +2845,70 @@ function vo(e, t) {
   throw new TypeError(`Invalid attempt to iterate non-iterable instance.
 In order to be iterable, non-array objects must have a [Symbol.iterator]() method.`);
 }
-function bo(e, t) {
+function ed(e, t) {
   if (e) {
     if (typeof e == "string")
-      return Hn(e, t);
+      return br(e, t);
     var n = {}.toString.call(e).slice(8, -1);
-    return n === "Object" && e.constructor && (n = e.constructor.name), n === "Map" || n === "Set" ? Array.from(e) : n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? Hn(e, t) : void 0;
+    return n === "Object" && e.constructor && (n = e.constructor.name), n === "Map" || n === "Set" ? Array.from(e) : n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? br(e, t) : void 0;
   }
 }
-function Hn(e, t) {
+function br(e, t) {
   (t == null || t > e.length) && (t = e.length);
   for (var n = 0, r = Array(t); n < t; n++)
     r[n] = e[n];
   return r;
 }
-var Co = ["MOBILE", "PREMIUM_RATE", "TOLL_FREE", "SHARED_COST", "VOIP", "PERSONAL_NUMBER", "PAGER", "UAN", "VOICEMAIL"];
-function en(e, t, n) {
+var td = ["MOBILE", "PREMIUM_RATE", "TOLL_FREE", "SHARED_COST", "VOIP", "PERSONAL_NUMBER", "PAGER", "UAN", "VOICEMAIL"];
+function An(e, t, n) {
   if (t = t || {}, !(!e.country && !e.countryCallingCode)) {
-    n = new J(n), n.selectNumberingPlan(e.country, e.countryCallingCode);
+    n = new le(n), n.selectNumberingPlan(e.country, e.countryCallingCode);
     var r = t.v2 ? e.nationalNumber : e.phone;
-    if (ve(r, n.nationalNumberPattern())) {
-      if (It(r, "FIXED_LINE", n))
-        return n.type("MOBILE") && n.type("MOBILE").pattern() === "" || !n.type("MOBILE") || It(r, "MOBILE", n) ? "FIXED_LINE_OR_MOBILE" : "FIXED_LINE";
-      for (var a = vo(Co), i; !(i = a()).done; ) {
+    if (Me(r, n.nationalNumberPattern())) {
+      if (dn(r, "FIXED_LINE", n))
+        return n.type("MOBILE") && n.type("MOBILE").pattern() === "" || !n.type("MOBILE") || dn(r, "MOBILE", n) ? "FIXED_LINE_OR_MOBILE" : "FIXED_LINE";
+      for (var a = Qo(td), i; !(i = a()).done; ) {
         var o = i.value;
-        if (It(r, o, n))
+        if (dn(r, o, n))
           return o;
       }
     }
   }
 }
-function It(e, t, n) {
-  return t = n.type(t), !t || !t.pattern() || t.possibleLengths() && t.possibleLengths().indexOf(e.length) < 0 ? !1 : ve(e, t.pattern());
+function dn(e, t, n) {
+  return t = n.type(t), !t || !t.pattern() || t.possibleLengths() && t.possibleLengths().indexOf(e.length) < 0 ? !1 : Me(e, t.pattern());
 }
-function Po(e, t, n) {
-  if (t = t || {}, n = new J(n), n.selectNumberingPlan(e.country, e.countryCallingCode), n.hasTypes())
-    return en(e, t, n.metadata) !== void 0;
+function nd(e, t, n) {
+  if (t = t || {}, n = new le(n), n.selectNumberingPlan(e.country, e.countryCallingCode), n.hasTypes())
+    return An(e, t, n.metadata) !== void 0;
   var r = t.v2 ? e.nationalNumber : e.phone;
-  return ve(r, n.nationalNumberPattern());
+  return Me(r, n.nationalNumberPattern());
 }
-function No(e, t, n) {
-  var r = new J(n), a = r.getCountryCodesForCallingCode(e);
+function rd(e, t, n) {
+  var r = new le(n), a = r.getCountryCodesForCallingCode(e);
   return a ? a.filter(function(i) {
-    return So(t, i, n);
+    return ad(t, i, n);
   }) : [];
 }
-function So(e, t, n) {
-  var r = new J(n);
+function ad(e, t, n) {
+  var r = new le(n);
   return r.selectNumberingPlan(t), r.numberingPlan.possibleLengths().indexOf(e.length) >= 0;
 }
-var tn = 2, Oo = 17, wo = 3, ae = "0-9０-９٠-٩۰-۹", xo = "-‐-―−ー－", Eo = "／/", Io = "．.", _o = "  ­​⁠　", To = "()（）［］\\[\\]", Ao = "~⁓∼～", $e = "".concat(xo).concat(Eo).concat(Io).concat(_o).concat(To).concat(Ao), ht = "+＋", jo = new RegExp("([" + ae + "])");
-function ia(e, t, n, r) {
+var Rn = 2, id = 17, od = 3, he = "0-9０-９٠-٩۰-۹", dd = "-‐-―−ー－", ud = "／/", sd = "．.", ld = "  ­​⁠　", cd = "()（）［］\\[\\]", fd = "~⁓∼～", Ee = "".concat(dd).concat(ud).concat(sd).concat(ld).concat(cd).concat(fd), qt = "+＋", $d = new RegExp("([" + he + "])");
+function Fa(e, t, n, r) {
   if (t) {
-    var a = new J(r);
+    var a = new le(r);
     a.selectNumberingPlan(t, n);
     var i = new RegExp(a.IDDPrefix());
     if (e.search(i) === 0) {
       e = e.slice(e.match(i)[0].length);
-      var o = e.match(jo);
+      var o = e.match($d);
       if (!(o && o[1] != null && o[1].length > 0 && o[1] === "0"))
         return e;
     }
   }
 }
-function Dt(e, t) {
+function yn(e, t) {
   if (e && t.numberingPlan.nationalPrefixForParsing()) {
     var n = new RegExp("^(?:" + t.numberingPlan.nationalPrefixForParsing() + ")"), r = n.exec(e);
     if (r) {
@@ -2559,18 +2916,18 @@ function Dt(e, t) {
       if (t.nationalPrefixTransformRule() && d)
         a = e.replace(n, t.nationalPrefixTransformRule()), o > 1 && (i = r[1]);
       else {
-        var u = r[0];
-        a = e.slice(u.length), d && (i = r[1]);
+        var s = r[0];
+        a = e.slice(s.length), d && (i = r[1]);
       }
-      var c;
+      var l;
       if (d) {
         var f = e.indexOf(r[1]), $ = e.slice(0, f);
-        $ === t.numberingPlan.nationalPrefix() && (c = t.numberingPlan.nationalPrefix());
+        $ === t.numberingPlan.nationalPrefix() && (l = t.numberingPlan.nationalPrefix());
       } else
-        c = r[0];
+        l = r[0];
       return {
         nationalNumber: a,
-        nationalPrefix: c,
+        nationalPrefix: l,
         carrierCode: i
       };
     }
@@ -2579,11 +2936,11 @@ function Dt(e, t) {
     nationalNumber: e
   };
 }
-function Ro(e, t) {
+function pd(e, t) {
   var n = typeof Symbol < "u" && e[Symbol.iterator] || e["@@iterator"];
   if (n)
     return (n = n.call(e)).next.bind(n);
-  if (Array.isArray(e) || (n = Fo(e)) || t && e && typeof e.length == "number") {
+  if (Array.isArray(e) || (n = md(e)) || t && e && typeof e.length == "number") {
     n && (e = n);
     var r = 0;
     return function() {
@@ -2593,58 +2950,58 @@ function Ro(e, t) {
   throw new TypeError(`Invalid attempt to iterate non-iterable instance.
 In order to be iterable, non-array objects must have a [Symbol.iterator]() method.`);
 }
-function Fo(e, t) {
+function md(e, t) {
   if (e) {
     if (typeof e == "string")
-      return Vn(e, t);
+      return Cr(e, t);
     var n = {}.toString.call(e).slice(8, -1);
-    return n === "Object" && e.constructor && (n = e.constructor.name), n === "Map" || n === "Set" ? Array.from(e) : n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? Vn(e, t) : void 0;
+    return n === "Object" && e.constructor && (n = e.constructor.name), n === "Map" || n === "Set" ? Array.from(e) : n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? Cr(e, t) : void 0;
   }
 }
-function Vn(e, t) {
+function Cr(e, t) {
   (t == null || t > e.length) && (t = e.length);
   for (var n = 0, r = Array(t); n < t; n++)
     r[n] = e[n];
   return r;
 }
-function oa(e, t) {
+function Ma(e, t) {
   var n = t.countries, r = t.metadata;
-  r = new J(r);
-  for (var a = Ro(n), i; !(i = a()).done; ) {
+  r = new le(r);
+  for (var a = pd(n), i; !(i = a()).done; ) {
     var o = i.value;
     if (r.selectNumberingPlan(o), r.leadingDigits()) {
       if (e && e.search(r.leadingDigits()) === 0)
         return o;
-    } else if (en({
+    } else if (An({
       phone: e,
       country: o
     }, void 0, r.metadata))
       return o;
   }
 }
-var Mo = !1;
-function nn(e, t) {
+var yd = !1;
+function jn(e, t) {
   var n = t.nationalNumber, r = t.metadata;
-  if (Mo && r.isNonGeographicCallingCode(e))
+  if (yd && r.isNonGeographicCallingCode(e))
     return "001";
   var a = r.getCountryCodesForCallingCode(e);
   if (a)
-    return a.length === 1 ? a[0] : oa(n, {
+    return a.length === 1 ? a[0] : Ma(n, {
       countries: a,
       metadata: r.metadata
     });
 }
-function Lt(e, t, n) {
-  var r = Dt(e, n), a = r.carrierCode, i = r.nationalNumber;
+function hn(e, t, n) {
+  var r = yn(e, n), a = r.carrierCode, i = r.nationalNumber;
   if (i !== e) {
-    if (!ko(e, i, n))
+    if (!hd(e, i, n))
       return {
         nationalNumber: e
       };
-    if (n.numberingPlan.possibleLengths() && (t || (t = nn(n.numberingPlan.callingCode(), {
+    if (n.numberingPlan.possibleLengths() && (t || (t = jn(n.numberingPlan.callingCode(), {
       nationalNumber: i,
       metadata: n
-    })), !Do(i, t, n)))
+    })), !gd(i, t, n)))
       return {
         nationalNumber: e
       };
@@ -2654,11 +3011,11 @@ function Lt(e, t, n) {
     carrierCode: a
   };
 }
-function ko(e, t, n) {
-  return !(ve(e, n.nationalNumberPattern()) && !ve(t, n.nationalNumberPattern()));
+function hd(e, t, n) {
+  return !(Me(e, n.nationalNumberPattern()) && !Me(t, n.nationalNumberPattern()));
 }
-function Do(e, t, n) {
-  switch (yt(e, t, n)) {
+function gd(e, t, n) {
+  switch (zt(e, t, n)) {
     case "TOO_SHORT":
     case "INVALID_LENGTH":
       return !1;
@@ -2666,12 +3023,12 @@ function Do(e, t, n) {
       return !0;
   }
 }
-function da(e, t, n, r, a) {
-  var i = t || n ? be(t || n, a) : r;
+function Da(e, t, n, r, a) {
+  var i = t || n ? Ue(t || n, a) : r;
   if (e.indexOf(i) === 0) {
-    a = new J(a), a.selectNumberingPlan(t || n, i);
-    var o = e.slice(i.length), d = Lt(o, t, a), u = d.nationalNumber, c = Lt(e, t, a), f = c.nationalNumber;
-    if (!ve(f, a.nationalNumberPattern()) && ve(u, a.nationalNumberPattern()) || yt(f, t, a) === "TOO_LONG")
+    a = new le(a), a.selectNumberingPlan(t || n, i);
+    var o = e.slice(i.length), d = hn(o, t, a), s = d.nationalNumber, l = hn(e, t, a), f = l.nationalNumber;
+    if (!Me(f, a.nationalNumberPattern()) && Me(s, a.nationalNumberPattern()) || zt(f, t, a) === "TOO_LONG")
       return {
         countryCallingCode: i,
         number: o
@@ -2681,22 +3038,22 @@ function da(e, t, n, r, a) {
     number: e
   };
 }
-function rn(e, t, n, r, a) {
+function Fn(e, t, n, r, a) {
   if (!e)
     return {};
   var i;
   if (e[0] !== "+") {
-    var o = ia(e, t || n, r, a);
+    var o = Fa(e, t || n, r, a);
     if (o && o !== e)
       i = !0, e = "+" + o;
     else {
       if (t || n || r) {
-        var d = da(e, t, n, r, a), u = d.countryCallingCode, c = d.number;
-        if (u)
+        var d = Da(e, t, n, r, a), s = d.countryCallingCode, l = d.number;
+        if (s)
           return {
             countryCallingCodeSource: "FROM_NUMBER_WITHOUT_PLUS_SIGN",
-            countryCallingCode: u,
-            number: c
+            countryCallingCode: s,
+            number: l
           };
       }
       return {
@@ -2708,8 +3065,8 @@ function rn(e, t, n, r, a) {
   }
   if (e[1] === "0")
     return {};
-  a = new J(a);
-  for (var f = 2; f - 1 <= wo && f <= e.length; ) {
+  a = new le(a);
+  for (var f = 2; f - 1 <= od && f <= e.length; ) {
     var $ = e.slice(1, f);
     if (a.hasCallingCode($))
       return a.selectNumberingPlan($), {
@@ -2721,11 +3078,11 @@ function rn(e, t, n, r, a) {
   }
   return {};
 }
-function ua(e) {
-  return e.replace(new RegExp("[".concat($e, "]+"), "g"), " ").trim();
+function ka(e) {
+  return e.replace(new RegExp("[".concat(Ee, "]+"), "g"), " ").trim();
 }
-var sa = /(\$\d)/;
-function la(e, t, n) {
+var La = /(\$\d)/;
+function Ba(e, t, n) {
   var r = n.useInternationalFormat, a = n.withNationalPrefix;
   n.carrierCode, n.metadata;
   var i = e.replace(new RegExp(t.pattern()), r ? t.internationalFormat() : (
@@ -2742,38 +3099,38 @@ function la(e, t, n) {
     // 			? format.format().replace(FIRST_GROUP_PATTERN, format.nationalPrefixFormattingRule())
     // 			: format.format()
     // 	)
-    a && t.nationalPrefixFormattingRule() ? t.format().replace(sa, t.nationalPrefixFormattingRule()) : t.format()
+    a && t.nationalPrefixFormattingRule() ? t.format().replace(La, t.nationalPrefixFormattingRule()) : t.format()
   ));
-  return r ? ua(i) : i;
+  return r ? ka(i) : i;
 }
-var Lo = /^[\d]+(?:[~\u2053\u223C\uFF5E][\d]+)?$/;
-function Bo(e, t, n) {
-  var r = new J(n);
+var vd = /^[\d]+(?:[~\u2053\u223C\uFF5E][\d]+)?$/;
+function bd(e, t, n) {
+  var r = new le(n);
   if (r.selectNumberingPlan(e, t), r.defaultIDDPrefix())
     return r.defaultIDDPrefix();
-  if (Lo.test(r.IDDPrefix()))
+  if (vd.test(r.IDDPrefix()))
     return r.IDDPrefix();
 }
-var Uo = ";ext=", we = function(t) {
-  return "([".concat(ae, "]{1,").concat(t, "})");
+var Cd = ";ext=", Ze = function(t) {
+  return "([".concat(he, "]{1,").concat(t, "})");
 };
-function ca(e) {
-  var t = "20", n = "15", r = "9", a = "6", i = "[  \\t,]*", o = "[:\\.．]?[  \\t,-]*", d = "#?", u = "(?:e?xt(?:ensi(?:ó?|ó))?n?|ｅ?ｘｔｎ?|доб|anexo)", c = "(?:[xｘ#＃~～]|int|ｉｎｔ)", f = "[- ]+", $ = "[  \\t]*", g = "(?:,{2}|;)", y = Uo + we(t), C = i + u + o + we(t) + d, S = i + c + o + we(r) + d, h = f + we(a) + "#", O = $ + g + o + we(n) + d, L = $ + "(?:,)+" + o + we(r) + d;
-  return y + "|" + C + "|" + S + "|" + h + "|" + O + "|" + L;
+function Ua(e) {
+  var t = "20", n = "15", r = "9", a = "6", i = "[  \\t,]*", o = "[:\\.．]?[  \\t,-]*", d = "#?", s = "(?:e?xt(?:ensi(?:ó?|ó))?n?|ｅ?ｘｔｎ?|доб|anexo)", l = "(?:[xｘ#＃~～]|int|ｉｎｔ)", f = "[- ]+", $ = "[  \\t]*", h = "(?:,{2}|;)", m = Cd + Ze(t), P = i + s + o + Ze(t) + d, E = i + l + o + Ze(r) + d, y = f + Ze(a) + "#", x = $ + h + o + Ze(n) + d, T = $ + "(?:,)+" + o + Ze(r) + d;
+  return m + "|" + P + "|" + E + "|" + y + "|" + x + "|" + T;
 }
-var Go = "[" + ae + "]{" + tn + "}", Wo = "[" + ht + "]{0,1}(?:[" + $e + "]*[" + ae + "]){3,}[" + $e + ae + "]*", Ho = new RegExp("^[" + ht + "]{0,1}(?:[" + $e + "]*[" + ae + "]){1,2}$", "i"), Vo = Wo + // Phone number extensions
-"(?:" + ca() + ")?", Ko = new RegExp(
+var Pd = "[" + he + "]{" + Rn + "}", Nd = "[" + qt + "]{0,1}(?:[" + Ee + "]*[" + he + "]){3,}[" + Ee + he + "]*", Sd = new RegExp("^[" + qt + "]{0,1}(?:[" + Ee + "]*[" + he + "]){1,2}$", "i"), Od = Nd + // Phone number extensions
+"(?:" + Ua() + ")?", wd = new RegExp(
   // Either a short two-digit-only phone number
-  "^" + Go + "$|^" + Vo + "$",
+  "^" + Pd + "$|^" + Od + "$",
   "i"
 );
-function zo(e) {
-  return e.length >= tn && Ko.test(e);
+function xd(e) {
+  return e.length >= Rn && wd.test(e);
 }
-function Yo(e) {
-  return Ho.test(e);
+function Ed(e) {
+  return Sd.test(e);
 }
-function qo(e) {
+function _d(e) {
   var t = e.number, n = e.ext;
   if (!t)
     return "";
@@ -2781,19 +3138,19 @@ function qo(e) {
     throw new Error('"formatRFC3966()" expects "number" to be in E.164 format.');
   return "tel:".concat(t).concat(n ? ";ext=" + n : "");
 }
-function Ue(e) {
+function yt(e) {
   "@babel/helpers - typeof";
-  return Ue = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(t) {
+  return yt = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(t) {
     return typeof t;
   } : function(t) {
     return t && typeof Symbol == "function" && t.constructor === Symbol && t !== Symbol.prototype ? "symbol" : typeof t;
-  }, Ue(e);
+  }, yt(e);
 }
-function Xo(e, t) {
+function Id(e, t) {
   var n = typeof Symbol < "u" && e[Symbol.iterator] || e["@@iterator"];
   if (n)
     return (n = n.call(e)).next.bind(n);
-  if (Array.isArray(e) || (n = Zo(e)) || t && e && typeof e.length == "number") {
+  if (Array.isArray(e) || (n = Td(e)) || t && e && typeof e.length == "number") {
     n && (e = n);
     var r = 0;
     return function() {
@@ -2803,21 +3160,21 @@ function Xo(e, t) {
   throw new TypeError(`Invalid attempt to iterate non-iterable instance.
 In order to be iterable, non-array objects must have a [Symbol.iterator]() method.`);
 }
-function Zo(e, t) {
+function Td(e, t) {
   if (e) {
     if (typeof e == "string")
-      return Kn(e, t);
+      return Pr(e, t);
     var n = {}.toString.call(e).slice(8, -1);
-    return n === "Object" && e.constructor && (n = e.constructor.name), n === "Map" || n === "Set" ? Array.from(e) : n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? Kn(e, t) : void 0;
+    return n === "Object" && e.constructor && (n = e.constructor.name), n === "Map" || n === "Set" ? Array.from(e) : n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? Pr(e, t) : void 0;
   }
 }
-function Kn(e, t) {
+function Pr(e, t) {
   (t == null || t > e.length) && (t = e.length);
   for (var n = 0, r = Array(t); n < t; n++)
     r[n] = e[n];
   return r;
 }
-function zn(e, t) {
+function Nr(e, t) {
   var n = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var r = Object.getOwnPropertySymbols(e);
@@ -2827,43 +3184,43 @@ function zn(e, t) {
   }
   return n;
 }
-function Yn(e) {
+function Sr(e) {
   for (var t = 1; t < arguments.length; t++) {
     var n = arguments[t] != null ? arguments[t] : {};
-    t % 2 ? zn(Object(n), !0).forEach(function(r) {
-      Jo(e, r, n[r]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n)) : zn(Object(n)).forEach(function(r) {
+    t % 2 ? Nr(Object(n), !0).forEach(function(r) {
+      Ad(e, r, n[r]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n)) : Nr(Object(n)).forEach(function(r) {
       Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(n, r));
     });
   }
   return e;
 }
-function Jo(e, t, n) {
-  return (t = Qo(t)) in e ? Object.defineProperty(e, t, { value: n, enumerable: !0, configurable: !0, writable: !0 }) : e[t] = n, e;
+function Ad(e, t, n) {
+  return (t = Rd(t)) in e ? Object.defineProperty(e, t, { value: n, enumerable: !0, configurable: !0, writable: !0 }) : e[t] = n, e;
 }
-function Qo(e) {
-  var t = ed(e, "string");
-  return Ue(t) == "symbol" ? t : t + "";
+function Rd(e) {
+  var t = jd(e, "string");
+  return yt(t) == "symbol" ? t : t + "";
 }
-function ed(e, t) {
-  if (Ue(e) != "object" || !e)
+function jd(e, t) {
+  if (yt(e) != "object" || !e)
     return e;
   var n = e[Symbol.toPrimitive];
   if (n !== void 0) {
     var r = n.call(e, t || "default");
-    if (Ue(r) != "object")
+    if (yt(r) != "object")
       return r;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return (t === "string" ? String : Number)(e);
 }
-var qn = {
+var Or = {
   formatExtension: function(t, n, r) {
     return "".concat(t).concat(r.ext()).concat(n);
   }
 };
-function td(e, t, n, r) {
-  if (n ? n = Yn(Yn({}, qn), n) : n = qn, r = new J(r), e.country && e.country !== "001") {
+function Fd(e, t, n, r) {
+  if (n ? n = Sr(Sr({}, Or), n) : n = Or, r = new le(r), e.country && e.country !== "001") {
     if (!r.hasCountry(e.country))
       throw new Error("Unknown country: ".concat(e.country));
     r.selectNumberingPlan(e.country);
@@ -2874,68 +3231,68 @@ function td(e, t, n, r) {
   var a = r.countryCallingCode(), i = n.v2 ? e.nationalNumber : e.phone, o;
   switch (t) {
     case "NATIONAL":
-      return i ? (o = st(i, e.carrierCode, "NATIONAL", r, n), _t(o, e.ext, r, n.formatExtension)) : "";
+      return i ? (o = Ut(i, e.carrierCode, "NATIONAL", r, n), un(o, e.ext, r, n.formatExtension)) : "";
     case "INTERNATIONAL":
-      return i ? (o = st(i, null, "INTERNATIONAL", r, n), o = "+".concat(a, " ").concat(o), _t(o, e.ext, r, n.formatExtension)) : "+".concat(a);
+      return i ? (o = Ut(i, null, "INTERNATIONAL", r, n), o = "+".concat(a, " ").concat(o), un(o, e.ext, r, n.formatExtension)) : "+".concat(a);
     case "E.164":
       return "+".concat(a).concat(i);
     case "RFC3966":
-      return qo({
+      return _d({
         number: "+".concat(a).concat(i),
         ext: e.ext
       });
     case "IDD":
       if (!n.fromCountry)
         return;
-      var d = rd(i, e.carrierCode, a, n.fromCountry, r);
-      return _t(d, e.ext, r, n.formatExtension);
+      var d = Dd(i, e.carrierCode, a, n.fromCountry, r);
+      return un(d, e.ext, r, n.formatExtension);
     default:
       throw new Error('Unknown "format" argument passed to "formatNumber()": "'.concat(t, '"'));
   }
 }
-function st(e, t, n, r, a) {
-  var i = nd(r.formats(), e);
-  return i ? la(e, i, {
+function Ut(e, t, n, r, a) {
+  var i = Md(r.formats(), e);
+  return i ? Ba(e, i, {
     useInternationalFormat: n === "INTERNATIONAL",
     withNationalPrefix: !(i.nationalPrefixIsOptionalWhenFormattingInNationalFormat() && a && a.nationalPrefix === !1),
     carrierCode: t,
     metadata: r
   }) : e;
 }
-function nd(e, t) {
-  for (var n = Xo(e), r; !(r = n()).done; ) {
+function Md(e, t) {
+  for (var n = Id(e), r; !(r = n()).done; ) {
     var a = r.value;
     if (a.leadingDigitsPatterns().length > 0) {
       var i = a.leadingDigitsPatterns()[a.leadingDigitsPatterns().length - 1];
       if (t.search(i) !== 0)
         continue;
     }
-    if (ve(t, a.pattern()))
+    if (Me(t, a.pattern()))
       return a;
   }
 }
-function _t(e, t, n, r) {
+function un(e, t, n, r) {
   return t ? r(e, t, n) : e;
 }
-function rd(e, t, n, r, a) {
-  var i = be(r, a.metadata);
+function Dd(e, t, n, r, a) {
+  var i = Ue(r, a.metadata);
   if (i === n) {
-    var o = st(e, t, "NATIONAL", a);
+    var o = Ut(e, t, "NATIONAL", a);
     return n === "1" ? n + " " + o : o;
   }
-  var d = Bo(r, void 0, a.metadata);
+  var d = bd(r, void 0, a.metadata);
   if (d)
-    return "".concat(d, " ").concat(n, " ").concat(st(e, null, "INTERNATIONAL", a));
+    return "".concat(d, " ").concat(n, " ").concat(Ut(e, null, "INTERNATIONAL", a));
 }
-function Ge(e) {
+function ht(e) {
   "@babel/helpers - typeof";
-  return Ge = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(t) {
+  return ht = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(t) {
     return typeof t;
   } : function(t) {
     return t && typeof Symbol == "function" && t.constructor === Symbol && t !== Symbol.prototype ? "symbol" : typeof t;
-  }, Ge(e);
+  }, ht(e);
 }
-function Xn(e, t) {
+function wr(e, t) {
   var n = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var r = Object.getOwnPropertySymbols(e);
@@ -2945,63 +3302,63 @@ function Xn(e, t) {
   }
   return n;
 }
-function Zn(e) {
+function xr(e) {
   for (var t = 1; t < arguments.length; t++) {
     var n = arguments[t] != null ? arguments[t] : {};
-    t % 2 ? Xn(Object(n), !0).forEach(function(r) {
-      ad(e, r, n[r]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n)) : Xn(Object(n)).forEach(function(r) {
+    t % 2 ? wr(Object(n), !0).forEach(function(r) {
+      kd(e, r, n[r]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n)) : wr(Object(n)).forEach(function(r) {
       Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(n, r));
     });
   }
   return e;
 }
-function ad(e, t, n) {
-  return (t = fa(t)) in e ? Object.defineProperty(e, t, { value: n, enumerable: !0, configurable: !0, writable: !0 }) : e[t] = n, e;
+function kd(e, t, n) {
+  return (t = Ga(t)) in e ? Object.defineProperty(e, t, { value: n, enumerable: !0, configurable: !0, writable: !0 }) : e[t] = n, e;
 }
-function id(e, t) {
+function Ld(e, t) {
   if (!(e instanceof t))
     throw new TypeError("Cannot call a class as a function");
 }
-function Jn(e, t) {
+function Er(e, t) {
   for (var n = 0; n < t.length; n++) {
     var r = t[n];
-    r.enumerable = r.enumerable || !1, r.configurable = !0, "value" in r && (r.writable = !0), Object.defineProperty(e, fa(r.key), r);
+    r.enumerable = r.enumerable || !1, r.configurable = !0, "value" in r && (r.writable = !0), Object.defineProperty(e, Ga(r.key), r);
   }
 }
-function od(e, t, n) {
-  return t && Jn(e.prototype, t), n && Jn(e, n), Object.defineProperty(e, "prototype", { writable: !1 }), e;
+function Bd(e, t, n) {
+  return t && Er(e.prototype, t), n && Er(e, n), Object.defineProperty(e, "prototype", { writable: !1 }), e;
 }
-function fa(e) {
-  var t = dd(e, "string");
-  return Ge(t) == "symbol" ? t : t + "";
+function Ga(e) {
+  var t = Ud(e, "string");
+  return ht(t) == "symbol" ? t : t + "";
 }
-function dd(e, t) {
-  if (Ge(e) != "object" || !e)
+function Ud(e, t) {
+  if (ht(e) != "object" || !e)
     return e;
   var n = e[Symbol.toPrimitive];
   if (n !== void 0) {
     var r = n.call(e, t || "default");
-    if (Ge(r) != "object")
+    if (ht(r) != "object")
       return r;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return (t === "string" ? String : Number)(e);
 }
-var $a = /* @__PURE__ */ function() {
+var Wa = /* @__PURE__ */ function() {
   function e(t, n, r) {
-    if (id(this, e), !t)
+    if (Ld(this, e), !t)
       throw new TypeError("First argument is required");
     if (typeof t != "string")
       throw new TypeError("First argument must be a string");
     if (t[0] === "+" && !n)
       throw new TypeError("`metadata` argument not passed");
-    if (Ne(n) && Ne(n.countries)) {
+    if (He(n) && He(n.countries)) {
       r = n;
       var a = t;
-      if (!ld.test(a))
+      if (!Vd.test(a))
         throw new Error('Invalid `number` argument passed: must consist of a "+" followed by digits');
-      var i = rn(a, void 0, void 0, void 0, r), o = i.countryCallingCode, d = i.number;
+      var i = Fn(a, void 0, void 0, void 0, r), o = i.countryCallingCode, d = i.number;
       if (n = d, t = o, !n)
         throw new Error("Invalid `number` argument passed: too short");
     }
@@ -3009,13 +3366,13 @@ var $a = /* @__PURE__ */ function() {
       throw new TypeError("`nationalNumber` argument is required");
     if (typeof n != "string")
       throw new TypeError("`nationalNumber` argument must be a string");
-    ea(r);
-    var u = sd(t, r), c = u.country, f = u.countryCallingCode;
-    this.country = c, this.countryCallingCode = f, this.nationalNumber = n, this.number = "+" + this.countryCallingCode + this.nationalNumber, this.getMetadata = function() {
+    Ia(r);
+    var s = Wd(t, r), l = s.country, f = s.countryCallingCode;
+    this.country = l, this.countryCallingCode = f, this.nationalNumber = n, this.number = "+" + this.countryCallingCode + this.nationalNumber, this.getMetadata = function() {
       return r;
     };
   }
-  return od(e, [{
+  return Bd(e, [{
     key: "setExt",
     value: function(n) {
       this.ext = n;
@@ -3023,26 +3380,26 @@ var $a = /* @__PURE__ */ function() {
   }, {
     key: "getPossibleCountries",
     value: function() {
-      return this.country ? [this.country] : No(this.countryCallingCode, this.nationalNumber, this.getMetadata());
+      return this.country ? [this.country] : rd(this.countryCallingCode, this.nationalNumber, this.getMetadata());
     }
   }, {
     key: "isPossible",
     value: function() {
-      return go(this, {
+      return Jo(this, {
         v2: !0
       }, this.getMetadata());
     }
   }, {
     key: "isValid",
     value: function() {
-      return Po(this, {
+      return nd(this, {
         v2: !0
       }, this.getMetadata());
     }
   }, {
     key: "isNonGeographic",
     value: function() {
-      var n = new J(this.getMetadata());
+      var n = new le(this.getMetadata());
       return n.isNonGeographicCallingCode(this.countryCallingCode);
     }
   }, {
@@ -3067,14 +3424,14 @@ var $a = /* @__PURE__ */ function() {
   }, {
     key: "getType",
     value: function() {
-      return en(this, {
+      return An(this, {
         v2: !0
       }, this.getMetadata());
     }
   }, {
     key: "format",
     value: function(n, r) {
-      return td(this, n, r ? Zn(Zn({}, r), {}, {
+      return Fd(this, n, r ? xr(xr({}, r), {}, {
         v2: !0
       }) : {
         v2: !0
@@ -3096,78 +3453,78 @@ var $a = /* @__PURE__ */ function() {
       return this.format("RFC3966", n);
     }
   }]);
-}(), ud = function(t) {
+}(), Gd = function(t) {
   return /^[A-Z]{2}$/.test(t);
 };
-function sd(e, t) {
-  var n, r, a = new J(t);
-  return ud(e) ? (n = e, a.selectNumberingPlan(n), r = a.countryCallingCode()) : r = e, {
+function Wd(e, t) {
+  var n, r, a = new le(t);
+  return Gd(e) ? (n = e, a.selectNumberingPlan(n), r = a.countryCallingCode()) : r = e, {
     country: n,
     countryCallingCode: r
   };
 }
-var ld = /^\+\d+$/;
-function Te(e) {
+var Vd = /^\+\d+$/;
+function rt(e) {
   "@babel/helpers - typeof";
-  return Te = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(t) {
+  return rt = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(t) {
     return typeof t;
   } : function(t) {
     return t && typeof Symbol == "function" && t.constructor === Symbol && t !== Symbol.prototype ? "symbol" : typeof t;
-  }, Te(e);
+  }, rt(e);
 }
-function Qn(e, t) {
+function _r(e, t) {
   for (var n = 0; n < t.length; n++) {
     var r = t[n];
-    r.enumerable = r.enumerable || !1, r.configurable = !0, "value" in r && (r.writable = !0), Object.defineProperty(e, fd(r.key), r);
+    r.enumerable = r.enumerable || !1, r.configurable = !0, "value" in r && (r.writable = !0), Object.defineProperty(e, Hd(r.key), r);
   }
 }
-function cd(e, t, n) {
-  return t && Qn(e.prototype, t), n && Qn(e, n), Object.defineProperty(e, "prototype", { writable: !1 }), e;
+function Kd(e, t, n) {
+  return t && _r(e.prototype, t), n && _r(e, n), Object.defineProperty(e, "prototype", { writable: !1 }), e;
 }
-function fd(e) {
-  var t = $d(e, "string");
-  return Te(t) == "symbol" ? t : t + "";
+function Hd(e) {
+  var t = Yd(e, "string");
+  return rt(t) == "symbol" ? t : t + "";
 }
-function $d(e, t) {
-  if (Te(e) != "object" || !e)
+function Yd(e, t) {
+  if (rt(e) != "object" || !e)
     return e;
   var n = e[Symbol.toPrimitive];
   if (n !== void 0) {
     var r = n.call(e, t || "default");
-    if (Te(r) != "object")
+    if (rt(r) != "object")
       return r;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return (t === "string" ? String : Number)(e);
 }
-function md(e, t) {
+function zd(e, t) {
   if (!(e instanceof t))
     throw new TypeError("Cannot call a class as a function");
 }
-function pd(e, t, n) {
-  return t = He(t), yd(e, an() ? Reflect.construct(t, n || [], He(e).constructor) : t.apply(e, n));
+function qd(e, t, n) {
+  return t = vt(t), Xd(e, Mn() ? Reflect.construct(t, n || [], vt(e).constructor) : t.apply(e, n));
 }
-function yd(e, t) {
-  if (t && (Te(t) == "object" || typeof t == "function"))
+function Xd(e, t) {
+  if (t && (rt(t) == "object" || typeof t == "function"))
     return t;
   if (t !== void 0)
     throw new TypeError("Derived constructors may only return object or undefined");
-  return hd(e);
+  return Zd(e);
 }
-function hd(e) {
+function Zd(e) {
   if (e === void 0)
     throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
   return e;
 }
-function gd(e, t) {
+function Jd(e, t) {
   if (typeof t != "function" && t !== null)
     throw new TypeError("Super expression must either be null or a function");
-  e.prototype = Object.create(t && t.prototype, { constructor: { value: e, writable: !0, configurable: !0 } }), Object.defineProperty(e, "prototype", { writable: !1 }), t && We(e, t);
+  e.prototype = Object.create(t && t.prototype, { constructor: { value: e, writable: !0, configurable: !0 } }), Object.defineProperty(e, "prototype", { writable: !1 }), t && gt(e, t);
 }
-function Bt(e) {
+function gn(e) {
   var t = typeof Map == "function" ? /* @__PURE__ */ new Map() : void 0;
-  return Bt = function(r) {
-    if (r === null || !bd(r))
+  return gn = function(r) {
+    if (r === null || !eu(r))
       return r;
     if (typeof r != "function")
       throw new TypeError("Super expression must either be null or a function");
@@ -3177,58 +3534,58 @@ function Bt(e) {
       t.set(r, a);
     }
     function a() {
-      return vd(r, arguments, He(this).constructor);
+      return Qd(r, arguments, vt(this).constructor);
     }
-    return a.prototype = Object.create(r.prototype, { constructor: { value: a, enumerable: !1, writable: !0, configurable: !0 } }), We(a, r);
-  }, Bt(e);
+    return a.prototype = Object.create(r.prototype, { constructor: { value: a, enumerable: !1, writable: !0, configurable: !0 } }), gt(a, r);
+  }, gn(e);
 }
-function vd(e, t, n) {
-  if (an())
+function Qd(e, t, n) {
+  if (Mn())
     return Reflect.construct.apply(null, arguments);
   var r = [null];
   r.push.apply(r, t);
   var a = new (e.bind.apply(e, r))();
-  return n && We(a, n.prototype), a;
+  return n && gt(a, n.prototype), a;
 }
-function an() {
+function Mn() {
   try {
     var e = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function() {
     }));
   } catch {
   }
-  return (an = function() {
+  return (Mn = function() {
     return !!e;
   })();
 }
-function bd(e) {
+function eu(e) {
   try {
     return Function.toString.call(e).indexOf("[native code]") !== -1;
   } catch {
     return typeof e == "function";
   }
 }
-function We(e, t) {
-  return We = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function(n, r) {
+function gt(e, t) {
+  return gt = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function(n, r) {
     return n.__proto__ = r, n;
-  }, We(e, t);
+  }, gt(e, t);
 }
-function He(e) {
-  return He = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function(t) {
+function vt(e) {
+  return vt = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function(t) {
     return t.__proto__ || Object.getPrototypeOf(t);
-  }, He(e);
+  }, vt(e);
 }
-var he = /* @__PURE__ */ function(e) {
+var je = /* @__PURE__ */ function(e) {
   function t(n) {
     var r;
-    return md(this, t), r = pd(this, t, [n]), Object.setPrototypeOf(r, t.prototype), r.name = r.constructor.name, r;
+    return zd(this, t), r = qd(this, t, [n]), Object.setPrototypeOf(r, t.prototype), r.name = r.constructor.name, r;
   }
-  return gd(t, e), cd(t);
-}(/* @__PURE__ */ Bt(Error)), er = new RegExp("(?:" + ca() + ")$", "i");
-function Cd(e) {
-  var t = e.search(er);
+  return Jd(t, e), Kd(t);
+}(/* @__PURE__ */ gn(Error)), Ir = new RegExp("(?:" + Ua() + ")$", "i");
+function tu(e) {
+  var t = e.search(Ir);
   if (t < 0)
     return {};
-  for (var n = e.slice(0, t), r = e.match(er), a = 1; a < r.length; ) {
+  for (var n = e.slice(0, t), r = e.match(Ir), a = 1; a < r.length; ) {
     if (r[a])
       return {
         number: n,
@@ -3237,11 +3594,11 @@ function Cd(e) {
     a++;
   }
 }
-function Pd(e, t) {
+function nu(e, t) {
   var n = typeof Symbol < "u" && e[Symbol.iterator] || e["@@iterator"];
   if (n)
     return (n = n.call(e)).next.bind(n);
-  if (Array.isArray(e) || (n = Nd(e)) || t && e && typeof e.length == "number") {
+  if (Array.isArray(e) || (n = ru(e)) || t && e && typeof e.length == "number") {
     n && (e = n);
     var r = 0;
     return function() {
@@ -3251,21 +3608,21 @@ function Pd(e, t) {
   throw new TypeError(`Invalid attempt to iterate non-iterable instance.
 In order to be iterable, non-array objects must have a [Symbol.iterator]() method.`);
 }
-function Nd(e, t) {
+function ru(e, t) {
   if (e) {
     if (typeof e == "string")
-      return tr(e, t);
+      return Tr(e, t);
     var n = {}.toString.call(e).slice(8, -1);
-    return n === "Object" && e.constructor && (n = e.constructor.name), n === "Map" || n === "Set" ? Array.from(e) : n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? tr(e, t) : void 0;
+    return n === "Object" && e.constructor && (n = e.constructor.name), n === "Map" || n === "Set" ? Array.from(e) : n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? Tr(e, t) : void 0;
   }
 }
-function tr(e, t) {
+function Tr(e, t) {
   (t == null || t > e.length) && (t = e.length);
   for (var n = 0, r = Array(t); n < t; n++)
     r[n] = e[n];
   return r;
 }
-var Sd = {
+var au = {
   0: "0",
   1: "1",
   2: "2",
@@ -3337,21 +3694,21 @@ var Sd = {
   "۹": "9"
   // Eastern-Arabic digit 9
 };
-function ma(e) {
-  return Sd[e];
+function Va(e) {
+  return au[e];
 }
-function lt(e) {
-  for (var t = "", n = Pd(e.split("")), r; !(r = n()).done; ) {
-    var a = r.value, i = ma(a);
+function Gt(e) {
+  for (var t = "", n = nu(e.split("")), r; !(r = n()).done; ) {
+    var a = r.value, i = Va(a);
     i && (t += i);
   }
   return t;
 }
-function Od(e, t) {
+function iu(e, t) {
   var n = typeof Symbol < "u" && e[Symbol.iterator] || e["@@iterator"];
   if (n)
     return (n = n.call(e)).next.bind(n);
-  if (Array.isArray(e) || (n = wd(e)) || t && e && typeof e.length == "number") {
+  if (Array.isArray(e) || (n = ou(e)) || t && e && typeof e.length == "number") {
     n && (e = n);
     var r = 0;
     return function() {
@@ -3361,28 +3718,28 @@ function Od(e, t) {
   throw new TypeError(`Invalid attempt to iterate non-iterable instance.
 In order to be iterable, non-array objects must have a [Symbol.iterator]() method.`);
 }
-function wd(e, t) {
+function ou(e, t) {
   if (e) {
     if (typeof e == "string")
-      return nr(e, t);
+      return Ar(e, t);
     var n = {}.toString.call(e).slice(8, -1);
-    return n === "Object" && e.constructor && (n = e.constructor.name), n === "Map" || n === "Set" ? Array.from(e) : n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? nr(e, t) : void 0;
+    return n === "Object" && e.constructor && (n = e.constructor.name), n === "Map" || n === "Set" ? Array.from(e) : n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? Ar(e, t) : void 0;
   }
 }
-function nr(e, t) {
+function Ar(e, t) {
   (t == null || t > e.length) && (t = e.length);
   for (var n = 0, r = Array(t); n < t; n++)
     r[n] = e[n];
   return r;
 }
-function Ut(e) {
-  for (var t = "", n = Od(e.split("")), r; !(r = n()).done; ) {
+function vn(e) {
+  for (var t = "", n = iu(e.split("")), r; !(r = n()).done; ) {
     var a = r.value;
-    t += pa(a, t) || "";
+    t += Ka(a, t) || "";
   }
   return t;
 }
-function pa(e, t, n) {
+function Ka(e, t, n) {
   if (e === "+") {
     if (t) {
       typeof n == "function" && n("end");
@@ -3390,125 +3747,125 @@ function pa(e, t, n) {
     }
     return "+";
   }
-  return ma(e);
+  return Va(e);
 }
-var ya = "+", xd = "[\\-\\.\\(\\)]?", rr = "([" + ae + "]|" + xd + ")", Ed = "^\\" + ya + rr + "*[" + ae + "]" + rr + "*$", Id = new RegExp(Ed, "g"), Gt = ae, _d = "[" + Gt + "]+((\\-)*[" + Gt + "])*", Td = "a-zA-Z", Ad = "[" + Td + "]+((\\-)*[" + Gt + "])*", jd = "^(" + _d + "\\.)*" + Ad + "\\.?$", Rd = new RegExp(jd, "g"), ar = "tel:", Wt = ";phone-context=", Fd = ";isub=";
-function Md(e) {
-  var t = e.indexOf(Wt);
+var Ha = "+", du = "[\\-\\.\\(\\)]?", Rr = "([" + he + "]|" + du + ")", uu = "^\\" + Ha + Rr + "*[" + he + "]" + Rr + "*$", su = new RegExp(uu, "g"), bn = he, lu = "[" + bn + "]+((\\-)*[" + bn + "])*", cu = "a-zA-Z", fu = "[" + cu + "]+((\\-)*[" + bn + "])*", $u = "^(" + lu + "\\.)*" + fu + "\\.?$", pu = new RegExp($u, "g"), jr = "tel:", Cn = ";phone-context=", mu = ";isub=";
+function yu(e) {
+  var t = e.indexOf(Cn);
   if (t < 0)
     return null;
-  var n = t + Wt.length;
+  var n = t + Cn.length;
   if (n >= e.length)
     return "";
   var r = e.indexOf(";", n);
   return r >= 0 ? e.substring(n, r) : e.substring(n);
 }
-function kd(e) {
-  return e === null ? !0 : e.length === 0 ? !1 : Id.test(e) || Rd.test(e);
+function hu(e) {
+  return e === null ? !0 : e.length === 0 ? !1 : su.test(e) || pu.test(e);
 }
-function Dd(e, t) {
-  var n = t.extractFormattedPhoneNumber, r = Md(e);
-  if (!kd(r))
-    throw new he("NOT_A_NUMBER");
+function gu(e, t) {
+  var n = t.extractFormattedPhoneNumber, r = yu(e);
+  if (!hu(r))
+    throw new je("NOT_A_NUMBER");
   var a;
   if (r === null)
     a = n(e) || "";
   else {
-    a = "", r.charAt(0) === ya && (a += r);
-    var i = e.indexOf(ar), o;
-    i >= 0 ? o = i + ar.length : o = 0;
-    var d = e.indexOf(Wt);
+    a = "", r.charAt(0) === Ha && (a += r);
+    var i = e.indexOf(jr), o;
+    i >= 0 ? o = i + jr.length : o = 0;
+    var d = e.indexOf(Cn);
     a += e.substring(o, d);
   }
-  var u = a.indexOf(Fd);
-  if (u > 0 && (a = a.substring(0, u)), a !== "")
+  var s = a.indexOf(mu);
+  if (s > 0 && (a = a.substring(0, s)), a !== "")
     return a;
 }
-var Ld = 250, Bd = new RegExp("[" + ht + ae + "]"), Ud = new RegExp("[^" + ae + "#]+$");
-function Gd(e, t, n) {
-  if (t = t || {}, n = new J(n), t.defaultCountry && !n.hasCountry(t.defaultCountry))
-    throw t.v2 ? new he("INVALID_COUNTRY") : new Error("Unknown country: ".concat(t.defaultCountry));
-  var r = Hd(e, t.v2, t.extract), a = r.number, i = r.ext, o = r.error;
+var vu = 250, bu = new RegExp("[" + qt + he + "]"), Cu = new RegExp("[^" + he + "#]+$");
+function Pu(e, t, n) {
+  if (t = t || {}, n = new le(n), t.defaultCountry && !n.hasCountry(t.defaultCountry))
+    throw t.v2 ? new je("INVALID_COUNTRY") : new Error("Unknown country: ".concat(t.defaultCountry));
+  var r = Su(e, t.v2, t.extract), a = r.number, i = r.ext, o = r.error;
   if (!a) {
     if (t.v2)
-      throw o === "TOO_SHORT" ? new he("TOO_SHORT") : new he("NOT_A_NUMBER");
+      throw o === "TOO_SHORT" ? new je("TOO_SHORT") : new je("NOT_A_NUMBER");
     return {};
   }
-  var d = Kd(a, t.defaultCountry, t.defaultCallingCode, n), u = d.country, c = d.nationalNumber, f = d.countryCallingCode, $ = d.countryCallingCodeSource, g = d.carrierCode;
+  var d = wu(a, t.defaultCountry, t.defaultCallingCode, n), s = d.country, l = d.nationalNumber, f = d.countryCallingCode, $ = d.countryCallingCodeSource, h = d.carrierCode;
   if (!n.hasSelectedNumberingPlan()) {
     if (t.v2)
-      throw new he("INVALID_COUNTRY");
+      throw new je("INVALID_COUNTRY");
     return {};
   }
-  if (!c || c.length < tn) {
+  if (!l || l.length < Rn) {
     if (t.v2)
-      throw new he("TOO_SHORT");
+      throw new je("TOO_SHORT");
     return {};
   }
-  if (c.length > Oo) {
+  if (l.length > id) {
     if (t.v2)
-      throw new he("TOO_LONG");
+      throw new je("TOO_LONG");
     return {};
   }
   if (t.v2) {
-    var y = new $a(f, c, n.metadata);
-    return u && (y.country = u), g && (y.carrierCode = g), i && (y.ext = i), y.__countryCallingCodeSource = $, y;
+    var m = new Wa(f, l, n.metadata);
+    return s && (m.country = s), h && (m.carrierCode = h), i && (m.ext = i), m.__countryCallingCodeSource = $, m;
   }
-  var C = (t.extended ? n.hasSelectedNumberingPlan() : u) ? ve(c, n.nationalNumberPattern()) : !1;
+  var P = (t.extended ? n.hasSelectedNumberingPlan() : s) ? Me(l, n.nationalNumberPattern()) : !1;
   return t.extended ? {
-    country: u,
+    country: s,
     countryCallingCode: f,
-    carrierCode: g,
-    valid: C,
-    possible: C ? !0 : !!(t.extended === !0 && n.possibleLengths() && aa(c, u, n)),
-    phone: c,
+    carrierCode: h,
+    valid: P,
+    possible: P ? !0 : !!(t.extended === !0 && n.possibleLengths() && ja(l, s, n)),
+    phone: l,
     ext: i
-  } : C ? Vd(u, c, i) : {};
+  } : P ? Ou(s, l, i) : {};
 }
-function Wd(e, t, n) {
+function Nu(e, t, n) {
   if (e) {
-    if (e.length > Ld) {
+    if (e.length > vu) {
       if (n)
-        throw new he("TOO_LONG");
+        throw new je("TOO_LONG");
       return;
     }
     if (t === !1)
       return e;
-    var r = e.search(Bd);
+    var r = e.search(bu);
     if (!(r < 0))
-      return e.slice(r).replace(Ud, "");
+      return e.slice(r).replace(Cu, "");
   }
 }
-function Hd(e, t, n) {
-  var r = Dd(e, {
+function Su(e, t, n) {
+  var r = gu(e, {
     extractFormattedPhoneNumber: function(o) {
-      return Wd(o, n, t);
+      return Nu(o, n, t);
     }
   });
   if (!r)
     return {};
-  if (!zo(r))
-    return Yo(r) ? {
+  if (!xd(r))
+    return Ed(r) ? {
       error: "TOO_SHORT"
     } : {};
-  var a = Cd(r);
+  var a = tu(r);
   return a.ext ? a : {
     number: r
   };
 }
-function Vd(e, t, n) {
+function Ou(e, t, n) {
   var r = {
     country: e,
     phone: t
   };
   return n && (r.ext = n), r;
 }
-function Kd(e, t, n, r) {
-  var a = rn(Ut(e), void 0, t, n, r.metadata), i = a.countryCallingCodeSource, o = a.countryCallingCode, d = a.number, u;
+function wu(e, t, n, r) {
+  var a = Fn(vn(e), void 0, t, n, r.metadata), i = a.countryCallingCodeSource, o = a.countryCallingCode, d = a.number, s;
   if (o)
     r.selectNumberingPlan(o);
   else if (d && (t || n))
-    r.selectNumberingPlan(t, n), t && (u = t), o = n || be(t, r.metadata);
+    r.selectNumberingPlan(t, n), t && (s = t), o = n || Ue(t, r.metadata);
   else
     return {};
   if (!d)
@@ -3516,27 +3873,27 @@ function Kd(e, t, n, r) {
       countryCallingCodeSource: i,
       countryCallingCode: o
     };
-  var c = Lt(Ut(d), u, r), f = c.nationalNumber, $ = c.carrierCode, g = nn(o, {
+  var l = hn(vn(d), s, r), f = l.nationalNumber, $ = l.carrierCode, h = jn(o, {
     nationalNumber: f,
     metadata: r
   });
-  return g && (u = g, g === "001" || r.selectNumberingPlan(u)), {
-    country: u,
+  return h && (s = h, h === "001" || r.selectNumberingPlan(s)), {
+    country: s,
     countryCallingCode: o,
     countryCallingCodeSource: i,
     nationalNumber: f,
     carrierCode: $
   };
 }
-function Ve(e) {
+function bt(e) {
   "@babel/helpers - typeof";
-  return Ve = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(t) {
+  return bt = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(t) {
     return typeof t;
   } : function(t) {
     return t && typeof Symbol == "function" && t.constructor === Symbol && t !== Symbol.prototype ? "symbol" : typeof t;
-  }, Ve(e);
+  }, bt(e);
 }
-function ir(e, t) {
+function Fr(e, t) {
   var n = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var r = Object.getOwnPropertySymbols(e);
@@ -3546,50 +3903,50 @@ function ir(e, t) {
   }
   return n;
 }
-function or(e) {
+function Mr(e) {
   for (var t = 1; t < arguments.length; t++) {
     var n = arguments[t] != null ? arguments[t] : {};
-    t % 2 ? ir(Object(n), !0).forEach(function(r) {
-      zd(e, r, n[r]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n)) : ir(Object(n)).forEach(function(r) {
+    t % 2 ? Fr(Object(n), !0).forEach(function(r) {
+      xu(e, r, n[r]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n)) : Fr(Object(n)).forEach(function(r) {
       Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(n, r));
     });
   }
   return e;
 }
-function zd(e, t, n) {
-  return (t = Yd(t)) in e ? Object.defineProperty(e, t, { value: n, enumerable: !0, configurable: !0, writable: !0 }) : e[t] = n, e;
+function xu(e, t, n) {
+  return (t = Eu(t)) in e ? Object.defineProperty(e, t, { value: n, enumerable: !0, configurable: !0, writable: !0 }) : e[t] = n, e;
 }
-function Yd(e) {
-  var t = qd(e, "string");
-  return Ve(t) == "symbol" ? t : t + "";
+function Eu(e) {
+  var t = _u(e, "string");
+  return bt(t) == "symbol" ? t : t + "";
 }
-function qd(e, t) {
-  if (Ve(e) != "object" || !e)
+function _u(e, t) {
+  if (bt(e) != "object" || !e)
     return e;
   var n = e[Symbol.toPrimitive];
   if (n !== void 0) {
     var r = n.call(e, t || "default");
-    if (Ve(r) != "object")
+    if (bt(r) != "object")
       return r;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return (t === "string" ? String : Number)(e);
 }
-function Xd(e, t, n) {
-  return Gd(e, or(or({}, t), {}, {
+function Iu(e, t, n) {
+  return Pu(e, Mr(Mr({}, t), {}, {
     v2: !0
   }), n);
 }
-function Ke(e) {
+function Ct(e) {
   "@babel/helpers - typeof";
-  return Ke = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(t) {
+  return Ct = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(t) {
     return typeof t;
   } : function(t) {
     return t && typeof Symbol == "function" && t.constructor === Symbol && t !== Symbol.prototype ? "symbol" : typeof t;
-  }, Ke(e);
+  }, Ct(e);
 }
-function dr(e, t) {
+function Dr(e, t) {
   var n = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var r = Object.getOwnPropertySymbols(e);
@@ -3599,116 +3956,116 @@ function dr(e, t) {
   }
   return n;
 }
-function Zd(e) {
+function Tu(e) {
   for (var t = 1; t < arguments.length; t++) {
     var n = arguments[t] != null ? arguments[t] : {};
-    t % 2 ? dr(Object(n), !0).forEach(function(r) {
-      Jd(e, r, n[r]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n)) : dr(Object(n)).forEach(function(r) {
+    t % 2 ? Dr(Object(n), !0).forEach(function(r) {
+      Au(e, r, n[r]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n)) : Dr(Object(n)).forEach(function(r) {
       Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(n, r));
     });
   }
   return e;
 }
-function Jd(e, t, n) {
-  return (t = Qd(t)) in e ? Object.defineProperty(e, t, { value: n, enumerable: !0, configurable: !0, writable: !0 }) : e[t] = n, e;
+function Au(e, t, n) {
+  return (t = Ru(t)) in e ? Object.defineProperty(e, t, { value: n, enumerable: !0, configurable: !0, writable: !0 }) : e[t] = n, e;
 }
-function Qd(e) {
-  var t = eu(e, "string");
-  return Ke(t) == "symbol" ? t : t + "";
+function Ru(e) {
+  var t = ju(e, "string");
+  return Ct(t) == "symbol" ? t : t + "";
 }
-function eu(e, t) {
-  if (Ke(e) != "object" || !e)
+function ju(e, t) {
+  if (Ct(e) != "object" || !e)
     return e;
   var n = e[Symbol.toPrimitive];
   if (n !== void 0) {
     var r = n.call(e, t || "default");
-    if (Ke(r) != "object")
+    if (Ct(r) != "object")
       return r;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return (t === "string" ? String : Number)(e);
 }
-function tu(e, t) {
-  return iu(e) || au(e, t) || ru(e, t) || nu();
+function Fu(e, t) {
+  return Lu(e) || ku(e, t) || Du(e, t) || Mu();
 }
-function nu() {
+function Mu() {
   throw new TypeError(`Invalid attempt to destructure non-iterable instance.
 In order to be iterable, non-array objects must have a [Symbol.iterator]() method.`);
 }
-function ru(e, t) {
+function Du(e, t) {
   if (e) {
     if (typeof e == "string")
-      return ur(e, t);
+      return kr(e, t);
     var n = {}.toString.call(e).slice(8, -1);
-    return n === "Object" && e.constructor && (n = e.constructor.name), n === "Map" || n === "Set" ? Array.from(e) : n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? ur(e, t) : void 0;
+    return n === "Object" && e.constructor && (n = e.constructor.name), n === "Map" || n === "Set" ? Array.from(e) : n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? kr(e, t) : void 0;
   }
 }
-function ur(e, t) {
+function kr(e, t) {
   (t == null || t > e.length) && (t = e.length);
   for (var n = 0, r = Array(t); n < t; n++)
     r[n] = e[n];
   return r;
 }
-function au(e, t) {
+function ku(e, t) {
   var n = e == null ? null : typeof Symbol < "u" && e[Symbol.iterator] || e["@@iterator"];
   if (n != null) {
-    var r, a, i, o, d = [], u = !0, c = !1;
+    var r, a, i, o, d = [], s = !0, l = !1;
     try {
       if (i = (n = n.call(e)).next, t === 0) {
         if (Object(n) !== n)
           return;
-        u = !1;
+        s = !1;
       } else
-        for (; !(u = (r = i.call(n)).done) && (d.push(r.value), d.length !== t); u = !0)
+        for (; !(s = (r = i.call(n)).done) && (d.push(r.value), d.length !== t); s = !0)
           ;
     } catch (f) {
-      c = !0, a = f;
+      l = !0, a = f;
     } finally {
       try {
-        if (!u && n.return != null && (o = n.return(), Object(o) !== o))
+        if (!s && n.return != null && (o = n.return(), Object(o) !== o))
           return;
       } finally {
-        if (c)
+        if (l)
           throw a;
       }
     }
     return d;
   }
 }
-function iu(e) {
+function Lu(e) {
   if (Array.isArray(e))
     return e;
 }
-function ha(e) {
-  var t = Array.prototype.slice.call(e), n = tu(t, 4), r = n[0], a = n[1], i = n[2], o = n[3], d, u, c;
+function Ya(e) {
+  var t = Array.prototype.slice.call(e), n = Fu(t, 4), r = n[0], a = n[1], i = n[2], o = n[3], d, s, l;
   if (typeof r == "string")
     d = r;
   else
     throw new TypeError("A text for parsing must be a string.");
   if (!a || typeof a == "string")
-    o ? (u = i, c = o) : (u = void 0, c = i), a && (u = Zd({
+    o ? (s = i, l = o) : (s = void 0, l = i), a && (s = Tu({
       defaultCountry: a
-    }, u));
-  else if (Ne(a))
-    i ? (u = a, c = i) : c = a;
+    }, s));
+  else if (He(a))
+    i ? (s = a, l = i) : l = a;
   else
     throw new Error("Invalid second argument: ".concat(a));
   return {
     text: d,
-    options: u,
-    metadata: c
+    options: s,
+    metadata: l
   };
 }
-function ze(e) {
+function Pt(e) {
   "@babel/helpers - typeof";
-  return ze = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(t) {
+  return Pt = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(t) {
     return typeof t;
   } : function(t) {
     return t && typeof Symbol == "function" && t.constructor === Symbol && t !== Symbol.prototype ? "symbol" : typeof t;
-  }, ze(e);
+  }, Pt(e);
 }
-function sr(e, t) {
+function Lr(e, t) {
   var n = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var r = Object.getOwnPropertySymbols(e);
@@ -3718,60 +4075,60 @@ function sr(e, t) {
   }
   return n;
 }
-function lr(e) {
+function Br(e) {
   for (var t = 1; t < arguments.length; t++) {
     var n = arguments[t] != null ? arguments[t] : {};
-    t % 2 ? sr(Object(n), !0).forEach(function(r) {
-      ou(e, r, n[r]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n)) : sr(Object(n)).forEach(function(r) {
+    t % 2 ? Lr(Object(n), !0).forEach(function(r) {
+      Bu(e, r, n[r]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n)) : Lr(Object(n)).forEach(function(r) {
       Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(n, r));
     });
   }
   return e;
 }
-function ou(e, t, n) {
-  return (t = du(t)) in e ? Object.defineProperty(e, t, { value: n, enumerable: !0, configurable: !0, writable: !0 }) : e[t] = n, e;
+function Bu(e, t, n) {
+  return (t = Uu(t)) in e ? Object.defineProperty(e, t, { value: n, enumerable: !0, configurable: !0, writable: !0 }) : e[t] = n, e;
 }
-function du(e) {
-  var t = uu(e, "string");
-  return ze(t) == "symbol" ? t : t + "";
+function Uu(e) {
+  var t = Gu(e, "string");
+  return Pt(t) == "symbol" ? t : t + "";
 }
-function uu(e, t) {
-  if (ze(e) != "object" || !e)
+function Gu(e, t) {
+  if (Pt(e) != "object" || !e)
     return e;
   var n = e[Symbol.toPrimitive];
   if (n !== void 0) {
     var r = n.call(e, t || "default");
-    if (ze(r) != "object")
+    if (Pt(r) != "object")
       return r;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return (t === "string" ? String : Number)(e);
 }
-function ga(e, t, n) {
-  t && t.defaultCountry && !ta(t.defaultCountry, n) && (t = lr(lr({}, t), {}, {
+function za(e, t, n) {
+  t && t.defaultCountry && !Ta(t.defaultCountry, n) && (t = Br(Br({}, t), {}, {
     defaultCountry: void 0
   }));
   try {
-    return Xd(e, t, n);
+    return Iu(e, t, n);
   } catch (r) {
-    if (!(r instanceof he))
+    if (!(r instanceof je))
       throw r;
   }
 }
-function su() {
-  var e = ha(arguments), t = e.text, n = e.options, r = e.metadata;
-  return ga(t, n, r);
+function Wu() {
+  var e = Ya(arguments), t = e.text, n = e.options, r = e.metadata;
+  return za(t, n, r);
 }
-function Ye(e) {
+function Nt(e) {
   "@babel/helpers - typeof";
-  return Ye = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(t) {
+  return Nt = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(t) {
     return typeof t;
   } : function(t) {
     return t && typeof Symbol == "function" && t.constructor === Symbol && t !== Symbol.prototype ? "symbol" : typeof t;
-  }, Ye(e);
+  }, Nt(e);
 }
-function cr(e, t) {
+function Ur(e, t) {
   var n = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var r = Object.getOwnPropertySymbols(e);
@@ -3781,87 +4138,87 @@ function cr(e, t) {
   }
   return n;
 }
-function fr(e) {
+function Gr(e) {
   for (var t = 1; t < arguments.length; t++) {
     var n = arguments[t] != null ? arguments[t] : {};
-    t % 2 ? cr(Object(n), !0).forEach(function(r) {
-      lu(e, r, n[r]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n)) : cr(Object(n)).forEach(function(r) {
+    t % 2 ? Ur(Object(n), !0).forEach(function(r) {
+      Vu(e, r, n[r]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n)) : Ur(Object(n)).forEach(function(r) {
       Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(n, r));
     });
   }
   return e;
 }
-function lu(e, t, n) {
-  return (t = cu(t)) in e ? Object.defineProperty(e, t, { value: n, enumerable: !0, configurable: !0, writable: !0 }) : e[t] = n, e;
+function Vu(e, t, n) {
+  return (t = Ku(t)) in e ? Object.defineProperty(e, t, { value: n, enumerable: !0, configurable: !0, writable: !0 }) : e[t] = n, e;
 }
-function cu(e) {
-  var t = fu(e, "string");
-  return Ye(t) == "symbol" ? t : t + "";
+function Ku(e) {
+  var t = Hu(e, "string");
+  return Nt(t) == "symbol" ? t : t + "";
 }
-function fu(e, t) {
-  if (Ye(e) != "object" || !e)
+function Hu(e, t) {
+  if (Nt(e) != "object" || !e)
     return e;
   var n = e[Symbol.toPrimitive];
   if (n !== void 0) {
     var r = n.call(e, t || "default");
-    if (Ye(r) != "object")
+    if (Nt(r) != "object")
       return r;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return (t === "string" ? String : Number)(e);
 }
-function $u() {
-  var e = ha(arguments), t = e.text, n = e.options, r = e.metadata;
-  n = fr(fr({}, n), {}, {
+function Yu() {
+  var e = Ya(arguments), t = e.text, n = e.options, r = e.metadata;
+  n = Gr(Gr({}, n), {}, {
     extract: !1
   });
-  var a = ga(t, n, r);
+  var a = za(t, n, r);
   return a && a.isValid() || !1;
 }
-function qe(e) {
+function St(e) {
   "@babel/helpers - typeof";
-  return qe = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(t) {
+  return St = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(t) {
     return typeof t;
   } : function(t) {
     return t && typeof Symbol == "function" && t.constructor === Symbol && t !== Symbol.prototype ? "symbol" : typeof t;
-  }, qe(e);
+  }, St(e);
 }
-function mu(e, t) {
+function zu(e, t) {
   if (!(e instanceof t))
     throw new TypeError("Cannot call a class as a function");
 }
-function $r(e, t) {
+function Wr(e, t) {
   for (var n = 0; n < t.length; n++) {
     var r = t[n];
-    r.enumerable = r.enumerable || !1, r.configurable = !0, "value" in r && (r.writable = !0), Object.defineProperty(e, yu(r.key), r);
+    r.enumerable = r.enumerable || !1, r.configurable = !0, "value" in r && (r.writable = !0), Object.defineProperty(e, Xu(r.key), r);
   }
 }
-function pu(e, t, n) {
-  return t && $r(e.prototype, t), n && $r(e, n), Object.defineProperty(e, "prototype", { writable: !1 }), e;
+function qu(e, t, n) {
+  return t && Wr(e.prototype, t), n && Wr(e, n), Object.defineProperty(e, "prototype", { writable: !1 }), e;
 }
-function yu(e) {
-  var t = hu(e, "string");
-  return qe(t) == "symbol" ? t : t + "";
+function Xu(e) {
+  var t = Zu(e, "string");
+  return St(t) == "symbol" ? t : t + "";
 }
-function hu(e, t) {
-  if (qe(e) != "object" || !e)
+function Zu(e, t) {
+  if (St(e) != "object" || !e)
     return e;
   var n = e[Symbol.toPrimitive];
   if (n !== void 0) {
     var r = n.call(e, t || "default");
-    if (qe(r) != "object")
+    if (St(r) != "object")
       return r;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return (t === "string" ? String : Number)(e);
 }
-var gu = /* @__PURE__ */ function() {
+var Ju = /* @__PURE__ */ function() {
   function e(t) {
     var n = t.onCountryChange, r = t.onCallingCodeChange;
-    mu(this, e), this.onCountryChange = n, this.onCallingCodeChange = r;
+    zu(this, e), this.onCountryChange = n, this.onCallingCodeChange = r;
   }
-  return pu(e, [{
+  return qu(e, [{
     key: "reset",
     value: function(n) {
       var r = n.country, a = n.callingCode;
@@ -3929,11 +4286,11 @@ var gu = /* @__PURE__ */ function() {
     }
   }]);
 }();
-function vu(e, t) {
+function Qu(e, t) {
   var n = typeof Symbol < "u" && e[Symbol.iterator] || e["@@iterator"];
   if (n)
     return (n = n.call(e)).next.bind(n);
-  if (Array.isArray(e) || (n = bu(e)) || t && e && typeof e.length == "number") {
+  if (Array.isArray(e) || (n = es(e)) || t && e && typeof e.length == "number") {
     n && (e = n);
     var r = 0;
     return function() {
@@ -3943,32 +4300,32 @@ function vu(e, t) {
   throw new TypeError(`Invalid attempt to iterate non-iterable instance.
 In order to be iterable, non-array objects must have a [Symbol.iterator]() method.`);
 }
-function bu(e, t) {
+function es(e, t) {
   if (e) {
     if (typeof e == "string")
-      return mr(e, t);
+      return Vr(e, t);
     var n = {}.toString.call(e).slice(8, -1);
-    return n === "Object" && e.constructor && (n = e.constructor.name), n === "Map" || n === "Set" ? Array.from(e) : n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? mr(e, t) : void 0;
+    return n === "Object" && e.constructor && (n = e.constructor.name), n === "Map" || n === "Set" ? Array.from(e) : n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? Vr(e, t) : void 0;
   }
 }
-function mr(e, t) {
+function Vr(e, t) {
   (t == null || t > e.length) && (t = e.length);
   for (var n = 0, r = Array(t); n < t; n++)
     r[n] = e[n];
   return r;
 }
-var fe = "x", Tt = new RegExp(fe);
-function ot(e, t) {
+var xe = "x", sn = new RegExp(xe);
+function kt(e, t) {
   if (t < 1)
     return "";
   for (var n = ""; t > 1; )
     t & 1 && (n += e), t >>= 1, e += e;
   return n + e;
 }
-function pr(e, t) {
-  return e[t] === ")" && t++, Cu(e.slice(0, t));
+function Kr(e, t) {
+  return e[t] === ")" && t++, ts(e.slice(0, t));
 }
-function Cu(e) {
+function ts(e) {
   for (var t = [], n = 0; n < e.length; )
     e[n] === "(" ? t.push(n) : e[n] === ")" && t.pop(), n++;
   var r = 0, a = "";
@@ -3979,31 +4336,31 @@ function Cu(e) {
   }
   return a;
 }
-function Pu(e, t, n) {
-  for (var r = vu(n.split("")), a; !(a = r()).done; ) {
+function ns(e, t, n) {
+  for (var r = Qu(n.split("")), a; !(a = r()).done; ) {
     var i = a.value;
-    if (e.slice(t + 1).search(Tt) < 0)
+    if (e.slice(t + 1).search(sn) < 0)
       return;
-    t = e.search(Tt), e = e.replace(Tt, i);
+    t = e.search(sn), e = e.replace(sn, i);
   }
   return [e, t];
 }
-function Nu(e, t, n) {
+function rs(e, t, n) {
   var r = n.metadata, a = n.shouldTryNationalPrefixFormattingRule, i = n.getSeparatorAfterNationalPrefix, o = new RegExp("^(?:".concat(t.pattern(), ")$"));
   if (o.test(e.nationalSignificantNumber))
-    return Ou(e, t, {
+    return is(e, t, {
       metadata: r,
       shouldTryNationalPrefixFormattingRule: a,
       getSeparatorAfterNationalPrefix: i
     });
 }
-function Su(e, t, n) {
-  return yt(e, t, n) === "IS_POSSIBLE";
+function as(e, t, n) {
+  return zt(e, t, n) === "IS_POSSIBLE";
 }
-function Ou(e, t, n) {
+function is(e, t, n) {
   var r = n.metadata, a = n.shouldTryNationalPrefixFormattingRule, i = n.getSeparatorAfterNationalPrefix;
   if (e.nationalSignificantNumber, e.international, e.nationalPrefix, e.carrierCode, a(t)) {
-    var o = yr(e, t, {
+    var o = Hr(e, t, {
       useNationalPrefixFormattingRule: !0,
       getSeparatorAfterNationalPrefix: i,
       metadata: r
@@ -4011,67 +4368,67 @@ function Ou(e, t, n) {
     if (o)
       return o;
   }
-  return yr(e, t, {
+  return Hr(e, t, {
     useNationalPrefixFormattingRule: !1,
     getSeparatorAfterNationalPrefix: i,
     metadata: r
   });
 }
-function yr(e, t, n) {
-  var r = n.metadata, a = n.useNationalPrefixFormattingRule, i = n.getSeparatorAfterNationalPrefix, o = la(e.nationalSignificantNumber, t, {
+function Hr(e, t, n) {
+  var r = n.metadata, a = n.useNationalPrefixFormattingRule, i = n.getSeparatorAfterNationalPrefix, o = Ba(e.nationalSignificantNumber, t, {
     carrierCode: e.carrierCode,
     useInternationalFormat: e.international,
     withNationalPrefix: a,
     metadata: r
   });
-  if (a || (e.nationalPrefix ? o = e.nationalPrefix + i(t) + o : e.prefixBeforeNationalSignificantNumberThatIsNotNationalPrefix && (o = e.prefixBeforeNationalSignificantNumberThatIsNotNationalPrefix + " " + o)), wu(o, e))
+  if (a || (e.nationalPrefix ? o = e.nationalPrefix + i(t) + o : e.prefixBeforeNationalSignificantNumberThatIsNotNationalPrefix && (o = e.prefixBeforeNationalSignificantNumberThatIsNotNationalPrefix + " " + o)), os(o, e))
     return o;
 }
-function wu(e, t) {
-  return lt(e) === t.getNationalDigits();
+function os(e, t) {
+  return Gt(e) === t.getNationalDigits();
 }
-function Xe(e) {
+function Ot(e) {
   "@babel/helpers - typeof";
-  return Xe = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(t) {
+  return Ot = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(t) {
     return typeof t;
   } : function(t) {
     return t && typeof Symbol == "function" && t.constructor === Symbol && t !== Symbol.prototype ? "symbol" : typeof t;
-  }, Xe(e);
+  }, Ot(e);
 }
-function xu(e, t) {
+function ds(e, t) {
   if (!(e instanceof t))
     throw new TypeError("Cannot call a class as a function");
 }
-function hr(e, t) {
+function Yr(e, t) {
   for (var n = 0; n < t.length; n++) {
     var r = t[n];
-    r.enumerable = r.enumerable || !1, r.configurable = !0, "value" in r && (r.writable = !0), Object.defineProperty(e, Iu(r.key), r);
+    r.enumerable = r.enumerable || !1, r.configurable = !0, "value" in r && (r.writable = !0), Object.defineProperty(e, ss(r.key), r);
   }
 }
-function Eu(e, t, n) {
-  return t && hr(e.prototype, t), n && hr(e, n), Object.defineProperty(e, "prototype", { writable: !1 }), e;
+function us(e, t, n) {
+  return t && Yr(e.prototype, t), n && Yr(e, n), Object.defineProperty(e, "prototype", { writable: !1 }), e;
 }
-function Iu(e) {
-  var t = _u(e, "string");
-  return Xe(t) == "symbol" ? t : t + "";
+function ss(e) {
+  var t = ls(e, "string");
+  return Ot(t) == "symbol" ? t : t + "";
 }
-function _u(e, t) {
-  if (Xe(e) != "object" || !e)
+function ls(e, t) {
+  if (Ot(e) != "object" || !e)
     return e;
   var n = e[Symbol.toPrimitive];
   if (n !== void 0) {
     var r = n.call(e, t || "default");
-    if (Xe(r) != "object")
+    if (Ot(r) != "object")
       return r;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return (t === "string" ? String : Number)(e);
 }
-var Tu = /* @__PURE__ */ function() {
+var cs = /* @__PURE__ */ function() {
   function e() {
-    xu(this, e);
+    ds(this, e);
   }
-  return Eu(e, [{
+  return us(e, [{
     key: "parse",
     value: function(n) {
       if (this.context = [{
@@ -4083,7 +4440,7 @@ var Tu = /* @__PURE__ */ function() {
       if (a)
         return {
           op: "|",
-          args: a.concat([At(i)])
+          args: a.concat([ln(i)])
         };
       if (i.length === 0)
         throw new Error("Pattern is required");
@@ -4109,9 +4466,9 @@ var Tu = /* @__PURE__ */ function() {
     value: function(n) {
       if (!n)
         throw new Error("Pattern is required");
-      var r = n.match(Ru);
+      var r = n.match(ps);
       if (!r) {
-        if (ju.test(n))
+        if ($s.test(n))
           throw new Error("Illegal characters found in a pattern: ".concat(n));
         this.getContext().instructions = this.getContext().instructions.concat(n.split(""));
         return;
@@ -4130,10 +4487,10 @@ var Tu = /* @__PURE__ */ function() {
             throw new Error('")" operator must be preceded by "(?:" operator');
           if (i && this.parsePattern(i), this.getContext().instructions.length === 0)
             throw new Error('No instructions found after "|" operator in an "or" group');
-          var d = this.getContext(), u = d.branches;
-          u.push(At(this.getContext().instructions)), this.endContext(), this.getContext().instructions.push({
+          var d = this.getContext(), s = d.branches;
+          s.push(ln(this.getContext().instructions)), this.endContext(), this.getContext().instructions.push({
             op: "|",
-            args: u
+            args: s
           });
           break;
         case "|":
@@ -4144,7 +4501,7 @@ var Tu = /* @__PURE__ */ function() {
               this.getContext().branches = [];
             else
               throw new Error('"branches" not found in an "or" group context');
-          this.getContext().branches.push(At(this.getContext().instructions)), this.getContext().instructions = [];
+          this.getContext().branches.push(ln(this.getContext().instructions)), this.getContext().instructions = [];
           break;
         case "[":
           i && this.parsePattern(i), this.startContext({
@@ -4156,7 +4513,7 @@ var Tu = /* @__PURE__ */ function() {
             throw new Error('"]" operator must be preceded by "[" operator');
           this.endContext(), this.getContext().instructions.push({
             op: "[]",
-            args: Au(i)
+            args: fs(i)
           });
           break;
         default:
@@ -4166,7 +4523,7 @@ var Tu = /* @__PURE__ */ function() {
     }
   }]);
 }();
-function Au(e) {
+function fs(e) {
   for (var t = [], n = 0; n < e.length; ) {
     if (e[n] === "-") {
       if (n === 0 || n === e.length - 1)
@@ -4179,18 +4536,18 @@ function Au(e) {
   }
   return t;
 }
-var ju = /[\(\)\[\]\?\:\|]/, Ru = new RegExp(
+var $s = /[\(\)\[\]\?\:\|]/, ps = new RegExp(
   // any of:
   "(\\||\\(\\?\\:|\\)|\\[|\\])"
 );
-function At(e) {
+function ln(e) {
   return e.length === 1 ? e[0] : e;
 }
-function gr(e, t) {
+function zr(e, t) {
   var n = typeof Symbol < "u" && e[Symbol.iterator] || e["@@iterator"];
   if (n)
     return (n = n.call(e)).next.bind(n);
-  if (Array.isArray(e) || (n = Fu(e)) || t && e && typeof e.length == "number") {
+  if (Array.isArray(e) || (n = ms(e)) || t && e && typeof e.length == "number") {
     n && (e = n);
     var r = 0;
     return function() {
@@ -4200,74 +4557,74 @@ function gr(e, t) {
   throw new TypeError(`Invalid attempt to iterate non-iterable instance.
 In order to be iterable, non-array objects must have a [Symbol.iterator]() method.`);
 }
-function Fu(e, t) {
+function ms(e, t) {
   if (e) {
     if (typeof e == "string")
-      return vr(e, t);
+      return qr(e, t);
     var n = {}.toString.call(e).slice(8, -1);
-    return n === "Object" && e.constructor && (n = e.constructor.name), n === "Map" || n === "Set" ? Array.from(e) : n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? vr(e, t) : void 0;
+    return n === "Object" && e.constructor && (n = e.constructor.name), n === "Map" || n === "Set" ? Array.from(e) : n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? qr(e, t) : void 0;
   }
 }
-function vr(e, t) {
+function qr(e, t) {
   (t == null || t > e.length) && (t = e.length);
   for (var n = 0, r = Array(t); n < t; n++)
     r[n] = e[n];
   return r;
 }
-function Ze(e) {
+function wt(e) {
   "@babel/helpers - typeof";
-  return Ze = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(t) {
+  return wt = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(t) {
     return typeof t;
   } : function(t) {
     return t && typeof Symbol == "function" && t.constructor === Symbol && t !== Symbol.prototype ? "symbol" : typeof t;
-  }, Ze(e);
+  }, wt(e);
 }
-function Mu(e, t) {
+function ys(e, t) {
   if (!(e instanceof t))
     throw new TypeError("Cannot call a class as a function");
 }
-function br(e, t) {
+function Xr(e, t) {
   for (var n = 0; n < t.length; n++) {
     var r = t[n];
-    r.enumerable = r.enumerable || !1, r.configurable = !0, "value" in r && (r.writable = !0), Object.defineProperty(e, Du(r.key), r);
+    r.enumerable = r.enumerable || !1, r.configurable = !0, "value" in r && (r.writable = !0), Object.defineProperty(e, gs(r.key), r);
   }
 }
-function ku(e, t, n) {
-  return t && br(e.prototype, t), n && br(e, n), Object.defineProperty(e, "prototype", { writable: !1 }), e;
+function hs(e, t, n) {
+  return t && Xr(e.prototype, t), n && Xr(e, n), Object.defineProperty(e, "prototype", { writable: !1 }), e;
 }
-function Du(e) {
-  var t = Lu(e, "string");
-  return Ze(t) == "symbol" ? t : t + "";
+function gs(e) {
+  var t = vs(e, "string");
+  return wt(t) == "symbol" ? t : t + "";
 }
-function Lu(e, t) {
-  if (Ze(e) != "object" || !e)
+function vs(e, t) {
+  if (wt(e) != "object" || !e)
     return e;
   var n = e[Symbol.toPrimitive];
   if (n !== void 0) {
     var r = n.call(e, t || "default");
-    if (Ze(r) != "object")
+    if (wt(r) != "object")
       return r;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return (t === "string" ? String : Number)(e);
 }
-var Bu = /* @__PURE__ */ function() {
+var bs = /* @__PURE__ */ function() {
   function e(t) {
-    Mu(this, e), this.matchTree = new Tu().parse(t);
+    ys(this, e), this.matchTree = new cs().parse(t);
   }
-  return ku(e, [{
+  return hs(e, [{
     key: "match",
     value: function(n) {
       var r = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {}, a = r.allowOverflow;
       if (!n)
         throw new Error("String is required");
-      var i = Ht(n.split(""), this.matchTree, !0);
+      var i = Pn(n.split(""), this.matchTree, !0);
       if (i && i.match && delete i.matchedChars, !(i && i.overflow && !a))
         return i;
     }
   }]);
 }();
-function Ht(e, t, n) {
+function Pn(e, t, n) {
   if (typeof t == "string") {
     var r = e.join("");
     return t.indexOf(r) === 0 ? e.length === t.length ? {
@@ -4285,7 +4642,7 @@ function Ht(e, t, n) {
   }
   if (Array.isArray(t)) {
     for (var a = e.slice(), i = 0; i < t.length; ) {
-      var o = t[i], d = Ht(a, o, n && i === t.length - 1);
+      var o = t[i], d = Pn(a, o, n && i === t.length - 1);
       if (d) {
         if (d.overflow)
           return d;
@@ -4320,31 +4677,31 @@ function Ht(e, t, n) {
   }
   switch (t.op) {
     case "|":
-      for (var u, c = gr(t.args), f; !(f = c()).done; ) {
-        var $ = f.value, g = Ht(e, $, n);
-        if (g) {
-          if (g.overflow)
-            return g;
-          if (g.match)
+      for (var s, l = zr(t.args), f; !(f = l()).done; ) {
+        var $ = f.value, h = Pn(e, $, n);
+        if (h) {
+          if (h.overflow)
+            return h;
+          if (h.match)
             return {
               match: !0,
-              matchedChars: g.matchedChars
+              matchedChars: h.matchedChars
             };
-          if (g.partialMatch)
-            u = !0;
+          if (h.partialMatch)
+            s = !0;
           else
             throw new Error(`Unsupported match result:
-`.concat(JSON.stringify(g, null, 2)));
+`.concat(JSON.stringify(h, null, 2)));
         }
       }
-      return u ? {
+      return s ? {
         partialMatch: !0
         // matchedChars: ...
       } : void 0;
     case "[]":
-      for (var y = gr(t.args), C; !(C = y()).done; ) {
-        var S = C.value;
-        if (e[0] === S)
+      for (var m = zr(t.args), P; !(P = m()).done; ) {
+        var E = P.value;
+        if (e[0] === E)
           return e.length === 1 ? {
             match: !0,
             matchedChars: e
@@ -4352,7 +4709,7 @@ function Ht(e, t, n) {
             overflow: !0
           } : {
             match: !0,
-            matchedChars: [S]
+            matchedChars: [E]
           };
       }
       return;
@@ -4360,19 +4717,19 @@ function Ht(e, t, n) {
       throw new Error("Unsupported instruction tree: ".concat(t));
   }
 }
-function Je(e) {
+function xt(e) {
   "@babel/helpers - typeof";
-  return Je = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(t) {
+  return xt = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(t) {
     return typeof t;
   } : function(t) {
     return t && typeof Symbol == "function" && t.constructor === Symbol && t !== Symbol.prototype ? "symbol" : typeof t;
-  }, Je(e);
+  }, xt(e);
 }
-function Cr(e, t) {
+function Zr(e, t) {
   var n = typeof Symbol < "u" && e[Symbol.iterator] || e["@@iterator"];
   if (n)
     return (n = n.call(e)).next.bind(n);
-  if (Array.isArray(e) || (n = Uu(e)) || t && e && typeof e.length == "number") {
+  if (Array.isArray(e) || (n = Cs(e)) || t && e && typeof e.length == "number") {
     n && (e = n);
     var r = 0;
     return function() {
@@ -4382,60 +4739,60 @@ function Cr(e, t) {
   throw new TypeError(`Invalid attempt to iterate non-iterable instance.
 In order to be iterable, non-array objects must have a [Symbol.iterator]() method.`);
 }
-function Uu(e, t) {
+function Cs(e, t) {
   if (e) {
     if (typeof e == "string")
-      return Pr(e, t);
+      return Jr(e, t);
     var n = {}.toString.call(e).slice(8, -1);
-    return n === "Object" && e.constructor && (n = e.constructor.name), n === "Map" || n === "Set" ? Array.from(e) : n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? Pr(e, t) : void 0;
+    return n === "Object" && e.constructor && (n = e.constructor.name), n === "Map" || n === "Set" ? Array.from(e) : n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? Jr(e, t) : void 0;
   }
 }
-function Pr(e, t) {
+function Jr(e, t) {
   (t == null || t > e.length) && (t = e.length);
   for (var n = 0, r = Array(t); n < t; n++)
     r[n] = e[n];
   return r;
 }
-function Gu(e, t) {
+function Ps(e, t) {
   if (!(e instanceof t))
     throw new TypeError("Cannot call a class as a function");
 }
-function Nr(e, t) {
+function Qr(e, t) {
   for (var n = 0; n < t.length; n++) {
     var r = t[n];
-    r.enumerable = r.enumerable || !1, r.configurable = !0, "value" in r && (r.writable = !0), Object.defineProperty(e, Hu(r.key), r);
+    r.enumerable = r.enumerable || !1, r.configurable = !0, "value" in r && (r.writable = !0), Object.defineProperty(e, Ss(r.key), r);
   }
 }
-function Wu(e, t, n) {
-  return t && Nr(e.prototype, t), n && Nr(e, n), Object.defineProperty(e, "prototype", { writable: !1 }), e;
+function Ns(e, t, n) {
+  return t && Qr(e.prototype, t), n && Qr(e, n), Object.defineProperty(e, "prototype", { writable: !1 }), e;
 }
-function Hu(e) {
-  var t = Vu(e, "string");
-  return Je(t) == "symbol" ? t : t + "";
+function Ss(e) {
+  var t = Os(e, "string");
+  return xt(t) == "symbol" ? t : t + "";
 }
-function Vu(e, t) {
-  if (Je(e) != "object" || !e)
+function Os(e, t) {
+  if (xt(e) != "object" || !e)
     return e;
   var n = e[Symbol.toPrimitive];
   if (n !== void 0) {
     var r = n.call(e, t || "default");
-    if (Je(r) != "object")
+    if (xt(r) != "object")
       return r;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return (t === "string" ? String : Number)(e);
 }
-var Vt = "9", Ku = 15, zu = ot(Vt, Ku), Yu = /[- ]/, qu = function() {
+var Nn = "9", ws = 15, xs = kt(Nn, ws), Es = /[- ]/, _s = function() {
   return /\[([^\[\]])*\]/g;
-}, Xu = function() {
+}, Is = function() {
   return /\d(?=[^,}][^,}])/g;
-}, Zu = new RegExp("[" + $e + "]*\\$1[" + $e + "]*(\\$\\d[" + $e + "]*)*$"), Sr = 3, Ju = /* @__PURE__ */ function() {
+}, Ts = new RegExp("[" + Ee + "]*\\$1[" + Ee + "]*(\\$\\d[" + Ee + "]*)*$"), ea = 3, As = /* @__PURE__ */ function() {
   function e(t) {
     t.state;
     var n = t.metadata;
-    Gu(this, e), this.metadata = n, this.resetFormat();
+    Ps(this, e), this.metadata = n, this.resetFormat();
   }
-  return Wu(e, [{
+  return Ns(e, [{
     key: "resetFormat",
     value: function() {
       this.chosenFormat = void 0, this.template = void 0, this.nationalNumberTemplate = void 0, this.populatedNationalNumberTemplate = void 0, this.populatedNationalNumberTemplatePosition = -1;
@@ -4455,9 +4812,9 @@ var Vt = "9", Ku = 15, zu = ot(Vt, Ku), Yu = /[- ]/, qu = function() {
     key: "format",
     value: function(n, r) {
       var a = this;
-      if (Su(r.nationalSignificantNumber, r.country, this.metadata))
-        for (var i = Cr(this.matchingFormats), o; !(o = i()).done; ) {
-          var d = o.value, u = Nu(r, d, {
+      if (as(r.nationalSignificantNumber, r.country, this.metadata))
+        for (var i = Zr(this.matchingFormats), o; !(o = i()).done; ) {
+          var d = o.value, s = rs(r, d, {
             metadata: this.metadata,
             shouldTryNationalPrefixFormattingRule: function(f) {
               return a.shouldTryNationalPrefixFormattingRule(f, {
@@ -4469,8 +4826,8 @@ var Vt = "9", Ku = 15, zu = ot(Vt, Ku), Yu = /[- ]/, qu = function() {
               return a.getSeparatorAfterNationalPrefix(f);
             }
           });
-          if (u)
-            return this.resetFormat(), this.chosenFormat = d, this.setNationalNumberTemplate(u.replace(/\d/g, fe), r), this.populatedNationalNumberTemplate = u, this.populatedNationalNumberTemplatePosition = this.template.lastIndexOf(fe), u;
+          if (s)
+            return this.resetFormat(), this.chosenFormat = d, this.setNationalNumberTemplate(s.replace(/\d/g, xe), r), this.populatedNationalNumberTemplate = s, this.populatedNationalNumberTemplatePosition = this.template.lastIndexOf(xe), s;
         }
       return this.formatNationalNumberWithNextDigits(n, r);
     }
@@ -4485,9 +4842,9 @@ var Vt = "9", Ku = 15, zu = ot(Vt, Ku), Yu = /[- ]/, qu = function() {
   }, {
     key: "narrowDownMatchingFormats",
     value: function(n) {
-      var r = this, a = n.nationalSignificantNumber, i = n.nationalPrefix, o = n.international, d = a, u = d.length - Sr;
-      u < 0 && (u = 0), this.matchingFormats = this.matchingFormats.filter(function(c) {
-        return r.formatSuits(c, o, i) && r.formatMatches(c, d, u);
+      var r = this, a = n.nationalSignificantNumber, i = n.nationalPrefix, o = n.international, d = a, s = d.length - ea;
+      s < 0 && (s = 0), this.matchingFormats = this.matchingFormats.filter(function(l) {
+        return r.formatSuits(l, o, i) && r.formatMatches(l, d, s);
       }), this.chosenFormat && this.matchingFormats.indexOf(this.chosenFormat) === -1 && this.resetFormat();
     }
   }, {
@@ -4504,9 +4861,9 @@ var Vt = "9", Ku = 15, zu = ot(Vt, Ku), Yu = /[- ]/, qu = function() {
         return !0;
       a = Math.min(a, i - 1);
       var o = n.leadingDigitsPatterns()[a];
-      if (r.length < Sr)
+      if (r.length < ea)
         try {
-          return new Bu(o).match(r, {
+          return new bs(o).match(r, {
             allowOverflow: !0
           }) !== void 0;
         } catch (d) {
@@ -4523,11 +4880,11 @@ var Vt = "9", Ku = 15, zu = ot(Vt, Ku), Yu = /[- ]/, qu = function() {
     key: "chooseFormat",
     value: function(n) {
       for (var r = this, a = function() {
-        var c = d.value;
-        return r.chosenFormat === c ? 0 : Zu.test(r.getFormatFormat(c, n.international)) ? r.createTemplateForFormat(c, n) ? (r.chosenFormat = c, 0) : (r.matchingFormats = r.matchingFormats.filter(function(f) {
-          return f !== c;
+        var l = d.value;
+        return r.chosenFormat === l ? 0 : Ts.test(r.getFormatFormat(l, n.international)) ? r.createTemplateForFormat(l, n) ? (r.chosenFormat = l, 0) : (r.matchingFormats = r.matchingFormats.filter(function(f) {
+          return f !== l;
         }), 1) : 1;
-      }, i, o = Cr(this.matchingFormats.slice()), d; !(d = o()).done && (i = a(), i !== 0); )
+      }, i, o = Zr(this.matchingFormats.slice()), d; !(d = o()).done && (i = a(), i !== 0); )
         ;
       return this.chosenFormat || this.resetFormat(), this.chosenFormat;
     }
@@ -4543,7 +4900,7 @@ var Vt = "9", Ku = 15, zu = ot(Vt, Ku), Yu = /[- ]/, qu = function() {
   }, {
     key: "getSeparatorAfterNationalPrefix",
     value: function(n) {
-      return this.isNANP || n && n.nationalPrefixFormattingRule() && Yu.test(n.nationalPrefixFormattingRule()) ? " " : "";
+      return this.isNANP || n && n.nationalPrefixFormattingRule() && Es.test(n.nationalPrefixFormattingRule()) ? " " : "";
     }
   }, {
     key: "getInternationalPrefixBeforeCountryCallingCode",
@@ -4558,14 +4915,14 @@ var Vt = "9", Ku = 15, zu = ot(Vt, Ku), Yu = /[- ]/, qu = function() {
         for (var r = -1, a = 0, i = n.international ? this.getInternationalPrefixBeforeCountryCallingCode(n, {
           spacing: !1
         }) : ""; a < i.length + n.getDigitsWithoutInternationalPrefix().length; )
-          r = this.template.indexOf(fe, r + 1), a++;
-        return pr(this.template, r + 1);
+          r = this.template.indexOf(xe, r + 1), a++;
+        return Kr(this.template, r + 1);
       }
     }
   }, {
     key: "setNationalNumberTemplate",
     value: function(n, r) {
-      this.nationalNumberTemplate = n, this.populatedNationalNumberTemplate = n, this.populatedNationalNumberTemplatePosition = -1, r.international ? this.template = this.getInternationalPrefixBeforeCountryCallingCode(r).replace(/[\d\+]/g, fe) + ot(fe, r.callingCode.length) + " " + n : this.template = n;
+      this.nationalNumberTemplate = n, this.populatedNationalNumberTemplate = n, this.populatedNationalNumberTemplatePosition = -1, r.international ? this.template = this.getInternationalPrefixBeforeCountryCallingCode(r).replace(/[\d\+]/g, xe) + kt(xe, r.callingCode.length) + " " + n : this.template = n;
     }
     /**
      * Generates formatting template for a national phone number,
@@ -4577,35 +4934,35 @@ var Vt = "9", Ku = 15, zu = ot(Vt, Ku), Yu = /[- ]/, qu = function() {
   }, {
     key: "getTemplateForFormat",
     value: function(n, r) {
-      var a = r.nationalSignificantNumber, i = r.international, o = r.nationalPrefix, d = r.prefixBeforeNationalSignificantNumberThatIsNotNationalPrefix, u = n.pattern();
-      u = u.replace(qu(), "\\d").replace(Xu(), "\\d");
-      var c = zu.match(u)[0];
-      if (!(a.length > c.length)) {
-        var f = new RegExp("^" + u + "$"), $ = a.replace(/\d/g, Vt);
-        f.test($) && (c = $);
-        var g = this.getFormatFormat(n, i), y;
+      var a = r.nationalSignificantNumber, i = r.international, o = r.nationalPrefix, d = r.prefixBeforeNationalSignificantNumberThatIsNotNationalPrefix, s = n.pattern();
+      s = s.replace(_s(), "\\d").replace(Is(), "\\d");
+      var l = xs.match(s)[0];
+      if (!(a.length > l.length)) {
+        var f = new RegExp("^" + s + "$"), $ = a.replace(/\d/g, Nn);
+        f.test($) && (l = $);
+        var h = this.getFormatFormat(n, i), m;
         if (this.shouldTryNationalPrefixFormattingRule(n, {
           international: i,
           nationalPrefix: o
         })) {
-          var C = g.replace(sa, n.nationalPrefixFormattingRule());
-          if (lt(n.nationalPrefixFormattingRule()) === (o || "") + lt("$1") && (g = C, y = !0, o))
-            for (var S = o.length; S > 0; )
-              g = g.replace(/\d/, fe), S--;
+          var P = h.replace(La, n.nationalPrefixFormattingRule());
+          if (Gt(n.nationalPrefixFormattingRule()) === (o || "") + Gt("$1") && (h = P, m = !0, o))
+            for (var E = o.length; E > 0; )
+              h = h.replace(/\d/, xe), E--;
         }
-        var h = c.replace(new RegExp(u), g).replace(new RegExp(Vt, "g"), fe);
-        return y || (d ? h = ot(fe, d.length) + " " + h : o && (h = ot(fe, o.length) + this.getSeparatorAfterNationalPrefix(n) + h)), i && (h = ua(h)), h;
+        var y = l.replace(new RegExp(s), h).replace(new RegExp(Nn, "g"), xe);
+        return m || (d ? y = kt(xe, d.length) + " " + y : o && (y = kt(xe, o.length) + this.getSeparatorAfterNationalPrefix(n) + y)), i && (y = ka(y)), y;
       }
     }
   }, {
     key: "formatNextNationalNumberDigits",
     value: function(n) {
-      var r = Pu(this.populatedNationalNumberTemplate, this.populatedNationalNumberTemplatePosition, n);
+      var r = ns(this.populatedNationalNumberTemplate, this.populatedNationalNumberTemplatePosition, n);
       if (!r) {
         this.resetFormat();
         return;
       }
-      return this.populatedNationalNumberTemplate = r[0], this.populatedNationalNumberTemplatePosition = r[1], pr(this.populatedNationalNumberTemplate, this.populatedNationalNumberTemplatePosition + 1);
+      return this.populatedNationalNumberTemplate = r[0], this.populatedNationalNumberTemplatePosition = r[1], Kr(this.populatedNationalNumberTemplate, this.populatedNationalNumberTemplatePosition + 1);
     }
   }, {
     key: "shouldTryNationalPrefixFormattingRule",
@@ -4619,106 +4976,106 @@ var Vt = "9", Ku = 15, zu = ot(Vt, Ku), Yu = /[- ]/, qu = function() {
     }
   }]);
 }();
-function Qe(e) {
+function Et(e) {
   "@babel/helpers - typeof";
-  return Qe = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(t) {
+  return Et = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(t) {
     return typeof t;
   } : function(t) {
     return t && typeof Symbol == "function" && t.constructor === Symbol && t !== Symbol.prototype ? "symbol" : typeof t;
-  }, Qe(e);
+  }, Et(e);
 }
-function va(e, t) {
-  return ns(e) || ts(e, t) || es(e, t) || Qu();
+function qa(e, t) {
+  return Ms(e) || Fs(e, t) || js(e, t) || Rs();
 }
-function Qu() {
+function Rs() {
   throw new TypeError(`Invalid attempt to destructure non-iterable instance.
 In order to be iterable, non-array objects must have a [Symbol.iterator]() method.`);
 }
-function es(e, t) {
+function js(e, t) {
   if (e) {
     if (typeof e == "string")
-      return Or(e, t);
+      return ta(e, t);
     var n = {}.toString.call(e).slice(8, -1);
-    return n === "Object" && e.constructor && (n = e.constructor.name), n === "Map" || n === "Set" ? Array.from(e) : n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? Or(e, t) : void 0;
+    return n === "Object" && e.constructor && (n = e.constructor.name), n === "Map" || n === "Set" ? Array.from(e) : n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? ta(e, t) : void 0;
   }
 }
-function Or(e, t) {
+function ta(e, t) {
   (t == null || t > e.length) && (t = e.length);
   for (var n = 0, r = Array(t); n < t; n++)
     r[n] = e[n];
   return r;
 }
-function ts(e, t) {
+function Fs(e, t) {
   var n = e == null ? null : typeof Symbol < "u" && e[Symbol.iterator] || e["@@iterator"];
   if (n != null) {
-    var r, a, i, o, d = [], u = !0, c = !1;
+    var r, a, i, o, d = [], s = !0, l = !1;
     try {
       if (i = (n = n.call(e)).next, t === 0) {
         if (Object(n) !== n)
           return;
-        u = !1;
+        s = !1;
       } else
-        for (; !(u = (r = i.call(n)).done) && (d.push(r.value), d.length !== t); u = !0)
+        for (; !(s = (r = i.call(n)).done) && (d.push(r.value), d.length !== t); s = !0)
           ;
     } catch (f) {
-      c = !0, a = f;
+      l = !0, a = f;
     } finally {
       try {
-        if (!u && n.return != null && (o = n.return(), Object(o) !== o))
+        if (!s && n.return != null && (o = n.return(), Object(o) !== o))
           return;
       } finally {
-        if (c)
+        if (l)
           throw a;
       }
     }
     return d;
   }
 }
-function ns(e) {
+function Ms(e) {
   if (Array.isArray(e))
     return e;
 }
-function rs(e, t) {
+function Ds(e, t) {
   if (!(e instanceof t))
     throw new TypeError("Cannot call a class as a function");
 }
-function wr(e, t) {
+function na(e, t) {
   for (var n = 0; n < t.length; n++) {
     var r = t[n];
-    r.enumerable = r.enumerable || !1, r.configurable = !0, "value" in r && (r.writable = !0), Object.defineProperty(e, is(r.key), r);
+    r.enumerable = r.enumerable || !1, r.configurable = !0, "value" in r && (r.writable = !0), Object.defineProperty(e, Ls(r.key), r);
   }
 }
-function as(e, t, n) {
-  return t && wr(e.prototype, t), n && wr(e, n), Object.defineProperty(e, "prototype", { writable: !1 }), e;
+function ks(e, t, n) {
+  return t && na(e.prototype, t), n && na(e, n), Object.defineProperty(e, "prototype", { writable: !1 }), e;
 }
-function is(e) {
-  var t = os(e, "string");
-  return Qe(t) == "symbol" ? t : t + "";
+function Ls(e) {
+  var t = Bs(e, "string");
+  return Et(t) == "symbol" ? t : t + "";
 }
-function os(e, t) {
-  if (Qe(e) != "object" || !e)
+function Bs(e, t) {
+  if (Et(e) != "object" || !e)
     return e;
   var n = e[Symbol.toPrimitive];
   if (n !== void 0) {
     var r = n.call(e, t || "default");
-    if (Qe(r) != "object")
+    if (Et(r) != "object")
       return r;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return (t === "string" ? String : Number)(e);
 }
-var ds = "[" + $e + ae + "]+", us = new RegExp("^" + ds + "$", "i"), ss = "(?:[" + ht + "][" + $e + ae + "]*|[" + $e + ae + "]+)", ls = new RegExp("[^" + $e + ae + "]+.*$"), cs = /[^\d\[\]]/, fs = /* @__PURE__ */ function() {
+var Us = "[" + Ee + he + "]+", Gs = new RegExp("^" + Us + "$", "i"), Ws = "(?:[" + qt + "][" + Ee + he + "]*|[" + Ee + he + "]+)", Vs = new RegExp("[^" + Ee + he + "]+.*$"), Ks = /[^\d\[\]]/, Hs = /* @__PURE__ */ function() {
   function e(t) {
     var n = t.defaultCountry, r = t.defaultCallingCode, a = t.metadata, i = t.onNationalSignificantNumberChange;
-    rs(this, e), this.defaultCountry = n, this.defaultCallingCode = r, this.metadata = a, this.onNationalSignificantNumberChange = i;
+    Ds(this, e), this.defaultCountry = n, this.defaultCallingCode = r, this.metadata = a, this.onNationalSignificantNumberChange = i;
   }
-  return as(e, [{
+  return ks(e, [{
     key: "input",
     value: function(n, r) {
-      var a = ps(n), i = va(a, 2), o = i[0], d = i[1], u = lt(o), c;
-      return d && (r.digits || (r.startInternationalNumber(void 0, void 0), u || (c = !0))), u && this.inputDigits(u, r), {
-        digits: u,
-        justLeadingPlus: c
+      var a = qs(n), i = qa(a, 2), o = i[0], d = i[1], s = Gt(o), l;
+      return d && (r.digits || (r.startInternationalNumber(void 0, void 0), s || (l = !0))), s && this.inputDigits(s, r), {
+        digits: s,
+        justLeadingPlus: l
       };
     }
     /**
@@ -4750,7 +5107,7 @@ var ds = "[" + $e + ae + "]+", us = new RegExp("^" + ds + "$", "i"), ss = "(?:["
   }, {
     key: "extractCountryCallingCode",
     value: function(n) {
-      var r = rn("+" + n.getDigitsWithoutInternationalPrefix(), n.country, this.defaultCountry, this.defaultCallingCode, this.metadata.metadata), a = r.countryCallingCode, i = r.number;
+      var r = Fn("+" + n.getDigitsWithoutInternationalPrefix(), n.country, this.defaultCountry, this.defaultCallingCode, this.metadata.metadata), a = r.countryCallingCode, i = r.number;
       if (a)
         return n.setCallingCode(a), n.update({
           nationalSignificantNumber: i
@@ -4762,7 +5119,7 @@ var ds = "[" + $e + ae + "]+", us = new RegExp("^" + ds + "$", "i"), ss = "(?:["
       if (n) {
         this.hasSelectedNumberingPlan = !0;
         var r = n._nationalPrefixForParsing();
-        this.couldPossiblyExtractAnotherNationalSignificantNumber = r && cs.test(r);
+        this.couldPossiblyExtractAnotherNationalSignificantNumber = r && Ks.test(r);
       } else
         this.hasSelectedNumberingPlan = void 0, this.couldPossiblyExtractAnotherNationalSignificantNumber = void 0;
     }
@@ -4777,7 +5134,7 @@ var ds = "[" + $e + ae + "]+", us = new RegExp("^" + ds + "$", "i"), ss = "(?:["
     key: "extractNationalSignificantNumber",
     value: function(n, r) {
       if (this.hasSelectedNumberingPlan) {
-        var a = Dt(n, this.metadata), i = a.nationalPrefix, o = a.nationalNumber, d = a.carrierCode;
+        var a = yn(n, this.metadata), i = a.nationalPrefix, o = a.nationalNumber, d = a.carrierCode;
         if (o !== n)
           return this.onExtractedNationalNumber(i, d, o, n, r), !0;
       }
@@ -4793,27 +5150,27 @@ var ds = "[" + $e + ae + "]+", us = new RegExp("^" + ds + "$", "i"), ss = "(?:["
       if (!this.hasExtractedNationalSignificantNumber)
         return this.extractNationalSignificantNumber(n, a);
       if (this.couldPossiblyExtractAnotherNationalSignificantNumber) {
-        var i = Dt(n, this.metadata), o = i.nationalPrefix, d = i.nationalNumber, u = i.carrierCode;
+        var i = yn(n, this.metadata), o = i.nationalPrefix, d = i.nationalNumber, s = i.carrierCode;
         if (d !== r)
-          return this.onExtractedNationalNumber(o, u, d, n, a), !0;
+          return this.onExtractedNationalNumber(o, s, d, n, a), !0;
       }
     }
   }, {
     key: "onExtractedNationalNumber",
     value: function(n, r, a, i, o) {
-      var d = !1, u, c = i.lastIndexOf(a);
-      if (c < 0 || c !== i.length - a.length)
+      var d = !1, s, l = i.lastIndexOf(a);
+      if (l < 0 || l !== i.length - a.length)
         d = !0;
       else {
-        var f = i.slice(0, c);
-        f && f !== n && (u = f);
+        var f = i.slice(0, l);
+        f && f !== n && (s = f);
       }
       o({
         nationalPrefix: n,
         carrierCode: r,
         nationalSignificantNumber: a,
         nationalSignificantNumberIsModified: d,
-        prefixBeforeNationalSignificantNumberThatIsNotNationalPrefix: u
+        prefixBeforeNationalSignificantNumberThatIsNotNationalPrefix: s
       }), this.hasExtractedNationalSignificantNumber = !0, this.onNationalSignificantNumberChange();
     }
   }, {
@@ -4833,7 +5190,7 @@ var ds = "[" + $e + ae + "]+", us = new RegExp("^" + ds + "$", "i"), ss = "(?:["
     value: function(n) {
       var r = n.international, a = n.IDDPrefix, i = n.digits;
       if (n.nationalSignificantNumber, !(r || a)) {
-        var o = ia(i, this.defaultCountry, this.defaultCallingCode, this.metadata.metadata);
+        var o = Fa(i, this.defaultCountry, this.defaultCallingCode, this.metadata.metadata);
         if (o !== void 0 && o !== i)
           return n.update({
             IDDPrefix: i.slice(0, i.length - o.length)
@@ -4847,7 +5204,7 @@ var ds = "[" + $e + ae + "]+", us = new RegExp("^" + ds + "$", "i"), ss = "(?:["
     key: "fixMissingPlus",
     value: function(n) {
       if (!n.international) {
-        var r = da(n.digits, n.country, this.defaultCountry, this.defaultCallingCode, this.metadata.metadata), a = r.countryCallingCode;
+        var r = Da(n.digits, n.country, this.defaultCountry, this.defaultCallingCode, this.metadata.metadata), a = r.countryCallingCode;
         if (a)
           return n.update({
             missingPlus: !0
@@ -4872,121 +5229,121 @@ var ds = "[" + $e + ae + "]+", us = new RegExp("^" + ds + "$", "i"), ss = "(?:["
     }
   }]);
 }();
-function $s(e) {
-  var t = e.search(ss);
+function Ys(e) {
+  var t = e.search(Ws);
   if (!(t < 0)) {
     e = e.slice(t);
     var n;
-    return e[0] === "+" && (n = !0, e = e.slice(1)), e = e.replace(ls, ""), n && (e = "+" + e), e;
+    return e[0] === "+" && (n = !0, e = e.slice(1)), e = e.replace(Vs, ""), n && (e = "+" + e), e;
   }
 }
-function ms(e) {
-  var t = $s(e) || "";
+function zs(e) {
+  var t = Ys(e) || "";
   return t[0] === "+" ? [t.slice(1), !0] : [t];
 }
-function ps(e) {
-  var t = ms(e), n = va(t, 2), r = n[0], a = n[1];
-  return us.test(r) || (r = ""), [r, a];
+function qs(e) {
+  var t = zs(e), n = qa(t, 2), r = n[0], a = n[1];
+  return Gs.test(r) || (r = ""), [r, a];
 }
-function et(e) {
+function _t(e) {
   "@babel/helpers - typeof";
-  return et = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(t) {
+  return _t = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(t) {
     return typeof t;
   } : function(t) {
     return t && typeof Symbol == "function" && t.constructor === Symbol && t !== Symbol.prototype ? "symbol" : typeof t;
-  }, et(e);
+  }, _t(e);
 }
-function ys(e, t) {
-  return bs(e) || vs(e, t) || gs(e, t) || hs();
+function Xs(e, t) {
+  return el(e) || Qs(e, t) || Js(e, t) || Zs();
 }
-function hs() {
+function Zs() {
   throw new TypeError(`Invalid attempt to destructure non-iterable instance.
 In order to be iterable, non-array objects must have a [Symbol.iterator]() method.`);
 }
-function gs(e, t) {
+function Js(e, t) {
   if (e) {
     if (typeof e == "string")
-      return xr(e, t);
+      return ra(e, t);
     var n = {}.toString.call(e).slice(8, -1);
-    return n === "Object" && e.constructor && (n = e.constructor.name), n === "Map" || n === "Set" ? Array.from(e) : n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? xr(e, t) : void 0;
+    return n === "Object" && e.constructor && (n = e.constructor.name), n === "Map" || n === "Set" ? Array.from(e) : n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? ra(e, t) : void 0;
   }
 }
-function xr(e, t) {
+function ra(e, t) {
   (t == null || t > e.length) && (t = e.length);
   for (var n = 0, r = Array(t); n < t; n++)
     r[n] = e[n];
   return r;
 }
-function vs(e, t) {
+function Qs(e, t) {
   var n = e == null ? null : typeof Symbol < "u" && e[Symbol.iterator] || e["@@iterator"];
   if (n != null) {
-    var r, a, i, o, d = [], u = !0, c = !1;
+    var r, a, i, o, d = [], s = !0, l = !1;
     try {
       if (i = (n = n.call(e)).next, t === 0) {
         if (Object(n) !== n)
           return;
-        u = !1;
+        s = !1;
       } else
-        for (; !(u = (r = i.call(n)).done) && (d.push(r.value), d.length !== t); u = !0)
+        for (; !(s = (r = i.call(n)).done) && (d.push(r.value), d.length !== t); s = !0)
           ;
     } catch (f) {
-      c = !0, a = f;
+      l = !0, a = f;
     } finally {
       try {
-        if (!u && n.return != null && (o = n.return(), Object(o) !== o))
+        if (!s && n.return != null && (o = n.return(), Object(o) !== o))
           return;
       } finally {
-        if (c)
+        if (l)
           throw a;
       }
     }
     return d;
   }
 }
-function bs(e) {
+function el(e) {
   if (Array.isArray(e))
     return e;
 }
-function Cs(e, t) {
+function tl(e, t) {
   if (!(e instanceof t))
     throw new TypeError("Cannot call a class as a function");
 }
-function Er(e, t) {
+function aa(e, t) {
   for (var n = 0; n < t.length; n++) {
     var r = t[n];
-    r.enumerable = r.enumerable || !1, r.configurable = !0, "value" in r && (r.writable = !0), Object.defineProperty(e, Ns(r.key), r);
+    r.enumerable = r.enumerable || !1, r.configurable = !0, "value" in r && (r.writable = !0), Object.defineProperty(e, rl(r.key), r);
   }
 }
-function Ps(e, t, n) {
-  return t && Er(e.prototype, t), n && Er(e, n), Object.defineProperty(e, "prototype", { writable: !1 }), e;
+function nl(e, t, n) {
+  return t && aa(e.prototype, t), n && aa(e, n), Object.defineProperty(e, "prototype", { writable: !1 }), e;
 }
-function Ns(e) {
-  var t = Ss(e, "string");
-  return et(t) == "symbol" ? t : t + "";
+function rl(e) {
+  var t = al(e, "string");
+  return _t(t) == "symbol" ? t : t + "";
 }
-function Ss(e, t) {
-  if (et(e) != "object" || !e)
+function al(e, t) {
+  if (_t(e) != "object" || !e)
     return e;
   var n = e[Symbol.toPrimitive];
   if (n !== void 0) {
     var r = n.call(e, t || "default");
-    if (et(r) != "object")
+    if (_t(r) != "object")
       return r;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return (t === "string" ? String : Number)(e);
 }
-var je = /* @__PURE__ */ function() {
+var it = /* @__PURE__ */ function() {
   function e(t, n) {
-    Cs(this, e), this.metadata = new J(n);
-    var r = this.getCountryAndCallingCode(t), a = ys(r, 2), i = a[0], o = a[1];
+    tl(this, e), this.metadata = new le(n);
+    var r = this.getCountryAndCallingCode(t), a = Xs(r, 2), i = a[0], o = a[1];
     this.defaultCountry = i, this.defaultCallingCode = o, this.reset();
   }
-  return Ps(e, [{
+  return nl(e, [{
     key: "getCountryAndCallingCode",
     value: function(n) {
       var r, a;
-      return n && (Ne(n) ? (r = n.defaultCountry, a = n.defaultCallingCode) : r = n), r && !this.metadata.hasCountry(r) && (r = void 0), [r, a];
+      return n && (He(n) ? (r = n.defaultCountry, a = n.defaultCallingCode) : r = n), r && !this.metadata.hasCountry(r) && (r = void 0), [r, a];
     }
     /**
      * Inputs "next" phone number characters.
@@ -5015,17 +5372,17 @@ var je = /* @__PURE__ */ function() {
     key: "reset",
     value: function() {
       var n = this;
-      return this.state = new gu({
+      return this.state = new Ju({
         onCountryChange: function(a) {
           n.country = a;
         },
         onCallingCodeChange: function(a, i) {
           n.metadata.selectNumberingPlan(i, a), n.formatter.reset(n.metadata.numberingPlan, n.state), n.parser.reset(n.metadata.numberingPlan);
         }
-      }), this.formatter = new Ju({
+      }), this.formatter = new As({
         state: this.state,
         metadata: this.metadata
-      }), this.parser = new fs({
+      }), this.parser = new Hs({
         defaultCountry: this.defaultCountry,
         defaultCallingCode: this.defaultCallingCode,
         metadata: this.metadata,
@@ -5127,7 +5484,7 @@ var je = /* @__PURE__ */ function() {
     value: function() {
       var n = this.getNonFormattedNumber();
       if (n)
-        return n.replace(/[\+\d]/g, fe);
+        return n.replace(/[\+\d]/g, xe);
     }
   }, {
     key: "isCountryCallingCodeAmbiguous",
@@ -5141,7 +5498,7 @@ var je = /* @__PURE__ */ function() {
   }, {
     key: "determineTheCountry",
     value: function() {
-      this.state.setCountry(nn(this.isInternational() ? this.state.callingCode : this.defaultCallingCode, {
+      this.state.setCountry(jn(this.isInternational() ? this.state.callingCode : this.defaultCallingCode, {
         nationalNumber: this.state.nationalSignificantNumber,
         metadata: this.metadata
       }));
@@ -5189,18 +5546,18 @@ var je = /* @__PURE__ */ function() {
       var n = this.state, r = n.nationalSignificantNumber, a = n.carrierCode, i = n.callingCode, o = this._getCountry();
       if (r && !(!o && !i)) {
         if (o && o === this.defaultCountry) {
-          var d = new J(this.metadata.metadata);
+          var d = new le(this.metadata.metadata);
           d.selectNumberingPlan(o);
-          var u = d.numberingPlan.callingCode(), c = this.metadata.getCountryCodesForCallingCode(u);
-          if (c.length > 1) {
-            var f = oa(r, {
-              countries: c,
+          var s = d.numberingPlan.callingCode(), l = this.metadata.getCountryCodesForCallingCode(s);
+          if (l.length > 1) {
+            var f = Ma(r, {
+              countries: l,
               metadata: this.metadata.metadata
             });
             f && (o = f);
           }
         }
-        var $ = new $a(o || i, r, this.metadata.metadata);
+        var $ = new Wa(o || i, r, this.metadata.metadata);
         return a && ($.carrierCode = a), $;
       }
     }
@@ -5256,20 +5613,20 @@ var je = /* @__PURE__ */ function() {
     }
   }]);
 }();
-function Ir(e) {
-  return new J(e).getCountries();
+function ia(e) {
+  return new le(e).getCountries();
 }
-function Os(e, t, n) {
-  return n || (n = t, t = void 0), new je(t, n).input(e);
+function il(e, t, n) {
+  return n || (n = t, t = void 0), new it(t, n).input(e);
 }
-function ba(e) {
+function Xa(e) {
   var t = e.inputFormat, n = e.country, r = e.metadata;
-  return t === "NATIONAL_PART_OF_INTERNATIONAL" ? "+".concat(be(n, r)) : "";
+  return t === "NATIONAL_PART_OF_INTERNATIONAL" ? "+".concat(Ue(n, r)) : "";
 }
-function Kt(e, t) {
+function Sn(e, t) {
   return t && (e = e.slice(t.length), e[0] === " " && (e = e.slice(1))), e;
 }
-function ws(e, t, n) {
+function ol(e, t, n) {
   if (!(n && n.ignoreRest)) {
     var r = function(i) {
       if (n)
@@ -5279,37 +5636,37 @@ function ws(e, t, n) {
             break;
         }
     };
-    return pa(e, t, r);
+    return Ka(e, t, r);
   }
 }
-function Ca(e) {
+function Za(e) {
   var t = e.onKeyDown, n = e.inputFormat;
-  return ue(function(r) {
-    if (r.keyCode === Es && n === "INTERNATIONAL" && r.target instanceof HTMLInputElement && xs(r.target) === Is.length) {
+  return be(function(r) {
+    if (r.keyCode === ul && n === "INTERNATIONAL" && r.target instanceof HTMLInputElement && dl(r.target) === sl.length) {
       r.preventDefault();
       return;
     }
     t && t(r);
   }, [t, n]);
 }
-function xs(e) {
+function dl(e) {
   return e.selectionStart;
 }
-var Es = 8, Is = "+", _s = ["onKeyDown", "country", "inputFormat", "metadata", "international", "withCountryCallingCode"];
-function zt() {
-  return zt = Object.assign ? Object.assign.bind() : function(e) {
+var ul = 8, sl = "+", ll = ["onKeyDown", "country", "inputFormat", "metadata", "international", "withCountryCallingCode"];
+function On() {
+  return On = Object.assign ? Object.assign.bind() : function(e) {
     for (var t = 1; t < arguments.length; t++) {
       var n = arguments[t];
       for (var r in n)
         Object.prototype.hasOwnProperty.call(n, r) && (e[r] = n[r]);
     }
     return e;
-  }, zt.apply(this, arguments);
+  }, On.apply(this, arguments);
 }
-function Ts(e, t) {
+function cl(e, t) {
   if (e == null)
     return {};
-  var n = As(e, t), r, a;
+  var n = fl(e, t), r, a;
   if (Object.getOwnPropertySymbols) {
     var i = Object.getOwnPropertySymbols(e);
     for (a = 0; a < i.length; a++)
@@ -5317,7 +5674,7 @@ function Ts(e, t) {
   }
   return n;
 }
-function As(e, t) {
+function fl(e, t) {
   if (e == null)
     return {};
   var n = {}, r = Object.keys(e), a, i;
@@ -5325,32 +5682,32 @@ function As(e, t) {
     a = r[i], !(t.indexOf(a) >= 0) && (n[a] = e[a]);
   return n;
 }
-function js(e) {
+function $l(e) {
   function t(n, r) {
-    var a = n.onKeyDown, i = n.country, o = n.inputFormat, d = n.metadata, u = d === void 0 ? e : d;
+    var a = n.onKeyDown, i = n.country, o = n.inputFormat, d = n.metadata, s = d === void 0 ? e : d;
     n.international, n.withCountryCallingCode;
-    var c = Ts(n, _s), f = ue(function(g) {
-      var y = new je(i, u), C = ba({
+    var l = cl(n, ll), f = be(function(h) {
+      var m = new it(i, s), P = Xa({
         inputFormat: o,
         country: i,
-        metadata: u
-      }), S = y.input(C + g), h = y.getTemplate();
-      return C && (S = Kt(S, C), h && (h = Kt(h, C))), {
-        text: S,
-        template: h
+        metadata: s
+      }), E = m.input(P + h), y = m.getTemplate();
+      return P && (E = Sn(E, P), y && (y = Sn(y, P))), {
+        text: E,
+        template: y
       };
-    }, [i, u]), $ = Ca({
+    }, [i, s]), $ = Za({
       onKeyDown: a,
       inputFormat: o
     });
-    return /* @__PURE__ */ I.createElement(ro, zt({}, c, {
+    return /* @__PURE__ */ A.createElement(ko, On({}, l, {
       ref: r,
-      parse: ws,
+      parse: ol,
       format: f,
       onKeyDown: $
     }));
   }
-  return t = /* @__PURE__ */ I.forwardRef(t), t.propTypes = {
+  return t = /* @__PURE__ */ A.forwardRef(t), t.propTypes = {
     /**
      * The parsed phone number.
      * "Parsed" not in a sense of "E.164"
@@ -5358,17 +5715,17 @@ function js(e) {
      * digits and possibly a leading plus character".
      * Examples: `""`, `"+"`, `"+123"`, `"123"`.
      */
-    value: b.string.isRequired,
+    value: C.string.isRequired,
     /**
      * A function of `value: string`.
      * Updates the `value` property.
      */
-    onChange: b.func.isRequired,
+    onChange: C.func.isRequired,
     /**
      * A function of `event: Event`.
      * Handles `keydown` events.
      */
-    onKeyDown: b.func,
+    onKeyDown: C.func,
     /**
      * A two-letter country code for formatting `value`
      * as a national phone number (e.g. `(800) 555 35 35`).
@@ -5380,33 +5737,33 @@ function js(e) {
      * because it only applies when the user inputs a phone number in a national format
      * and is completely ignored when the user inputs a phone number in an international format.
      */
-    country: b.string,
+    country: C.string,
     /**
      * The format that the input field value is being input/output in.
      */
-    inputFormat: b.oneOf(["INTERNATIONAL", "NATIONAL_PART_OF_INTERNATIONAL", "NATIONAL", "INTERNATIONAL_OR_NATIONAL"]).isRequired,
+    inputFormat: C.oneOf(["INTERNATIONAL", "NATIONAL_PART_OF_INTERNATIONAL", "NATIONAL", "INTERNATIONAL_OR_NATIONAL"]).isRequired,
     /**
      * `libphonenumber-js` metadata.
      */
-    metadata: b.object
+    metadata: C.object
   }, t;
 }
-const Rs = js();
-var Fs = ["value", "onChange", "onKeyDown", "country", "inputFormat", "metadata", "inputComponent", "international", "withCountryCallingCode"];
-function Yt() {
-  return Yt = Object.assign ? Object.assign.bind() : function(e) {
+const pl = $l();
+var ml = ["value", "onChange", "onKeyDown", "country", "inputFormat", "metadata", "inputComponent", "international", "withCountryCallingCode"];
+function wn() {
+  return wn = Object.assign ? Object.assign.bind() : function(e) {
     for (var t = 1; t < arguments.length; t++) {
       var n = arguments[t];
       for (var r in n)
         Object.prototype.hasOwnProperty.call(n, r) && (e[r] = n[r]);
     }
     return e;
-  }, Yt.apply(this, arguments);
+  }, wn.apply(this, arguments);
 }
-function Ms(e, t) {
+function yl(e, t) {
   if (e == null)
     return {};
-  var n = ks(e, t), r, a;
+  var n = hl(e, t), r, a;
   if (Object.getOwnPropertySymbols) {
     var i = Object.getOwnPropertySymbols(e);
     for (a = 0; a < i.length; a++)
@@ -5414,7 +5771,7 @@ function Ms(e, t) {
   }
   return n;
 }
-function ks(e, t) {
+function hl(e, t) {
   if (e == null)
     return {};
   var n = {}, r = Object.keys(e), a, i;
@@ -5422,33 +5779,33 @@ function ks(e, t) {
     a = r[i], !(t.indexOf(a) >= 0) && (n[a] = e[a]);
   return n;
 }
-function Ds(e) {
+function gl(e) {
   function t(n, r) {
-    var a = n.value, i = n.onChange, o = n.onKeyDown, d = n.country, u = n.inputFormat, c = n.metadata, f = c === void 0 ? e : c, $ = n.inputComponent, g = $ === void 0 ? "input" : $;
+    var a = n.value, i = n.onChange, o = n.onKeyDown, d = n.country, s = n.inputFormat, l = n.metadata, f = l === void 0 ? e : l, $ = n.inputComponent, h = $ === void 0 ? "input" : $;
     n.international, n.withCountryCallingCode;
-    var y = Ms(n, Fs), C = ba({
-      inputFormat: u,
+    var m = yl(n, ml), P = Xa({
+      inputFormat: s,
       country: d,
       metadata: f
-    }), S = ue(function(O) {
-      var L = Ut(O.target.value);
-      if (L === a) {
-        var A = _r(C, L, d, f);
-        A.indexOf(O.target.value) === 0 && (L = L.slice(0, -1));
+    }), E = be(function(x) {
+      var T = vn(x.target.value);
+      if (T === a) {
+        var j = oa(P, T, d, f);
+        j.indexOf(x.target.value) === 0 && (T = T.slice(0, -1));
       }
-      i(L);
-    }, [C, a, i, d, f]), h = Ca({
+      i(T);
+    }, [P, a, i, d, f]), y = Za({
       onKeyDown: o,
-      inputFormat: u
+      inputFormat: s
     });
-    return /* @__PURE__ */ I.createElement(g, Yt({}, y, {
+    return /* @__PURE__ */ A.createElement(h, wn({}, m, {
       ref: r,
-      value: _r(C, a, d, f),
-      onChange: S,
-      onKeyDown: h
+      value: oa(P, a, d, f),
+      onChange: E,
+      onKeyDown: y
     }));
   }
-  return t = /* @__PURE__ */ I.forwardRef(t), t.propTypes = {
+  return t = /* @__PURE__ */ A.forwardRef(t), t.propTypes = {
     /**
      * The parsed phone number.
      * "Parsed" not in a sense of "E.164"
@@ -5456,17 +5813,17 @@ function Ds(e) {
      * digits and possibly a leading plus character".
      * Examples: `""`, `"+"`, `"+123"`, `"123"`.
      */
-    value: b.string.isRequired,
+    value: C.string.isRequired,
     /**
      * A function of `value: string`.
      * Updates the `value` property.
      */
-    onChange: b.func.isRequired,
+    onChange: C.func.isRequired,
     /**
      * A function of `event: Event`.
      * Handles `keydown` events.
      */
-    onKeyDown: b.func,
+    onKeyDown: C.func,
     /**
      * A two-letter country code for formatting `value`
      * as a national phone number (e.g. `(800) 555 35 35`).
@@ -5478,37 +5835,37 @@ function Ds(e) {
      * because it only applies when the user inputs a phone number in a national format
      * and is completely ignored when the user inputs a phone number in an international format.
      */
-    country: b.string,
+    country: C.string,
     /**
      * The format that the input field value is being input/output in.
      */
-    inputFormat: b.oneOf(["INTERNATIONAL", "NATIONAL_PART_OF_INTERNATIONAL", "NATIONAL", "INTERNATIONAL_OR_NATIONAL"]).isRequired,
+    inputFormat: C.oneOf(["INTERNATIONAL", "NATIONAL_PART_OF_INTERNATIONAL", "NATIONAL", "INTERNATIONAL_OR_NATIONAL"]).isRequired,
     /**
      * `libphonenumber-js` metadata.
      */
-    metadata: b.object,
+    metadata: C.object,
     /**
      * The `<input/>` component.
      */
-    inputComponent: b.elementType
+    inputComponent: C.elementType
   }, t;
 }
-const Ls = Ds();
-function _r(e, t, n, r) {
-  return Kt(Os(e + t, n, r), e);
+const vl = gl();
+function oa(e, t, n, r) {
+  return Sn(il(e + t, n, r), e);
 }
-function Bs(e) {
-  return Tr(e[0]) + Tr(e[1]);
+function bl(e) {
+  return da(e[0]) + da(e[1]);
 }
-function Tr(e) {
+function da(e) {
   return String.fromCodePoint(127462 - 65 + e.toUpperCase().charCodeAt(0));
 }
-var Us = ["value", "onChange", "options", "disabled", "readOnly"], Gs = ["value", "options", "className", "iconComponent", "getIconAspectRatio", "arrowComponent", "unicodeFlags"];
-function Ws(e, t) {
+var Cl = ["value", "onChange", "options", "disabled", "readOnly"], Pl = ["value", "options", "className", "iconComponent", "getIconAspectRatio", "arrowComponent", "unicodeFlags"];
+function Nl(e, t) {
   var n = typeof Symbol < "u" && e[Symbol.iterator] || e["@@iterator"];
   if (n)
     return (n = n.call(e)).next.bind(n);
-  if (Array.isArray(e) || (n = Hs(e)) || t && e && typeof e.length == "number") {
+  if (Array.isArray(e) || (n = Sl(e)) || t && e && typeof e.length == "number") {
     n && (e = n);
     var r = 0;
     return function() {
@@ -5518,37 +5875,37 @@ function Ws(e, t) {
   throw new TypeError(`Invalid attempt to iterate non-iterable instance.
 In order to be iterable, non-array objects must have a [Symbol.iterator]() method.`);
 }
-function Hs(e, t) {
+function Sl(e, t) {
   if (e) {
     if (typeof e == "string")
-      return Ar(e, t);
+      return ua(e, t);
     var n = Object.prototype.toString.call(e).slice(8, -1);
     if (n === "Object" && e.constructor && (n = e.constructor.name), n === "Map" || n === "Set")
       return Array.from(e);
     if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return Ar(e, t);
+      return ua(e, t);
   }
 }
-function Ar(e, t) {
+function ua(e, t) {
   (t == null || t > e.length) && (t = e.length);
   for (var n = 0, r = new Array(t); n < t; n++)
     r[n] = e[n];
   return r;
 }
-function ct() {
-  return ct = Object.assign ? Object.assign.bind() : function(e) {
+function Wt() {
+  return Wt = Object.assign ? Object.assign.bind() : function(e) {
     for (var t = 1; t < arguments.length; t++) {
       var n = arguments[t];
       for (var r in n)
         Object.prototype.hasOwnProperty.call(n, r) && (e[r] = n[r]);
     }
     return e;
-  }, ct.apply(this, arguments);
+  }, Wt.apply(this, arguments);
 }
-function Pa(e, t) {
+function Ja(e, t) {
   if (e == null)
     return {};
-  var n = Vs(e, t), r, a;
+  var n = Ol(e, t), r, a;
   if (Object.getOwnPropertySymbols) {
     var i = Object.getOwnPropertySymbols(e);
     for (a = 0; a < i.length; a++)
@@ -5556,7 +5913,7 @@ function Pa(e, t) {
   }
   return n;
 }
-function Vs(e, t) {
+function Ol(e, t) {
   if (e == null)
     return {};
   var n = {}, r = Object.keys(e), a, i;
@@ -5564,117 +5921,117 @@ function Vs(e, t) {
     a = r[i], !(t.indexOf(a) >= 0) && (n[a] = e[a]);
   return n;
 }
-function Na(e) {
-  var t = e.value, n = e.onChange, r = e.options, a = e.disabled, i = e.readOnly, o = Pa(e, Us), d = ue(function(u) {
-    var c = u.target.value;
-    n(c === "ZZ" ? void 0 : c);
+function Qa(e) {
+  var t = e.value, n = e.onChange, r = e.options, a = e.disabled, i = e.readOnly, o = Ja(e, Cl), d = be(function(s) {
+    var l = s.target.value;
+    n(l === "ZZ" ? void 0 : l);
   }, [n]);
-  return Vr(function() {
-    return Oa(r, t);
-  }, [r, t]), /* @__PURE__ */ I.createElement("select", ct({}, o, {
+  return Ca(function() {
+    return ti(r, t);
+  }, [r, t]), /* @__PURE__ */ A.createElement("select", Wt({}, o, {
     disabled: a || i,
     readOnly: i,
     value: t || "ZZ",
     onChange: d
-  }), r.map(function(u) {
-    var c = u.value, f = u.label, $ = u.divider;
-    return /* @__PURE__ */ I.createElement("option", {
-      key: $ ? "|" : c || "ZZ",
-      value: $ ? "|" : c || "ZZ",
+  }), r.map(function(s) {
+    var l = s.value, f = s.label, $ = s.divider;
+    return /* @__PURE__ */ A.createElement("option", {
+      key: $ ? "|" : l || "ZZ",
+      value: $ ? "|" : l || "ZZ",
       disabled: !!$,
-      style: $ ? Ks : void 0
+      style: $ ? wl : void 0
     }, f);
   }));
 }
-Na.propTypes = {
+Qa.propTypes = {
   /**
    * A two-letter country code.
    * Example: "US", "RU", etc.
    */
-  value: b.string,
+  value: C.string,
   /**
    * A function of `value: string`.
    * Updates the `value` property.
    */
-  onChange: b.func.isRequired,
+  onChange: C.func.isRequired,
   // `<select/>` options.
-  options: b.arrayOf(b.shape({
-    value: b.string,
-    label: b.string,
-    divider: b.bool
+  options: C.arrayOf(C.shape({
+    value: C.string,
+    label: C.string,
+    divider: C.bool
   })).isRequired,
   // `readonly` attribute doesn't work on a `<select/>`.
   // https://github.com/catamphetamine/react-phone-number-input/issues/419#issuecomment-1764384480
   // https://www.delftstack.com/howto/html/html-select-readonly/
   // To work around that, if `readOnly: true` property is passed
   // to this component, it behaves analogous to `disabled: true`.
-  disabled: b.bool,
-  readOnly: b.bool
+  disabled: C.bool,
+  readOnly: C.bool
 };
-var Ks = {
+var wl = {
   fontSize: "1px",
   backgroundColor: "currentColor",
   color: "inherit"
 };
-function Sa(e) {
+function ei(e) {
   var t = e.value, n = e.options, r = e.className, a = e.iconComponent;
   e.getIconAspectRatio;
-  var i = e.arrowComponent, o = i === void 0 ? zs : i, d = e.unicodeFlags, u = Pa(e, Gs), c = Vr(function() {
-    return Oa(n, t);
+  var i = e.arrowComponent, o = i === void 0 ? xl : i, d = e.unicodeFlags, s = Ja(e, Pl), l = Ca(function() {
+    return ti(n, t);
   }, [n, t]);
-  return /* @__PURE__ */ I.createElement("div", {
+  return /* @__PURE__ */ A.createElement("div", {
     className: "PhoneInputCountry"
-  }, /* @__PURE__ */ I.createElement(Na, ct({}, u, {
+  }, /* @__PURE__ */ A.createElement(Qa, Wt({}, s, {
     value: t,
     options: n,
-    className: dt("PhoneInputCountrySelect", r)
-  })), c && (d && t ? /* @__PURE__ */ I.createElement("div", {
+    className: Lt("PhoneInputCountrySelect", r)
+  })), l && (d && t ? /* @__PURE__ */ A.createElement("div", {
     className: "PhoneInputCountryIconUnicode"
-  }, Bs(t)) : /* @__PURE__ */ I.createElement(a, {
+  }, bl(t)) : /* @__PURE__ */ A.createElement(a, {
     "aria-hidden": !0,
     country: t,
-    label: c.label,
+    label: l.label,
     aspectRatio: d ? 1 : void 0
-  })), /* @__PURE__ */ I.createElement(o, null));
+  })), /* @__PURE__ */ A.createElement(o, null));
 }
-Sa.propTypes = {
+ei.propTypes = {
   // Country flag component.
-  iconComponent: b.elementType,
+  iconComponent: C.elementType,
   // Select arrow component.
-  arrowComponent: b.elementType,
+  arrowComponent: C.elementType,
   // Set to `true` to render Unicode flag icons instead of SVG images.
-  unicodeFlags: b.bool
+  unicodeFlags: C.bool
 };
-function zs() {
-  return /* @__PURE__ */ I.createElement("div", {
+function xl() {
+  return /* @__PURE__ */ A.createElement("div", {
     className: "PhoneInputCountrySelectArrow"
   });
 }
-function Oa(e, t) {
-  for (var n = Ws(e), r; !(r = n()).done; ) {
+function ti(e, t) {
+  for (var n = Nl(e), r; !(r = n()).done; ) {
     var a = r.value;
-    if (!a.divider && Ys(a.value, t))
+    if (!a.divider && El(a.value, t))
       return a;
   }
 }
-function Ys(e, t) {
+function El(e, t) {
   return e == null ? t == null : e === t;
 }
-var qs = ["country", "countryName", "flags", "flagUrl"];
-function qt() {
-  return qt = Object.assign ? Object.assign.bind() : function(e) {
+var _l = ["country", "countryName", "flags", "flagUrl"];
+function xn() {
+  return xn = Object.assign ? Object.assign.bind() : function(e) {
     for (var t = 1; t < arguments.length; t++) {
       var n = arguments[t];
       for (var r in n)
         Object.prototype.hasOwnProperty.call(n, r) && (e[r] = n[r]);
     }
     return e;
-  }, qt.apply(this, arguments);
+  }, xn.apply(this, arguments);
 }
-function Xs(e, t) {
+function Il(e, t) {
   if (e == null)
     return {};
-  var n = Zs(e, t), r, a;
+  var n = Tl(e, t), r, a;
   if (Object.getOwnPropertySymbols) {
     var i = Object.getOwnPropertySymbols(e);
     for (a = 0; a < i.length; a++)
@@ -5682,7 +6039,7 @@ function Xs(e, t) {
   }
   return n;
 }
-function Zs(e, t) {
+function Tl(e, t) {
   if (e == null)
     return {};
   var n = {}, r = Object.keys(e), a, i;
@@ -5690,22 +6047,22 @@ function Zs(e, t) {
     a = r[i], !(t.indexOf(a) >= 0) && (n[a] = e[a]);
   return n;
 }
-function on(e) {
-  var t = e.country, n = e.countryName, r = e.flags, a = e.flagUrl, i = Xs(e, qs);
+function Dn(e) {
+  var t = e.country, n = e.countryName, r = e.flags, a = e.flagUrl, i = Il(e, _l);
   return r && r[t] ? r[t]({
     title: n
-  }) : /* @__PURE__ */ I.createElement("img", qt({}, i, {
+  }) : /* @__PURE__ */ A.createElement("img", xn({}, i, {
     alt: n,
     role: n ? void 0 : "presentation",
     src: a.replace("{XX}", t).replace("{xx}", t.toLowerCase())
   }));
 }
-on.propTypes = {
+Dn.propTypes = {
   // The country to be selected by default.
   // Two-letter country code ("ISO 3166-1 alpha-2").
-  country: b.string.isRequired,
+  country: C.string.isRequired,
   // Will be HTML `title` attribute of the `<img/>`.
-  countryName: b.string.isRequired,
+  countryName: C.string.isRequired,
   // Country flag icon components.
   // By default flag icons are inserted as `<img/>`s
   // with their `src` pointed to `country-flag-icons` gitlab pages website.
@@ -5713,26 +6070,26 @@ on.propTypes = {
   // where having a large (3 megabyte) `<svg/>` flags
   // bundle is more appropriate.
   // `import flags from 'react-phone-number-input/flags'`.
-  flags: b.objectOf(b.elementType),
+  flags: C.objectOf(C.elementType),
   // A URL for a country flag icon.
   // By default it points to `country-flag-icons` gitlab pages website.
-  flagUrl: b.string.isRequired
+  flagUrl: C.string.isRequired
 };
-var Js = ["aspectRatio"], Qs = ["title"], el = ["title"];
-function ft() {
-  return ft = Object.assign ? Object.assign.bind() : function(e) {
+var Al = ["aspectRatio"], Rl = ["title"], jl = ["title"];
+function Vt() {
+  return Vt = Object.assign ? Object.assign.bind() : function(e) {
     for (var t = 1; t < arguments.length; t++) {
       var n = arguments[t];
       for (var r in n)
         Object.prototype.hasOwnProperty.call(n, r) && (e[r] = n[r]);
     }
     return e;
-  }, ft.apply(this, arguments);
+  }, Vt.apply(this, arguments);
 }
-function dn(e, t) {
+function kn(e, t) {
   if (e == null)
     return {};
-  var n = tl(e, t), r, a;
+  var n = Fl(e, t), r, a;
   if (Object.getOwnPropertySymbols) {
     var i = Object.getOwnPropertySymbols(e);
     for (a = 0; a < i.length; a++)
@@ -5740,7 +6097,7 @@ function dn(e, t) {
   }
   return n;
 }
-function tl(e, t) {
+function Fl(e, t) {
   if (e == null)
     return {};
   var n = {}, r = Object.keys(e), a, i;
@@ -5748,96 +6105,96 @@ function tl(e, t) {
     a = r[i], !(t.indexOf(a) >= 0) && (n[a] = e[a]);
   return n;
 }
-function gt(e) {
-  var t = e.aspectRatio, n = dn(e, Js);
-  return t === 1 ? /* @__PURE__ */ I.createElement(xa, n) : /* @__PURE__ */ I.createElement(wa, n);
+function Xt(e) {
+  var t = e.aspectRatio, n = kn(e, Al);
+  return t === 1 ? /* @__PURE__ */ A.createElement(ri, n) : /* @__PURE__ */ A.createElement(ni, n);
 }
-gt.propTypes = {
-  title: b.string.isRequired,
-  aspectRatio: b.number
+Xt.propTypes = {
+  title: C.string.isRequired,
+  aspectRatio: C.number
 };
-function wa(e) {
-  var t = e.title, n = dn(e, Qs);
-  return /* @__PURE__ */ I.createElement("svg", ft({}, n, {
+function ni(e) {
+  var t = e.title, n = kn(e, Rl);
+  return /* @__PURE__ */ A.createElement("svg", Vt({}, n, {
     xmlns: "http://www.w3.org/2000/svg",
     viewBox: "0 0 75 50"
-  }), /* @__PURE__ */ I.createElement("title", null, t), /* @__PURE__ */ I.createElement("g", {
+  }), /* @__PURE__ */ A.createElement("title", null, t), /* @__PURE__ */ A.createElement("g", {
     className: "PhoneInputInternationalIconGlobe",
     stroke: "currentColor",
     fill: "none",
     strokeWidth: "2",
     strokeMiterlimit: "10"
-  }, /* @__PURE__ */ I.createElement("path", {
+  }, /* @__PURE__ */ A.createElement("path", {
     strokeLinecap: "round",
     d: "M47.2,36.1C48.1,36,49,36,50,36c7.4,0,14,1.7,18.5,4.3"
-  }), /* @__PURE__ */ I.createElement("path", {
+  }), /* @__PURE__ */ A.createElement("path", {
     d: "M68.6,9.6C64.2,12.3,57.5,14,50,14c-7.4,0-14-1.7-18.5-4.3"
-  }), /* @__PURE__ */ I.createElement("line", {
+  }), /* @__PURE__ */ A.createElement("line", {
     x1: "26",
     y1: "25",
     x2: "74",
     y2: "25"
-  }), /* @__PURE__ */ I.createElement("line", {
+  }), /* @__PURE__ */ A.createElement("line", {
     x1: "50",
     y1: "1",
     x2: "50",
     y2: "49"
-  }), /* @__PURE__ */ I.createElement("path", {
+  }), /* @__PURE__ */ A.createElement("path", {
     strokeLinecap: "round",
     d: "M46.3,48.7c1.2,0.2,2.5,0.3,3.7,0.3c13.3,0,24-10.7,24-24S63.3,1,50,1S26,11.7,26,25c0,2,0.3,3.9,0.7,5.8"
-  }), /* @__PURE__ */ I.createElement("path", {
+  }), /* @__PURE__ */ A.createElement("path", {
     strokeLinecap: "round",
     d: "M46.8,48.2c1,0.6,2.1,0.8,3.2,0.8c6.6,0,12-10.7,12-24S56.6,1,50,1S38,11.7,38,25c0,1.4,0.1,2.7,0.2,4c0,0.1,0,0.2,0,0.2"
-  })), /* @__PURE__ */ I.createElement("path", {
+  })), /* @__PURE__ */ A.createElement("path", {
     className: "PhoneInputInternationalIconPhone",
     stroke: "none",
     fill: "currentColor",
     d: "M12.4,17.9c2.9-2.9,5.4-4.8,0.3-11.2S4.1,5.2,1.3,8.1C-2,11.4,1.1,23.5,13.1,35.6s24.3,15.2,27.5,11.9c2.8-2.8,7.8-6.3,1.4-11.5s-8.3-2.6-11.2,0.3c-2,2-7.2-2.2-11.7-6.7S10.4,19.9,12.4,17.9z"
   }));
 }
-wa.propTypes = {
-  title: b.string.isRequired
+ni.propTypes = {
+  title: C.string.isRequired
 };
-function xa(e) {
-  var t = e.title, n = dn(e, el);
-  return /* @__PURE__ */ I.createElement("svg", ft({}, n, {
+function ri(e) {
+  var t = e.title, n = kn(e, jl);
+  return /* @__PURE__ */ A.createElement("svg", Vt({}, n, {
     xmlns: "http://www.w3.org/2000/svg",
     viewBox: "0 0 50 50"
-  }), /* @__PURE__ */ I.createElement("title", null, t), /* @__PURE__ */ I.createElement("g", {
+  }), /* @__PURE__ */ A.createElement("title", null, t), /* @__PURE__ */ A.createElement("g", {
     className: "PhoneInputInternationalIconGlobe",
     stroke: "currentColor",
     fill: "none",
     strokeWidth: "2",
     strokeLinecap: "round"
-  }, /* @__PURE__ */ I.createElement("path", {
+  }, /* @__PURE__ */ A.createElement("path", {
     d: "M8.45,13A21.44,21.44,0,1,1,37.08,41.56"
-  }), /* @__PURE__ */ I.createElement("path", {
+  }), /* @__PURE__ */ A.createElement("path", {
     d: "M19.36,35.47a36.9,36.9,0,0,1-2.28-13.24C17.08,10.39,21.88.85,27.8.85s10.72,9.54,10.72,21.38c0,6.48-1.44,12.28-3.71,16.21"
-  }), /* @__PURE__ */ I.createElement("path", {
+  }), /* @__PURE__ */ A.createElement("path", {
     d: "M17.41,33.4A39,39,0,0,1,27.8,32.06c6.62,0,12.55,1.5,16.48,3.86"
-  }), /* @__PURE__ */ I.createElement("path", {
+  }), /* @__PURE__ */ A.createElement("path", {
     d: "M44.29,8.53c-3.93,2.37-9.86,3.88-16.49,3.88S15.25,10.9,11.31,8.54"
-  }), /* @__PURE__ */ I.createElement("line", {
+  }), /* @__PURE__ */ A.createElement("line", {
     x1: "27.8",
     y1: "0.85",
     x2: "27.8",
     y2: "34.61"
-  }), /* @__PURE__ */ I.createElement("line", {
+  }), /* @__PURE__ */ A.createElement("line", {
     x1: "15.2",
     y1: "22.23",
     x2: "49.15",
     y2: "22.23"
-  })), /* @__PURE__ */ I.createElement("path", {
+  })), /* @__PURE__ */ A.createElement("path", {
     className: "PhoneInputInternationalIconPhone",
     stroke: "transparent",
     fill: "currentColor",
     d: "M9.42,26.64c2.22-2.22,4.15-3.59.22-8.49S3.08,17,.93,19.17c-2.49,2.48-.13,11.74,9,20.89s18.41,11.5,20.89,9c2.15-2.15,5.91-4.77,1-8.71s-6.27-2-8.49.22c-1.55,1.55-5.48-1.69-8.86-5.08S7.87,28.19,9.42,26.64Z"
   }));
 }
-xa.propTypes = {
-  title: b.string.isRequired
+ri.propTypes = {
+  title: C.string.isRequired
 };
-function nl(e) {
+function Ml(e) {
   if (e.length < 2 || e[0] !== "+")
     return !1;
   for (var t = 1; t < e.length; ) {
@@ -5848,14 +6205,14 @@ function nl(e) {
   }
   return !0;
 }
-function Ea(e) {
-  nl(e) || console.error("[react-phone-number-input] Expected the initial `value` to be a E.164 phone number. Got", e);
+function ai(e) {
+  Ml(e) || console.error("[react-phone-number-input] Expected the initial `value` to be a E.164 phone number. Got", e);
 }
-function rl(e, t) {
+function Dl(e, t) {
   var n = typeof Symbol < "u" && e[Symbol.iterator] || e["@@iterator"];
   if (n)
     return (n = n.call(e)).next.bind(n);
-  if (Array.isArray(e) || (n = al(e)) || t && e && typeof e.length == "number") {
+  if (Array.isArray(e) || (n = kl(e)) || t && e && typeof e.length == "number") {
     n && (e = n);
     var r = 0;
     return function() {
@@ -5865,47 +6222,47 @@ function rl(e, t) {
   throw new TypeError(`Invalid attempt to iterate non-iterable instance.
 In order to be iterable, non-array objects must have a [Symbol.iterator]() method.`);
 }
-function al(e, t) {
+function kl(e, t) {
   if (e) {
     if (typeof e == "string")
-      return jr(e, t);
+      return sa(e, t);
     var n = Object.prototype.toString.call(e).slice(8, -1);
     if (n === "Object" && e.constructor && (n = e.constructor.name), n === "Map" || n === "Set")
       return Array.from(e);
     if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return jr(e, t);
+      return sa(e, t);
   }
 }
-function jr(e, t) {
+function sa(e, t) {
   (t == null || t > e.length) && (t = e.length);
   for (var n = 0, r = new Array(t); n < t; n++)
     r[n] = e[n];
   return r;
 }
-function il(e, t) {
+function Ll(e, t) {
   if (!t)
     return e;
   for (var n = [], r = [], a = n, i = function() {
-    var c = d.value;
-    if (c === "|")
+    var l = d.value;
+    if (l === "|")
       a.push({
         divider: !0
       });
-    else if (c === "..." || c === "…")
+    else if (l === "..." || l === "…")
       a = r;
     else {
       var f;
-      c === "🌐" ? f = void 0 : f = c;
-      var $ = e.indexOf(e.filter(function(y) {
-        return y.value === f;
-      })[0]), g = e[$];
-      e.splice($, 1), a.push(g);
+      l === "🌐" ? f = void 0 : f = l;
+      var $ = e.indexOf(e.filter(function(m) {
+        return m.value === f;
+      })[0]), h = e[$];
+      e.splice($, 1), a.push(h);
     }
-  }, o = rl(t), d; !(d = o()).done; )
+  }, o = Dl(t), d; !(d = o()).done; )
     i();
   return n.concat(e).concat(r);
 }
-function ol(e, t) {
+function Bl(e, t) {
   if (e && (e = e.filter(function(n) {
     switch (n) {
       case "🌐":
@@ -5914,34 +6271,34 @@ function ol(e, t) {
       case "…":
         return !0;
       default:
-        return vt(n, t);
+        return Zt(n, t);
     }
   }), e.length > 0))
     return e;
 }
-function vt(e, t) {
-  return ta(e, t) ? !0 : (console.error("Country not found: ".concat(e)), !1);
+function Zt(e, t) {
+  return Ta(e, t) ? !0 : (console.error("Country not found: ".concat(e)), !1);
 }
-function Ia(e, t) {
+function ii(e, t) {
   return e && (e = e.filter(function(n) {
-    return vt(n, t);
+    return Zt(n, t);
   }), e.length === 0 && (e = void 0)), e;
 }
-var dl = ["country", "label", "aspectRatio"];
-function Xt() {
-  return Xt = Object.assign ? Object.assign.bind() : function(e) {
+var Ul = ["country", "label", "aspectRatio"];
+function En() {
+  return En = Object.assign ? Object.assign.bind() : function(e) {
     for (var t = 1; t < arguments.length; t++) {
       var n = arguments[t];
       for (var r in n)
         Object.prototype.hasOwnProperty.call(n, r) && (e[r] = n[r]);
     }
     return e;
-  }, Xt.apply(this, arguments);
+  }, En.apply(this, arguments);
 }
-function ul(e, t) {
+function Gl(e, t) {
   if (e == null)
     return {};
-  var n = sl(e, t), r, a;
+  var n = Wl(e, t), r, a;
   if (Object.getOwnPropertySymbols) {
     var i = Object.getOwnPropertySymbols(e);
     for (a = 0; a < i.length; a++)
@@ -5949,7 +6306,7 @@ function ul(e, t) {
   }
   return n;
 }
-function sl(e, t) {
+function Wl(e, t) {
   if (e == null)
     return {};
   var n = {}, r = Object.keys(e), a, i;
@@ -5957,44 +6314,44 @@ function sl(e, t) {
     a = r[i], !(t.indexOf(a) >= 0) && (n[a] = e[a]);
   return n;
 }
-function _a(e) {
+function oi(e) {
   var t = e.flags, n = e.flagUrl, r = e.flagComponent, a = e.internationalIcon;
   function i(o) {
-    var d = o.country, u = o.label, c = o.aspectRatio, f = ul(o, dl), $ = a === gt ? c : void 0;
-    return /* @__PURE__ */ I.createElement("div", Xt({}, f, {
-      className: dt("PhoneInputCountryIcon", {
+    var d = o.country, s = o.label, l = o.aspectRatio, f = Gl(o, Ul), $ = a === Xt ? l : void 0;
+    return /* @__PURE__ */ A.createElement("div", En({}, f, {
+      className: Lt("PhoneInputCountryIcon", {
         "PhoneInputCountryIcon--square": $ === 1,
         "PhoneInputCountryIcon--border": d
       })
-    }), d ? /* @__PURE__ */ I.createElement(r, {
+    }), d ? /* @__PURE__ */ A.createElement(r, {
       country: d,
-      countryName: u,
+      countryName: s,
       flags: t,
       flagUrl: n,
       className: "PhoneInputCountryIconImg"
-    }) : /* @__PURE__ */ I.createElement(a, {
-      title: u,
+    }) : /* @__PURE__ */ A.createElement(a, {
+      title: s,
       aspectRatio: $,
       className: "PhoneInputCountryIconImg"
     }));
   }
   return i.propTypes = {
-    country: b.string,
-    label: b.string.isRequired,
-    aspectRatio: b.number
+    country: C.string,
+    label: C.string.isRequired,
+    aspectRatio: C.number
   }, i;
 }
-_a({
+oi({
   // Must be equal to `defaultProps.flagUrl` in `./PhoneInputWithCountry.js`.
   flagUrl: "https://purecatamphetamine.github.io/country-flag-icons/3x2/{XX}.svg",
-  flagComponent: on,
-  internationalIcon: gt
+  flagComponent: Dn,
+  internationalIcon: Xt
 });
-function ll(e, t) {
+function Vl(e, t) {
   var n = typeof Symbol < "u" && e[Symbol.iterator] || e["@@iterator"];
   if (n)
     return (n = n.call(e)).next.bind(n);
-  if (Array.isArray(e) || (n = cl(e)) || t && e && typeof e.length == "number") {
+  if (Array.isArray(e) || (n = Kl(e)) || t && e && typeof e.length == "number") {
     n && (e = n);
     var r = 0;
     return function() {
@@ -6004,47 +6361,47 @@ function ll(e, t) {
   throw new TypeError(`Invalid attempt to iterate non-iterable instance.
 In order to be iterable, non-array objects must have a [Symbol.iterator]() method.`);
 }
-function cl(e, t) {
+function Kl(e, t) {
   if (e) {
     if (typeof e == "string")
-      return Rr(e, t);
+      return la(e, t);
     var n = Object.prototype.toString.call(e).slice(8, -1);
     if (n === "Object" && e.constructor && (n = e.constructor.name), n === "Map" || n === "Set")
       return Array.from(e);
     if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return Rr(e, t);
+      return la(e, t);
   }
 }
-function Rr(e, t) {
+function la(e, t) {
   (t == null || t > e.length) && (t = e.length);
   for (var n = 0, r = new Array(t); n < t; n++)
     r[n] = e[n];
   return r;
 }
-function fl(e, t) {
-  for (var n = ll(e), r; !(r = n()).done; ) {
+function Hl(e, t) {
+  for (var n = Vl(e), r; !(r = n()).done; ) {
     var a = r.value;
-    a && $l(a, t);
+    a && Yl(a, t);
   }
 }
-function $l(e, t) {
+function Yl(e, t) {
   typeof e == "function" ? e(t) : e.current = t;
 }
-var Ta = b.shape({
-  country_calling_codes: b.object.isRequired,
-  countries: b.object.isRequired
-}), Aa = b.objectOf(b.string);
-function ge(e, t) {
-  var n = "+" + be(e, t);
+var di = C.shape({
+  country_calling_codes: C.object.isRequired,
+  countries: C.object.isRequired
+}), ui = C.objectOf(C.string);
+function Fe(e, t) {
+  var n = "+" + Ue(e, t);
   return n;
 }
-function ml(e) {
-  var t = e.value, n = e.phoneNumber, r = e.defaultCountry, a = e.getAnyCountry, i = e.countries, o = e.required, d = e.metadata, u;
-  return n && n.country ? u = n.country : r && (!t || Ee(t, r, d)) && (u = r), i && i.indexOf(u) < 0 && (u = void 0), !u && o && i && i.length > 0 && (u = a()), u;
+function zl(e) {
+  var t = e.value, n = e.phoneNumber, r = e.defaultCountry, a = e.getAnyCountry, i = e.countries, o = e.required, d = e.metadata, s;
+  return n && n.country ? s = n.country : r && (!t || et(t, r, d)) && (s = r), i && i.indexOf(s) < 0 && (s = void 0), !s && o && i && i.length > 0 && (s = a()), s;
 }
-function pl(e) {
+function ql(e) {
   var t = e.countries, n = e.countryNames, r = e.addInternationalOption, a = e.compareStringsLocales, i = e.compareStrings;
-  i || (i = Pl);
+  i || (i = nc);
   var o = t.map(function(d) {
     return {
       value: d,
@@ -6057,78 +6414,78 @@ function pl(e) {
       label: n[d] || d
     };
   });
-  return o.sort(function(d, u) {
-    return i(d.label, u.label, a);
+  return o.sort(function(d, s) {
+    return i(d.label, s.label, a);
   }), r && o.unshift({
     label: n.ZZ
   }), o;
 }
-function ja(e, t) {
-  return su(e || "", t);
+function si(e, t) {
+  return Wu(e || "", t);
 }
-function yl(e) {
+function Xl(e) {
   return e.formatNational().replace(/\D/g, "");
 }
-function hl(e, t) {
+function Zl(e, t) {
   var n = t.prevCountry, r = t.newCountry, a = t.metadata, i = t.useNationalFormat;
   if (n === r)
     return e;
   if (!e)
-    return i ? "" : r ? ge(r, a) : "";
+    return i ? "" : r ? Fe(r, a) : "";
   if (r) {
     if (e[0] === "+") {
       if (i)
-        return e.indexOf("+" + be(r, a)) === 0 ? Nl(e, r, a) : "";
+        return e.indexOf("+" + Ue(r, a)) === 0 ? rc(e, r, a) : "";
       if (n) {
-        var o = ge(r, a);
+        var o = Fe(r, a);
         return e.indexOf(o) === 0 ? e : o;
       } else {
-        var d = ge(r, a);
+        var d = Fe(r, a);
         return e.indexOf(d) === 0 ? e : d;
       }
     }
   } else if (e[0] !== "+")
-    return xe(e, n, a) || "";
+    return Qe(e, n, a) || "";
   return e;
 }
-function xe(e, t, n) {
+function Qe(e, t, n) {
   if (e) {
     if (e[0] === "+") {
       if (e === "+")
         return;
-      var r = new je(t, n);
+      var r = new it(t, n);
       return r.input(e), r.getNumberValue();
     }
     if (t) {
-      var a = Fa(e, t, n);
-      return "+".concat(be(t, n)).concat(a || "");
+      var a = ci(e, t, n);
+      return "+".concat(Ue(t, n)).concat(a || "");
     }
   }
 }
-function gl(e, t, n) {
-  var r = Fa(e, t, n);
+function Jl(e, t, n) {
+  var r = ci(e, t, n);
   if (r) {
-    var a = r.length - vl(t, n);
+    var a = r.length - Ql(t, n);
     if (a > 0)
       return e.slice(0, e.length - a);
   }
   return e;
 }
-function vl(e, t) {
-  return t = new J(t), t.selectNumberingPlan(e), t.numberingPlan.possibleLengths()[t.numberingPlan.possibleLengths().length - 1];
+function Ql(e, t) {
+  return t = new le(t), t.selectNumberingPlan(e), t.numberingPlan.possibleLengths()[t.numberingPlan.possibleLengths().length - 1];
 }
-function Ra(e, t) {
+function li(e, t) {
   var n = t.country, r = t.countries, a = t.defaultCountry, i = t.latestCountrySelectedByUser, o = t.required, d = t.metadata;
   if (e === "+")
     return n;
-  var u = Cl(e, d);
-  if (u)
-    return !r || r.indexOf(u) >= 0 ? u : void 0;
+  var s = tc(e, d);
+  if (s)
+    return !r || r.indexOf(s) >= 0 ? s : void 0;
   if (n) {
-    if (Ee(e, n, d)) {
-      if (i && Ee(e, i, d))
+    if (et(e, n, d)) {
+      if (i && et(e, i, d))
         return i;
-      if (a && Ee(e, a, d))
+      if (a && et(e, a, d))
         return a;
       if (!o)
         return;
@@ -6137,58 +6494,58 @@ function Ra(e, t) {
   }
   return n;
 }
-function bl(e, t) {
-  var n = t.prevPhoneDigits, r = t.country, a = t.defaultCountry, i = t.latestCountrySelectedByUser, o = t.countryRequired, d = t.getAnyCountry, u = t.countries, c = t.international, f = t.limitMaxLength, $ = t.countryCallingCodeEditable, g = t.metadata;
-  if (c && $ === !1 && r) {
-    var y = ge(r, g);
-    if (e.indexOf(y) !== 0) {
-      var C, S = e && e[0] !== "+";
-      return S ? (e = y + e, C = xe(e, r, g)) : e = y, {
+function ec(e, t) {
+  var n = t.prevPhoneDigits, r = t.country, a = t.defaultCountry, i = t.latestCountrySelectedByUser, o = t.countryRequired, d = t.getAnyCountry, s = t.countries, l = t.international, f = t.limitMaxLength, $ = t.countryCallingCodeEditable, h = t.metadata;
+  if (l && $ === !1 && r) {
+    var m = Fe(r, h);
+    if (e.indexOf(m) !== 0) {
+      var P, E = e && e[0] !== "+";
+      return E ? (e = m + e, P = Qe(e, r, h)) : e = m, {
         phoneDigits: e,
-        value: C,
+        value: P,
         country: r
       };
     }
   }
-  c === !1 && r && e && e[0] === "+" && (e = Fr(e, r, g)), e && r && f && (e = gl(e, r, g)), e && e[0] !== "+" && (!r || c) && (e = "+" + e), !e && n && n[0] === "+" && (c ? r = void 0 : r = a), e === "+" && n && n[0] === "+" && n.length > 1 && (r = void 0);
-  var h;
-  return e && (e[0] === "+" && (e === "+" || r && ge(r, g).indexOf(e) === 0) ? h = void 0 : h = xe(e, r, g)), h && (r = Ra(h, {
+  l === !1 && r && e && e[0] === "+" && (e = ca(e, r, h)), e && r && f && (e = Jl(e, r, h)), e && e[0] !== "+" && (!r || l) && (e = "+" + e), !e && n && n[0] === "+" && (l ? r = void 0 : r = a), e === "+" && n && n[0] === "+" && n.length > 1 && (r = void 0);
+  var y;
+  return e && (e[0] === "+" && (e === "+" || r && Fe(r, h).indexOf(e) === 0) ? y = void 0 : y = Qe(e, r, h)), y && (r = li(y, {
     country: r,
-    countries: u,
+    countries: s,
     defaultCountry: a,
     latestCountrySelectedByUser: i,
     // `countryRequired` flag is not passed here.
     // Instead, it's explicitly checked a bit later in the code.
     required: !1,
-    metadata: g
-  }), c === !1 && r && e && e[0] === "+" && (e = Fr(e, r, g), h = xe(e, r, g))), !r && o && (r = a || d()), {
+    metadata: h
+  }), l === !1 && r && e && e[0] === "+" && (e = ca(e, r, h), y = Qe(e, r, h))), !r && o && (r = a || d()), {
     // `phoneDigits` returned here are a "normalized" version of the original `phoneDigits`.
     // The returned `phoneDigits` shouldn't be used anywhere except for passing it as
     // `prevPhoneDigits` parameter to this same function on next input change event.
     phoneDigits: e,
     country: r,
-    value: h
+    value: y
   };
 }
-function Fr(e, t, n) {
-  if (e.indexOf(ge(t, n)) === 0) {
-    var r = new je(t, n);
+function ca(e, t, n) {
+  if (e.indexOf(Fe(t, n)) === 0) {
+    var r = new it(t, n);
     r.input(e);
     var a = r.getNumber();
     return a ? a.formatNational().replace(/\D/g, "") : "";
   } else
     return e.replace(/\D/g, "");
 }
-function Cl(e, t) {
-  var n = new je(null, t);
+function tc(e, t) {
+  var n = new it(null, t);
   return n.input(e), n.getCountry();
 }
-function Pl(e, t, n) {
+function nc(e, t, n) {
   return String.prototype.localeCompare ? e.localeCompare(t, n) : e < t ? -1 : e > t ? 1 : 0;
 }
-function Nl(e, t, n) {
+function rc(e, t, n) {
   if (t) {
-    var r = "+" + be(t, n);
+    var r = "+" + Ue(t, n);
     if (e.length < r.length) {
       if (r.indexOf(e) === 0)
         return "";
@@ -6202,33 +6559,33 @@ function Nl(e, t, n) {
   }
   return "";
 }
-function Fa(e, t, n) {
-  var r = new je(t, n);
+function ci(e, t, n) {
+  var r = new it(t, n);
   r.input(e);
   var a = r.getNumber();
   return a && a.nationalNumber;
 }
-function Ee(e, t, n) {
-  for (var r = ge(t, n), a = 0; a < e.length && a < r.length; ) {
+function et(e, t, n) {
+  for (var r = Fe(t, n), a = 0; a < e.length && a < r.length; ) {
     if (e[a] !== r[a])
       return !1;
     a++;
   }
   return !0;
 }
-function Ma(e) {
+function fi(e) {
   var t = e.value, n = e.phoneNumber, r = e.defaultCountry, a = e.international, i = e.useNationalFormat, o = e.metadata;
-  return (a === !1 || i) && n && n.country ? yl(n) : !t && a && r ? ge(r, o) : t;
+  return (a === !1 || i) && n && n.country ? Xl(n) : !t && a && r ? Fe(r, o) : t;
 }
-function tt(e) {
+function It(e) {
   "@babel/helpers - typeof";
-  return tt = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(t) {
+  return It = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(t) {
     return typeof t;
   } : function(t) {
     return t && typeof Symbol == "function" && t.constructor === Symbol && t !== Symbol.prototype ? "symbol" : typeof t;
-  }, tt(e);
+  }, It(e);
 }
-function Mr(e, t) {
+function fa(e, t) {
   var n = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var r = Object.getOwnPropertySymbols(e);
@@ -6238,49 +6595,49 @@ function Mr(e, t) {
   }
   return n;
 }
-function it(e) {
+function Dt(e) {
   for (var t = 1; t < arguments.length; t++) {
     var n = arguments[t] != null ? arguments[t] : {};
-    t % 2 ? Mr(Object(n), !0).forEach(function(r) {
-      Sl(e, r, n[r]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n)) : Mr(Object(n)).forEach(function(r) {
+    t % 2 ? fa(Object(n), !0).forEach(function(r) {
+      ac(e, r, n[r]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n)) : fa(Object(n)).forEach(function(r) {
       Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(n, r));
     });
   }
   return e;
 }
-function Sl(e, t, n) {
-  return t = Ol(t), t in e ? Object.defineProperty(e, t, { value: n, enumerable: !0, configurable: !0, writable: !0 }) : e[t] = n, e;
+function ac(e, t, n) {
+  return t = ic(t), t in e ? Object.defineProperty(e, t, { value: n, enumerable: !0, configurable: !0, writable: !0 }) : e[t] = n, e;
 }
-function Ol(e) {
-  var t = wl(e, "string");
-  return tt(t) == "symbol" ? t : t + "";
+function ic(e) {
+  var t = oc(e, "string");
+  return It(t) == "symbol" ? t : t + "";
 }
-function wl(e, t) {
-  if (tt(e) != "object" || !e)
+function oc(e, t) {
+  if (It(e) != "object" || !e)
     return e;
   var n = e[Symbol.toPrimitive];
   if (n !== void 0) {
     var r = n.call(e, t || "default");
-    if (tt(r) != "object")
+    if (It(r) != "object")
       return r;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return (t === "string" ? String : Number)(e);
 }
-function xl(e, t, n) {
-  var r = e.metadata, a = e.countries, i = e.defaultCountry, o = e.value, d = e.reset, u = e.international, c = e.displayInitialValueAsLocalNumber, f = e.initialValueFormat, $ = t.defaultCountry, g = t.value, y = t.reset;
+function dc(e, t, n) {
+  var r = e.metadata, a = e.countries, i = e.defaultCountry, o = e.value, d = e.reset, s = e.international, l = e.displayInitialValueAsLocalNumber, f = e.initialValueFormat, $ = t.defaultCountry, h = t.value, m = t.reset;
   n.country;
-  var C = n.value, S = n.hasUserSelectedACountry, h = n.latestCountrySelectedByUser, O = function(V) {
-    return Ma(it(it({}, V), {}, {
-      international: u,
-      useNationalFormat: c || f === "national",
+  var P = n.value, E = n.hasUserSelectedACountry, y = n.latestCountrySelectedByUser, x = function(ge) {
+    return fi(Dt(Dt({}, ge), {}, {
+      international: s,
+      useNationalFormat: l || f === "national",
       metadata: r
     }));
   };
-  if (d !== y)
+  if (d !== m)
     return {
-      phoneDigits: O({
+      phoneDigits: x({
         value: void 0,
         defaultCountry: i
       }),
@@ -6290,18 +6647,18 @@ function xl(e, t, n) {
       hasUserSelectedACountry: void 0
     };
   if (i !== $) {
-    var L = !i || vt(i, r), A = (
+    var T = !i || Zt(i, r), j = (
       // By default, "no value has been entered" means `value` is `undefined`.
-      !C || // When `international` is `true`, and some country has been pre-selected,
+      !P || // When `international` is `true`, and some country has been pre-selected,
       // then the `<input/>` contains a pre-filled value of `+${countryCallingCode}${leadingDigits}`,
       // so in case of `international` being `true`, "the user hasn't entered anything" situation
       // doesn't just mean `value` is `undefined`, but could also mean `value` is `+${countryCallingCode}`.
-      u && C === O({
+      s && P === x({
         value: void 0,
         defaultCountry: $
       })
-    ), M = !o && A;
-    if (!S && L && M)
+    ), L = !o && j;
+    if (!E && T && L)
       return {
         country: i,
         // If `phoneDigits` is empty, then automatically select the new `country`
@@ -6309,7 +6666,7 @@ function xl(e, t, n) {
         // The code assumes that "no phone number has been entered by the user",
         // and no `value` property has been passed, so the `phoneNumber` parameter
         // of `_getInitialPhoneDigits({ value, phoneNumber, ... })` is `undefined`.
-        phoneDigits: O({
+        phoneDigits: x({
           value: void 0,
           defaultCountry: i
         }),
@@ -6317,54 +6674,54 @@ function xl(e, t, n) {
         value: void 0
       };
   }
-  if (!kr(o, g) && !kr(o, C)) {
-    var v, B;
+  if (!$a(o, h) && !$a(o, P)) {
+    var v, V;
     if (o) {
-      o && Ea(o), v = ja(o, r);
-      var q = Ia(a, r);
-      v && v.country ? (!q || q.indexOf(v.country) >= 0) && (B = v.country) : (B = Ra(o, {
+      o && ai(o), v = si(o, r);
+      var ee = ii(a, r);
+      v && v.country ? (!ee || ee.indexOf(v.country) >= 0) && (V = v.country) : (V = li(o, {
         country: void 0,
-        countries: q,
+        countries: ee,
         metadata: r
-      }), B || i && o.indexOf(ge(i, r)) === 0 && (B = i));
+      }), V || i && o.indexOf(Fe(i, r)) === 0 && (V = i));
     }
-    var K;
+    var te;
     if (o) {
-      if (h) {
-        var z = B ? h === B : Ee(o, h, r);
-        z ? B || (B = h) : K = {
+      if (y) {
+        var ne = V ? y === V : et(o, y, r);
+        ne ? V || (V = y) : te = {
           latestCountrySelectedByUser: void 0
         };
       }
     } else
-      K = {
+      te = {
         latestCountrySelectedByUser: void 0,
         hasUserSelectedACountry: void 0
       };
-    return it(it({}, K), {}, {
-      phoneDigits: O({
+    return Dt(Dt({}, te), {}, {
+      phoneDigits: x({
         phoneNumber: v,
         value: o,
         defaultCountry: i
       }),
       value: o,
-      country: o ? B : i
+      country: o ? V : i
     });
   }
 }
-function kr(e, t) {
+function $a(e, t) {
   return e === null && (e = void 0), t === null && (t = void 0), e === t;
 }
-var El = ["name", "disabled", "readOnly", "autoComplete", "style", "className", "inputRef", "inputComponent", "numberInputProps", "smartCaret", "countrySelectComponent", "countrySelectProps", "containerComponent", "containerComponentProps", "defaultCountry", "countries", "countryOptionsOrder", "labels", "flags", "flagComponent", "flagUrl", "addInternationalOption", "internationalIcon", "displayInitialValueAsLocalNumber", "initialValueFormat", "onCountryChange", "limitMaxLength", "countryCallingCodeEditable", "focusInputOnCountrySelection", "reset", "metadata", "international", "locales"];
-function Ae(e) {
+var uc = ["name", "disabled", "readOnly", "autoComplete", "style", "className", "inputRef", "inputComponent", "numberInputProps", "smartCaret", "countrySelectComponent", "countrySelectProps", "containerComponent", "containerComponentProps", "defaultCountry", "countries", "countryOptionsOrder", "labels", "flags", "flagComponent", "flagUrl", "addInternationalOption", "internationalIcon", "displayInitialValueAsLocalNumber", "initialValueFormat", "onCountryChange", "limitMaxLength", "countryCallingCodeEditable", "focusInputOnCountrySelection", "reset", "metadata", "international", "locales"];
+function at(e) {
   "@babel/helpers - typeof";
-  return Ae = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(t) {
+  return at = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(t) {
     return typeof t;
   } : function(t) {
     return t && typeof Symbol == "function" && t.constructor === Symbol && t !== Symbol.prototype ? "symbol" : typeof t;
-  }, Ae(e);
+  }, at(e);
 }
-function Dr(e, t) {
+function pa(e, t) {
   var n = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var r = Object.getOwnPropertySymbols(e);
@@ -6374,31 +6731,31 @@ function Dr(e, t) {
   }
   return n;
 }
-function ka(e) {
+function $i(e) {
   for (var t = 1; t < arguments.length; t++) {
     var n = arguments[t] != null ? arguments[t] : {};
-    t % 2 ? Dr(Object(n), !0).forEach(function(r) {
-      ce(e, r, n[r]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n)) : Dr(Object(n)).forEach(function(r) {
+    t % 2 ? pa(Object(n), !0).forEach(function(r) {
+      we(e, r, n[r]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n)) : pa(Object(n)).forEach(function(r) {
       Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(n, r));
     });
   }
   return e;
 }
-function Ie() {
-  return Ie = Object.assign ? Object.assign.bind() : function(e) {
+function tt() {
+  return tt = Object.assign ? Object.assign.bind() : function(e) {
     for (var t = 1; t < arguments.length; t++) {
       var n = arguments[t];
       for (var r in n)
         Object.prototype.hasOwnProperty.call(n, r) && (e[r] = n[r]);
     }
     return e;
-  }, Ie.apply(this, arguments);
+  }, tt.apply(this, arguments);
 }
-function Il(e, t) {
+function sc(e, t) {
   if (e == null)
     return {};
-  var n = _l(e, t), r, a;
+  var n = lc(e, t), r, a;
   if (Object.getOwnPropertySymbols) {
     var i = Object.getOwnPropertySymbols(e);
     for (a = 0; a < i.length; a++)
@@ -6406,7 +6763,7 @@ function Il(e, t) {
   }
   return n;
 }
-function _l(e, t) {
+function lc(e, t) {
   if (e == null)
     return {};
   var n = {}, r = Object.keys(e), a, i;
@@ -6414,181 +6771,181 @@ function _l(e, t) {
     a = r[i], !(t.indexOf(a) >= 0) && (n[a] = e[a]);
   return n;
 }
-function Tl(e, t) {
+function cc(e, t) {
   if (!(e instanceof t))
     throw new TypeError("Cannot call a class as a function");
 }
-function Lr(e, t) {
+function ma(e, t) {
   for (var n = 0; n < t.length; n++) {
     var r = t[n];
-    r.enumerable = r.enumerable || !1, r.configurable = !0, "value" in r && (r.writable = !0), Object.defineProperty(e, La(r.key), r);
+    r.enumerable = r.enumerable || !1, r.configurable = !0, "value" in r && (r.writable = !0), Object.defineProperty(e, mi(r.key), r);
   }
 }
-function Al(e, t, n) {
-  return t && Lr(e.prototype, t), n && Lr(e, n), Object.defineProperty(e, "prototype", { writable: !1 }), e;
+function fc(e, t, n) {
+  return t && ma(e.prototype, t), n && ma(e, n), Object.defineProperty(e, "prototype", { writable: !1 }), e;
 }
-function jl(e, t, n) {
-  return t = $t(t), Rl(e, Da() ? Reflect.construct(t, n || [], $t(e).constructor) : t.apply(e, n));
+function $c(e, t, n) {
+  return t = Kt(t), pc(e, pi() ? Reflect.construct(t, n || [], Kt(e).constructor) : t.apply(e, n));
 }
-function Rl(e, t) {
-  if (t && (Ae(t) === "object" || typeof t == "function"))
+function pc(e, t) {
+  if (t && (at(t) === "object" || typeof t == "function"))
     return t;
   if (t !== void 0)
     throw new TypeError("Derived constructors may only return object or undefined");
-  return Fl(e);
+  return mc(e);
 }
-function Fl(e) {
+function mc(e) {
   if (e === void 0)
     throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
   return e;
 }
-function Da() {
+function pi() {
   try {
     var e = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function() {
     }));
   } catch {
   }
-  return (Da = function() {
+  return (pi = function() {
     return !!e;
   })();
 }
-function $t(e) {
-  return $t = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function(n) {
+function Kt(e) {
+  return Kt = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function(n) {
     return n.__proto__ || Object.getPrototypeOf(n);
-  }, $t(e);
+  }, Kt(e);
 }
-function Ml(e, t) {
+function yc(e, t) {
   if (typeof t != "function" && t !== null)
     throw new TypeError("Super expression must either be null or a function");
-  e.prototype = Object.create(t && t.prototype, { constructor: { value: e, writable: !0, configurable: !0 } }), Object.defineProperty(e, "prototype", { writable: !1 }), t && Zt(e, t);
+  e.prototype = Object.create(t && t.prototype, { constructor: { value: e, writable: !0, configurable: !0 } }), Object.defineProperty(e, "prototype", { writable: !1 }), t && _n(e, t);
 }
-function Zt(e, t) {
-  return Zt = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function(r, a) {
+function _n(e, t) {
+  return _n = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function(r, a) {
     return r.__proto__ = a, r;
-  }, Zt(e, t);
+  }, _n(e, t);
 }
-function ce(e, t, n) {
-  return t = La(t), t in e ? Object.defineProperty(e, t, { value: n, enumerable: !0, configurable: !0, writable: !0 }) : e[t] = n, e;
+function we(e, t, n) {
+  return t = mi(t), t in e ? Object.defineProperty(e, t, { value: n, enumerable: !0, configurable: !0, writable: !0 }) : e[t] = n, e;
 }
-function La(e) {
-  var t = kl(e, "string");
-  return Ae(t) == "symbol" ? t : t + "";
+function mi(e) {
+  var t = hc(e, "string");
+  return at(t) == "symbol" ? t : t + "";
 }
-function kl(e, t) {
-  if (Ae(e) != "object" || !e)
+function hc(e, t) {
+  if (at(e) != "object" || !e)
     return e;
   var n = e[Symbol.toPrimitive];
   if (n !== void 0) {
     var r = n.call(e, t || "default");
-    if (Ae(r) != "object")
+    if (at(r) != "object")
       return r;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return (t === "string" ? String : Number)(e);
 }
-var Dl = /* @__PURE__ */ function(e) {
+var gc = /* @__PURE__ */ function(e) {
   function t(n) {
     var r;
-    Tl(this, t), r = jl(this, t, [n]), ce(r, "setInputRef", function(h) {
-      fl([r.props.inputRef, r.inputRef], h);
-    }), ce(r, "isCountrySupportedWithError", function(h) {
-      var O = r.props.metadata;
-      return vt(h, O);
-    }), ce(r, "onCountryChange", function(h) {
-      var O = r.props, L = O.international, A = O.metadata, M = O.onChange, v = O.focusInputOnCountrySelection, B = r.state, q = B.phoneDigits, K = B.country, z = hl(q, {
-        prevCountry: K,
-        newCountry: h,
-        metadata: A,
+    cc(this, t), r = $c(this, t, [n]), we(r, "setInputRef", function(y) {
+      Hl([r.props.inputRef, r.inputRef], y);
+    }), we(r, "isCountrySupportedWithError", function(y) {
+      var x = r.props.metadata;
+      return Zt(y, x);
+    }), we(r, "onCountryChange", function(y) {
+      var x = r.props, T = x.international, j = x.metadata, L = x.onChange, v = x.focusInputOnCountrySelection, V = r.state, ee = V.phoneDigits, te = V.country, ne = Zl(ee, {
+        prevCountry: te,
+        newCountry: y,
+        metadata: j,
         // Convert the phone number to "national" format
         // when the user changes the selected country by hand.
-        useNationalFormat: !L
-      }), Z = xe(z, h, A);
+        useNationalFormat: !T
+      }), $e = Qe(ne, y, j);
       v && r.inputRef.current.focus(), r.setState({
-        country: h,
-        latestCountrySelectedByUser: h,
+        country: y,
+        latestCountrySelectedByUser: y,
         hasUserSelectedACountry: !0,
-        phoneDigits: z,
-        value: Z
+        phoneDigits: ne,
+        value: $e
       }, function() {
-        M(Z);
+        L($e);
       });
-    }), ce(r, "onChange", function(h) {
-      var O = r.props, L = O.defaultCountry, A = O.onChange, M = O.addInternationalOption, v = O.international, B = O.limitMaxLength, q = O.countryCallingCodeEditable, K = O.metadata, z = r.state, Z = z.countries, V = z.phoneDigits, se = z.country, le = z.latestCountrySelectedByUser, ne = bl(h, {
-        prevPhoneDigits: V,
-        country: se,
-        countryRequired: !M,
-        defaultCountry: L,
-        latestCountrySelectedByUser: le,
+    }), we(r, "onChange", function(y) {
+      var x = r.props, T = x.defaultCountry, j = x.onChange, L = x.addInternationalOption, v = x.international, V = x.limitMaxLength, ee = x.countryCallingCodeEditable, te = x.metadata, ne = r.state, $e = ne.countries, ge = ne.phoneDigits, Ie = ne.country, re = ne.latestCountrySelectedByUser, ae = ec(y, {
+        prevPhoneDigits: ge,
+        country: Ie,
+        countryRequired: !L,
+        defaultCountry: T,
+        latestCountrySelectedByUser: re,
         getAnyCountry: function() {
           return r.getFirstSupportedCountry({
-            countries: Z
+            countries: $e
           });
         },
-        countries: Z,
+        countries: $e,
         international: v,
-        limitMaxLength: B,
-        countryCallingCodeEditable: q,
-        metadata: K
-      }), ie = ne.phoneDigits, Q = ne.country, X = ne.value, re = {
+        limitMaxLength: V,
+        countryCallingCodeEditable: ee,
+        metadata: te
+      }), ie = ae.phoneDigits, ce = ae.country, fe = ae.value, pe = {
         phoneDigits: ie,
-        value: X,
-        country: Q
+        value: fe,
+        country: ce
       };
-      le && X && !Ee(X, le, K) && (re.latestCountrySelectedByUser = void 0), q === !1 && !X && ie === r.state.phoneDigits && (re.forceRerender = {}), r.setState(
-        re,
+      re && fe && !et(fe, re, te) && (pe.latestCountrySelectedByUser = void 0), ee === !1 && !fe && ie === r.state.phoneDigits && (pe.forceRerender = {}), r.setState(
+        pe,
         // Update the new `value` property.
         // Doing it after the `state` has been updated
         // because `onChange()` will trigger `getDerivedStateFromProps()`
         // with the new `value` which will be compared to `state.value` there.
         function() {
-          return A(X);
+          return j(fe);
         }
       );
-    }), ce(r, "_onFocus", function() {
+    }), we(r, "_onFocus", function() {
       return r.setState({
         isFocused: !0
       });
-    }), ce(r, "_onBlur", function() {
+    }), we(r, "_onBlur", function() {
       return r.setState({
         isFocused: !1
       });
-    }), ce(r, "onFocus", function(h) {
+    }), we(r, "onFocus", function(y) {
       r._onFocus();
-      var O = r.props.onFocus;
-      O && O(h);
-    }), ce(r, "onBlur", function(h) {
-      var O = r.props.onBlur;
-      r._onBlur(), O && O(h);
-    }), ce(r, "onCountryFocus", function(h) {
+      var x = r.props.onFocus;
+      x && x(y);
+    }), we(r, "onBlur", function(y) {
+      var x = r.props.onBlur;
+      r._onBlur(), x && x(y);
+    }), we(r, "onCountryFocus", function(y) {
       r._onFocus();
-      var O = r.props.countrySelectProps;
-      if (O) {
-        var L = O.onFocus;
-        L && L(h);
+      var x = r.props.countrySelectProps;
+      if (x) {
+        var T = x.onFocus;
+        T && T(y);
       }
-    }), ce(r, "onCountryBlur", function(h) {
+    }), we(r, "onCountryBlur", function(y) {
       r._onBlur();
-      var O = r.props.countrySelectProps;
-      if (O) {
-        var L = O.onBlur;
-        L && L(h);
+      var x = r.props.countrySelectProps;
+      if (x) {
+        var T = x.onBlur;
+        T && T(y);
       }
-    }), r.inputRef = /* @__PURE__ */ I.createRef();
+    }), r.inputRef = /* @__PURE__ */ A.createRef();
     var a = r.props, i = a.value;
     a.labels;
-    var o = a.international, d = a.addInternationalOption, u = a.displayInitialValueAsLocalNumber, c = a.initialValueFormat, f = a.metadata, $ = r.props, g = $.defaultCountry, y = $.countries;
-    g && (r.isCountrySupportedWithError(g) || (g = void 0)), i && Ea(i), y = Ia(y, f);
-    var C = ja(i, f);
-    r.CountryIcon = _a(r.props);
-    var S = ml({
+    var o = a.international, d = a.addInternationalOption, s = a.displayInitialValueAsLocalNumber, l = a.initialValueFormat, f = a.metadata, $ = r.props, h = $.defaultCountry, m = $.countries;
+    h && (r.isCountrySupportedWithError(h) || (h = void 0)), i && ai(i), m = ii(m, f);
+    var P = si(i, f);
+    r.CountryIcon = oi(r.props);
+    var E = zl({
       value: i,
-      phoneNumber: C,
-      defaultCountry: g,
+      phoneNumber: P,
+      defaultCountry: h,
       required: !d,
-      countries: y || Ir(f),
+      countries: m || ia(f),
       getAnyCountry: function() {
         return r.getFirstSupportedCountry({
-          countries: y
+          countries: m
         });
       },
       metadata: f
@@ -6597,14 +6954,14 @@ var Dl = /* @__PURE__ */ function(e) {
       // Workaround for `this.props` inside `getDerivedStateFromProps()`.
       props: r.props,
       // The country selected.
-      country: S,
+      country: E,
       // `countries` are stored in `this.state` because they're filtered.
       // For example, a developer might theoretically pass some unsupported
       // countries as part of the `countries` property, and because of that
       // the component uses `this.state.countries` (which are filtered)
       // instead of `this.props.countries`
       // (which could potentially contain unsupported countries).
-      countries: y,
+      countries: m,
       // `phoneDigits` state property holds non-formatted user's input.
       // The reason is that there's no way of finding out
       // in which form should `value` be displayed: international or national.
@@ -6615,12 +6972,12 @@ var Dl = /* @__PURE__ */ function(e) {
       // then value is `+78005553535` and `phoneDigits` are `88005553535`
       // and if a user entered `+7 800 555 35 35`
       // then value is `+78005553535` and `phoneDigits` are `+78005553535`.
-      phoneDigits: Ma({
+      phoneDigits: fi({
         value: i,
-        phoneNumber: C,
-        defaultCountry: g,
+        phoneNumber: P,
+        defaultCountry: h,
         international: o,
-        useNationalFormat: u || c === "national",
+        useNationalFormat: s || l === "national",
         metadata: f
       }),
       // `value` property is duplicated in state.
@@ -6633,7 +6990,7 @@ var Dl = /* @__PURE__ */ function(e) {
       value: i
     }, r;
   }
-  return Ml(t, e), Al(t, [{
+  return yc(t, e), fc(t, [{
     key: "componentDidMount",
     value: function() {
       var r = this.props.onCountryChange, a = this.props.defaultCountry, i = this.state.country;
@@ -6648,21 +7005,21 @@ var Dl = /* @__PURE__ */ function(e) {
   }, {
     key: "getCountrySelectOptions",
     value: function(r) {
-      var a = r.countries, i = this.props, o = i.international, d = i.countryCallingCodeEditable, u = i.countryOptionsOrder, c = i.addInternationalOption, f = i.labels, $ = i.locales, g = i.metadata;
+      var a = r.countries, i = this.props, o = i.international, d = i.countryCallingCodeEditable, s = i.countryOptionsOrder, l = i.addInternationalOption, f = i.labels, $ = i.locales, h = i.metadata;
       return this.useMemoCountrySelectOptions(function() {
-        return il(pl({
-          countries: a || Ir(g),
+        return Ll(ql({
+          countries: a || ia(h),
           countryNames: f,
-          addInternationalOption: o && d === !1 ? !1 : c,
+          addInternationalOption: o && d === !1 ? !1 : l,
           compareStringsLocales: $
           // compareStrings
-        }), ol(u, g));
-      }, [a, u, c, f, g]);
+        }), Bl(s, h));
+      }, [a, s, l, f, h]);
     }
   }, {
     key: "useMemoCountrySelectOptions",
     value: function(r, a) {
-      return (!this.countrySelectOptionsMemoDependencies || !Ul(a, this.countrySelectOptionsMemoDependencies)) && (this.countrySelectOptionsMemo = r(), this.countrySelectOptionsMemoDependencies = a), this.countrySelectOptionsMemo;
+      return (!this.countrySelectOptionsMemoDependencies || !Cc(a, this.countrySelectOptionsMemoDependencies)) && (this.countrySelectOptionsMemo = r(), this.countrySelectOptionsMemoDependencies = a), this.countrySelectOptionsMemo;
     }
   }, {
     key: "getFirstSupportedCountry",
@@ -6675,55 +7032,55 @@ var Dl = /* @__PURE__ */ function(e) {
   }, {
     key: "render",
     value: function() {
-      var r = this.props, a = r.name, i = r.disabled, o = r.readOnly, d = r.autoComplete, u = r.style, c = r.className;
+      var r = this.props, a = r.name, i = r.disabled, o = r.readOnly, d = r.autoComplete, s = r.style, l = r.className;
       r.inputRef;
-      var f = r.inputComponent, $ = r.numberInputProps, g = r.smartCaret, y = r.countrySelectComponent, C = r.countrySelectProps, S = r.containerComponent, h = r.containerComponentProps;
+      var f = r.inputComponent, $ = r.numberInputProps, h = r.smartCaret, m = r.countrySelectComponent, P = r.countrySelectProps, E = r.containerComponent, y = r.containerComponentProps;
       r.defaultCountry, r.countries, r.countryOptionsOrder;
-      var O = r.labels;
+      var x = r.labels;
       r.flags, r.flagComponent, r.flagUrl, r.addInternationalOption, r.internationalIcon, r.displayInitialValueAsLocalNumber, r.initialValueFormat, r.onCountryChange, r.limitMaxLength, r.countryCallingCodeEditable, r.focusInputOnCountrySelection, r.reset;
-      var L = r.metadata, A = r.international;
+      var T = r.metadata, j = r.international;
       r.locales;
-      var M = Il(r, El), v = this.state, B = v.country, q = v.countries, K = v.phoneDigits, z = v.isFocused, Z = g ? Rs : Ls, V = this.getCountrySelectOptions({
-        countries: q
+      var L = sc(r, uc), v = this.state, V = v.country, ee = v.countries, te = v.phoneDigits, ne = v.isFocused, $e = h ? pl : vl, ge = this.getCountrySelectOptions({
+        countries: ee
       });
-      return /* @__PURE__ */ I.createElement(S, Ie({
-        style: u,
-        className: dt(c, "PhoneInput", {
-          "PhoneInput--focus": z,
+      return /* @__PURE__ */ A.createElement(E, tt({
+        style: s,
+        className: Lt(l, "PhoneInput", {
+          "PhoneInput--focus": ne,
           "PhoneInput--disabled": i,
           "PhoneInput--readOnly": o
         })
-      }, h), /* @__PURE__ */ I.createElement(y, Ie({
+      }, y), /* @__PURE__ */ A.createElement(m, tt({
         name: a ? "".concat(a, "Country") : void 0,
-        "aria-label": O.country
-      }, C, {
-        value: B,
-        options: V,
+        "aria-label": x.country
+      }, P, {
+        value: V,
+        options: ge,
         onChange: this.onCountryChange,
         onFocus: this.onCountryFocus,
         onBlur: this.onCountryBlur,
-        disabled: i || C && C.disabled,
-        readOnly: o || C && C.readOnly,
+        disabled: i || P && P.disabled,
+        readOnly: o || P && P.readOnly,
         iconComponent: this.CountryIcon
-      })), /* @__PURE__ */ I.createElement(Z, Ie({
+      })), /* @__PURE__ */ A.createElement($e, tt({
         ref: this.setInputRef,
         type: "tel",
         autoComplete: d
-      }, $, M, {
-        inputFormat: A === !0 ? "INTERNATIONAL" : A === !1 ? "NATIONAL" : "INTERNATIONAL_OR_NATIONAL",
-        international: A ? !0 : void 0,
-        withCountryCallingCode: A ? !0 : void 0,
+      }, $, L, {
+        inputFormat: j === !0 ? "INTERNATIONAL" : j === !1 ? "NATIONAL" : "INTERNATIONAL_OR_NATIONAL",
+        international: j ? !0 : void 0,
+        withCountryCallingCode: j ? !0 : void 0,
         name: a,
-        metadata: L,
-        country: B,
-        value: K || "",
+        metadata: T,
+        country: V,
+        value: te || "",
         onChange: this.onChange,
         onFocus: this.onFocus,
         onBlur: this.onBlur,
         disabled: i,
         readOnly: o,
         inputComponent: f,
-        className: dt("PhoneInputInput", $ && $.className, M.className)
+        className: Lt("PhoneInputInput", $ && $.className, L.className)
       })));
     }
   }], [{
@@ -6735,19 +7092,19 @@ var Dl = /* @__PURE__ */ function(e) {
       // * `phoneDigits` — The parsed `<input/>` value, e.g. `8005553535`.
       // (and a couple of other less significant properties)
       function(r, a) {
-        return ka({
+        return $i({
           // Emulate `prevProps` via `state.props`.
           props: r
-        }, xl(r, a.props, a));
+        }, dc(r, a.props, a));
       }
     )
   }]);
-}(I.PureComponent), Ba = /* @__PURE__ */ I.forwardRef(function(e, t) {
-  return /* @__PURE__ */ I.createElement(Dl, Ie({}, Ll(e), {
+}(A.PureComponent), yi = /* @__PURE__ */ A.forwardRef(function(e, t) {
+  return /* @__PURE__ */ A.createElement(gc, tt({}, vc(e), {
     inputRef: t
   }));
 });
-Ba.propTypes = {
+yi.propTypes = {
   /**
    * Phone number in `E.164` format.
    *
@@ -6757,7 +7114,7 @@ Ba.propTypes = {
    *
    * Any "falsy" value like `undefined`, `null` or an empty string `""` is treated like "empty".
    */
-  value: b.string,
+  value: C.string,
   /**
    * A function of `value: string?`.
    *
@@ -6765,27 +7122,27 @@ Ba.propTypes = {
    *
    * If the user erases the input value, the argument is `undefined`.
    */
-  onChange: b.func.isRequired,
+  onChange: C.func.isRequired,
   /**
    * Toggles the `--focus` CSS class.
    * @ignore
    */
-  onFocus: b.func,
+  onFocus: C.func,
   /**
    * `onBlur` is usually passed by `redux-form`.
    * @ignore
    */
-  onBlur: b.func,
+  onBlur: C.func,
   /**
    * Set to `true` to mark both the phone number `<input/>`
    * and the country `<select/>` as `disabled`.
    */
-  disabled: b.bool,
+  disabled: C.bool,
   /**
    * Set to `true` to mark both the phone number `<input/>`
    * and the country `<select/>` as `readonly`.
    */
-  readOnly: b.bool,
+  readOnly: C.bool,
   /**
    * Sets `autoComplete` property for phone number `<input/>`.
    *
@@ -6807,7 +7164,7 @@ Ba.propTypes = {
    *  what was submitted previously".
    */
   // (is `"tel"` by default)
-  autoComplete: b.string,
+  autoComplete: C.string,
   /**
    * Set to `"national"` to show the initial `value` in
    * "national" format rather than "international".
@@ -6828,10 +7185,10 @@ Ba.propTypes = {
    * Future people won't be using "national" format, only "international".
    */
   // (is `undefined` by default)
-  initialValueFormat: b.oneOf(["national"]),
+  initialValueFormat: C.oneOf(["national"]),
   // `displayInitialValueAsLocalNumber` property has been
   // superceded by `initialValueFormat` property.
-  displayInitialValueAsLocalNumber: b.bool,
+  displayInitialValueAsLocalNumber: C.bool,
   /**
    * The country to be selected by default.
    * For example, can be set after a GeoIP lookup.
@@ -6839,7 +7196,7 @@ Ba.propTypes = {
    * Example: `"US"`.
    */
   // A two-letter country code ("ISO 3166-1 alpha-2").
-  defaultCountry: b.string,
+  defaultCountry: C.string,
   /**
    * If specified, only these countries will be available for selection.
    *
@@ -6847,7 +7204,7 @@ Ba.propTypes = {
    *
    * `["RU", "UA", "KZ"]`
    */
-  countries: b.arrayOf(b.string),
+  countries: C.arrayOf(C.string),
   /**
    * Custom country `<select/>` option names.
    * Also some labels like "ext" and country `<select/>` `aria-label`.
@@ -6858,7 +7215,7 @@ Ba.propTypes = {
    *
    * See the `locales` directory for examples.
    */
-  labels: Aa,
+  labels: ui,
   /**
    * Country `<select/>` options are sorted by their labels.
    * The default sorting function uses `a.localeCompare(b, locales)`,
@@ -6872,7 +7229,7 @@ Ba.propTypes = {
    * and can be either a Unicode BCP 47 locale identifier or an array of such locale identifiers.
    * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument
    */
-  locales: b.oneOfType([b.string, b.arrayOf(b.string)]),
+  locales: C.oneOfType([C.string, C.arrayOf(C.string)]),
   /*
    * Custom country `<select/>` options sorting function.
    * The default one uses `a.localeCompare(b)`, and,
@@ -6895,7 +7252,7 @@ Ba.propTypes = {
    * one should check the `CHANGELOG.md` every time before updating this library,
    * otherwise there's a possibility that some new country flag would be missing.
    */
-  flagUrl: b.string,
+  flagUrl: C.string,
   /**
    * Custom country flag icon components.
    * These flags will be used instead of the default ones.
@@ -6918,7 +7275,7 @@ Ba.propTypes = {
    *
    * `<PhoneInput flags={flags} .../>`
    */
-  flags: b.objectOf(b.elementType),
+  flags: C.objectOf(C.elementType),
   /**
    * Country flag icon component.
    *
@@ -6929,11 +7286,11 @@ Ba.propTypes = {
    * * `flagUrl: string` — The `flagUrl` property (see above).
    * * `flags: object` — The `flags` property (see above).
    */
-  flagComponent: b.elementType,
+  flagComponent: C.elementType,
   /**
    * Set to `false` to remove the "International" option from country `<select/>`.
    */
-  addInternationalOption: b.bool,
+  addInternationalOption: C.bool,
   /**
    * "International" icon component.
    * Should have the same aspect ratio.
@@ -6942,7 +7299,7 @@ Ba.propTypes = {
    *
    * * `title: string` — "International" country option label.
    */
-  internationalIcon: b.elementType,
+  internationalIcon: C.elementType,
   /**
    * Can be used to place some countries on top of the list of country `<select/>` options.
    *
@@ -6955,15 +7312,15 @@ Ba.propTypes = {
    *
    * `["US", "CA", "AU", "|", "..."]`
    */
-  countryOptionsOrder: b.arrayOf(b.string),
+  countryOptionsOrder: C.arrayOf(C.string),
   /**
    * `<Phone/>` component CSS style object.
    */
-  style: b.object,
+  style: C.object,
   /**
    * `<Phone/>` component CSS class.
    */
-  className: b.string,
+  className: C.string,
   /**
    * Country `<select/>` component.
    *
@@ -6981,13 +7338,13 @@ Ba.propTypes = {
    * * `tabIndex: (number|string)?` — HTML `tabIndex` attribute.
    * * `className: string` — CSS class name.
    */
-  countrySelectComponent: b.elementType,
+  countrySelectComponent: C.elementType,
   /**
    * Country `<select/>` component props.
    * Along with the usual DOM properties such as `aria-label` and `tabIndex`,
    * some custom properties are supported, such as `arrowComponent` and `unicodeFlags`.
    */
-  countrySelectProps: b.object,
+  countrySelectProps: C.object,
   /**
    * Phone number `<input/>` component.
    *
@@ -7001,11 +7358,11 @@ Ba.propTypes = {
    *
    * Must also either use `React.forwardRef()` to "forward" `ref` to the `<input/>` or implement `.focus()` method.
    */
-  inputComponent: b.elementType,
+  inputComponent: C.elementType,
   /**
    * Phone number `<input/>` component props.
    */
-  numberInputProps: b.object,
+  numberInputProps: C.object,
   /**
    * Wrapping `<div/>` component.
    *
@@ -7014,11 +7371,11 @@ Ba.propTypes = {
    * * `style: object` — A component CSS style object.
    * * `className: string` — Classes to attach to the component, typically changes when component focuses or blurs.
    */
-  containerComponent: b.elementType,
+  containerComponent: C.elementType,
   /**
    * Wrapping `<div/>` component props.
    */
-  containerComponentProps: b.object,
+  containerComponentProps: C.object,
   /**
    * When the user attempts to insert a digit somewhere in the middle of a phone number,
    * the caret position is moved right before the next available digit skipping
@@ -7031,32 +7388,32 @@ Ba.propTypes = {
    * with caret position during phone number input.
    */
   // Is `true` by default.
-  smartCaret: b.bool,
+  smartCaret: C.bool,
   /**
    * Set to `true` to force "international" phone number format.
    * Set to `false` to force "national" phone number format.
    * By default it's `undefined` meaning that it doesn't enforce any phone number format:
    * the user can input their phone number in either "national" or "international" format.
    */
-  international: b.bool,
+  international: C.bool,
   /**
    * If set to `true`, the phone number input will get trimmed
    * if it exceeds the maximum length for the country.
    */
-  limitMaxLength: b.bool,
+  limitMaxLength: C.bool,
   /**
    * If set to `false`, and `international` is `true`, then
    * users won't be able to erase the "country calling part"
    * of a phone number in the `<input/>`.
    */
-  countryCallingCodeEditable: b.bool,
+  countryCallingCodeEditable: C.bool,
   /**
    * `libphonenumber-js` metadata.
    *
    * Can be used to pass custom `libphonenumber-js` metadata
    * to reduce the overall bundle size for those who compile "custom" metadata.
    */
-  metadata: Ta,
+  metadata: di,
   /**
    * Is called every time the selected country changes:
    * either programmatically or when user selects it manually from the list.
@@ -7069,7 +7426,7 @@ Ba.propTypes = {
   // therefore reducing "conversion" (that's a marketing term).
   // Assuming that the phone number's country is the user's country
   // is not 100% correct but in most cases I guess it's valid.
-  onCountryChange: b.func,
+  onCountryChange: C.func,
   /**
    * If set to `false`, will not focus the `<input/>` component
    * when the user selects a country from the list of countries.
@@ -7079,9 +7436,9 @@ Ba.propTypes = {
    *  does not automatically cause a change of context unless the user
    *  has been advised of the behaviour before using the component."
    */
-  focusInputOnCountrySelection: b.bool
+  focusInputOnCountrySelection: C.bool
 };
-var Br = {
+var ya = {
   /**
    * Remember (and autofill) the value as a phone number.
    */
@@ -7089,11 +7446,11 @@ var Br = {
   /**
    * Country `<select/>` component.
    */
-  countrySelectComponent: Sa,
+  countrySelectComponent: ei,
   /**
    * Flag icon component.
    */
-  flagComponent: on,
+  flagComponent: Dn,
   /**
    * By default, uses icons from `country-flag-icons` gitlab pages website.
    */
@@ -7102,7 +7459,7 @@ var Br = {
   /**
    * Default "International" country `<select/>` option icon.
    */
-  internationalIcon: gt,
+  internationalIcon: Xt,
   /**
    * Phone number `<input/>` component.
    */
@@ -7124,7 +7481,7 @@ var Br = {
    * would be "stuck", if not using this `reset` property.
    */
   // https://github.com/catamphetamine/react-phone-number-input/issues/300
-  reset: b.any,
+  reset: C.any,
   /**
    *
    */
@@ -7154,14 +7511,14 @@ var Br = {
    */
   focusInputOnCountrySelection: !0
 };
-function Ll(e) {
-  e = ka({}, e);
-  for (var t in Br)
-    e[t] === void 0 && (e[t] = Br[t]);
+function vc(e) {
+  e = $i({}, e);
+  for (var t in ya)
+    e[t] === void 0 && (e[t] = ya[t]);
   return e;
 }
-const Bl = Ba;
-function Ul(e, t) {
+const bc = yi;
+function Cc(e, t) {
   if (e.length !== t.length)
     return !1;
   for (var n = 0; n < e.length; ) {
@@ -7171,7 +7528,7 @@ function Ul(e, t) {
   }
   return !0;
 }
-const Gl = {
+const Pc = {
   ext: "ext.",
   country: "Phone number country",
   phone: "Phone",
@@ -7431,21 +7788,21 @@ const Gl = {
   ZW: "Zimbabwe",
   ZZ: "International"
 };
-var Wl = ["metadata", "labels"];
-function Jt() {
-  return Jt = Object.assign ? Object.assign.bind() : function(e) {
+var Nc = ["metadata", "labels"];
+function In() {
+  return In = Object.assign ? Object.assign.bind() : function(e) {
     for (var t = 1; t < arguments.length; t++) {
       var n = arguments[t];
       for (var r in n)
         Object.prototype.hasOwnProperty.call(n, r) && (e[r] = n[r]);
     }
     return e;
-  }, Jt.apply(this, arguments);
+  }, In.apply(this, arguments);
 }
-function Hl(e, t) {
+function Sc(e, t) {
   if (e == null)
     return {};
-  var n = Vl(e, t), r, a;
+  var n = Oc(e, t), r, a;
   if (Object.getOwnPropertySymbols) {
     var i = Object.getOwnPropertySymbols(e);
     for (a = 0; a < i.length; a++)
@@ -7453,7 +7810,7 @@ function Hl(e, t) {
   }
   return n;
 }
-function Vl(e, t) {
+function Oc(e, t) {
   if (e == null)
     return {};
   var n = {}, r = Object.keys(e), a, i;
@@ -7461,104 +7818,104 @@ function Vl(e, t) {
     a = r[i], !(t.indexOf(a) >= 0) && (n[a] = e[a]);
   return n;
 }
-function Ua(e) {
-  var t = /* @__PURE__ */ I.forwardRef(function(n, r) {
-    var a = n.metadata, i = a === void 0 ? e : a, o = n.labels, d = o === void 0 ? Gl : o, u = Hl(n, Wl);
-    return /* @__PURE__ */ I.createElement(Bl, Jt({}, u, {
+function hi(e) {
+  var t = /* @__PURE__ */ A.forwardRef(function(n, r) {
+    var a = n.metadata, i = a === void 0 ? e : a, o = n.labels, d = o === void 0 ? Pc : o, s = Sc(n, Nc);
+    return /* @__PURE__ */ A.createElement(bc, In({}, s, {
       ref: r,
       metadata: i,
       labels: d
     }));
   });
   return t.propTypes = {
-    metadata: Ta,
-    labels: Aa
+    metadata: di,
+    labels: ui
   }, t;
 }
-Ua();
-function Kl(e, t) {
+hi();
+function wc(e, t) {
   var n = Array.prototype.slice.call(t);
-  return n.push(qr), e.apply(this, n);
+  return n.push(Oa), e.apply(this, n);
 }
-const zl = Ua(qr);
-function Yl() {
-  return Kl($u, arguments);
+const xc = hi(Oa);
+function Ec() {
+  return wc(Yu, arguments);
 }
-const Ur = ({ onSubmit: e, isLoading: t = !1, requiredFields: n = [] }) => {
-  const [r, a] = te({
+const ha = ({ onSubmit: e, isLoading: t = !1, requiredFields: n = [] }) => {
+  const [r, a] = de({
     name: "",
     email: "",
     phone: ""
-  }), [i, o] = te({}), d = () => {
+  }), [i, o] = de({}), d = () => {
     const $ = {};
     if (n.includes("name"))
       if (!r.name.trim())
         $.name = "Name is required";
       else {
-        const g = r.name.trim().split(/\s+/);
-        (g.length < 2 || g.some((y) => y.length === 0)) && ($.name = "Please enter both first and last name");
+        const h = r.name.trim().split(/\s+/);
+        (h.length < 2 || h.some((m) => m.length === 0)) && ($.name = "Please enter both first and last name");
       }
-    return n.includes("email") && (r.email.trim() ? /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(r.email.trim()) || ($.email = "Please enter a valid email address") : $.email = "Email is required"), n.includes("phone") && (r.phone.trim() ? r.phone && !Yl(r.phone) && ($.phone = "Please enter a valid phone number") : $.phone = "Phone number is required"), o($), Object.keys($).length === 0;
-  }, u = ($) => {
+    return n.includes("email") && (r.email.trim() ? /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(r.email.trim()) || ($.email = "Please enter a valid email address") : $.email = "Email is required"), n.includes("phone") && (r.phone.trim() ? r.phone && !Ec(r.phone) && ($.phone = "Please enter a valid phone number") : $.phone = "Phone number is required"), o($), Object.keys($).length === 0;
+  }, s = ($) => {
     $.preventDefault(), d() && e(r);
-  }, c = ($) => (g) => {
-    const y = g.target.value;
-    a((C) => ({ ...C, [$]: y })), i[$] && o((C) => ({ ...C, [$]: void 0 }));
+  }, l = ($) => (h) => {
+    const m = h.target.value;
+    a((P) => ({ ...P, [$]: m })), i[$] && o((P) => ({ ...P, [$]: void 0 }));
   }, f = ($) => {
-    const g = $ || "";
-    a((y) => ({ ...y, phone: g })), i.phone && o((y) => ({ ...y, phone: void 0 }));
+    const h = $ || "";
+    a((m) => ({ ...m, phone: h })), i.phone && o((m) => ({ ...m, phone: void 0 }));
   };
-  return /* @__PURE__ */ l.jsxs("div", { className: "user-info-form", children: [
-    /* @__PURE__ */ l.jsxs("div", { className: "user-info-form__header", children: [
-      /* @__PURE__ */ l.jsx("h3", { className: "user-info-form__title", children: "Welcome! Let's get started" }),
-      /* @__PURE__ */ l.jsx("p", { className: "user-info-form__subtitle", children: "Please provide your information to continue" })
+  return /* @__PURE__ */ c.jsxs("div", { className: "user-info-form", children: [
+    /* @__PURE__ */ c.jsxs("div", { className: "user-info-form__header", children: [
+      /* @__PURE__ */ c.jsx("h3", { className: "user-info-form__title", children: "Welcome! Let's get started" }),
+      /* @__PURE__ */ c.jsx("p", { className: "user-info-form__subtitle", children: "Please provide your information to continue" })
     ] }),
-    /* @__PURE__ */ l.jsxs("form", { onSubmit: u, className: "user-info-form__form", children: [
-      /* @__PURE__ */ l.jsxs("div", { className: "user-info-form__field", children: [
-        /* @__PURE__ */ l.jsxs("label", { htmlFor: "name", className: "user-info-form__label", children: [
+    /* @__PURE__ */ c.jsxs("form", { onSubmit: s, className: "user-info-form__form", children: [
+      /* @__PURE__ */ c.jsxs("div", { className: "user-info-form__field", children: [
+        /* @__PURE__ */ c.jsxs("label", { htmlFor: "name", className: "user-info-form__label", children: [
           "Full Name ",
           n.includes("name") ? "*" : ""
         ] }),
-        /* @__PURE__ */ l.jsx(
+        /* @__PURE__ */ c.jsx(
           "input",
           {
             type: "text",
             id: "name",
             className: `user-info-form__input ${i.name ? "user-info-form__input--error" : ""}`,
             value: r.name,
-            onChange: c("name"),
+            onChange: l("name"),
             placeholder: "Enter your full name",
             disabled: t
           }
         ),
-        i.name && /* @__PURE__ */ l.jsx("span", { className: "user-info-form__error", children: i.name })
+        i.name && /* @__PURE__ */ c.jsx("span", { className: "user-info-form__error", children: i.name })
       ] }),
-      /* @__PURE__ */ l.jsxs("div", { className: "user-info-form__field", children: [
-        /* @__PURE__ */ l.jsxs("label", { htmlFor: "email", className: "user-info-form__label", children: [
+      /* @__PURE__ */ c.jsxs("div", { className: "user-info-form__field", children: [
+        /* @__PURE__ */ c.jsxs("label", { htmlFor: "email", className: "user-info-form__label", children: [
           "Email Address ",
           n.includes("email") ? "*" : ""
         ] }),
-        /* @__PURE__ */ l.jsx(
+        /* @__PURE__ */ c.jsx(
           "input",
           {
             type: "email",
             id: "email",
             className: `user-info-form__input ${i.email ? "user-info-form__input--error" : ""}`,
             value: r.email,
-            onChange: c("email"),
+            onChange: l("email"),
             placeholder: "Enter your email address",
             disabled: t
           }
         ),
-        i.email && /* @__PURE__ */ l.jsx("span", { className: "user-info-form__error", children: i.email })
+        i.email && /* @__PURE__ */ c.jsx("span", { className: "user-info-form__error", children: i.email })
       ] }),
-      /* @__PURE__ */ l.jsxs("div", { className: "user-info-form__field", children: [
-        /* @__PURE__ */ l.jsxs("label", { htmlFor: "phone", className: "user-info-form__label", children: [
+      /* @__PURE__ */ c.jsxs("div", { className: "user-info-form__field", children: [
+        /* @__PURE__ */ c.jsxs("label", { htmlFor: "phone", className: "user-info-form__label", children: [
           "Phone Number ",
           n.includes("phone") ? "*" : ""
         ] }),
-        /* @__PURE__ */ l.jsx(
-          zl,
+        /* @__PURE__ */ c.jsx(
+          xc,
           {
             international: !0,
             countryCallingCodeEditable: !0,
@@ -7571,36 +7928,51 @@ const Ur = ({ onSubmit: e, isLoading: t = !1, requiredFields: n = [] }) => {
             limitMaxLength: !1
           }
         ),
-        i.phone && /* @__PURE__ */ l.jsx("span", { className: "user-info-form__error", children: i.phone })
+        i.phone && /* @__PURE__ */ c.jsx("span", { className: "user-info-form__error", children: i.phone })
       ] }),
-      /* @__PURE__ */ l.jsx(
+      /* @__PURE__ */ c.jsx(
         "button",
         {
           type: "submit",
           className: "user-info-form__submit",
           disabled: t,
-          children: t ? /* @__PURE__ */ l.jsx("div", { className: "user-info-form__loading-spinner" }) : /* @__PURE__ */ l.jsxs(l.Fragment, { children: [
-            /* @__PURE__ */ l.jsx(De, { size: 18 }),
+          children: t ? /* @__PURE__ */ c.jsx("div", { className: "user-info-form__loading-spinner" }) : /* @__PURE__ */ c.jsxs(c.Fragment, { children: [
+            /* @__PURE__ */ c.jsx(pt, { size: 18 }),
             "Start Chat"
           ] })
         }
       )
     ] })
   ] });
-}, Gr = ({ suggestions: e, onSuggestionClick: t }) => !e || e.length === 0 ? null : /* @__PURE__ */ l.jsxs("div", { className: "chat-suggestions", children: [
-  /* @__PURE__ */ l.jsx("div", { className: "chat-suggestions__title", children: "Suggested replies:" }),
-  /* @__PURE__ */ l.jsx("div", { className: "chat-suggestions__list", children: e.map((n, r) => /* @__PURE__ */ l.jsx(
+}, ga = ({
+  suggestions: e,
+  visible: t,
+  onSuggestionClick: n,
+  maxVisible: r = 10
+}) => {
+  if (!t || e.length === 0)
+    return null;
+  const a = e.slice(0, r), i = (d) => {
+    n(d);
+  }, o = (d, s) => {
+    (d.key === "Enter" || d.key === " ") && (d.preventDefault(), i(s));
+  };
+  return /* @__PURE__ */ c.jsx("div", { className: "message-suggestions", role: "group", "aria-label": "Message suggestions", children: a.map((d) => /* @__PURE__ */ c.jsx(
     "button",
     {
-      className: "chat-suggestions__item",
-      onClick: () => t(n),
-      children: n
+      className: "suggestion-chip",
+      onClick: () => i(d.text),
+      onKeyDown: (s) => o(s, d.text),
+      type: "button",
+      tabIndex: 0,
+      "aria-label": `Send message: ${d.text}`,
+      children: d.text
     },
-    r
-  )) })
-] });
-function Wr() {
-  const e = window.innerWidth, t = window.innerHeight, n = navigator.userAgent.toLowerCase(), r = "ontouchstart" in window || navigator.maxTouchPoints > 0, a = e < 768, i = r || a, o = n.includes("arc") || n.includes("company.thebrowser.browser") || window.ArcBrowser !== void 0, d = /safari/.test(n) && !/chrome/.test(n) && !o, u = /chrome/.test(n) && !o, c = !!window.visualViewport;
+    d.id
+  )) });
+};
+function va() {
+  const e = window.innerWidth, t = window.innerHeight, n = navigator.userAgent.toLowerCase(), r = "ontouchstart" in window || navigator.maxTouchPoints > 0, a = e < 768, i = r || a, o = n.includes("arc") || n.includes("company.thebrowser.browser") || window.ArcBrowser !== void 0, d = /safari/.test(n) && !/chrome/.test(n) && !o, s = /chrome/.test(n) && !o, l = !!window.visualViewport;
   return {
     isMobile: i,
     isDesktop: !i,
@@ -7608,12 +7980,12 @@ function Wr() {
     screenHeight: t,
     isArc: o,
     isSafari: d,
-    isChrome: u,
-    supportsVisualViewport: c
+    isChrome: s,
+    supportsVisualViewport: l
   };
 }
-function ql() {
-  const [e, t] = te(() => typeof window > "u" ? {
+function _c() {
+  const [e, t] = de(() => typeof window > "u" ? {
     isMobile: !1,
     isDesktop: !0,
     screenWidth: 1024,
@@ -7622,26 +7994,26 @@ function ql() {
     isSafari: !1,
     isChrome: !1,
     supportsVisualViewport: !1
-  } : Wr());
-  return Le(() => {
+  } : va());
+  return Je(() => {
     const n = () => {
-      t(Wr());
+      t(va());
     };
     return window.addEventListener("resize", n), window.addEventListener("orientationchange", n), () => {
       window.removeEventListener("resize", n), window.removeEventListener("orientationchange", n);
     };
   }, []), e;
 }
-const Zl = ({
+const Tc = ({
   config: e,
   onMessage: t,
   onError: n,
   onClose: r
 }) => {
-  const [a, i] = te([]), [o, d] = te(""), [u, c] = te(!1), [f, $] = te(!1), [g, y] = te(e.initialState !== "closed"), [C, S] = te([]), [h, O] = te(null), [L, A] = te(!1), [M] = te(() => {
-    let P = localStorage.getItem("n8n_session_id");
-    return P ? P.split("|")[0] : Math.floor(Math.random() * 1e8).toString();
-  }), [v, B] = te(() => localStorage.getItem("n8n_session_id") || M), [q, K] = te(!1), [z, Z] = te(!1), [V, se] = te(null), [le, ne] = te(0), [ie, Q] = te(null), X = ql(), re = Pe(null), oe = Pe(null), s = Pe(null), p = Pe(null), w = Pe(null), m = { ...{
+  const [a, i] = de([]), [o, d] = de(""), [s, l] = de(!1), [f, $] = de(!1), [h, m] = de(e.initialState !== "closed"), [P, E] = de([]), [y, x] = de(null), [T, j] = de(!1), [L, v] = de([]), [V, ee] = de(!1), [te] = de(() => {
+    let N = localStorage.getItem("n8n_session_id");
+    return N ? N.split("|")[0] : Math.floor(Math.random() * 1e8).toString();
+  }), [ne, $e] = de(() => localStorage.getItem("n8n_session_id") || te), [ge, Ie] = de(!1), [re, ae] = de(!1), [ie, ce] = de(null), [fe, pe] = de(0), [Ce, b] = de(null), w = _c(), U = Ke(null), k = Ke(null), M = Ke(null), G = Ke(null), D = Ke(null), p = { ...{
     title: "Chat",
     subtitle: "How can I help you?",
     placeholder: "Type your message...",
@@ -7670,158 +8042,164 @@ const Zl = ({
     maxFiles: 5,
     allowedFileTypes: [],
     enableUserInfo: !1,
-    userInfoRequiredFields: ["email", "phone"]
-  }, ...e }, R = () => {
-    var P;
-    (P = re.current) == null || P.scrollIntoView();
+    userInfoRequiredFields: ["email", "phone"],
+    enableMessageSuggestions: !1,
+    initialSuggestions: [],
+    maxSuggestions: 10,
+    autoHideSuggestions: !0
+  }, ...e }, H = () => {
+    var N;
+    (N = U.current) == null || N.scrollIntoView();
   };
-  Le(() => {
-    R();
-  }, [a]), Le(() => {
-    if (m.enableUserInfo) {
-      const P = localStorage.getItem("n8n_user_info");
-      if (P)
+  Je(() => {
+    H();
+  }, [a]), Je(() => {
+    p.enableMessageSuggestions && p.initialSuggestions && p.initialSuggestions.length > 0 && a.length === 0 && (v(p.initialSuggestions.slice(0, p.maxSuggestions)), ee(!0));
+  }, [p.enableMessageSuggestions, p.initialSuggestions, p.maxSuggestions, a.length]), Je(() => {
+    if (p.enableUserInfo) {
+      const N = localStorage.getItem("n8n_user_info");
+      if (N)
         try {
-          const T = JSON.parse(P);
-          O(T), A(!1);
-        } catch (T) {
-          console.error("Error parsing saved user info:", T), localStorage.removeItem("n8n_user_info");
+          const I = JSON.parse(N);
+          x(I), j(!1);
+        } catch (I) {
+          console.error("Error parsing saved user info:", I), localStorage.removeItem("n8n_user_info");
         }
       else
-        A(!0);
+        j(!0);
     }
-  }, [m.enableUserInfo]), Le(() => {
-    if (g) {
-      const P = setTimeout(() => {
-        oe.current && oe.current.focus();
+  }, [p.enableUserInfo]), Je(() => {
+    if (h) {
+      const N = setTimeout(() => {
+        k.current && k.current.focus();
       }, 100);
-      return () => clearTimeout(P);
+      return () => clearTimeout(N);
     }
-  }, [g]);
-  const _ = () => `${Date.now()}-${Math.random()}`, F = async (P, T) => {
+  }, [h]);
+  const R = () => `${Date.now()}-${Math.random()}`, ue = async (N, I) => {
     try {
-      if (T) {
-        const j = new FormData();
-        j.append("sessionId", v), j.append("chatInput", P), j.append("data", T.file), h && (j.append("userName", h.name), j.append("userEmail", h.email), j.append("userPhone", h.phone));
-        const U = await fetch(e.n8nWebhookUrl, {
+      if (I) {
+        const _ = new FormData();
+        _.append("sessionId", ne), _.append("chatInput", N), _.append("data", I.file), y && (_.append("userName", y.name), _.append("userEmail", y.email), _.append("userPhone", y.phone));
+        const B = await fetch(e.n8nWebhookUrl, {
           method: "POST",
-          body: j
+          body: _
         });
-        if (!U.ok)
-          throw new Error(`HTTP error! status: ${U.status}`);
-        const Y = await U.json(), H = Y.output || Y.response || Y.message || Y.text || "Response received", pe = Y.suggestions || [];
-        return { content: H, suggestions: pe };
+        if (!B.ok)
+          throw new Error(`HTTP error! status: ${B.status}`);
+        const J = await B.json(), z = J.output || J.response || J.message || J.text || "Response received", Pe = J.suggestions || [];
+        return { content: z, suggestions: Pe };
       } else {
-        const j = {
-          sessionId: v,
-          chatInput: P,
+        const _ = {
+          sessionId: ne,
+          chatInput: N,
           // Include user info in JSON payload
-          ...h && {
-            userName: h.name,
-            userEmail: h.email,
-            userPhone: h.phone
+          ...y && {
+            userName: y.name,
+            userEmail: y.email,
+            userPhone: y.phone
           }
-        }, U = await fetch(e.n8nWebhookUrl, {
+        }, B = await fetch(e.n8nWebhookUrl, {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
           },
-          body: JSON.stringify(j)
+          body: JSON.stringify(_)
         });
-        if (!U.ok)
-          throw new Error(`HTTP error! status: ${U.status}`);
-        const Y = await U.json(), H = Y.output || Y.response || Y.message || Y.text || "Response received", pe = Y.suggestions || [];
-        return { content: H, suggestions: pe };
+        if (!B.ok)
+          throw new Error(`HTTP error! status: ${B.status}`);
+        const J = await B.json(), z = J.output || J.response || J.message || J.text || "Response received", Pe = J.suggestions || [];
+        return { content: z, suggestions: Pe };
       }
-    } catch (j) {
-      throw console.error("Error sending to n8n:", j), j;
+    } catch (_) {
+      throw console.error("Error sending to n8n:", _), _;
     }
-  }, E = ue(async () => {
-    if (!o.trim() && C.length === 0 || f)
+  }, S = be(async () => {
+    if (!o.trim() && P.length === 0 || f)
       return;
     sessionStorage.setItem("n8n-chat-popup-shown", "true");
-    const P = o.trim() || "", T = [...C];
-    d(""), S([]), $(!0), e.showTypingIndicator && c(!0);
+    const N = o.trim() || "", I = [...P];
+    d(""), E([]), $(!0), e.showTypingIndicator && l(!0);
     try {
-      for (let j = 0; j < T.length; j++) {
-        const U = T[j], H = j === T.length - 1 && P ? P : "", pe = {
-          id: _(),
+      for (let _ = 0; _ < I.length; _++) {
+        const B = I[_], z = _ === I.length - 1 && N ? N : "", Pe = {
+          id: R(),
           type: "user",
-          content: H,
+          content: z,
           timestamp: /* @__PURE__ */ new Date(),
-          files: [U]
+          files: [B]
         };
-        i((ye) => [...ye, pe]), t == null || t(pe);
-        const nt = await F(H, U), Se = {
-          id: _(),
+        i((Ne) => [...Ne, Pe]), t == null || t(Pe);
+        const Re = await ue(z, B), ke = {
+          id: R(),
           type: "bot",
-          content: nt.content,
+          content: Re.content,
           timestamp: /* @__PURE__ */ new Date(),
-          suggestions: nt.suggestions
+          suggestions: Re.suggestions
         };
-        i((ye) => [...ye, Se]), t == null || t(Se);
+        i((Ne) => [...Ne, ke]), t == null || t(ke), p.enableMessageSuggestions && Re.suggestions && Re.suggestions.length > 0 && (v(Re.suggestions.slice(0, p.maxSuggestions)), ee(!0));
       }
-      if (P && T.length === 0) {
-        const j = {
-          id: _(),
+      if (N && I.length === 0) {
+        const _ = {
+          id: R(),
           type: "user",
-          content: P,
+          content: N,
           timestamp: /* @__PURE__ */ new Date()
         };
-        i((H) => [...H, j]), t == null || t(j);
-        const U = await F(P), Y = {
-          id: _(),
+        i((z) => [...z, _]), t == null || t(_);
+        const B = await ue(N), J = {
+          id: R(),
           type: "bot",
-          content: U.content,
+          content: B.content,
           timestamp: /* @__PURE__ */ new Date(),
-          suggestions: U.suggestions
+          suggestions: B.suggestions
         };
-        i((H) => [...H, Y]), t == null || t(Y);
+        i((z) => [...z, J]), t == null || t(J), p.enableMessageSuggestions && B.suggestions && B.suggestions.length > 0 && (v(B.suggestions.slice(0, p.maxSuggestions)), ee(!0));
       }
-    } catch (j) {
-      const U = {
-        id: _(),
+    } catch (_) {
+      const B = {
+        id: R(),
         type: "bot",
         content: "Sorry, I encountered an error. Please try again.",
         timestamp: /* @__PURE__ */ new Date()
       };
-      i((Y) => [...Y, U]), n == null || n(j);
+      i((J) => [...J, B]), n == null || n(_);
     } finally {
-      $(!1), c(!1), T.forEach((j) => URL.revokeObjectURL(j.url));
+      $(!1), l(!1), I.forEach((_) => URL.revokeObjectURL(_.url));
     }
-  }, [o, C, f, e, t, n]), D = (P) => {
-    P.key === "Enter" && !P.shiftKey && (P.preventDefault(), E());
-  }, k = ue((P) => {
-    S((T) => [...T, ...P].slice(0, m.maxFiles));
-  }, [m.maxFiles]), ee = ue((P) => {
-    S((T) => {
-      const j = T.find((U) => U.id === P);
-      return j && URL.revokeObjectURL(j.url), T.filter((U) => U.id !== P);
+  }, [o, P, f, e, t, n]), me = (N) => {
+    N.key === "Enter" && !N.shiftKey && (N.preventDefault(), S());
+  }, Te = be((N) => {
+    E((I) => [...I, ...N].slice(0, p.maxFiles));
+  }, [p.maxFiles]), Ae = be((N) => {
+    E((I) => {
+      const _ = I.find((B) => B.id === N);
+      return _ && URL.revokeObjectURL(_.url), I.filter((B) => B.id !== N);
     });
-  }, []), N = async () => {
-    if (!p.current || !w.current)
+  }, []), Ge = async () => {
+    if (!G.current || !D.current)
       return;
-    const P = p.current, T = w.current, j = T.getContext("2d");
-    j && (T.width = P.videoWidth, T.height = P.videoHeight, j.drawImage(P, 0, 0), T.toBlob(async (U) => {
-      if (U) {
-        const Y = new File([U], `photo-${Date.now()}.jpg`, { type: "image/jpeg" });
+    const N = G.current, I = D.current, _ = I.getContext("2d");
+    _ && (I.width = N.videoWidth, I.height = N.videoHeight, _.drawImage(N, 0, 0), I.toBlob(async (B) => {
+      if (B) {
+        const J = new File([B], `photo-${Date.now()}.jpg`, { type: "image/jpeg" });
         try {
-          const H = await ln(Y);
-          k([H]);
-        } catch (H) {
-          console.error("Error processing captured photo:", H), alert("Error processing captured photo");
+          const z = await Ye(J);
+          Te([z]);
+        } catch (z) {
+          console.error("Error processing captured photo:", z), alert("Error processing captured photo");
         }
       }
-    }, "image/jpeg", 0.8), de());
-  }, de = () => {
-    var P;
-    (P = p.current) != null && P.srcObject && (p.current.srcObject.getTracks().forEach((j) => j.stop()), p.current.srcObject = null), K(!1);
-  }, Ce = async () => {
+    }, "image/jpeg", 0.8), ot());
+  }, ot = () => {
+    var N;
+    (N = G.current) != null && N.srcObject && (G.current.srcObject.getTracks().forEach((_) => _.stop()), G.current.srcObject = null), Ie(!1);
+  }, dt = async () => {
     if (console.log("🎤 Starting audio recording..."), !MediaRecorder || !navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
       console.error("❌ MediaRecorder or getUserMedia not supported"), alert("Audio recording is not supported in this browser.");
       return;
     }
-    if (X.isArc) {
+    if (w.isArc) {
       console.log("🌐 Arc browser detected - using enhanced audio recording...");
       try {
         if (navigator.permissions && (await navigator.permissions.query({ name: "microphone" })).state === "denied") {
@@ -7837,7 +8215,7 @@ const Zl = ({
     }
     try {
       console.log("🔍 Requesting microphone permission...");
-      const P = await navigator.mediaDevices.getUserMedia({
+      const N = await navigator.mediaDevices.getUserMedia({
         audio: {
           echoCancellation: !0,
           noiseSuppression: !0,
@@ -7845,249 +8223,279 @@ const Zl = ({
         }
       });
       console.log("✅ Microphone access granted");
-      let T = {};
-      X.isArc ? MediaRecorder.isTypeSupported("audio/webm;codecs=opus") ? T.mimeType = "audio/webm;codecs=opus" : MediaRecorder.isTypeSupported("audio/mp4") && (T.mimeType = "audio/mp4") : MediaRecorder.isTypeSupported("audio/webm") && (T.mimeType = "audio/webm");
-      const j = new MediaRecorder(P, T), U = [];
-      j.ondataavailable = (H) => {
-        console.log("📊 Audio data available:", H.data.size, "bytes"), H.data.size > 0 && U.push(H.data);
-      }, j.onstop = async () => {
+      let I = {};
+      w.isArc ? MediaRecorder.isTypeSupported("audio/webm;codecs=opus") ? I.mimeType = "audio/webm;codecs=opus" : MediaRecorder.isTypeSupported("audio/mp4") && (I.mimeType = "audio/mp4") : MediaRecorder.isTypeSupported("audio/webm") && (I.mimeType = "audio/webm");
+      const _ = new MediaRecorder(N, I), B = [];
+      _.ondataavailable = (z) => {
+        console.log("📊 Audio data available:", z.data.size, "bytes"), z.data.size > 0 && B.push(z.data);
+      }, _.onstop = async () => {
         console.log("🛑 Recording stopped, creating file...");
-        const H = j.mimeType || "audio/wav", pe = new Blob(U, { type: H }), nt = H.includes("webm") ? "webm" : "wav", Se = new File([pe], `recording-${Date.now()}.${nt}`, { type: H });
-        console.log("📁 Created audio file:", Se.name, Se.size, "bytes");
+        const z = _.mimeType || "audio/wav", Pe = new Blob(B, { type: z }), Re = z.includes("webm") ? "webm" : "wav", ke = new File([Pe], `recording-${Date.now()}.${Re}`, { type: z });
+        console.log("📁 Created audio file:", ke.name, ke.size, "bytes");
         try {
-          const ye = await ln(Se);
-          sessionStorage.setItem("n8n-chat-popup-shown", "true"), $(!0), e.showTypingIndicator && c(!0);
-          const Wa = {
-            id: _(),
+          const Ne = await Ye(ke);
+          sessionStorage.setItem("n8n-chat-popup-shown", "true"), $(!0), e.showTypingIndicator && l(!0);
+          const Jt = {
+            id: R(),
             type: "user",
             content: "",
-            files: [ye],
+            files: [Ne],
             timestamp: /* @__PURE__ */ new Date()
           };
-          i((Pt) => [...Pt, Wa]);
-          const rt = new FormData();
-          rt.append("sessionId", v), rt.append("chatInput", ""), rt.append("data", ye.file);
-          const Ct = await fetch(e.n8nWebhookUrl, {
+          i((ct) => [...ct, Jt]);
+          const Le = new FormData();
+          Le.append("sessionId", ne), Le.append("chatInput", ""), Le.append("data", Ne.file);
+          const ze = await fetch(e.n8nWebhookUrl, {
             method: "POST",
-            body: rt
+            body: Le
           });
-          if (!Ct.ok)
-            throw new Error(`HTTP error! status: ${Ct.status}`);
-          const Fe = await Ct.json(), Ha = Fe.output || Fe.response || Fe.message || Fe.text || "Response received", Va = Fe.suggestions || [], Ka = {
-            id: _(),
+          if (!ze.ok)
+            throw new Error(`HTTP error! status: ${ze.status}`);
+          const Se = await ze.json(), lt = Se.output || Se.response || Se.message || Se.text || "Response received", Be = Se.suggestions || [], Ft = {
+            id: R(),
             type: "bot",
-            content: Ha,
+            content: lt,
             timestamp: /* @__PURE__ */ new Date(),
-            suggestions: Va
+            suggestions: Be
           };
-          i((Pt) => [...Pt, Ka]);
-        } catch (ye) {
-          console.error("Error processing audio recording:", ye), alert("Error processing audio recording");
+          i((ct) => [...ct, Ft]), p.enableMessageSuggestions && Be && Be.length > 0 && (v(Be.slice(0, p.maxSuggestions)), ee(!0));
+        } catch (Ne) {
+          console.error("Error processing audio recording:", Ne), alert("Error processing audio recording");
         } finally {
-          $(!1), c(!1);
+          $(!1), l(!1);
         }
-        P.getTracks().forEach((ye) => ye.stop());
-      }, j.onerror = (H) => {
-        console.error("❌ Recording error:", H), alert("Recording failed. Please try again.");
-      }, j.start(1e3), se(j), Z(!0), ne(0), console.log("🔴 Recording started");
-      const Y = setInterval(() => {
-        ne((H) => H + 1);
+        N.getTracks().forEach((Ne) => Ne.stop());
+      }, _.onerror = (z) => {
+        console.error("❌ Recording error:", z), alert("Recording failed. Please try again.");
+      }, _.start(1e3), ce(_), ae(!0), pe(0), console.log("🔴 Recording started");
+      const J = setInterval(() => {
+        pe((z) => z + 1);
       }, 1e3);
-      Q(Y);
-    } catch (P) {
-      console.error("❌ Error accessing microphone:", P);
-      const T = P;
-      T.name === "NotAllowedError" ? alert("Microphone permission denied. Please allow microphone access and try again.") : T.name === "NotFoundError" ? alert("No microphone found. Please connect a microphone and try again.") : alert(`Could not access microphone: ${T.message || "Unknown error"}`);
+      b(J);
+    } catch (N) {
+      console.error("❌ Error accessing microphone:", N);
+      const I = N;
+      I.name === "NotAllowedError" ? alert("Microphone permission denied. Please allow microphone access and try again.") : I.name === "NotFoundError" ? alert("No microphone found. Please connect a microphone and try again.") : alert(`Could not access microphone: ${I.message || "Unknown error"}`);
     }
-  }, Re = () => {
-    V && V.state === "recording" && V.stop(), Z(!1), se(null), ie && (clearInterval(ie), Q(null));
-  }, un = () => {
-    V && V.state === "recording" && (V.onstop = null, V.stop(), V.stream && V.stream.getTracks().forEach((P) => P.stop())), Z(!1), se(null), ie && (clearInterval(ie), Q(null)), ne(0);
-  }, sn = (P) => {
-    const T = Math.floor(P / 60), j = P % 60;
-    return `${T}:${j.toString().padStart(2, "0")}`;
-  }, ln = async (P) => {
-    const T = () => `${Date.now()}-${Math.random()}`, j = (U) => U.type.startsWith("image/") ? "image" : U.type.startsWith("video/") ? "video" : U.type.startsWith("audio/") ? "audio" : "document";
+  }, We = () => {
+    ie && ie.state === "recording" && ie.stop(), ae(!1), ce(null), Ce && (clearInterval(Ce), b(null));
+  }, Tt = () => {
+    ie && ie.state === "recording" && (ie.onstop = null, ie.stop(), ie.stream && ie.stream.getTracks().forEach((N) => N.stop())), ae(!1), ce(null), Ce && (clearInterval(Ce), b(null)), pe(0);
+  }, At = (N) => {
+    const I = Math.floor(N / 60), _ = N % 60;
+    return `${I}:${_.toString().padStart(2, "0")}`;
+  }, Ye = async (N) => {
+    const I = () => `${Date.now()}-${Math.random()}`, _ = (B) => B.type.startsWith("image/") ? "image" : B.type.startsWith("video/") ? "video" : B.type.startsWith("audio/") ? "audio" : "document";
     return {
-      file: P,
-      id: T(),
-      type: j(P),
-      url: URL.createObjectURL(P),
-      name: P.name,
-      size: P.size
+      file: N,
+      id: I(),
+      type: _(N),
+      url: URL.createObjectURL(N),
+      name: N.name,
+      size: N.size
     };
-  }, cn = ue((P) => {
-    const T = P.name.trim().split(/\s+/).filter((pe) => pe.length > 0), j = T.length > 0 ? T[0] : "", U = T.length > 1 ? T.slice(1).join(" ") : "";
-    P.email.trim(), P.phone.trim();
-    const Y = (/* @__PURE__ */ new Date()).toISOString().split("T")[0], H = `${M}|${j}|${U}|${Y}|website`;
-    O(P), B(H), localStorage.setItem("n8n_user_info", JSON.stringify(P)), localStorage.setItem("n8n_session_id", H), A(!1);
-  }, [M]), bt = ue(() => {
-    y((P) => {
-      const T = !P;
-      return !T && r && r(), T;
+  }, Rt = be((N) => {
+    const I = N.name.trim().split(/\s+/).filter((Pe) => Pe.length > 0), _ = I.length > 0 ? I[0] : "", B = I.length > 1 ? I.slice(1).join(" ") : "";
+    N.email.trim(), N.phone.trim();
+    const J = (/* @__PURE__ */ new Date()).toISOString().split("T")[0], z = `${te}|${_}|${B}|${J}|website`;
+    x(N), $e(z), localStorage.setItem("n8n_user_info", JSON.stringify(N)), localStorage.setItem("n8n_session_id", z), j(!1);
+  }, [te]), ut = be(() => {
+    m((N) => {
+      const I = !N;
+      return !I && r && r(), I;
     });
-  }, [r]), fn = ue((P) => {
-    d(P), setTimeout(() => {
-      oe.current && oe.current.focus();
-    }, 0);
-  }, []), Ga = m.position !== "inline" && m.showToggleButton, $n = q && /* @__PURE__ */ l.jsx("div", { className: "camera-modal", children: /* @__PURE__ */ l.jsxs("div", { className: "camera-container", children: [
-    /* @__PURE__ */ l.jsx("video", { ref: p, autoPlay: !0, playsInline: !0, className: "camera-video" }),
-    /* @__PURE__ */ l.jsx("canvas", { ref: w, style: { display: "none" } }),
-    /* @__PURE__ */ l.jsxs("div", { className: "camera-controls", children: [
-      /* @__PURE__ */ l.jsx("button", { onClick: N, className: "capture-button", children: /* @__PURE__ */ l.jsx(ti, { size: 24 }) }),
-      /* @__PURE__ */ l.jsx("button", { onClick: de, className: "close-camera-button", children: /* @__PURE__ */ l.jsx(Be, { size: 20 }) })
+  }, [r]), st = be(async (N) => {
+    if (sessionStorage.setItem("n8n-chat-popup-shown", "true"), ee(!1), !f) {
+      $(!0), e.showTypingIndicator && l(!0);
+      try {
+        const I = {
+          id: R(),
+          type: "user",
+          content: N,
+          timestamp: /* @__PURE__ */ new Date()
+        };
+        i((J) => [...J, I]), t == null || t(I);
+        const _ = await ue(N), B = {
+          id: R(),
+          type: "bot",
+          content: _.content,
+          timestamp: /* @__PURE__ */ new Date(),
+          suggestions: _.suggestions
+        };
+        i((J) => [...J, B]), t == null || t(B), p.enableMessageSuggestions && _.suggestions && _.suggestions.length > 0 && (v(_.suggestions.slice(0, p.maxSuggestions)), ee(!0));
+      } catch (I) {
+        const _ = {
+          id: R(),
+          type: "bot",
+          content: "Sorry, I encountered an error. Please try again.",
+          timestamp: /* @__PURE__ */ new Date()
+        };
+        i((B) => [...B, _]), n == null || n(I);
+      } finally {
+        $(!1), l(!1);
+      }
+    }
+  }, [f, e, t, n, p.enableMessageSuggestions, p.maxSuggestions]), jt = p.position !== "inline" && p.showToggleButton, De = ge && /* @__PURE__ */ c.jsx("div", { className: "camera-modal", children: /* @__PURE__ */ c.jsxs("div", { className: "camera-container", children: [
+    /* @__PURE__ */ c.jsx("video", { ref: G, autoPlay: !0, playsInline: !0, className: "camera-video" }),
+    /* @__PURE__ */ c.jsx("canvas", { ref: D, style: { display: "none" } }),
+    /* @__PURE__ */ c.jsxs("div", { className: "camera-controls", children: [
+      /* @__PURE__ */ c.jsx("button", { onClick: Ge, className: "capture-button", children: /* @__PURE__ */ c.jsx(Fi, { size: 24 }) }),
+      /* @__PURE__ */ c.jsx("button", { onClick: ot, className: "close-camera-button", children: /* @__PURE__ */ c.jsx(mt, { size: 20 }) })
     ] })
   ] }) });
-  return Ga ? /* @__PURE__ */ l.jsxs(l.Fragment, { children: [
-    $n,
-    /* @__PURE__ */ l.jsxs("div", { className: `chat-widget-container chat-widget-container--${m.position}${g ? "" : " chat-closed"}`, children: [
-      /* @__PURE__ */ l.jsx(
-        gi,
+  return jt ? /* @__PURE__ */ c.jsxs(c.Fragment, { children: [
+    De,
+    /* @__PURE__ */ c.jsxs("div", { className: `chat-widget-container chat-widget-container--${p.position}${h ? "" : " chat-closed"}`, children: [
+      /* @__PURE__ */ c.jsx(
+        Ji,
         {
-          isOpen: g,
-          onClick: bt,
-          position: m.position,
-          primaryColor: m.colors.primary || "#007bff",
-          popupMessage: m.popupMessage
+          isOpen: h,
+          onClick: ut,
+          position: p.position,
+          primaryColor: p.colors.primary || "#007bff",
+          popupMessage: p.popupMessage
         }
       ),
-      g && /* @__PURE__ */ l.jsxs(
+      h && /* @__PURE__ */ c.jsxs(
         "div",
         {
-          ref: s,
-          className: `chat-embed chat-embed--${m.theme} chat-embed--${m.position}${X.isMobile ? " chat-embed--mobile" : ""} chat-embed--open`,
+          ref: M,
+          className: `chat-embed chat-embed--${p.theme} chat-embed--${p.position}${w.isMobile ? " chat-embed--mobile" : ""} chat-embed--open`,
           style: {
-            "--chat-primary": m.colors.primary,
-            "--chat-background": m.colors.background,
-            "--chat-user-bubble": m.colors.userBubble,
-            "--chat-bot-bubble": m.colors.botBubble,
-            "--chat-text": m.colors.text,
-            "--chat-font-family": m.fontFamily,
-            "--chat-width": `${m.width}px`,
-            "--chat-height": `${m.height}px`,
-            zIndex: m.zIndex
+            "--chat-primary": p.colors.primary,
+            "--chat-background": p.colors.background,
+            "--chat-user-bubble": p.colors.userBubble,
+            "--chat-bot-bubble": p.colors.botBubble,
+            "--chat-text": p.colors.text,
+            "--chat-font-family": p.fontFamily,
+            "--chat-width": `${p.width}px`,
+            "--chat-height": `${p.height}px`,
+            zIndex: p.zIndex
           },
           children: [
-            /* @__PURE__ */ l.jsxs("div", { className: "chat-embed__header", children: [
-              /* @__PURE__ */ l.jsxs("div", { className: "chat-embed__header-content", children: [
-                /* @__PURE__ */ l.jsx("h3", { className: "chat-embed__title", children: m.title }),
-                m.subtitle && /* @__PURE__ */ l.jsx("p", { className: "chat-embed__subtitle", children: m.subtitle })
+            /* @__PURE__ */ c.jsxs("div", { className: "chat-embed__header", children: [
+              /* @__PURE__ */ c.jsxs("div", { className: "chat-embed__header-content", children: [
+                /* @__PURE__ */ c.jsx("h3", { className: "chat-embed__title", children: p.title }),
+                p.subtitle && /* @__PURE__ */ c.jsx("p", { className: "chat-embed__subtitle", children: p.subtitle })
               ] }),
-              m.position !== "inline" && /* @__PURE__ */ l.jsx(
+              p.position !== "inline" && /* @__PURE__ */ c.jsx(
                 "button",
                 {
                   className: "chat-embed__close-button",
-                  onClick: bt,
+                  onClick: ut,
                   "aria-label": "Close chat",
-                  children: /* @__PURE__ */ l.jsx(Be, { size: 18 })
+                  children: /* @__PURE__ */ c.jsx(mt, { size: 18 })
                 }
               )
             ] }),
-            m.enableUserInfo && L ? /* @__PURE__ */ l.jsx(
-              Ur,
+            p.enableUserInfo && T ? /* @__PURE__ */ c.jsx(
+              ha,
               {
-                onSubmit: cn,
+                onSubmit: Rt,
                 isLoading: !1,
-                requiredFields: m.userInfoRequiredFields || []
+                requiredFields: p.userInfoRequiredFields || []
               }
-            ) : /* @__PURE__ */ l.jsxs(l.Fragment, { children: [
-              /* @__PURE__ */ l.jsxs("div", { className: "chat-embed__messages", children: [
-                a.map((P) => /* @__PURE__ */ l.jsx(
-                  vn,
+            ) : /* @__PURE__ */ c.jsxs(c.Fragment, { children: [
+              /* @__PURE__ */ c.jsxs("div", { className: "chat-embed__messages", children: [
+                a.map((N) => /* @__PURE__ */ c.jsx(
+                  qn,
                   {
-                    message: P,
-                    showTimestamp: m.showTimestamps
+                    message: N,
+                    showTimestamp: p.showTimestamps
                   },
-                  P.id
+                  N.id
                 )),
-                /* @__PURE__ */ l.jsx(bn, { visible: u }),
-                (() => {
-                  const P = a.slice().reverse().find((T) => T.type === "bot");
-                  return P != null && P.suggestions ? /* @__PURE__ */ l.jsx(
-                    Gr,
-                    {
-                      suggestions: P.suggestions,
-                      onSuggestionClick: fn
-                    }
-                  ) : null;
-                })(),
-                /* @__PURE__ */ l.jsx("div", { ref: re })
+                /* @__PURE__ */ c.jsx(Xn, { visible: s }),
+                /* @__PURE__ */ c.jsx("div", { ref: U })
               ] }),
-              /* @__PURE__ */ l.jsxs("div", { className: "chat-embed__input-area", children: [
-                C.length > 0 && /* @__PURE__ */ l.jsx(
-                  Pn,
+              /* @__PURE__ */ c.jsxs("div", { className: "chat-embed__input-area", children: [
+                p.enableMessageSuggestions && V && L.length > 0 && /* @__PURE__ */ c.jsx(
+                  ga,
                   {
-                    files: C,
-                    onRemoveFile: ee
+                    suggestions: L.map((N, I) => ({
+                      id: `suggestion-${I}`,
+                      text: N,
+                      type: a.length === 0 ? "starter" : "followup"
+                    })),
+                    visible: V,
+                    onSuggestionClick: st,
+                    maxVisible: p.maxSuggestions
                   }
                 ),
-                /* @__PURE__ */ l.jsx("div", { className: `chat-embed__input-row ${z ? "chat-embed__input-row--recording" : ""}`, children: z ? /* @__PURE__ */ l.jsxs(l.Fragment, { children: [
-                  /* @__PURE__ */ l.jsx(
+                P.length > 0 && /* @__PURE__ */ c.jsx(
+                  Jn,
+                  {
+                    files: P,
+                    onRemoveFile: Ae
+                  }
+                ),
+                /* @__PURE__ */ c.jsx("div", { className: `chat-embed__input-row ${re ? "chat-embed__input-row--recording" : ""}`, children: re ? /* @__PURE__ */ c.jsxs(c.Fragment, { children: [
+                  /* @__PURE__ */ c.jsx(
                     "button",
                     {
-                      onClick: un,
+                      onClick: Tt,
                       className: "upload-button",
                       title: "Stop and discard recording",
                       disabled: f,
-                      children: /* @__PURE__ */ l.jsx(gn, { size: 18 })
+                      children: /* @__PURE__ */ c.jsx(zn, { size: 18 })
                     }
                   ),
-                  /* @__PURE__ */ l.jsxs("div", { className: "recording-time-display", children: [
-                    /* @__PURE__ */ l.jsx("div", { className: "recording-indicator" }),
-                    sn(le)
+                  /* @__PURE__ */ c.jsxs("div", { className: "recording-time-display", children: [
+                    /* @__PURE__ */ c.jsx("div", { className: "recording-indicator" }),
+                    At(fe)
                   ] }),
-                  /* @__PURE__ */ l.jsx(
+                  /* @__PURE__ */ c.jsx(
                     "button",
                     {
                       className: "chat-embed__send-button",
-                      onClick: Re,
+                      onClick: We,
                       disabled: f,
                       title: "Stop recording and send",
-                      children: /* @__PURE__ */ l.jsx(De, { size: 18, className: "chat-embed__send-icon" })
+                      children: /* @__PURE__ */ c.jsx(pt, { size: 18, className: "chat-embed__send-icon" })
                     }
                   )
-                ] }) : /* @__PURE__ */ l.jsxs(l.Fragment, { children: [
-                  m.enableFileUpload && /* @__PURE__ */ l.jsx(
-                    Cn,
+                ] }) : /* @__PURE__ */ c.jsxs(c.Fragment, { children: [
+                  p.enableFileUpload && /* @__PURE__ */ c.jsx(
+                    Zn,
                     {
-                      onFilesSelected: k,
-                      maxFiles: m.maxFiles,
-                      maxFileSize: m.maxFileSize,
-                      allowedTypes: m.allowedFileTypes
+                      onFilesSelected: Te,
+                      maxFiles: p.maxFiles,
+                      maxFileSize: p.maxFileSize,
+                      allowedTypes: p.allowedFileTypes
                     }
                   ),
-                  /* @__PURE__ */ l.jsx(
+                  /* @__PURE__ */ c.jsx(
                     "textarea",
                     {
-                      ref: oe,
+                      ref: k,
                       className: "chat-embed__input",
                       value: o,
-                      onChange: (P) => d(P.target.value),
-                      onKeyPress: D,
-                      placeholder: m.placeholder,
+                      onChange: (N) => d(N.target.value),
+                      onKeyPress: me,
+                      placeholder: p.placeholder,
                       disabled: f,
                       rows: 1,
                       style: { resize: "none" }
                     }
                   ),
-                  o.trim() || C.length > 0 ? /* @__PURE__ */ l.jsx(
+                  o.trim() || P.length > 0 ? /* @__PURE__ */ c.jsx(
                     "button",
                     {
                       className: "chat-embed__send-button",
-                      onClick: E,
-                      disabled: f || !o.trim() && C.length === 0,
-                      children: f ? /* @__PURE__ */ l.jsx("div", { className: "chat-embed__loading-spinner" }) : /* @__PURE__ */ l.jsx(De, { size: 18, className: "chat-embed__send-icon" })
+                      onClick: S,
+                      disabled: f || !o.trim() && P.length === 0,
+                      children: f ? /* @__PURE__ */ c.jsx("div", { className: "chat-embed__loading-spinner" }) : /* @__PURE__ */ c.jsx(pt, { size: 18, className: "chat-embed__send-icon" })
                     }
-                  ) : /* @__PURE__ */ l.jsxs(l.Fragment, { children: [
-                    m.enableCamera && !1,
-                    m.enableAudio && /* @__PURE__ */ l.jsx(
+                  ) : /* @__PURE__ */ c.jsxs(c.Fragment, { children: [
+                    p.enableCamera && !1,
+                    p.enableAudio && /* @__PURE__ */ c.jsx(
                       "button",
                       {
-                        onClick: Ce,
+                        onClick: dt,
                         className: "upload-button",
                         title: "Record audio",
                         disabled: f,
-                        children: /* @__PURE__ */ l.jsx(hn, { size: 18 })
+                        children: /* @__PURE__ */ c.jsx(Yn, { size: 18 })
                       }
                     )
                   ] })
@@ -8098,145 +8506,148 @@ const Zl = ({
         }
       )
     ] })
-  ] }) : /* @__PURE__ */ l.jsxs(l.Fragment, { children: [
-    $n,
-    /* @__PURE__ */ l.jsxs(
+  ] }) : /* @__PURE__ */ c.jsxs(c.Fragment, { children: [
+    De,
+    /* @__PURE__ */ c.jsxs(
       "div",
       {
-        ref: s,
-        className: `chat-embed chat-embed--${m.theme} chat-embed--${m.position}${X.isMobile ? " chat-embed--mobile" : ""}`,
+        ref: M,
+        className: `chat-embed chat-embed--${p.theme} chat-embed--${p.position}${w.isMobile ? " chat-embed--mobile" : ""}`,
         style: {
-          "--chat-primary": m.colors.primary,
-          "--chat-background": m.colors.background,
-          "--chat-user-bubble": m.colors.userBubble,
-          "--chat-bot-bubble": m.colors.botBubble,
-          "--chat-text": m.colors.text,
-          "--chat-font-family": m.fontFamily,
-          "--chat-width": `${m.width}px`,
-          "--chat-height": `${m.height}px`,
-          zIndex: m.zIndex
+          "--chat-primary": p.colors.primary,
+          "--chat-background": p.colors.background,
+          "--chat-user-bubble": p.colors.userBubble,
+          "--chat-bot-bubble": p.colors.botBubble,
+          "--chat-text": p.colors.text,
+          "--chat-font-family": p.fontFamily,
+          "--chat-width": `${p.width}px`,
+          "--chat-height": `${p.height}px`,
+          zIndex: p.zIndex
         },
         children: [
-          /* @__PURE__ */ l.jsxs("div", { className: "chat-embed__header", children: [
-            /* @__PURE__ */ l.jsxs("div", { className: "chat-embed__header-content", children: [
-              /* @__PURE__ */ l.jsx("h3", { className: "chat-embed__title", children: m.title }),
-              m.subtitle && /* @__PURE__ */ l.jsx("p", { className: "chat-embed__subtitle", children: m.subtitle })
+          /* @__PURE__ */ c.jsxs("div", { className: "chat-embed__header", children: [
+            /* @__PURE__ */ c.jsxs("div", { className: "chat-embed__header-content", children: [
+              /* @__PURE__ */ c.jsx("h3", { className: "chat-embed__title", children: p.title }),
+              p.subtitle && /* @__PURE__ */ c.jsx("p", { className: "chat-embed__subtitle", children: p.subtitle })
             ] }),
-            m.position !== "inline" && /* @__PURE__ */ l.jsx(
+            p.position !== "inline" && /* @__PURE__ */ c.jsx(
               "button",
               {
                 className: "chat-embed__close-button",
-                onClick: bt,
+                onClick: ut,
                 "aria-label": "Close chat",
-                children: /* @__PURE__ */ l.jsx(Be, { size: 18 })
+                children: /* @__PURE__ */ c.jsx(mt, { size: 18 })
               }
             )
           ] }),
-          m.enableUserInfo && L ? /* @__PURE__ */ l.jsx(
-            Ur,
+          p.enableUserInfo && T ? /* @__PURE__ */ c.jsx(
+            ha,
             {
-              onSubmit: cn,
+              onSubmit: Rt,
               isLoading: !1,
-              requiredFields: m.userInfoRequiredFields || []
+              requiredFields: p.userInfoRequiredFields || []
             }
-          ) : /* @__PURE__ */ l.jsxs(l.Fragment, { children: [
-            /* @__PURE__ */ l.jsxs("div", { className: "chat-embed__messages", children: [
-              a.map((P) => /* @__PURE__ */ l.jsx(
-                vn,
+          ) : /* @__PURE__ */ c.jsxs(c.Fragment, { children: [
+            /* @__PURE__ */ c.jsxs("div", { className: "chat-embed__messages", children: [
+              a.map((N) => /* @__PURE__ */ c.jsx(
+                qn,
                 {
-                  message: P,
-                  showTimestamp: m.showTimestamps
+                  message: N,
+                  showTimestamp: p.showTimestamps
                 },
-                P.id
+                N.id
               )),
-              /* @__PURE__ */ l.jsx(bn, { visible: u }),
-              (() => {
-                const P = a.slice().reverse().find((T) => T.type === "bot");
-                return P != null && P.suggestions ? /* @__PURE__ */ l.jsx(
-                  Gr,
-                  {
-                    suggestions: P.suggestions,
-                    onSuggestionClick: fn
-                  }
-                ) : null;
-              })(),
-              /* @__PURE__ */ l.jsx("div", { ref: re })
+              /* @__PURE__ */ c.jsx(Xn, { visible: s }),
+              /* @__PURE__ */ c.jsx("div", { ref: U })
             ] }),
-            /* @__PURE__ */ l.jsxs("div", { className: "chat-embed__input-area", children: [
-              C.length > 0 && /* @__PURE__ */ l.jsx(
-                Pn,
+            /* @__PURE__ */ c.jsxs("div", { className: "chat-embed__input-area", children: [
+              p.enableMessageSuggestions && V && L.length > 0 && /* @__PURE__ */ c.jsx(
+                ga,
                 {
-                  files: C,
-                  onRemoveFile: ee
+                  suggestions: L.map((N, I) => ({
+                    id: `suggestion-${I}`,
+                    text: N,
+                    type: a.length === 0 ? "starter" : "followup"
+                  })),
+                  visible: V,
+                  onSuggestionClick: st,
+                  maxVisible: p.maxSuggestions
                 }
               ),
-              /* @__PURE__ */ l.jsx("div", { className: `chat-embed__input-row ${z ? "chat-embed__input-row--recording" : ""}`, children: z ? /* @__PURE__ */ l.jsxs(l.Fragment, { children: [
-                /* @__PURE__ */ l.jsx(
+              P.length > 0 && /* @__PURE__ */ c.jsx(
+                Jn,
+                {
+                  files: P,
+                  onRemoveFile: Ae
+                }
+              ),
+              /* @__PURE__ */ c.jsx("div", { className: `chat-embed__input-row ${re ? "chat-embed__input-row--recording" : ""}`, children: re ? /* @__PURE__ */ c.jsxs(c.Fragment, { children: [
+                /* @__PURE__ */ c.jsx(
                   "button",
                   {
-                    onClick: un,
+                    onClick: Tt,
                     className: "upload-button",
                     title: "Stop and discard recording",
                     disabled: f,
-                    children: /* @__PURE__ */ l.jsx(gn, { size: 18 })
+                    children: /* @__PURE__ */ c.jsx(zn, { size: 18 })
                   }
                 ),
-                /* @__PURE__ */ l.jsxs("div", { className: "recording-time-display", children: [
-                  /* @__PURE__ */ l.jsx("div", { className: "recording-indicator" }),
-                  sn(le)
+                /* @__PURE__ */ c.jsxs("div", { className: "recording-time-display", children: [
+                  /* @__PURE__ */ c.jsx("div", { className: "recording-indicator" }),
+                  At(fe)
                 ] }),
-                /* @__PURE__ */ l.jsx(
+                /* @__PURE__ */ c.jsx(
                   "button",
                   {
                     className: "chat-embed__send-button",
-                    onClick: Re,
+                    onClick: We,
                     disabled: f,
                     title: "Stop recording and send",
-                    children: /* @__PURE__ */ l.jsx(De, { size: 18, className: "chat-embed__send-icon" })
+                    children: /* @__PURE__ */ c.jsx(pt, { size: 18, className: "chat-embed__send-icon" })
                   }
                 )
-              ] }) : /* @__PURE__ */ l.jsxs(l.Fragment, { children: [
-                m.enableFileUpload && /* @__PURE__ */ l.jsx(
-                  Cn,
+              ] }) : /* @__PURE__ */ c.jsxs(c.Fragment, { children: [
+                p.enableFileUpload && /* @__PURE__ */ c.jsx(
+                  Zn,
                   {
-                    onFilesSelected: k,
-                    maxFiles: m.maxFiles,
-                    maxFileSize: m.maxFileSize,
-                    allowedTypes: m.allowedFileTypes
+                    onFilesSelected: Te,
+                    maxFiles: p.maxFiles,
+                    maxFileSize: p.maxFileSize,
+                    allowedTypes: p.allowedFileTypes
                   }
                 ),
-                /* @__PURE__ */ l.jsx(
+                /* @__PURE__ */ c.jsx(
                   "textarea",
                   {
-                    ref: oe,
+                    ref: k,
                     className: "chat-embed__input",
                     value: o,
-                    onChange: (P) => d(P.target.value),
-                    onKeyPress: D,
-                    placeholder: m.placeholder,
+                    onChange: (N) => d(N.target.value),
+                    onKeyPress: me,
+                    placeholder: p.placeholder,
                     disabled: f,
                     rows: 1,
                     style: { resize: "none" }
                   }
                 ),
-                o.trim() || C.length > 0 ? /* @__PURE__ */ l.jsx(
+                o.trim() || P.length > 0 ? /* @__PURE__ */ c.jsx(
                   "button",
                   {
                     className: "chat-embed__send-button",
-                    onClick: E,
-                    disabled: f || !o.trim() && C.length === 0,
-                    children: f ? /* @__PURE__ */ l.jsx("div", { className: "chat-embed__loading-spinner" }) : /* @__PURE__ */ l.jsx(De, { size: 18, className: "chat-embed__send-icon" })
+                    onClick: S,
+                    disabled: f || !o.trim() && P.length === 0,
+                    children: f ? /* @__PURE__ */ c.jsx("div", { className: "chat-embed__loading-spinner" }) : /* @__PURE__ */ c.jsx(pt, { size: 18, className: "chat-embed__send-icon" })
                   }
-                ) : /* @__PURE__ */ l.jsxs(l.Fragment, { children: [
-                  m.enableCamera && !1,
-                  m.enableAudio && /* @__PURE__ */ l.jsx(
+                ) : /* @__PURE__ */ c.jsxs(c.Fragment, { children: [
+                  p.enableCamera && !1,
+                  p.enableAudio && /* @__PURE__ */ c.jsx(
                     "button",
                     {
-                      onClick: Ce,
+                      onClick: dt,
                       className: "upload-button",
                       title: "Record audio",
                       disabled: f,
-                      children: /* @__PURE__ */ l.jsx(hn, { size: 18 })
+                      children: /* @__PURE__ */ c.jsx(Yn, { size: 18 })
                     }
                   )
                 ] })
@@ -8249,9 +8660,9 @@ const Zl = ({
   ] });
 };
 export {
-  Zl as ChatEmbed,
-  vn as MessageBubble,
-  bn as TypingIndicator,
-  Ur as UserInfoForm,
-  ql as useDeviceDetection
+  Tc as ChatEmbed,
+  qn as MessageBubble,
+  Xn as TypingIndicator,
+  ha as UserInfoForm,
+  _c as useDeviceDetection
 };

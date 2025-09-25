@@ -1,28 +1,44 @@
 import React from 'react'
+import { MessageSuggestionsProps } from '../types'
 
-export interface SuggestionsProps {
-  suggestions: string[]
-  onSuggestionClick: (suggestion: string) => void
-}
-
-export const Suggestions: React.FC<SuggestionsProps> = ({ suggestions, onSuggestionClick }) => {
-  if (!suggestions || suggestions.length === 0) {
+export const MessageSuggestions: React.FC<MessageSuggestionsProps> = ({
+  suggestions,
+  visible,
+  onSuggestionClick,
+  maxVisible = 10
+}) => {
+  if (!visible || suggestions.length === 0) {
     return null
   }
 
+  const visibleSuggestions = suggestions.slice(0, maxVisible)
+
+  const handleSuggestionClick = (text: string) => {
+    onSuggestionClick(text)
+  }
+
+  const handleKeyDown = (e: React.KeyboardEvent, text: string) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault()
+      handleSuggestionClick(text)
+    }
+  }
+
   return (
-    <div className="chat-suggestions">
-      <div className="chat-suggestions__list">
-        {suggestions.map((suggestion, index) => (
-          <button
-            key={index}
-            className="chat-suggestions__item"
-            onClick={() => onSuggestionClick(suggestion)}
-          >
-            {suggestion}
-          </button>
-        ))}
-      </div>
+    <div className="message-suggestions" role="group" aria-label="Message suggestions">
+      {visibleSuggestions.map((suggestion) => (
+        <button
+          key={suggestion.id}
+          className="suggestion-chip"
+          onClick={() => handleSuggestionClick(suggestion.text)}
+          onKeyDown={(e) => handleKeyDown(e, suggestion.text)}
+          type="button"
+          tabIndex={0}
+          aria-label={`Send message: ${suggestion.text}`}
+        >
+          {suggestion.text}
+        </button>
+      ))}
     </div>
   )
 }

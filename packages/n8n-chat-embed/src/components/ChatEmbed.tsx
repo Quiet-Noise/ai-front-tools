@@ -7,7 +7,7 @@ import { FileUpload } from './FileUpload'
 import { MediaPreview } from './MediaPreview'
 import { ToggleButton } from './ToggleButton'
 import { UserInfoForm } from './UserInfoForm'
-import { Suggestions } from './Suggestions'
+import { MessageSuggestions } from './Suggestions'
 import { useDeviceDetection } from '../hooks'
 
 export const ChatEmbed: React.FC<ChatEmbedProps> = ({
@@ -24,6 +24,8 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
   const [pendingFiles, setPendingFiles] = useState<MediaFile[]>([])
   const [userInfo, setUserInfo] = useState<UserInfo | null>(null)
   const [showUserForm, setShowUserForm] = useState(false)
+  const [currentSuggestions, setCurrentSuggestions] = useState<string[]>([])
+  const [showSuggestions, setShowSuggestions] = useState(false)
   const [baseSessionId] = useState(() => {
     let existingId = localStorage.getItem('n8n_session_id')
     if (!existingId) {
@@ -80,7 +82,11 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
     maxFiles: 5,
     allowedFileTypes: [],
     enableUserInfo: false,
-    userInfoRequiredFields: ['email', 'phone']
+    userInfoRequiredFields: ['email', 'phone'],
+    enableMessageSuggestions: false,
+    initialSuggestions: [],
+    maxSuggestions: 10,
+    autoHideSuggestions: true
   }
 
   const mergedConfig = { ...defaultConfig, ...config }
@@ -92,6 +98,14 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
   useEffect(() => {
     scrollToBottom()
   }, [messages])
+
+  // Initialize suggestions
+  useEffect(() => {
+    if (mergedConfig.enableMessageSuggestions && mergedConfig.initialSuggestions && mergedConfig.initialSuggestions.length > 0 && messages.length === 0) {
+      setCurrentSuggestions(mergedConfig.initialSuggestions.slice(0, mergedConfig.maxSuggestions))
+      setShowSuggestions(true)
+    }
+  }, [mergedConfig.enableMessageSuggestions, mergedConfig.initialSuggestions, mergedConfig.maxSuggestions, messages.length])
 
   // Check for existing user info in localStorage
   useEffect(() => {
@@ -242,6 +256,12 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
 
         setMessages(prev => [...prev, botMessage])
         onMessage?.(botMessage)
+        
+        // Update current suggestions from AI response
+        if (mergedConfig.enableMessageSuggestions && response.suggestions && response.suggestions.length > 0) {
+          setCurrentSuggestions(response.suggestions.slice(0, mergedConfig.maxSuggestions))
+          setShowSuggestions(true)
+        }
       }
 
       // If there's text but no files, send text-only message
@@ -268,6 +288,12 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
 
         setMessages(prev => [...prev, botMessage])
         onMessage?.(botMessage)
+        
+        // Update current suggestions from AI response
+        if (mergedConfig.enableMessageSuggestions && response.suggestions && response.suggestions.length > 0) {
+          setCurrentSuggestions(response.suggestions.slice(0, mergedConfig.maxSuggestions))
+          setShowSuggestions(true)
+        }
       }
     } catch (error) {
       const errorMessage: ChatMessage = {
@@ -571,6 +597,12 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
           
           setMessages(prev => [...prev, botMessage])
           
+          // Update current suggestions from AI response
+          if (mergedConfig.enableMessageSuggestions && suggestions && suggestions.length > 0) {
+            setCurrentSuggestions(suggestions.slice(0, mergedConfig.maxSuggestions))
+            setShowSuggestions(true)
+          }
+          
         } catch (error) {
           console.error('Error processing audio recording:', error)
           alert('Error processing audio recording')
@@ -706,15 +738,66 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
     })
   }, [onClose])
 
-  const handleSuggestionClick = useCallback((suggestion: string) => {
-    setInputValue(suggestion)
-    // Auto-focus the input after clicking a suggestion
-    setTimeout(() => {
-      if (inputRef.current) {
-        inputRef.current.focus()
+  const handleSuggestionClick = useCallback(async (suggestion: string) => {
+    // Mark popup as shown to prevent future displays
+    sessionStorage.setItem('n8n-chat-popup-shown', 'true')
+    
+    // Hide suggestions immediately
+    setShowSuggestions(false)
+    
+    // Send the message directly instead of populating input
+    if (isLoading) return
+    
+    setIsLoading(true)
+    
+    if (config.showTypingIndicator) {
+      setIsTyping(true)
+    }
+
+    try {
+      const userMessage: ChatMessage = {
+        id: generateId(),
+        type: 'user',
+        content: suggestion,
+        timestamp: new Date()
       }
-    }, 0)
-  }, [])
+
+      setMessages(prev => [...prev, userMessage])
+      onMessage?.(userMessage)
+
+      const response = await sendToN8n(suggestion)
+
+      const botMessage: ChatMessage = {
+        id: generateId(),
+        type: 'bot',
+        content: response.content,
+        timestamp: new Date(),
+        suggestions: response.suggestions
+      }
+
+      setMessages(prev => [...prev, botMessage])
+      onMessage?.(botMessage)
+      
+      // Update current suggestions from AI response
+      if (mergedConfig.enableMessageSuggestions && response.suggestions && response.suggestions.length > 0) {
+        setCurrentSuggestions(response.suggestions.slice(0, mergedConfig.maxSuggestions))
+        setShowSuggestions(true)
+      }
+    } catch (error) {
+      const errorMessage: ChatMessage = {
+        id: generateId(),
+        type: 'bot',
+        content: 'Sorry, I encountered an error. Please try again.',
+        timestamp: new Date()
+      }
+      
+      setMessages(prev => [...prev, errorMessage])
+      onError?.(error as Error)
+    } finally {
+      setIsLoading(false)
+      setIsTyping(false)
+    }
+  }, [isLoading, config, onMessage, onError, mergedConfig.enableMessageSuggestions, mergedConfig.maxSuggestions])
 
   // Handle initial state for floating widgets
   const shouldShowToggleButton = mergedConfig.position !== 'inline' && mergedConfig.showToggleButton
@@ -812,16 +895,19 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
       </div>
 
       <div className="chat-embed__input-area">
-        {/* Show suggestions from the most recent bot message */}
-        {(() => {
-          const lastBotMessage = messages.slice().reverse().find(msg => msg.type === 'bot')
-          return lastBotMessage?.suggestions ? (
-            <Suggestions
-              suggestions={lastBotMessage.suggestions}
-              onSuggestionClick={handleSuggestionClick}
-            />
-          ) : null
-        })()}
+        {/* Show message suggestions */}
+        {mergedConfig.enableMessageSuggestions && showSuggestions && currentSuggestions.length > 0 && (
+          <MessageSuggestions
+            suggestions={currentSuggestions.map((text, index) => ({
+              id: `suggestion-${index}`,
+              text,
+              type: messages.length === 0 ? 'starter' : 'followup'
+            }))}
+            visible={showSuggestions}
+            onSuggestionClick={handleSuggestionClick}
+            maxVisible={mergedConfig.maxSuggestions}
+          />
+        )}
 
         {/* Media Preview */}
         {pendingFiles.length > 0 && (
@@ -992,16 +1078,19 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
       </div>
 
       <div className="chat-embed__input-area">
-        {/* Show suggestions from the most recent bot message */}
-        {(() => {
-          const lastBotMessage = messages.slice().reverse().find(msg => msg.type === 'bot')
-          return lastBotMessage?.suggestions ? (
-            <Suggestions
-              suggestions={lastBotMessage.suggestions}
-              onSuggestionClick={handleSuggestionClick}
-            />
-          ) : null
-        })()}
+        {/* Show message suggestions */}
+        {mergedConfig.enableMessageSuggestions && showSuggestions && currentSuggestions.length > 0 && (
+          <MessageSuggestions
+            suggestions={currentSuggestions.map((text, index) => ({
+              id: `suggestion-${index}`,
+              text,
+              type: messages.length === 0 ? 'starter' : 'followup'
+            }))}
+            visible={showSuggestions}
+            onSuggestionClick={handleSuggestionClick}
+            maxVisible={mergedConfig.maxSuggestions}
+          />
+        )}
 
         {/* Media Preview */}
         {pendingFiles.length > 0 && (
