@@ -4,7 +4,7 @@ import PhoneInput, { isValidPhoneNumber } from 'react-phone-number-input'
 import 'react-phone-number-input/style.css'
 import { UserInfoFormProps, UserInfo } from '../types'
 
-export const UserInfoForm: React.FC<UserInfoFormProps> = ({ onSubmit, isLoading = false, requiredFields = ['email', 'phone'] }) => {
+export const UserInfoForm: React.FC<UserInfoFormProps> = ({ onSubmit, isLoading = false, requiredFields = [] }) => {
   const [formData, setFormData] = useState<UserInfo>({
     name: '',
     email: '',
@@ -16,12 +16,14 @@ export const UserInfoForm: React.FC<UserInfoFormProps> = ({ onSubmit, isLoading 
   const validateForm = (): boolean => {
     const newErrors: Partial<UserInfo> = {}
 
-    if (!formData.name.trim()) {
-      newErrors.name = 'Name is required'
-    } else {
-      const nameParts = formData.name.trim().split(/\s+/)
-      if (nameParts.length < 2 || nameParts.some(part => part.length === 0)) {
-        newErrors.name = 'Please enter both first and last name'
+    if (requiredFields.includes('name')) {
+      if (!formData.name.trim()) {
+        newErrors.name = 'Name is required'
+      } else {
+        const nameParts = formData.name.trim().split(/\s+/)
+        if (nameParts.length < 2 || nameParts.some(part => part.length === 0)) {
+          newErrors.name = 'Please enter both first and last name'
+        }
       }
     }
 
@@ -83,7 +85,7 @@ export const UserInfoForm: React.FC<UserInfoFormProps> = ({ onSubmit, isLoading 
       <form onSubmit={handleSubmit} className="user-info-form__form">
         <div className="user-info-form__field">
           <label htmlFor="name" className="user-info-form__label">
-            Full Name *
+            Full Name {requiredFields.includes('name') ? '*' : ''}
           </label>
           <input
             type="text"

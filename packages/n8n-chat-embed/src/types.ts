@@ -38,7 +38,7 @@ export interface ChatConfig {
   maxFiles?: number
   allowedFileTypes?: string[]
   enableUserInfo?: boolean
-  userInfoRequiredFields?: ('email' | 'phone')[]
+  userInfoRequiredFields?: ('name' | 'email' | 'phone')[]
 }
 
 export interface ChatEmbedProps {
@@ -87,5 +87,5 @@ export interface UserInfo {
 export interface UserInfoFormProps {
   onSubmit: (userInfo: UserInfo) => void
   isLoading?: boolean
-  requiredFields?: ('email' | 'phone')[]
+  requiredFields?: ('name' | 'email' | 'phone')[]
 }

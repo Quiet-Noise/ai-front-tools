@@ -115,7 +115,7 @@ function App() {
     enableCamera: true,
     enableAudio: true,
     enableUserInfo: true,
-    userInfoRequiredFields: ['email', 'phone'],
+    userInfoRequiredFields: ['name', 'email', 'phone'],
     maxFileSize: 10,
     maxFiles: 5,
     placeholder: 'Type a message...',
