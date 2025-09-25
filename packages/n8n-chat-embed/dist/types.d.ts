@@ -34,6 +34,8 @@ export interface ChatConfig {
     maxFileSize?: number;
     maxFiles?: number;
     allowedFileTypes?: string[];
+    enableUserInfo?: boolean;
+    userInfoRequiredFields?: ('email' | 'phone')[];
 }
 export interface ChatEmbedProps {
     config: ChatConfig;
@@ -65,5 +67,15 @@ export interface FileUploadProps {
 export interface MediaPreviewProps {
     files: MediaFile[];
     onRemoveFile: (id: string) => void;
+}
+export interface UserInfo {
+    name: string;
+    email: string;
+    phone: string;
+}
+export interface UserInfoFormProps {
+    onSubmit: (userInfo: UserInfo) => void;
+    isLoading?: boolean;
+    requiredFields?: ('email' | 'phone')[];
 }
 //# sourceMappingURL=types.d.ts.map
