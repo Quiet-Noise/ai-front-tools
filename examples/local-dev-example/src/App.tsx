@@ -114,6 +114,8 @@ function App() {
     enableFileUpload: true,
     enableCamera: true,
     enableAudio: true,
+    enableUserInfo: true,
+    userInfoRequiredFields: ['email', 'phone'],
     maxFileSize: 10,
     maxFiles: 5,
     placeholder: 'Type a message...',

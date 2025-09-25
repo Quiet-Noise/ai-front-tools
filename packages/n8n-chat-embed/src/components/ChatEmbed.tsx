@@ -23,10 +23,10 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
   const [pendingFiles, setPendingFiles] = useState<MediaFile[]>([])
   const [userInfo, setUserInfo] = useState<UserInfo | null>(null)
   const [showUserForm, setShowUserForm] = useState(false)
-  const [sessionId] = useState(() => {
+  const [sessionId, setSessionId] = useState(() => {
     let id = localStorage.getItem('n8n_session_id')
     if (!id) {
-      id = 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9)
+      id = Math.floor(Math.random() * 100000000).toString()
       localStorage.setItem('n8n_session_id', id)
     }
     return id
@@ -75,7 +75,8 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
     maxFileSize: 10,
     maxFiles: 5,
     allowedFileTypes: [],
-    enableUserInfo: false
+    enableUserInfo: false,
+    userInfoRequiredFields: ['email', 'phone']
   }
 
   const mergedConfig = { ...defaultConfig, ...config }
@@ -666,10 +667,19 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
 
   // Handle user info form submission
   const handleUserInfoSubmit = useCallback((info: UserInfo) => {
+    const nameParts = info.name.trim().split(/\s+/)
+    const firstName = nameParts[0]
+    const lastName = nameParts.slice(1).join(' ')
+    const today = new Date().toISOString().split('T')[0]
+
+    const newSessionId = `${sessionId}|${firstName}|${lastName}|${today}`
+
     setUserInfo(info)
+    setSessionId(newSessionId)
     localStorage.setItem('n8n_user_info', JSON.stringify(info))
+    localStorage.setItem('n8n_session_id', newSessionId)
     setShowUserForm(false)
-  }, [])
+  }, [sessionId])
 
   const handleToggle = useCallback(() => {
     setIsOpen(prev => {
@@ -761,6 +771,7 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
         <UserInfoForm
           onSubmit={handleUserInfoSubmit}
           isLoading={false}
+          requiredFields={mergedConfig.userInfoRequiredFields || ['email', 'phone']}
         />
       ) : (
         <>
@@ -929,6 +940,7 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
         <UserInfoForm
           onSubmit={handleUserInfoSubmit}
           isLoading={false}
+          requiredFields={mergedConfig.userInfoRequiredFields || ['email', 'phone']}
         />
       ) : (
         <>

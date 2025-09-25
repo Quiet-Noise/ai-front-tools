@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Send } from 'lucide-react'
 import { UserInfoFormProps, UserInfo } from '../types'
 
-export const UserInfoForm: React.FC<UserInfoFormProps> = ({ onSubmit, isLoading = false }) => {
+export const UserInfoForm: React.FC<UserInfoFormProps> = ({ onSubmit, isLoading = false, requiredFields = ['email', 'phone'] }) => {
   const [formData, setFormData] = useState<UserInfo>({
     name: '',
     email: '',
@@ -16,18 +16,27 @@ export const UserInfoForm: React.FC<UserInfoFormProps> = ({ onSubmit, isLoading 
 
     if (!formData.name.trim()) {
       newErrors.name = 'Name is required'
+    } else {
+      const nameParts = formData.name.trim().split(/\s+/)
+      if (nameParts.length < 2 || nameParts.some(part => part.length === 0)) {
+        newErrors.name = 'Please enter both first and last name'
+      }
     }
 
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required'
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email address'
+    if (requiredFields.includes('email')) {
+      if (!formData.email.trim()) {
+        newErrors.email = 'Email is required'
+      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
+        newErrors.email = 'Please enter a valid email address'
+      }
     }
 
-    if (!formData.phone.trim()) {
-      newErrors.phone = 'Phone number is required'
-    } else if (!/^[\+]?[1-9][\d]{0,15}$/.test(formData.phone.replace(/\s|-|\(|\)/g, ''))) {
-      newErrors.phone = 'Please enter a valid phone number'
+    if (requiredFields.includes('phone')) {
+      if (!formData.phone.trim()) {
+        newErrors.phone = 'Phone number is required'
+      } else if (!/^[\+]?[1-9][\d]{0,15}$/.test(formData.phone.replace(/\s|-|\(|\)/g, ''))) {
+        newErrors.phone = 'Please enter a valid phone number'
+      }
     }
 
     setErrors(newErrors)
@@ -77,7 +86,7 @@ export const UserInfoForm: React.FC<UserInfoFormProps> = ({ onSubmit, isLoading 
 
         <div className="user-info-form__field">
           <label htmlFor="email" className="user-info-form__label">
-            Email Address *
+            Email Address {requiredFields.includes('email') ? '*' : ''}
           </label>
           <input
             type="email"
@@ -93,7 +102,7 @@ export const UserInfoForm: React.FC<UserInfoFormProps> = ({ onSubmit, isLoading 
 
         <div className="user-info-form__field">
           <label htmlFor="phone" className="user-info-form__label">
-            Phone Number *
+            Phone Number {requiredFields.includes('phone') ? '*' : ''}
           </label>
           <input
             type="tel"
