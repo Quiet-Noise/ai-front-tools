@@ -1256,3 +1256,83 @@
     min-height: 56px;
   }
 }
+
+/* Chat Suggestions Styles */
+.chat-suggestions {
+  margin: 12px 16px 8px;
+  padding: 0;
+}
+
+.chat-suggestions__list {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  /* Hide scrollbar but keep functionality */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.chat-suggestions__list::-webkit-scrollbar {
+  display: none;
+}
+
+.chat-suggestions__item {
+  background: transparent;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 20px;
+  color: var(--chat-text, #666);
+  cursor: pointer;
+  font-family: var(--chat-font-family);
+  font-size: 13px;
+  font-weight: 400;
+  padding: 8px 16px;
+  text-align: left;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.chat-suggestions__item:hover {
+  background: var(--chat-primary, #007bff);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+}
+
+.chat-suggestions__item:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 3px rgba(0, 123, 255, 0.3);
+}
+
+/* Dark theme adjustments for suggestions */
+.chat-embed--dark .chat-suggestions__item {
+  border-color: #333333;
+}
+
+/* Mobile responsive adjustments for suggestions */
+@media (max-width: 767px) {
+  .chat-suggestions {
+    margin: 12px 12px 8px;
+  }
+
+  .chat-suggestions__item {
+    font-size: 14px;
+    padding: 12px 18px;
+    min-height: 44px;
+    border-radius: 22px;
+  }
+
+  .chat-suggestions__item:hover {
+    transform: none;
+  }
+
+  .chat-suggestions__item:active {
+    background: var(--chat-primary, #007bff);
+    color: white;
+  }
+}

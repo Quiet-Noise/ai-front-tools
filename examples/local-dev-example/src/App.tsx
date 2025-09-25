@@ -1,133 +1,139 @@
-import React, { useState } from 'react'
-import { ChatEmbed, ChatConfig, ChatMessage, MediaFile } from 'n8n-chat-embed-widget'
-import { DimensionsDebug } from '../../../packages/n8n-chat-embed/src/components/DimensionsDebug'
-import 'n8n-chat-embed-widget/styles.css'
-import './App.css'
+import React, { useState } from "react";
+import {
+  ChatEmbed,
+  ChatConfig,
+  ChatMessage,
+  MediaFile,
+} from "n8n-chat-embed-widget";
+import { DimensionsDebug } from "../../../packages/n8n-chat-embed/src/components/DimensionsDebug";
+import "n8n-chat-embed-widget/styles.css";
+import "./App.css";
 
-const WEBHOOK_URL = 'https://quietnoise.app.n8n.cloud/webhook-test/ttc4f704-257e-4b10-8830-471f7c5e6605'
+const WEBHOOK_URL =
+  "https://quietnoise.app.n8n.cloud/webhook/ttc4f704-257e-4b10-8830-471f7c5e6605";
 
 function App() {
-  const [activeDemo, setActiveDemo] = useState<string>('light')
-  const [showFloating, setShowFloating] = useState(true)
-  const [messageLog, setMessageLog] = useState<ChatMessage[]>([])
+  const [activeDemo, setActiveDemo] = useState<string>("light");
+  const [showFloating, setShowFloating] = useState(true);
+  const [messageLog, setMessageLog] = useState<ChatMessage[]>([]);
 
   const handleMessage = (message: ChatMessage) => {
-    setMessageLog(prev => [...prev, message])
-    console.log('New message:', message)
-  }
+    setMessageLog((prev) => [...prev, message]);
+    console.log("New message:", message);
+  };
 
   const handleError = (error: Error) => {
-    console.error('Chat error:', error)
-    alert(`Chat error: ${error.message}`)
-  }
+    console.error("Chat error:", error);
+    alert(`Chat error: ${error.message}`);
+  };
 
   const handleFileUpload = (files: MediaFile[]) => {
-    console.log('Files uploaded:', files)
-  }
+    console.log("Files uploaded:", files);
+  };
 
   const configs: Record<string, ChatConfig> = {
     light: {
       n8nWebhookUrl: WEBHOOK_URL,
-      title: '💬 Customer Support',
-      subtitle: 'We\'re here to help!',
-      theme: 'light',
-      position: 'inline',
+      title: "💬 Customer Support",
+      subtitle: "We're here to help!",
+      theme: "light",
+      position: "inline",
       width: 400,
       height: 500,
       enableFileUpload: true,
       maxFiles: 5,
       showTimestamps: true,
-      placeholder: 'Type your message or upload files...',
+      placeholder: "Type your message or upload files...",
       colors: {
-        primary: '#007bff',
-        userBubble: '#007bff'
-      }
+        primary: "#007bff",
+        userBubble: "#007bff",
+      },
     },
     dark: {
       n8nWebhookUrl: WEBHOOK_URL,
-      title: '🌙 AI Assistant Pro',
-      subtitle: 'Dark mode enabled',
-      theme: 'dark',
-      position: 'inline',
+      title: "🌙 AI Assistant Pro",
+      subtitle: "Dark mode enabled",
+      theme: "dark",
+      position: "inline",
       width: 400,
       height: 500,
       enableFileUpload: true,
       maxFiles: 10,
       showTypingIndicator: true,
       showTimestamps: true,
-      placeholder: 'Ask me anything...',
+      placeholder: "Ask me anything...",
       colors: {
-        primary: '#bb86fc',
-        userBubble: '#bb86fc',
-        botBubble: '#3a3a3a'
-      }
+        primary: "#bb86fc",
+        userBubble: "#bb86fc",
+        botBubble: "#3a3a3a",
+      },
     },
     custom: {
       n8nWebhookUrl: WEBHOOK_URL,
-      title: '🎨 Brand Chat',
-      subtitle: 'Custom styled for you',
-      theme: 'light',
-      position: 'inline',
+      title: "🎨 Brand Chat",
+      subtitle: "Custom styled for you",
+      theme: "light",
+      position: "inline",
       width: 400,
       height: 500,
       enableFileUpload: true,
       maxFiles: 3,
       showTimestamps: false,
-      placeholder: 'Message us...',
+      placeholder: "Message us...",
       colors: {
-        primary: '#667eea',
-        background: '#f8fafc',
-        userBubble: '#667eea',
-        botBubble: '#e2e8f0',
-        text: '#2d3748'
-      }
+        primary: "#667eea",
+        background: "#f8fafc",
+        userBubble: "#667eea",
+        botBubble: "#e2e8f0",
+        text: "#2d3748",
+      },
     },
     mobile: {
       n8nWebhookUrl: WEBHOOK_URL,
-      title: '📱 Mobile Optimized',
-      subtitle: 'Perfect for mobile',
-      theme: 'light',
-      position: 'inline',
+      title: "📱 Mobile Optimized",
+      subtitle: "Perfect for mobile",
+      theme: "light",
+      position: "inline",
       width: 400,
       height: 500,
       enableFileUpload: true,
       maxFiles: 2,
       showTypingIndicator: true,
-      placeholder: 'Tap to type...',
+      placeholder: "Tap to type...",
       colors: {
-        primary: '#ff6b6b',
-        userBubble: '#ff6b6b'
-      }
-    }
-  }
+        primary: "#ff6b6b",
+        userBubble: "#ff6b6b",
+      },
+    },
+  };
 
   const floatingConfig: ChatConfig = {
     n8nWebhookUrl: WEBHOOK_URL,
-    title: 'Alex MDCC International',
-    subtitle: '',
-    theme: 'light',
-    position: 'bottom-right',
+    title: "Alex MDCC International",
+    subtitle: "",
+    theme: "light",
+    position: "bottom-right",
     width: 350,
     height: 500,
-    initialState: 'closed',
+    initialState: "closed",
     showToggleButton: true,
     enableFileUpload: true,
     enableCamera: true,
     enableAudio: true,
     enableUserInfo: true,
-    userInfoRequiredFields: ['name', 'email', 'phone'],
+    userInfoRequiredFields: ["name", "email", "phone"],
     maxFileSize: 10,
     maxFiles: 5,
-    placeholder: 'Type a message...',
+    placeholder: "Type a message...",
     showTypingIndicator: true,
     colors: {
-      primary: '#0d9488',
-      userBubble: '#0d9488',
-      botBubble: '#f3f4f6',
-      background: '#ffffff',
-      text: '#111827'
-    }
-  }
+      primary: "#0d9488",
+      userBubble: "#0d9488",
+      botBubble: "#f3f4f6",
+      background: "#ffffff",
+      text: "#111827",
+    },
+  };
 
   return (
     <div className="app">
@@ -139,7 +145,7 @@ function App() {
           <div className="status-badge">
             <span className="status live">Live Demo</span>
             <span className="webhook-url">
-              Connected to: <code>{WEBHOOK_URL.split('/').pop()}</code>
+              Connected to: <code>{WEBHOOK_URL.split("/").pop()}</code>
             </span>
           </div>
         </header>
@@ -148,10 +154,10 @@ function App() {
           <div className="demo-selector">
             <h3>Choose a Demo:</h3>
             <div className="demo-buttons">
-              {Object.keys(configs).map(key => (
+              {Object.keys(configs).map((key) => (
                 <button
                   key={key}
-                  className={`demo-btn ${activeDemo === key ? 'active' : ''}`}
+                  className={`demo-btn ${activeDemo === key ? "active" : ""}`}
                   onClick={() => setActiveDemo(key)}
                 >
                   {key.charAt(0).toUpperCase() + key.slice(1)}
@@ -162,10 +168,12 @@ function App() {
 
           <div className="floating-control">
             <p>
-              ✅ <strong>Floating Chat Active</strong> - Look for the chat button at the bottom right corner
+              ✅ <strong>Floating Chat Active</strong> - Look for the chat
+              button at the bottom right corner
             </p>
             <p className="floating-info">
-              The floating chat widget is now always visible and manages its own open/close state via the toggle button.
+              The floating chat widget is now always visible and manages its own
+              open/close state via the toggle button.
             </p>
           </div>
         </div>
@@ -180,7 +188,9 @@ function App() {
                 messageLog.slice(-5).map((msg) => (
                   <div key={msg.id} className={`log-entry ${msg.type}`}>
                     <div className="log-header">
-                      <span className="log-type">{msg.type === 'user' ? '👤' : '🤖'}</span>
+                      <span className="log-type">
+                        {msg.type === "user" ? "👤" : "🤖"}
+                      </span>
                       <span className="log-time">
                         {msg.timestamp.toLocaleTimeString()}
                       </span>
@@ -202,7 +212,8 @@ function App() {
 
         <div className="code-section">
           <h3>📋 React Integration Code</h3>
-          <pre><code>{`import { ChatEmbed } from 'n8n-chat-embed-widget'
+          <pre>
+            <code>{`import { ChatEmbed } from 'n8n-chat-embed-widget'
 
 function App() {
   const config = {
@@ -227,7 +238,8 @@ function App() {
       onFileUpload={(files) => console.log(files)}
     />
   )
-}`}</code></pre>
+}`}</code>
+          </pre>
         </div>
       </div>
 
@@ -238,7 +250,8 @@ function App() {
         onFileUpload={handleFileUpload}
       />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
+

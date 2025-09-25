@@ -4,6 +4,7 @@ export interface ChatMessage {
   content: string
   timestamp: Date
   files?: MediaFile[]
+  suggestions?: string[]
 }
 
 export interface ChatConfig {

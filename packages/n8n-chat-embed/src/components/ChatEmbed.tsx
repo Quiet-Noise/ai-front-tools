@@ -7,6 +7,7 @@ import { FileUpload } from './FileUpload'
 import { MediaPreview } from './MediaPreview'
 import { ToggleButton } from './ToggleButton'
 import { UserInfoForm } from './UserInfoForm'
+import { Suggestions } from './Suggestions'
 import { useDeviceDetection } from '../hooks'
 
 export const ChatEmbed: React.FC<ChatEmbedProps> = ({
@@ -152,7 +153,9 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
         }
 
         const result = await response.json()
-        return result.output || result.response || result.message || result.text || 'Response received'
+        const botResponse = result.output || result.response || result.message || result.text || 'Response received'
+        const suggestions = result.suggestions || []
+        return { content: botResponse, suggestions }
       } else {
         // Send as JSON (original behavior)
         const payload = {
@@ -179,7 +182,9 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
         }
 
         const result = await response.json()
-        return result.output || result.response || result.message || result.text || 'Response received'
+        const botResponse = result.output || result.response || result.message || result.text || 'Response received'
+        const suggestions = result.suggestions || []
+        return { content: botResponse, suggestions }
       }
     } catch (error) {
       console.error('Error sending to n8n:', error)
@@ -226,12 +231,13 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
 
         // Send to n8n
         const response = await sendToN8n(caption, file)
-        
+
         const botMessage: ChatMessage = {
           id: generateId(),
           type: 'bot',
-          content: response,
-          timestamp: new Date()
+          content: response.content,
+          timestamp: new Date(),
+          suggestions: response.suggestions
         }
 
         setMessages(prev => [...prev, botMessage])
@@ -251,12 +257,13 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
         onMessage?.(userMessage)
 
         const response = await sendToN8n(messageContent)
-        
+
         const botMessage: ChatMessage = {
           id: generateId(),
           type: 'bot',
-          content: response,
-          timestamp: new Date()
+          content: response.content,
+          timestamp: new Date(),
+          suggestions: response.suggestions
         }
 
         setMessages(prev => [...prev, botMessage])
@@ -552,12 +559,14 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
           
           const result = await response.json()
           const botResponse = result.output || result.response || result.message || result.text || 'Response received'
-          
+          const suggestions = result.suggestions || []
+
           const botMessage: ChatMessage = {
             id: generateId(),
             type: 'bot',
             content: botResponse,
-            timestamp: new Date()
+            timestamp: new Date(),
+            suggestions: suggestions
           }
           
           setMessages(prev => [...prev, botMessage])
@@ -697,6 +706,16 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
     })
   }, [onClose])
 
+  const handleSuggestionClick = useCallback((suggestion: string) => {
+    setInputValue(suggestion)
+    // Auto-focus the input after clicking a suggestion
+    setTimeout(() => {
+      if (inputRef.current) {
+        inputRef.current.focus()
+      }
+    }, 0)
+  }, [])
+
   // Handle initial state for floating widgets
   const shouldShowToggleButton = mergedConfig.position !== 'inline' && mergedConfig.showToggleButton
   const isInline = mergedConfig.position === 'inline'
@@ -793,6 +812,17 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
       </div>
 
       <div className="chat-embed__input-area">
+        {/* Show suggestions from the most recent bot message */}
+        {(() => {
+          const lastBotMessage = messages.slice().reverse().find(msg => msg.type === 'bot')
+          return lastBotMessage?.suggestions ? (
+            <Suggestions
+              suggestions={lastBotMessage.suggestions}
+              onSuggestionClick={handleSuggestionClick}
+            />
+          ) : null
+        })()}
+
         {/* Media Preview */}
         {pendingFiles.length > 0 && (
           <MediaPreview
@@ -962,6 +992,17 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
       </div>
 
       <div className="chat-embed__input-area">
+        {/* Show suggestions from the most recent bot message */}
+        {(() => {
+          const lastBotMessage = messages.slice().reverse().find(msg => msg.type === 'bot')
+          return lastBotMessage?.suggestions ? (
+            <Suggestions
+              suggestions={lastBotMessage.suggestions}
+              onSuggestionClick={handleSuggestionClick}
+            />
+          ) : null
+        })()}
+
         {/* Media Preview */}
         {pendingFiles.length > 0 && (
           <MediaPreview
