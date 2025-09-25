@@ -677,7 +677,7 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
     const phone = info.phone.trim()
     const today = new Date().toISOString().split('T')[0]
 
-    const newSessionId = `${baseSessionId}|${firstName}|${lastName}|${email}|${phone}|${today}|website`
+    const newSessionId = `${baseSessionId}|${firstName}|${lastName}|${today}|website`
 
     setUserInfo(info)
     setSessionId(newSessionId)
