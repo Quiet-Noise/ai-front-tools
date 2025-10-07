@@ -168,6 +168,10 @@ export const FileUpload: React.FC<FileUploadProps> = ({
   }
 
   const openFileDialog = () => {
+    // Clear the input value before opening to allow re-selecting the same file
+    if (fileInputRef.current) {
+      fileInputRef.current.value = ''
+    }
     fileInputRef.current?.click()
   }
 

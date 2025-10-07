@@ -974,11 +974,7 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
                   onClick={handleSendMessage}
                   disabled={isLoading || (!inputValue.trim() && pendingFiles.length === 0)}
                 >
-                  {isLoading ? (
-                    <div className="chat-embed__loading-spinner" />
-                  ) : (
-                    <Send size={18} className="chat-embed__send-icon" />
-                  )}
+                  <Send size={18} className="chat-embed__send-icon" />
                 </button>
               ) : (
                 <>
@@ -1157,11 +1153,7 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
                   onClick={handleSendMessage}
                   disabled={isLoading || (!inputValue.trim() && pendingFiles.length === 0)}
                 >
-                  {isLoading ? (
-                    <div className="chat-embed__loading-spinner" />
-                  ) : (
-                    <Send size={18} className="chat-embed__send-icon" />
-                  )}
+                  <Send size={18} className="chat-embed__send-icon" />
                 </button>
               ) : (
                 <>

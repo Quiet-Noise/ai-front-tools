@@ -48,67 +48,80 @@ const parseMarkdown = (text: string): string => {
 
 export const MessageBubble: React.FC<MessageBubbleProps> = ({ message, showTimestamp = false }) => {
   const isUser = message.type === 'user'
-  
-  const renderMediaFile = (file: any, index: number) => {
-    switch (file.type) {
-      case 'image':
-        return (
-          <img
-            key={index}
-            src={file.url}
-            alt={file.name}
-            className="message-media-image"
-            style={{ maxWidth: '200px', maxHeight: '150px', borderRadius: '8px', marginTop: '8px' }}
-          />
-        )
-      case 'video':
-        return (
-          <video
-            key={index}
-            src={file.url}
-            controls
-            className="message-media-video"
-            style={{ maxWidth: '200px', maxHeight: '150px', borderRadius: '8px', marginTop: '8px' }}
-          />
-        )
-      case 'audio':
-        return (
-          <div key={index} className="message-media-audio" style={{ marginTop: '8px' }}>
-            <audio src={file.url} controls style={{ width: '200px' }} />
-          </div>
-        )
-      default:
-        return (
-          <div key={index} className="message-media-document" style={{ 
-            display: 'flex', 
-            alignItems: 'center', 
-            gap: '8px', 
-            padding: '8px', 
-            backgroundColor: 'rgba(0,0,0,0.1)', 
-            borderRadius: '8px', 
-            marginTop: '8px',
-            maxWidth: '200px'
-          }}>
-            <File size={16} />
-            <span style={{ fontSize: '14px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-              {file.name}
-            </span>
-          </div>
-        )
+
+  const getFileIcon = (type: string) => {
+    switch (type) {
+      case 'image': return <Image size={12} />
+      case 'video': return <Video size={12} />
+      case 'audio': return <Volume2 size={12} />
+      default: return <File size={12} />
     }
   }
-  
+
+  const handleFileClick = (file: any) => {
+    if (file.type === 'image') {
+      // Open image in new tab for full view
+      window.open(file.url, '_blank')
+    } else {
+      // Download file
+      const link = document.createElement('a')
+      link.href = file.url
+      link.download = file.name
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+    }
+  }
+
+  const renderMediaFile = (file: any, index: number) => {
+    const renderPreview = () => {
+      if (file.type === 'image') {
+        return (
+          <img
+            src={file.url}
+            alt={file.name}
+            className="message-media-chip-thumbnail"
+          />
+        )
+      }
+      return (
+        <div className="message-media-chip-icon">
+          {getFileIcon(file.type)}
+        </div>
+      )
+    }
+
+    return (
+      <div
+        key={index}
+        className="message-media-chip"
+        onClick={() => handleFileClick(file)}
+        style={{ cursor: 'pointer' }}
+        title={file.type === 'image' ? 'Click to view full size' : 'Click to download'}
+      >
+        {renderPreview()}
+        <span className="message-media-chip-name" title={file.name}>
+          {file.name}
+        </span>
+      </div>
+    )
+  }
+
   return (
     <div className={`message-bubble ${isUser ? 'user' : 'bot'}`}>
       <div className="message-content">
+        {message.files && message.files.length > 0 && (
+          <div className="message-media-list">
+            {message.files.map((file, index) => renderMediaFile(file, index))}
+          </div>
+        )}
         {message.content.trim() && (
           isUser ? (
-            <p>{message.content}</p>
+            <p dangerouslySetInnerHTML={{ __html: parseMarkdown(message.content) }} />
           ) : (
             <p dangerouslySetInnerHTML={{ __html: parseMarkdown(message.content) }} />
           )
         )}
-        {message.files && message.files.map((file, index) => renderMediaFile(file, index))}
       </div>
       {showTimestamp && (
         <div className="message-timestamp">
