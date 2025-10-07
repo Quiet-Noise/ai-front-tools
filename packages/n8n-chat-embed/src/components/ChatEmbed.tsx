@@ -219,8 +219,8 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
     setInputValue('')
     setPendingFiles([])
     setIsLoading(true)
-    
-    if (config.showTypingIndicator) {
+
+    if (mergedConfig.showTypingIndicator) {
       setIsTyping(true)
     }
 
@@ -554,7 +554,7 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
           
           // Send audio recording directly
           setIsLoading(true)
-          if (config.showTypingIndicator) {
+          if (mergedConfig.showTypingIndicator) {
             setIsTyping(true)
           }
           
@@ -750,7 +750,7 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
     
     setIsLoading(true)
     
-    if (config.showTypingIndicator) {
+    if (mergedConfig.showTypingIndicator) {
       setIsTyping(true)
     }
 
