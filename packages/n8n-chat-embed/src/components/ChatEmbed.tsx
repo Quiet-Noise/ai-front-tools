@@ -47,6 +47,7 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
   const [recordingTime, setRecordingTime] = useState(0);
   const [recordingInterval, setRecordingInterval] =
     useState<NodeJS.Timeout | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
 
   const deviceInfo = useDeviceDetection();
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -913,6 +914,62 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
     mergedConfig.position !== "inline" && mergedConfig.showToggleButton;
   const isInline = mergedConfig.position === "inline";
 
+  // Drag and drop handlers
+  const handleDrag = useCallback((e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+  }, []);
+
+  const handleDragEnter = useCallback((e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (e.dataTransfer.types.includes("Files")) {
+      setIsDragging(true);
+    }
+  }, []);
+
+  const handleDragLeave = useCallback((e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    // Only hide overlay if leaving the chat container itself
+    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+    const x = e.clientX;
+    const y = e.clientY;
+
+    if (x <= rect.left || x >= rect.right || y <= rect.top || y >= rect.bottom) {
+      setIsDragging(false);
+    }
+  }, []);
+
+  const handleDrop = useCallback(async (e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(false);
+
+    if (!mergedConfig.enableFileUpload) return;
+
+    const files = Array.from(e.dataTransfer.files);
+    if (files.length === 0) return;
+
+    const validFiles: MediaFile[] = [];
+    for (const file of files) {
+      if (file.size > mergedConfig.maxFileSize * 1024 * 1024) {
+        alert(`${file.name} exceeds ${mergedConfig.maxFileSize}MB limit`);
+        continue;
+      }
+      try {
+        const mediaFile = await createMediaFile(file);
+        validFiles.push(mediaFile);
+      } catch (error) {
+        console.error("Error processing file:", error);
+      }
+    }
+
+    if (validFiles.length > 0) {
+      handleFilesSelected(validFiles);
+    }
+  }, [mergedConfig.enableFileUpload, mergedConfig.maxFileSize, handleFilesSelected]);
+
   // Camera modal (shared between both return paths)
   const cameraModal = isCameraOpen && (
     <div className="camera-modal">
@@ -954,7 +1011,7 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
               ref={chatContainerRef}
               className={`chat-embed chat-embed--${mergedConfig.theme} chat-embed--${mergedConfig.position}${
                 deviceInfo.isMobile ? " chat-embed--mobile" : ""
-              } chat-embed--open`}
+              }${isDragging ? " chat-embed--dragging" : ""} chat-embed--open`}
               style={
                 {
                   "--chat-primary": mergedConfig.colors.primary,
@@ -968,7 +1025,21 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
                   zIndex: mergedConfig.zIndex,
                 } as React.CSSProperties
               }
+              onDragEnter={handleDragEnter}
+              onDragOver={handleDrag}
+              onDragLeave={handleDragLeave}
+              onDrop={handleDrop}
             >
+              {isDragging && (
+                <div className="drag-overlay">
+                  <div className="drag-overlay__content">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+                    </svg>
+                    <p>Drop files here</p>
+                  </div>
+                </div>
+              )}
               <div className="chat-embed__header">
                 <div className="chat-embed__header-content">
                   <h3 className="chat-embed__title">{mergedConfig.title}</h3>
@@ -1163,7 +1234,7 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
         ref={chatContainerRef}
         className={`chat-embed chat-embed--${mergedConfig.theme} chat-embed--${mergedConfig.position}${
           deviceInfo.isMobile ? " chat-embed--mobile" : ""
-        }`}
+        }${isDragging ? " chat-embed--dragging" : ""}`}
         style={
           {
             "--chat-primary": mergedConfig.colors.primary,
@@ -1177,7 +1248,21 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
             zIndex: mergedConfig.zIndex,
           } as React.CSSProperties
         }
+        onDragEnter={handleDragEnter}
+        onDragOver={handleDrag}
+        onDragLeave={handleDragLeave}
+        onDrop={handleDrop}
       >
+        {isDragging && (
+          <div className="drag-overlay">
+            <div className="drag-overlay__content">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+              </svg>
+              <p>Drop files here</p>
+            </div>
+          </div>
+        )}
         <div className="chat-embed__header">
           <div className="chat-embed__header-content">
             <h3 className="chat-embed__title">{mergedConfig.title}</h3>
