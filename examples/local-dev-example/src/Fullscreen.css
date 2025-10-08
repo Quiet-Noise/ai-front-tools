@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+.fullscreen-container {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* Override chat widget styles for fullscreen */
+.fullscreen-container .chat-embed {
+  height: 100% !important;
+  width: 100% !important;
+  max-width: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+  position: relative !important;
+}
+
+.fullscreen-container .chat-embed--inline {
+  position: relative !important;
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.fullscreen-container .chat-embed__messages {
+  flex: 1 !important;
+  overflow-y: auto !important;
+}
+
+/* Customize header for fullscreen */
+.fullscreen-container .chat-embed__header {
+  background: linear-gradient(135deg, #007bff, #0056b3) !important;
+}

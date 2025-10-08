@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content">
+
+    <title>Fullscreen Chat Widget - n8n Chat Embed</title>
+
+    <!-- n8n Chat Widget CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/n8n-chat-embed-widget@latest/cdn/style.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100vh;
+            height: 100dvh; /* Dynamic viewport height for mobile */
+            overflow: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+        }
+
+        #chat-container {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        /* Override chat widget styles for fullscreen */
+        .chat-embed {
+            height: 100% !important;
+            width: 100% !important;
+            max-width: none !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            border: none !important;
+            position: relative !important;
+        }
+
+        .chat-embed--inline {
+            position: relative !important;
+            height: 100% !important;
+            display: flex !important;
+            flex-direction: column !important;
+        }
+
+        .chat-embed__messages {
+            flex: 1 !important;
+            overflow-y: auto !important;
+        }
+
+        /* Optional: Hide the header for pure fullscreen experience */
+        .hide-header .chat-embed__header {
+            display: none !important;
+        }
+
+        /* If you want to keep the header but customize it */
+        .chat-embed__header {
+            background: linear-gradient(135deg, #007bff, #0056b3) !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="chat-container"></div>
+
+    <!-- Load Chat Widget -->
+    <script src="https://unpkg.com/n8n-chat-embed-widget@latest/cdn/n8n-chat-embed.umd.js"></script>
+
+    <script>
+        // Wait for N8nChatEmbed to be available
+        function waitForN8nChatEmbed(callback, attempts = 0) {
+            if (window.N8nChatEmbed && window.N8nChatEmbed.init) {
+                console.log('✅ N8nChatEmbed ready');
+                callback();
+            } else if (attempts < 50) {
+                setTimeout(() => waitForN8nChatEmbed(callback, attempts + 1), 100);
+            } else {
+                console.error('❌ N8nChatEmbed failed to load');
+            }
+        }
+
+        // Initialize fullscreen chat widget
+        document.addEventListener('DOMContentLoaded', () => {
+            waitForN8nChatEmbed(() => {
+                // Get webhook URL from query parameter or use default
+                const urlParams = new URLSearchParams(window.location.search);
+                const webhookUrl = urlParams.get('webhook') || 'https://quietnoise.app.n8n.cloud/webhook/6652abaf-27d7-482b-b2dd-9679dd2cbff0/chat';
+
+                N8nChatEmbed.init('chat-container', {
+                    n8nWebhookUrl: webhookUrl,
+                    title: 'AI Assistant',
+                    subtitle: 'How can I help you today?',
+                    theme: 'light',
+                    position: 'inline',  // Use inline mode for fullscreen
+                    width: '100%',
+                    height: '100%',
+                    placeholder: 'Type your message...',
+                    enableFileUpload: true,
+                    enableAudio: true,
+                    maxFiles: 5,
+                    allowedFileTypes: [],
+                    showTimestamps: false,
+                    showTypingIndicator: true,
+                    enableMessageSuggestions: true,
+                    initialSuggestions: [
+                        'Tell me about your services',
+                        'How can you help me?',
+                        'Show me an example'
+                    ],
+                    colors: {
+                        primary: '#007bff',
+                        background: '#ffffff',
+                        userBubble: '#007bff',
+                        botBubble: '#f1f3f4',
+                        text: '#333333'
+                    }
+                });
+
+                console.log('Fullscreen chat widget initialized');
+            });
+        });
+    </script>
+</body>
+
+</html>

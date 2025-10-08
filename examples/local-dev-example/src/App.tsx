@@ -6,6 +6,7 @@ import {
   MediaFile,
 } from "n8n-chat-embed-widget";
 import { DimensionsDebug } from "../../../packages/n8n-chat-embed/src/components/DimensionsDebug";
+import Fullscreen from "./Fullscreen";
 import "n8n-chat-embed-widget/styles.css";
 import "./App.css";
 
@@ -16,6 +17,19 @@ function App() {
   const [activeDemo, setActiveDemo] = useState<string>("light");
   const [showFloating, setShowFloating] = useState(true);
   const [messageLog, setMessageLog] = useState<ChatMessage[]>([]);
+  const [showFullscreen, setShowFullscreen] = useState(false);
+
+  // Check if we should show fullscreen based on URL
+  React.useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('fullscreen') === 'true') {
+      setShowFullscreen(true);
+    }
+  }, []);
+
+  if (showFullscreen) {
+    return <Fullscreen />;
+  }
 
   const handleMessage = (message: ChatMessage) => {
     setMessageLog((prev) => [...prev, message]);
@@ -41,6 +55,7 @@ function App() {
       width: 400,
       height: 500,
       enableFileUpload: true,
+      enableAudio: true,
       maxFiles: 5,
       showTimestamps: true,
       placeholder: "Type your message or upload files...",
@@ -156,6 +171,27 @@ function App() {
             <span className="webhook-url">
               Connected to: <code>{WEBHOOK_URL.split("/").pop()}</code>
             </span>
+          </div>
+          <div style={{ marginTop: '16px' }}>
+            <a
+              href="/?fullscreen=true"
+              target="_blank"
+              style={{
+                display: 'inline-block',
+                padding: '10px 20px',
+                background: 'linear-gradient(135deg, #667eea, #764ba2)',
+                color: 'white',
+                textDecoration: 'none',
+                borderRadius: '8px',
+                fontWeight: '500',
+                fontSize: '14px',
+                transition: 'transform 0.2s ease',
+              }}
+              onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
+              onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+            >
+              🖥️ View Fullscreen Chat Example
+            </a>
           </div>
         </header>
 
