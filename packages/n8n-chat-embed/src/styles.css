@@ -467,7 +467,7 @@
 
 .message-bubble.user .message-content {
   background: var(--chat-user-bubble, #007bff);
-  color: white;
+  color: var(--chat-user-text, white);
   border-bottom-right-radius: 8px;
 }
 
