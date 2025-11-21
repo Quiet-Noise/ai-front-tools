@@ -645,36 +645,15 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
 
           setMessages((prev) => [...prev, userMessage]);
 
-          // Send via webhook
-          const formData = new FormData();
-          formData.append("sessionId", sessionId);
-          formData.append("chatInput", "");
-          formData.append("data", mediaFile.file);
-
-          const response = await fetch(config.n8nWebhookUrl, {
-            method: "POST",
-            body: formData,
-          });
-
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-
-          const result = await response.json();
-          const botResponse =
-            result.output ||
-            result.response ||
-            result.message ||
-            result.text ||
-            "Response received";
-          const suggestions = result.suggestions || [];
+          // Use the existing sendToN8n function (includes user info automatically)
+          const response = await sendToN8n("", mediaFile);
 
           const botMessage: ChatMessage = {
             id: generateId(),
             type: "bot",
-            content: botResponse,
+            content: response.content,
             timestamp: new Date(),
-            suggestions: suggestions,
+            suggestions: response.suggestions,
           };
 
           setMessages((prev) => [...prev, botMessage]);
