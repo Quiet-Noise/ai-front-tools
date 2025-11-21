@@ -648,12 +648,14 @@ export const ChatEmbed: React.FC<ChatEmbedProps> = ({
           // Use the existing sendToN8n function (includes user info automatically)
           const response = await sendToN8n("", mediaFile);
 
+          const suggestions = response.suggestions || [];
+          
           const botMessage: ChatMessage = {
             id: generateId(),
             type: "bot",
             content: response.content,
             timestamp: new Date(),
-            suggestions: response.suggestions,
+            suggestions,
           };
 
           setMessages((prev) => [...prev, botMessage]);
